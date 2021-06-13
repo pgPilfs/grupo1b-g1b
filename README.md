@@ -1,11 +1,6 @@
-# grupo1b-g1b
-grupo1b-g1b created by GitHub Classroom
+# PROYECTO PIL 2021 - AULA 1, GRUPO B 
 
-~ PROYECTO PIL 2021 ~
-
-#SALA 1, GRUPO B -
-
-INREGRANTES:
+### INTEGRANTES:
 
 - Rinaudo, Eleana.
 - Vazquez, Ignacio.
