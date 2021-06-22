@@ -2,12 +2,12 @@
 
 ### INTEGRANTES:
 
-- Rinaudo, Eleana.
-- Vazquez, Ignacio.
-- Mauricio, Navoni.
-- Visintini, Juan.
-- Otero, Juan.
-- Juncos, Lautaro.
-- Nieva, Luciana.
 - Acosta, Johana.
 - Barrera, Javier.
+- Juncos, Lautaro.
+- Navoni, Mauricio.
+- Nieva, Luciana.
+- Otero, Juan.
+- Rinaudo, Eleana.
+- Vazquez, Ignacio.
+- Visintini, Juan.
