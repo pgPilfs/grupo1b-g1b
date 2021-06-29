@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    position: relative;
+    background: linear-gradient(180deg, rgba(34, 52, 60, 0.99) 100%, rgba(38, 34, 80, 0.65) 100%, rgba(38, 34, 80, 0.65) 100%, rgba(38, 34, 80, 0.65) 100%, #17153A 100%, #201D47 102.28%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+p, div{
+    font-family: 'Biryani', sans-serif;
+}
+

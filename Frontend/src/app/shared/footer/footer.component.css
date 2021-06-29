@@ -1,0 +1,18 @@
+.footer-color{
+    background:#22343C;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+}
+
+.txt{
+    color: #FFFFFF;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 0.875rem;
+    font-style: bold;
+}
+
+.copy{
+    color: rgba(255, 255, 255, 0.31);
+}
