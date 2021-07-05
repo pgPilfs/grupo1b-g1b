@@ -1,0 +1,75 @@
+.login-card {
+    width: 320px;
+    height: 370px;
+    top: 200%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    background-color: #22343C;
+    border-radius: 10%;
+  }
+
+  .login-card h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .login-card label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+  }
+
+  .login-card input {
+    width: 100%;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .login-card a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+  }
+  .login-card input[type="text"], .login-card input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 12px;
+    color: #fff;
+    font-size: 10px;
+  }
+  .login-card label{
+    background: transparent;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    padding-bottom: 19px;
+  }
+  .login-card input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 30px;
+    background: #40DF9F;
+    color: rgb(5, 2, 2);
+    font-size: 15px;
+    border-radius: 10px;
+    
+  }
+  .login-card input[type="radio"] {
+    height: 10px;
+    top: 100%; 
+  }
+  
