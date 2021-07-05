@@ -1,12 +1,12 @@
 .footer-color{
-    background:#22343C;
+    background:#20222E;
     position: fixed;
     width: 100%;
     bottom: 0px;
 }
 
 .txt{
-    color: #FFFFFF;
+    color: #FCFCFC;
     text-transform: uppercase;
     text-align: center;
     font-size: 0.875rem;

@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "a057f451-3633-421e-88c8-50241ab2ae41"
+    "analytics": "8864952a-4c36-4d3a-9e21-8b00ddbb17b8"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pil": {
+    "frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pil",
+            "outputPath": "dist/frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "pil:build:production"
+              "browserTarget": "frontend:build:production"
             },
             "development": {
-              "browserTarget": "pil:build:development"
+              "browserTarget": "frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pil:build"
+            "browserTarget": "frontend:build"
           }
         },
         "test": {
@@ -98,8 +98,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -107,5 +106,5 @@
       }
     }
   },
-  "defaultProject": "pil"
+  "defaultProject": "frontend"
 }

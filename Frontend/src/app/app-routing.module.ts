@@ -1,47 +1,31 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutComponent } from './pages/layout/layout/layout.component';
-import { NotFoundComponent } from './pages/not-found/not-found/not-found.component';
-import { WalletComponent } from './pages/wallet/wallet/wallet.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SigninComponent } from './pages/signin/signin.component';
+import { WalletComponent } from './pages/wallet/wallet.component';
+import { TermsComponent } from './pages/terms/terms.component';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
 
-
-
-const routes: Routes = [  
-  {
-    path:'',
-    redirectTo: 'layout',
-    pathMatch: 'full'
-  },
-  {
-    path: 'layout',
-    component: LayoutComponent
-  },
-  {
-    path: 'not-found',
-    component: NotFoundComponent,
-  },
-  {
-    path: 'wallet',
-    component: WalletComponent,
-  },
-  {
-    path: 'not-found',
-    component: NotFoundComponent,
-  },
-  {
-    path: '**',
-    redirectTo: 'not-found',
-    pathMatch: 'full'
-  },
-  {
-  path:'shared',
-  loadChildren: () => import('./shared/shared.module').then(m=>m.SharedModule),
-  },
-
+const routes: Routes = [
+  
+  {path: 'home', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'signin', component: SigninComponent},
+  {path: 'wallet', component: WalletComponent},
+  {path: 'terms', component: TermsComponent},
+  {path:'**', component: NotfoundComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  declarations: [],
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes)
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
