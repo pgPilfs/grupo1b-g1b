@@ -1,1 +1,105 @@
-<p>signin works!</p>
+<h1>Sé parte de PilMoney</h1>
+<form class="registro">
+
+    <div class="form-group">
+        <input
+          type="name"
+          class="casilla1"
+          [formControl]="name"
+          placeholder="Enter Name"
+          id="name"
+        />
+        <div *ngIf="nameField.errors && nameField.dirty"  class="text-danger">
+          <p *ngIf="nameField.hasError('required')">
+            El Nombre es requerido.
+          </p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input
+          type="surname"
+          class="casilla2"
+          [formControl]="surname"
+          placeholder="Enter Surname"
+          id="surname"
+        />
+        <div *ngIf="surnameField.errors && surnameField.dirty"  class="text-danger">
+          <p *ngIf="surnameField.hasError('required')">
+            El Apellido es requerido.
+          </p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input
+          type="user"
+          class="casilla3"
+          [formControl]="user"
+          placeholder="Enter User"
+          id="user"
+        />
+        <div *ngIf="userField.errors && userField.dirty"  class="text-danger">
+          <p *ngIf="userField.hasError('required')">
+            El usuario es requerido.
+          </p>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="email"
+        class="casilla4"
+        [formControl]="mail"
+        placeholder="Enter Email"
+        id="email"
+      />
+      <div *ngIf="mailField.errors && mailField.dirty"  class="text-danger">
+        <p *ngIf="mailField.hasError('required')">
+          El mail es requerido.
+        </p>
+        <p *ngIf="mailField.hasError('email')">
+          El formato del mail debe ser válido.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="password"
+        class="casilla5"
+        [formControl]="pass"
+        placeholder="Enter Password"
+        id="pwd"
+      />
+      <div *ngIf="passField.errors && passField.dirty"  class="text-danger">
+          <p *ngIf="passField.hasError('required')">
+            La contraseña es requereida.
+          </p>
+          <p *ngIf="passField.hasError('minLength')">
+            El formato de contraseña debe ser valido.
+          </p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input
+          type="password"
+          class="casilla6"
+          [formControl]="cpass"
+          placeholder="Confirm Password"
+          id="cpwd"
+        />
+        <div *ngIf="cpassField.errors && cpassField.dirty"  class="text-danger">
+            <p *ngIf="cpassField.hasError('required')">
+              La contraseña no coincide.
+            </p>
+            <p *ngIf="passField.hasError('minLength')">
+              El formato de contraseña debe ser valido.
+            </p>
+          </div>
+      </div>
+
+    <button type="submit" class="btn btn-primary seguir">Seguir<i class='bx bxs-arrow-to-right'></i></button>
+
+</form>
