@@ -16,7 +16,6 @@ h1 {
   height: 107.61px;
   left: 51px;
   top: 210px;
-
 }
 .casilla2 {
   position: absolute;
@@ -60,4 +59,11 @@ h1 {
   left: 380px;
   top: 717px;
   font-size: 25px;
+}
+.bx {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 254px;
+  top: 21px;
 }
