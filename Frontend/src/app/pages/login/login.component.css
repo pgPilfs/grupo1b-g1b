@@ -1,12 +1,12 @@
 .login-card {
     width: 320px;
-    height: 370px;
-    top: 200%;
+    height: 400px;
+    top: 250%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-    padding: 70px 30px;
+    padding: 50px 30px;
     background-color: #22343C;
     border-radius: 10%;
   }
@@ -18,58 +18,70 @@
     font-size: 22px;
   }
 
-  .login-card label {
+  .contraseña, .email{
     margin: 0;
     padding: 0;
     font-weight: bold;
     display: block;
   }
-
-  .login-card input {
+ 
+  .login-card a {
+    text-decoration: none;
+    font-size: 8px;
+    line-height: 20px;
+    color: darkgrey;
+  }
+  .login-card input[type="email"], .login-card input[type="password"] {
     width: 100%;
     margin-bottom: 20px;
     border: none;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 20px;
+    color: #fff;
+    font-size: 10px;
+  }
+  .contraseña, .email{
+    background: transparent;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    padding-bottom: 30px;
+  }
+  .login-card input {
+    border: none;
     background: transparent;
     outline: none;
     height: 40px;
     font-size: 16px;
   }
-
-  .login-card a {
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 20px;
-    color: darkgrey;
-  }
-  .login-card input[type="text"], .login-card input[type="password"] {
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    outline: none;
-    height: 12px;
-    color: #fff;
-    font-size: 10px;
-  }
-  .login-card label{
-    background: transparent;
-    height: 10px;
-    color: #fff;
-    font-size: 10px;
-    padding-bottom: 19px;
-  }
-  .login-card input[type="submit"] {
+  .ingresar {
+    text-align: center;
+    width: 100%;
     border: none;
     outline: none;
-    height: 30px;
+    height: 40px;
     background: #40DF9F;
     color: rgb(5, 2, 2);
     font-size: 15px;
     border-radius: 10px;
+    margin-top: 20px;
+  }
+  .check{
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
     
   }
-  .login-card input[type="radio"] {
+  .login-card input[type="checkbox"] {
     height: 10px;
-    top: 100%; 
+    top: 100%;  
   }
-  
+  .small1{
+    background: transparent;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    padding-bottom: 10px;
+  }
