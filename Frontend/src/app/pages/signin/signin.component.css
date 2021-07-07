@@ -1,69 +1,40 @@
-h1 {
-  position: absolute;
-  width: 688px;
-  height: 70px;
-  left: 280px;
-  top: 55px;
+h4 {
+  
 
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
-  font-size: 64px;
+  font-size: 40px;
+  color: black;
 }
-.casilla1 {
-  position: absolute;
-  width: 530px;
-  height: 107.61px;
-  left: 51px;
-  top: 210px;
+h5{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    color:black;
 }
-.casilla2 {
-  position: absolute;
-  width: 530px;
-  height: 107.61px;
-  left: 600px;
-  top: 210px;
-}
-.casilla3 {
-  position: absolute;
-  width: 530px;
-  height: 107.61px;
-  left: 51px;
-  top: 367px;
-}
-.casilla4 {
-  position: absolute;
-  width: 530px;
-  height: 107.61px;
-  left: 600px;
-  top: 367px;
-}
-.casilla5 {
-  position: absolute;
-  width: 530px;
-  height: 107.61px;
-  left: 52px;
-  top: 524px;
-}
-.casilla6 {
-  position: absolute;
-  width: 530px;
-  height: 107.61px;
-  left: 600px;
-  top: 524px;
+.modal-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    -webkit-transform: translate(-100%,0);
+    -o-transform: translate(-100%,0);
+    transform: translate(-100%,0);
 }
 .seguir {
   position: absolute;
   width: 408px;
   height: 62px;
-  left: 380px;
-  top: 717px;
+  top: 800px;
   font-size: 25px;
 }
 .bx {
   position: absolute;
   width: 24px;
   height: 24px;
-  left: 254px;
-  top: 21px;
+  left: 300px;
+  top: 17px;
 }
