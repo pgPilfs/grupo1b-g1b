@@ -1,5 +1,8 @@
+<!-- FUNCION PARA MOSTRAR EL MODAL DESDE EL BOTON REGISTRARSE
+     FUNCION PARA PASAR DEL FORMULARIO 1 AL FORMULARIO 2
+     FUNCION PARA PASAR DEL FORMULARIO 2 AL FORMULARIO 3 -->
+     
 <script>
-  //FUNCION PARA MOSTRAR EL MODAL DESDE EL BOTON REGISTRARSE
   var exampleModal = document.getElementById("exampleModal");
   exampleModal.addEventListener("show.bs.modal", function (event) {
     var button = event.relatedTarget;
@@ -7,7 +10,7 @@
     var modalTitle = exampleModal.querySelector(".modal-title");
     var modalBodyInput = exampleModal.querySelector(".modal-body input");
   });
-  //FUNCION PARA PASAR DEL FORMULARIO 1 AL FORMULARIO 2
+
   var form2Modal = document.getElementById("form2Modal");
   form2Modal.addEventListener("show.bs.modal", function (event) {
     var button = event.relatedTarget;
@@ -15,7 +18,7 @@
     var modalTitle = form2Modal.querySelector(".modal-title");
     var modalBodyInput = form2Modal.querySelector(".modal-body input");
   });
-  //FUNCION PARA PASAR DEL FORMULARIO 2 AL FORMULARIO 3
+  
   var form3Modal = document.getElementById("form3Modal");
   form3Modal.addEventListener("show.bs.modal", function (event) {
     var button = event.relatedTarget;
