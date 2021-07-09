@@ -12,3 +12,10 @@ h1{
   margin:2em;
   color:#FFF;
 }
+li{
+  font-size: 1.2em;
+}
+p{
+  padding-inline: 5em;
+  text-align:justify;
+}
