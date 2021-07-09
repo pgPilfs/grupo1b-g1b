@@ -14,8 +14,13 @@
         <input type="password" class="form-control" formControlName="password" placeholder="Password">
         <small class="small1" *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required" style="color:red">Por favor, ingrese contraseña</small> 
      </div>
-       <label class="check"><input type="checkbox" name="recordar"> Recordar</label><br>
-       <a href="#">Me olvide la contraseña</a>
+      <div class="items-card">
+        <input class="radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="label" for="flexRadioDefault1"> Recordar</label>
+        <div class="a1">
+          <a href="#">Me olvide la contraseña</a>
+        </div>
+      </div>
       <div class="ingresar">
        <input type="submit" value="Ingresar">
       </div>
