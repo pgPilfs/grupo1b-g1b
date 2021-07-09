@@ -1,0 +1,102 @@
+<script>
+    var perfilModal = document.getElementById('perfilModal')
+    perfilModal.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
+    var recipient = button.getAttribute('data-bs-whatever')
+    var modalTitle = perfilModal.querySelector('.modal-title')
+    var modalBodyInput = perfilModal.querySelector('.modal-body input')
+})
+var datosModal = document.getElementById('datosModal')
+    datosModal.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
+    var recipient = button.getAttribute('data-bs-whatever')
+    var modalTitle = datosModal.querySelector('.modal-title')
+    var modalBodyInput = datosModal.querySelector('.modal-body input')
+})
+</script>
+
+<!--IMAGEN DEL USUARIO-->
+
+<div class="">
+    <img src="../assets/logo/PILMONEY-logo.png" alt="foto perfil" style="border-radius: circle; align-items: center;" width="200" height="100">
+</div>
+
+<!--MODIFICAR PERFIL-->
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#perfilModal">Modificar</button>
+
+<div class="modal fade" id="perfilModal" tabindex="-1" aria-labelledby="perfilModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="perfilModalLabel" style="color: black;">Modificar Datos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="row g-3">
+                    <div class="col">
+                      <input type="user" class="form-control" placeholder="Usuario" aria-label="usuario" id="user" [formControl]="user">
+                    </div>
+                    <div class="col">
+                      <input type="email" class="form-control" placeholder="Email" aria-label="Email" id="mail" [formControl]="mail"> 
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Calle" aria-label="Calle"id="calle" [formControl]="calle">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Piso o Dpto" aria-label="Piso o Dpto" id="piso" [formControl]="piso">
+                    </div>
+                </div>
+                <div class="">
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--MOSTRAR Bancarios-->
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#datosModal">Mis datos</button>
+
+<div class="modal fade" id="datosModal" tabindex="-1" aria-labelledby="datosModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="datosModalLabel" style="color: black;">Datos Bancarios</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="row g-3">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="CVU" aria-label="cvu" id="user">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Alias" aria-label="Alias" id="alias"> 
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Tarjetas" aria-label="Tarjetas" id="tarj">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Cuentas" aria-label="Cuentas" id="acc">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
