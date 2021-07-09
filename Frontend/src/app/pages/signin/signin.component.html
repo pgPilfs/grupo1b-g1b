@@ -1,443 +1,76 @@
-<!-- FUNCION PARA MOSTRAR EL MODAL DESDE EL BOTON REGISTRARSE
-     FUNCION PARA PASAR DEL FORMULARIO 1 AL FORMULARIO 2
-     FUNCION PARA PASAR DEL FORMULARIO 2 AL FORMULARIO 3 -->
-     
-<script>
-  var exampleModal = document.getElementById("exampleModal");
-  exampleModal.addEventListener("show.bs.modal", function (event) {
-    var button = event.relatedTarget;
-    var recipient = button.getAttribute("data-bs-whatever");
-    var modalTitle = exampleModal.querySelector(".modal-title");
-    var modalBodyInput = exampleModal.querySelector(".modal-body input");
-  });
+<div class="container">
+  <div class="card">
+  <form (ngSubmit)="siguiente()" class="row g-3">
+    <div *ngIf="step == 1" class="col-md-6">
+      <h4>Primer paso</h4>
+      <div class="form-group">
 
-  var form2Modal = document.getElementById("form2Modal");
-  form2Modal.addEventListener("show.bs.modal", function (event) {
-    var button = event.relatedTarget;
-    var recipient = button.getAttribute("data-bs-whatever");
-    var modalTitle = form2Modal.querySelector(".modal-title");
-    var modalBodyInput = form2Modal.querySelector(".modal-body input");
-  });
-  
-  var form3Modal = document.getElementById("form3Modal");
-  form3Modal.addEventListener("show.bs.modal", function (event) {
-    var button = event.relatedTarget;
-    var recipient = button.getAttribute("data-bs-whatever");
-    var modalTitle = form3Modal.querySelector(".modal-title");
-    var modalBodyInput = form3Modal.querySelector(".modal-body input");
-  });
-</script>
-<!-- ESCTURCURA MODAL 1 -->
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby=""
-  aria-hidden="true"
->
-  <div class="modal-dialog w-25 modal-custom modal-left">
-    <div class="modal-content h-100 border-0 rounded-0">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Sé parte de PilMoney</h4>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <h5 class="modal-title" id="exampleModalLabel">Registrarse</h5>
+        <label for="lblNombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" />
 
-        <!-- FORMULARIO 1 -->
-        <form class="registro">
-          <div class="form-group">
-            <input
-              type="name"
-              class="form-control"
-              [formControl]="name"
-              placeholder="Enter Name"
-              id="name"
-            />
-            <div
-              *ngIf="nameField.errors && nameField.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="nameField.hasError('required')">
-                El Nombre es requerido.
-              </p>
-            </div>
-          </div>
+        <label for="lblApellido" class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="apellido" />
 
-          <div class="form-group">
-            <input
-              type="surname"
-              class="form-control"
-              [formControl]="surname"
-              placeholder="Enter Surname"
-              id="surname"
-            />
-            <div
-              *ngIf="surnameField.errors && surnameField.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="surnameField.hasError('required')">
-                El Apellido es requerido.
-              </p>
-            </div>
-          </div>
+        <label for="lblUsuario" class="form-label">Usuario</label>
+        <input type="text" class="form-control" id="usuario" />
 
-          <div class="form-group">
-            <input
-              type="user"
-              class="form-control"
-              [formControl]="user"
-              placeholder="Enter User"
-              id="user"
-            />
-            <div
-              *ngIf="userField.errors && userField.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="userField.hasError('required')">
-                El usuario es requerido.
-              </p>
-            </div>
-          </div>
+        <label for="lblEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" />
 
-          <div class="form-group">
-            <input
-              type="email"
-              class="form-control"
-              [formControl]="mail"
-              placeholder="Enter Email"
-              id="email"
-            />
-            <div
-              *ngIf="mailField.errors && mailField.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="mailField.hasError('required')">
-                El mail es requerido.
-              </p>
-              <p *ngIf="mailField.hasError('email')">
-                El formato del mail debe ser válido.
-              </p>
-            </div>
-          </div>
+        <label for="lblPassword" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" />
 
-          <div class="form-group">
-            <input
-              type="password"
-              class="form-control"
-              [formControl]="pass"
-              placeholder="Enter Password"
-              id="pwd"
-            />
-            <div
-              *ngIf="passField.errors && passField.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="passField.hasError('required')">
-                La contraseña es requereida.
-              </p>
-              <p *ngIf="passField.hasError('minLength')">
-                El formato de contraseña debe ser valido.
-              </p>
-            </div>
-          </div>
+        <label for="lblCPassword" class="form-label">Confirmar Password</label>
+        <input type="password" class="form-control" id="cpassword" />
 
-          <div class="form-group">
-            <input
-              type="password"
-              class="form-control"
-              [formControl]="cpass"
-              placeholder="Confirm Password"
-              id="cpwd"
-            />
-            <div
-              *ngIf="cpassField.errors && cpassField.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="cpassField.hasError('required')">
-                La contraseña no coincide.
-              </p>
-              <p *ngIf="passField.hasError('minLength')">
-                El formato de contraseña debe ser valido.
-              </p>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Cerrar
-        </button>
-        <button
-          type="submit"
-          class="btn btn-primary seguir"
-          data-bs-toggle="modal"
-          data-bs-target="#form2Modal"
-          data-bs-whatever="@mdo"
-        >
-          Seguir<i class="bx bxs-arrow-to-right"></i>
-        </button>
       </div>
     </div>
-  </div>
-</div>
+    <div *ngIf="step == 2" class="col-md-6">
+      <h4>Segundo paso</h4>
+      <div class="form-group">
 
-<!-- ESCTURCURA MODAL 2 -->
+        <label for="lblPais" class="form-label">Pais</label>
+        <input type="text" class="form-control" id="pais" />
 
-<div
-  class="modal fade"
-  id="form2Modal"
-  tabindex="-1"
-  aria-labelledby=""
-  aria-hidden="true"
->
-  <div class="modal-dialog w-25 modal-custom modal-left">
-    <div class="modal-content h-100 border-0 rounded-0">
-      <div class="modal-header">
-        <h4 class="modal-title" id="form2ModalLabel">Sé parte de PilMoney</h4>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <h5 class="modal-title" id="form2ModalLabel">Registrarse</h5>
-        <form class="registro">
-          <!--  FORMULARIO 2  -->
-          <div class="form-group">
-            <input
-              type="pais"
-              class="form-control"
-              [formControl]="pais"
-              placeholder="Enter Pais"
-              id="pais"
-            />
-            <div
-              *ngIf="paisField.errors && paisField.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="paisField.hasError('required')">
-                El Pais es requerido.
-              </p>
-            </div>
-          </div>
+        <label for="lblCPostal" class="form-label">Codigo Postal</label>
+        <input type="text" class="form-control" id="cp" />
 
-          <div class="form-group">
-            <input
-              type="cp"
-              class="form-control"
-              [formControl]="cp"
-              placeholder="Enter CP"
-              id="cp"
-            />
-            <div *ngIf="cpField.errors && cpField.dirty" class="text-danger">
-              <p *ngIf="cpField.hasError('required')">
-                El Codigo Postal es requerido.
-              </p>
-            </div>
-          </div>
+        <label for="lblProvincia" class="form-label">Provincia</label>
+        <input type="text" class="form-control" id="provincia" />
 
-          <div class="form-group">
-            <input
-              type="provincia"
-              class="form-control"
-              [formControl]="provincia"
-              placeholder="Enter Provincia"
-              id="provincia"
-            />
-            <div
-              *ngIf="provinciaField.errors && provinciaField.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="provinciaField.hasError('required')">
-                La provincia es requerida.
-              </p>
-            </div>
-          </div>
+        <label for="lblCiudad" class="form-label">Ciudad</label>
+        <input type="text" class="form-control" id="ciudad" />
 
-          <div class="form-group">
-            <input
-              type="ciudad"
-              class="form-control"
-              [formControl]="ciudad"
-              placeholder="Enter Ciudad"
-              id="ciudad"
-            />
-            <div
-              *ngIf="ciudadField.errors && ciudadField.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="ciudadField.hasError('required')">
-                La ciudad es requerida.
-              </p>
-            </div>
-          </div>
+        <label for="lblCalled" class="form-label">Calle</label>
+        <input type="text" class="form-control" id="calle" />
 
-          <div class="form-group">
-            <input
-              type="calle"
-              class="form-control"
-              [formControl]="calle"
-              placeholder="Enter Calle"
-              id="calle"
-            />
-            <div
-              *ngIf="calleField.errors && calleField.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="calleField.hasError('required')">
-                La calle es requerida.
-              </p>
-            </div>
-          </div>
+        <label for="lblPDepto" class="form-label">Piso o Dpto</label>
+        <input type="text" class="form-control" id="pdepto" />
 
-          <div class="form-group">
-            <input
-              type="piso"
-              class="form-control"
-              [formControl]="piso"
-              placeholder="Enter Piso o Dpto"
-              id="piso"
-            />
-            <div
-              *ngIf="pisoField.errors && pisoField.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="pisoField.hasError('required')">
-                El piso o dpto es requerido.
-              </p>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Cerrar
-        </button>
-        <button
-          type="submit"
-          class="btn btn-primary seguir"
-          data-bs-toggle="modal"
-          data-bs-target="#form3Modal"
-          data-bs-whatever="@mdo"
-        >
-          Seguir<i class="bx bxs-arrow-to-right"></i>
-        </button>
       </div>
     </div>
-  </div>
-</div>
+    <div *ngIf="step == 3" class="col-md-6">
+      <h4>Tercer paso</h4>
+      <div class="form-group">
 
-<!-- ESTRUCTURA MODAL 3 -->
+        <label for="lblDni" class="form-label">DNI</label>
+        <input type="text" class="form-control" id="dni" />
 
-<div
-  class="modal fade"
-  id="form3Modal"
-  tabindex="-1"
-  aria-labelledby=""
-  aria-hidden="true"
->
-  <div class="modal-dialog w-25 modal-custom modal-left">
-    <div class="modal-content h-100 border-0 rounded-0">
-      <div class="modal-header">
-        <h4 class="modal-title" id="form3ModalLabel">Sé parte de PilMoney</h4>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <h5 class="modal-title" id="form3ModalLabel">Registrarse</h5>
-        <form class="registro">
-          <!--  FORMULARIO 3  -->
-          <div class="form-group">
-            <input
-              type="dni"
-              class="form-control"
-              [formControl]="dni"
-              placeholder="Enter DNI"
-              id="dni"
-            />
-            <div *ngIf="dniField.errors && dniField.dirty" class="text-danger">
-              <p *ngIf="dniField.hasError('required')">El DNI es requerido.</p>
-            </div>
-          </div>
+        <label for="lblFecnac" class="form-label">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" id="fecnac" />
 
-          <div class="form-group">
-            <input
-              type="date"
-              class="form-control"
-              [formControl]="fecnac"
-              placeholder="Enter Fecha Nacimiento"
-              id="fecnac"
-            />
-            <div
-              *ngIf="fecnacField.errors && fecnacField.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="cpField.hasError('required')">
-                La fecha de nacimiento es requerida.
-              </p>
-            </div>
-          </div>
+        <label for="lblFoto1" class="form-label">Foto del Frente DNI</label>
+        <input type="file" class="form-control" id="foto1" />
 
-          <div class="form-group">
-            <input
-              type="file"
-              class="form-control"
-              [formControl]="foto"
-              placeholder="Enter Foto"
-              id="foto"
-            />
-            <div
-              *ngIf="fotoField.errors && fotoField.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="fotoField.hasError('required')">
-                La foto es requerida.
-              </p>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <input
-              type="file"
-              class="form-control"
-              [formControl]="foto2"
-              placeholder="Enter Foto2"
-              id="foto2"
-            />
-            <div
-              *ngIf="foto2Field.errors && foto2Field.dirty"
-              class="text-danger"
-            >
-              <p *ngIf="foto2Field.hasError('required')">
-                La foto es requerida.
-              </p>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Cerrar
-        </button>
-        <button type="submit" class="btn btn-primary seguir">
-          Registrar<i class="bx bxs-arrow-to-right"></i>
-        </button>
+        <label for="lblFoto2" class="form-label">Foto del Dorso DNI</label>
+        <input type="file" class="form-control" id="foto2" />
       </div>
     </div>
+    <div class="d-flex justify-content-center">
+      <a class="btn btn-primary mx-2" *ngIf="step != 1" (click)="anterior()">Anterior</a>
+      <button type="submit" class="btn btn-primary" *ngIf="step != 3">Seguir<i class="bx bxs-arrow-to-right"></i></button>
+      <button type="submit" class="btn btn-primary" *ngIf="step == 3" (click)="confirmado()">Registrar</button>
+    </div>
+  </form>
   </div>
 </div>
