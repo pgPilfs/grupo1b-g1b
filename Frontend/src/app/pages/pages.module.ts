@@ -8,7 +8,7 @@ import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PerfilComponent } from './perfil/perfil.component';
+
 
 @NgModule({
   declarations: [
@@ -17,8 +17,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     HomeComponent,
     TermsComponent,
     SigninComponent,
-    LoginComponent,
-    PerfilComponent
+    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +25,6 @@ import { PerfilComponent } from './perfil/perfil.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, PerfilComponent]
+  exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent]
 })
 export class PagesModule { }

@@ -26,6 +26,7 @@ export class SigninComponent implements OnInit {
     this.step = this.step - 1;
   }
   confirmado(){
-    alert("Registrado!!!")
+  
+  
   }
 }

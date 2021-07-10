@@ -1,0 +1,61 @@
+.card{
+    border-radius: .5rem;
+    background-color: var(--color-bg-secundary);
+    padding: 2rem;
+    margin: 0 auto;         
+    float: none;        
+    margin-bottom: 10px; 
+}
+input{
+    background-color: var(--color-bg);
+    border: 0;
+}
+input:focus{
+    background-color: var(--color-bg);
+    border: 0;
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+}
+
+.btn-sign{
+    background-color: var(--color-btn);
+    width: 18rem;
+    height: 3.75rem;
+    font-size: 1.3rem;
+}
+.btn-sign-h{
+    background-color: var(--color-bg-secundary);
+    color: var(--color-text-secundary);
+    width: 18rem;
+    height: 3.75rem;
+    font-size: 1.3rem;
+    padding-top: 0.875rem;
+}
+
+/* .input-text{
+    font-size: 1.125rem; 
+    line-height: 1.75rem;
+    border-radius: .125rem;
+
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: var(--color-text);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+    color: transparent;
+    }
+
+    &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+
+} */
+

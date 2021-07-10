@@ -7,7 +7,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { WalletComponent } from './pages/wallet/wallet.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
-import { PerfilComponent } from './pages/perfil/perfil.component';
+
 
 const routes: Routes = [
   
@@ -16,7 +16,6 @@ const routes: Routes = [
   {path: 'signin', component: SigninComponent},
   {path: 'wallet', component: WalletComponent},
   {path: 'terms', component: TermsComponent},
-  {path:'perfil', component: PerfilComponent},
   {path:'**', component: NotfoundComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];

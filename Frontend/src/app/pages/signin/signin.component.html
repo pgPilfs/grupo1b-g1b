@@ -1,75 +1,123 @@
 <div class="container">
   <div class="card">
-  <form (ngSubmit)="siguiente()" class="row g-3">
-    <div *ngIf="step == 1" class="col-md-6">
-      <h4>Primer paso</h4>
-      <div class="form-group">
+  <form (ngSubmit)="siguiente()">
+    <div *ngIf="step == 1">
+      <h2 class="mb-4 text-center">Sé parte de PIL MONEY</h2>
+      <div class="form-group row">
 
-        <label for="lblNombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombre" />
+        <div class="col-lg-6 mb-3">
+          <label for="lblNombre" class="form-label mt-3 label-text">Nombre</label>
+          <input type="text" class="form-control p-3 input-text" id="nombre" placeholder="Ingrese su nombre"/>
+        </div>
+  
+        <div class="col-lg-6 mb-3">
+          <label for="lblApellido" class="form-label mt-3">Apellido</label>
+          <input type="text" class="form-control p-3 input-text" id="apellido" placeholder="Ingrese su apellido"/>    
+        </div>
 
-        <label for="lblApellido" class="form-label">Apellido</label>
-        <input type="text" class="form-control" id="apellido" />
-
-        <label for="lblUsuario" class="form-label">Usuario</label>
-        <input type="text" class="form-control" id="usuario" />
-
-        <label for="lblEmail" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" />
-
-        <label for="lblPassword" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" />
-
-        <label for="lblCPassword" class="form-label">Confirmar Password</label>
-        <input type="password" class="form-control" id="cpassword" />
-
-      </div>
-    </div>
-    <div *ngIf="step == 2" class="col-md-6">
-      <h4>Segundo paso</h4>
-      <div class="form-group">
-
-        <label for="lblPais" class="form-label">Pais</label>
-        <input type="text" class="form-control" id="pais" />
-
-        <label for="lblCPostal" class="form-label">Codigo Postal</label>
-        <input type="text" class="form-control" id="cp" />
-
-        <label for="lblProvincia" class="form-label">Provincia</label>
-        <input type="text" class="form-control" id="provincia" />
-
-        <label for="lblCiudad" class="form-label">Ciudad</label>
-        <input type="text" class="form-control" id="ciudad" />
-
-        <label for="lblCalled" class="form-label">Calle</label>
-        <input type="text" class="form-control" id="calle" />
-
-        <label for="lblPDepto" class="form-label">Piso o Dpto</label>
-        <input type="text" class="form-control" id="pdepto" />
+        <div class="col-lg-6 mb-3">
+          <label for="lblUsuario" class="form-label mt-3">Usuario</label>
+          <input type="text" class="form-control p-3 input-text" id="usuario" placeholder="Ingrese su usuario"/>
+        </div>
+      
+        <div class="col-lg-6 mb-3">
+          <label for="lblEmail" class="form-label mt-3">Email</label>
+          <input type="email" class="form-control p-3 input-text" id="email" placeholder="Ingrese su email"/>
+        </div>
+        
+        <div class="col-lg-6 mb-3">
+          <label for="lblPassword" class="form-label mt-3">Contraseña</label>
+          <input type="password" class="form-control p-3 input-text" id="password" placeholder="Ingrese su contraseña"/>
+        </div>
+        
+        <div class="col-lg-6 mb-3">
+          <label for="lblCPassword" class="form-label mt-3">Confirmar Contraseña</label>
+          <input type="password" class="form-control p-3 input-text" id="cpassword" placeholder="Ingrese nuevamente su contraseña"/>
+        </div>
 
       </div>
     </div>
-    <div *ngIf="step == 3" class="col-md-6">
-      <h4>Tercer paso</h4>
-      <div class="form-group">
+    <div *ngIf="step == 2">
+      <h2 class="mb-4 text-center">Sé parte de PIL MONEY</h2>
+      <div class="form-group row">
 
-        <label for="lblDni" class="form-label">DNI</label>
-        <input type="text" class="form-control" id="dni" />
+      <div class="col-lg-6 mb-3">
+        <label for="lblPais" class="form-label mt-3">Pais</label>
+        <input type="text" class="form-control p-3 input-text" id="pais" placeholder="Ingrese su país"/>
+      </div>
 
-        <label for="lblFecnac" class="form-label">Fecha de Nacimiento</label>
-        <input type="date" class="form-control" id="fecnac" />
+      <div class="col-lg-6 mb-3">
+        <label for="lblCPostal" class="form-label mt-3">Codigo Postal</label>
+        <input type="text" class="form-control p-3 input-text" id="cp" placeholder="Ingrese su codigo postal"/>
+      </div>
 
-        <label for="lblFoto1" class="form-label">Foto del Frente DNI</label>
-        <input type="file" class="form-control" id="foto1" />
+      <div class="col-lg-6 mb-3">
+        <label for="lblProvincia" class="form-label mt-3">Provincia</label>
+        <input type="text" class="form-control p-3 input-text" id="provincia" placeholder="Ingrese su provincia"/>
+      </div>
 
-        <label for="lblFoto2" class="form-label">Foto del Dorso DNI</label>
-        <input type="file" class="form-control" id="foto2" />
+      <div class="col-lg-6 mb-3">
+        <label for="lblCiudad" class="form-label mt-3">Ciudad</label>
+        <input type="text" class="form-control p-3 input-text" id="ciudad" placeholder="Ingrese su ciudad"/>
+      </div>
+
+      <div class="col-lg-6 mb-3">
+        <label for="lblCalled" class="form-label mt-3">Calle</label>
+        <input type="text" class="form-control p-3 input-text" id="calle" placeholder="Ingrese su calle"/>
+      </div>
+
+      <div class="col-lg-6 mb-3">
+        <label for="lblPDepto" class="form-label mt-3">Piso o Dpto</label>
+        <input type="text" class="form-control p-3 input-text" id="pdepto" placeholder="Ingrese su piso o dpto"/>
+      </div>
+
       </div>
     </div>
+    <div *ngIf="step == 3">
+      <h2 class="mb-4 text-center">Sé parte de PIL MONEY</h2>
+      <div class="form-group row">
+
+      <div class="col-lg-6 mb-3">
+        <label for="lblDni" class="form-label mt-3">DNI</label>
+        <input type="text" class="form-control p-3 input-text" id="dni" placeholder="Ingrese su DNI"/>
+      </div>
+
+      <div class="col-lg-6 mb-3">
+        <label for="lblCuil" class="form-label mt-3">CUIL</label>
+        <input type="text" class="form-control p-3 input-text" id="cuil" placeholder="Ingrese su CUIL"/>
+      </div>
+
+      <div class="col-lg-6 mb-3">
+        <label for="lblTel" class="form-label mt-3">Telefono</label>
+        <input type="text" class="form-control p-3 input-text" id="tel" placeholder="Ingrese su telefono"/>
+      </div>
+
+      <div class="col-lg-6 mb-3">
+        <label for="lblFecnac" class="form-label mt-3">Fecha de Nacimiento</label>
+        <input type="date" class="form-control p-3 input-text" id="fecnac" placeholder="Ingrese su fecha de nacimiento"/>
+      </div>
+
+      <div class="col-lg-6 mb-3">
+        <label for="lblFoto1" class="form-label mt-3">Foto del Frente DNI</label>
+        <input type="file" class="form-control p-3 input-text" id="foto1" />
+      </div>
+
+      <div class="col-lg-6 mb-3">
+        <label for="lblFoto2" class="form-label mt-3">Foto del Dorso DNI</label>
+        <input type="file" class="form-control p-3 input-text" id="foto2" />
+      </div>
+
+      </div>
+    </div>
+
+    <div *ngIf="step == 4">
+      <p>FELCIDADES MAN</p>
+    </div>
+
     <div class="d-flex justify-content-center">
-      <a class="btn btn-primary mx-2" *ngIf="step != 1" (click)="anterior()">Anterior</a>
-      <button type="submit" class="btn btn-primary" *ngIf="step != 3">Seguir<i class="bx bxs-arrow-to-right"></i></button>
-      <button type="submit" class="btn btn-primary" *ngIf="step == 3" (click)="confirmado()">Registrar</button>
+      <a class="btn btn-sign-h mx-2 my-3" *ngIf="step >= 2 && step < 4" (click)="anterior()">Anterior</a>
+      <button type="submit" class="btn btn-sign my-3" *ngIf="step >= 1 && step < 3">Siguiente &#8594;</button>
+      <button type="submit" class="btn btn-sign my-3" *ngIf="step == 3" (click)="confirmado()">Registrar</button>
     </div>
   </form>
   </div>
