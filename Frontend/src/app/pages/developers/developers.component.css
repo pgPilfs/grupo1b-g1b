@@ -1,0 +1,17 @@
+.MainContainer{
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.title{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bars{
+  color: #3DD598;
+  margin-top: -20px;
+}

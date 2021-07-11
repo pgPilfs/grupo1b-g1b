@@ -7,15 +7,18 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { WalletComponent } from './pages/wallet/wallet.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { DevelopersComponent } from './pages/developers/developers.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: 'home', pathMatch: 'full'},
-    {path: 'home', component: HomeComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'signin', component: SigninComponent},
-    {path: 'wallet', component: WalletComponent},
-    {path: 'terms', component: TermsComponent},
-    {path:'**', component: NotfoundComponent},
+  
+  {path: 'home', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'signin', component: SigninComponent},
+  {path: 'wallet', component: WalletComponent},
+  {path: 'terms', component: TermsComponent},
+  {path: 'developers', component: DevelopersComponent},
+  {path:'**', component: NotfoundComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 
 @NgModule({
