@@ -1,57 +1,85 @@
-<section class="container col-4">
-    <h1>Contáctanos</h1>
-    <p>Envianos tu consulta y te responderemos a la brevedad</p>
-    <form class="form">
-        <div class="row text-start">
-            <div class="form-group col">
-                <label for="name">Nombre:</label>
-                <input 
-                    [formControl] = "name"
-                    type="text" 
-                    name="name" 
-                    class="form-control"
-                    id="name" 
-                    placeholder="Introduzca su nombre"
-                >
-                <div *ngIf="nameField.errors && nameField.dirty">
-                    <p *ngIf="nameField.hasError('required')" class="text-danger pt-2">
-                        El nombre es requerido.
-                    </p>
+<section class="container card">
+
+    <h2>CONTACTO</h2>
+    <div class="green-line"></div>
+    <div class="content">
+        <form class="form">
+            <div class="row text-start">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input 
+                        [formControl] = "name"
+                        type="text" 
+                        name="name" 
+                        class="form-control"
+                        id="name" 
+                        placeholder="Introduzca su nombre"
+                    >
+                    <div *ngIf="nameField.errors && nameField.dirty">
+                        <p *ngIf="nameField.hasError('required')" class="text-danger pt-2">
+                            El nombre es requerido.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input 
+                        [formControl] = "mail"
+                        type="email"
+                        name="name" 
+                        class="form-control"
+                        id="email" 
+                        placeholder="Introduzca su Email"
+                    >
+                    <div *ngIf="mailField.errors && mailField.dirty">
+                        <p *ngIf="mailField.hasError('required')" class="text-danger">
+                            El email es requerido.
+                        </p>
+                        <p *ngIf="mailField.hasError('email')" class="text-danger">
+                            El formato del mail debe ser valido.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="issue">Asunto:</label>
+                    <input 
+                        [formControl] = "issue"
+                        type="text"
+                        name="issue" 
+                        class="form-control"
+                        id="email" 
+                        placeholder="Introduzca el asunto"
+                    >
+                    <div *ngIf="issueField.errors && issueField.dirty">
+                        <p *ngIf="issueField.hasError('required')" class="text-danger">
+                            El asunto es requerido.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="form-group col">
-                <label for="email">Correo Electrónico:</label>
-                <input 
-                    [formControl] = "mail"
-                    type="email"
-                    name="name" 
-                    class="form-control"
-                    id="email" 
-                    placeholder="Introduzca su Email"
-                >
-                <div *ngIf="mailField.errors && mailField.dirty">
-                    <p *ngIf="mailField.hasError('required')" class="text-danger">
-                        El email es requerido.
-                    </p>
-                    <p *ngIf="mailField.hasError('email')" class="text-danger">
-                        El formato del mail debe ser valido.
-                    </p>
-                </div>
+            
+            <div class="form-group text-start">
+                <label for="msg">Mensaje:</label>
+                <textarea 
+                    [formControl] = "msg"
+                    name="msg" 
+                    class="form-control" 
+                    id="msg" 
+                    placeholder="Introduzca su consulta"
+                    cols="30" 
+                    rows="5"
+                ></textarea>
             </div>
+            <button type="submit" class="btn btn-submit">Enviar</button>
+        </form>
+        <hr class="text-center">
+        <div class="datos-container">
+            <p class="datos-contacto text-start"><img src="/assets/icons/place_white_48dp.svg">Calle falsa 123</p>
+            <p class="datos-contacto text-start"><img src="/assets/icons/email_white_48dp.svg">hola@hola.com</p>
+            <p class="datos-contacto text-start"><img src="/assets/icons/call_white_48dp.svg">+5490303456</p>
+            <img class="text-center"src="/assets/img/map.svg">
         </div>
-        
-        <div class="form-group text-start">
-            <label for="msg">Mensaje:</label>
-            <textarea 
-                [formControl] = "msg"
-                name="msg" 
-                class="form-control" 
-                id="msg" 
-                placeholder="Introduzca su consulta"
-                cols="30" 
-                rows="5"
-            ></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
+
+    </div>
+    
 </section>

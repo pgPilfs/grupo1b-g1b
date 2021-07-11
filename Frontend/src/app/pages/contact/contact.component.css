@@ -1,26 +1,81 @@
+/* GENERAL */
 section {
-    background-color: #30444E;
     text-align: center;
-    border-radius: 2rem;
-    color: #b7d5e4;
-    padding: 2rem;
+    color: #fff;
 }
+hr {
+    height: auto;
+    width: 0.2rem;
+    margin: 0 auto;
+}
+section p {
+    font-size: 1rem;
+    margin: 0;
+}
+.card {
+    margin: 5rem auto 2rem auto;
+    padding-top: 2rem;
+    border: 3px solid var(--color-bg-divider);
+}
+@media (min-width: 768px) {
+    .content {
+        display: grid;
+        grid-template-columns: 47.5% 5% 47.5%;
+        margin-top: 2rem;
+    }
+}
+/* TITULO */
+
+section h2 {
+    font-weight: bold;
+    color: #fff;
+}
+.green-line {
+    background-color: var(--color-link);
+    height: 0.2rem;
+    width: 8rem;
+    margin: 0.6rem auto;
+}
+/* CONSULTA */
 label {
-    font-size: 0.8rem;
+    color: var(--color-text);
+    padding-left: 1rem;
+    color: var(--color-text);
+    margin: 3rem 0 1rem 0;
 }
 input, textarea{
-    margin-bottom: 1rem;
-    background-color: #3b5461;
-    color: #6990a5;
-    border: #587381 0.1rem solid;
+    background-color: var(--color-bg-secundary);
+    color: var(--color-text-secundary);
+    border: none;
+    
 }
-input:focus, textarea:focus{
-    background-color: #587381;
-    color: #b7d5e4;
-    border: #587381 0.1rem solid;
-    outline: none!important;
+input:focus, input:hover, input:active, textarea:focus, textarea:hover, textarea:active{
+    background-color: var(--color-bg-secundary);
+    border: 0;
+    color: var(--color-text-secundary);
+    box-shadow: 0px 3px 0px 0px var(--color-bg-purple);
 }
-button {
-    margin: 1rem 0;
-    padding: 0.5rem 2rem;
+.btn-submit{
+    background-color: var(--color-btn);
+    padding: 0.5rem 3rem;
+    font-size: 1.3rem;
+    height: auto;
+    color: black;
+    margin-top: 1rem;
 }
+/* DATOS DE CONTACTO */
+.datos-container {
+    padding-top: 5rem;
+    
+    color: var(--color-text-secundary);
+}
+.datos-container p{
+    color: var(--color-text-secundary);
+    padding-left: 25%;
+    margin-bottom: 2rem;
+}
+.datos-contacto img{
+    color: var(--color-text-secundary);
+    margin-right: 1rem;
+}
+

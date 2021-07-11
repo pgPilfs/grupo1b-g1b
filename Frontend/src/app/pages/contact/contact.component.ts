@@ -10,6 +10,7 @@ import { FormControl, Validators } from '@angular/forms';
 export class ContactComponent implements OnInit {
   name = new FormControl('',[ Validators.required ],[]);
   mail = new FormControl('',[ Validators.required, Validators.email ],[]);
+  issue = new FormControl('',[ Validators.required ],[]);
   msg = new FormControl('',[ Validators.required ],[]);
 
   constructor() {
@@ -22,6 +23,9 @@ export class ContactComponent implements OnInit {
   }
   get mailField(){
     return this.mail;
+  }
+  get issueField(){
+    return this.issue;
   }
   get msgField(){
     return this.msg;
