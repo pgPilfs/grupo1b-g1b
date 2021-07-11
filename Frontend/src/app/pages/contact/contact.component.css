@@ -1,0 +1,26 @@
+section {
+    background-color: #30444E;
+    text-align: center;
+    border-radius: 2rem;
+    color: #b7d5e4;
+    padding: 2rem;
+}
+label {
+    font-size: 0.8rem;
+}
+input, textarea{
+    margin-bottom: 1rem;
+    background-color: #3b5461;
+    color: #6990a5;
+    border: #587381 0.1rem solid;
+}
+input:focus, textarea:focus{
+    background-color: #587381;
+    color: #b7d5e4;
+    border: #587381 0.1rem solid;
+    outline: none!important;
+}
+button {
+    margin: 1rem 0;
+    padding: 0.5rem 2rem;
+}
