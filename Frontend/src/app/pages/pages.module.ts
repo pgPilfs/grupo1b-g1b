@@ -7,6 +7,7 @@ import { TermsComponent } from './terms/terms.component';
 import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { DevelopersComponent } from './developers/developers.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AppRoutingModule } from '../app-routing.module';
     HomeComponent,
     TermsComponent,
     SigninComponent,
-    LoginComponent
+    LoginComponent,
+    DevelopersComponent
   ],
   imports: [
     CommonModule,
