@@ -1,38 +1,77 @@
 <div class="container">
   <div class="card">
-  <form (ngSubmit)="siguiente()">
+  <form [formGroup]="formsign" (ngSubmit)="onSiguiente($event)" novalidate>
     <div *ngIf="step == 1">
       <h2 class="mb-4 text-center">Sé parte de PIL MONEY</h2>
       <div class="form-group row">
 
         <div class="col-lg-6 mb-3">
-          <label for="lblNombre" class="form-label mt-3 label-text">Nombre</label>
-          <input type="text" class="form-control p-3 input-text" id="nombre" placeholder="Ingrese su nombre"/>
+          <label for="name" class="form-label mt-3 label-text">Nombre</label>
+          <input type="text" class="form-control p-3 input-text" id="name"  formControlName="name" placeholder="Ingrese su nombre" [class.border-danger]="nameInvalid"/>
+          <div *ngIf="formsign.errors  && formsign.dirty" class="text-danger">
+            <p *ngIf="formsign.hasError('required')" >
+              El nombre es requerido.
+            </p>
+          </div>
         </div>
   
         <div class="col-lg-6 mb-3">
-          <label for="lblApellido" class="form-label mt-3">Apellido</label>
-          <input type="text" class="form-control p-3 input-text" id="apellido" placeholder="Ingrese su apellido"/>    
+          <label for="lastname" class="form-label mt-3">Apellido</label>
+          <input type="text" class="form-control p-3 input-text" id="lastname" formControlName="lastname" placeholder="Ingrese su apellido" [class.border-danger]="lastnameInvalid"/>
+          <div *ngIf="formsign.errors  && formsign.dirty" class="text-danger">
+            <p *ngIf="formsign.hasError('required')" >
+              El apellido es requerido.
+            </p>
+          </div>    
         </div>
 
         <div class="col-lg-6 mb-3">
-          <label for="lblUsuario" class="form-label mt-3">Usuario</label>
-          <input type="text" class="form-control p-3 input-text" id="usuario" placeholder="Ingrese su usuario"/>
+          <label for="username" class="form-label mt-3">Usuario</label>
+          <input type="text" class="form-control p-3 input-text" id="username" formControlName="username" placeholder="Ingrese su usuario" [class.border-danger]="usernameInvalid"/>
+          <div *ngIf="formsign.errors  && formsign.dirty" class="text-danger">
+            <p *ngIf="formsign.hasError('required')" >
+              El usuario es requerido.
+            </p>
+          </div>
         </div>
       
         <div class="col-lg-6 mb-3">
-          <label for="lblEmail" class="form-label mt-3">Email</label>
-          <input type="email" class="form-control p-3 input-text" id="email" placeholder="Ingrese su email"/>
+          <label for="email" class="form-label mt-3">Email</label>
+          <input type="email" class="form-control p-3 input-text" id="email" formControlName="email" placeholder="Ingrese su email" [class.border-danger]="emailInvalid"/>
+          <div *ngIf="formsign.errors  && formsign.dirty" class="text-danger">
+            <p *ngIf="formsign.hasError('required')" >
+              El email es requerido.
+            </p>
+            <p *ngIf="formsign.hasError('email')">
+              El formato del email debe ser válido.
+            </p>
+          </div>
         </div>
         
         <div class="col-lg-6 mb-3">
-          <label for="lblPassword" class="form-label mt-3">Contraseña</label>
-          <input type="password" class="form-control p-3 input-text" id="password" placeholder="Ingrese su contraseña"/>
+          <label for="password" class="form-label mt-3">Contraseña</label>
+          <input type="password" class="form-control p-3 input-text" id="password" formControlName="password" placeholder="Ingrese su contraseña" [class.border-danger]="passwordInvalid"/>
+          <div *ngIf="formsign.errors  && formsign.dirty" class="text-danger">
+            <p *ngIf="formsign.hasError('required')" >
+              El password es requerido.
+            </p>
+            <p *ngIf="formsign.hasError('minlength')">
+              El password debe tener 8 dígitos o más.
+            </p>
+          </div>
         </div>
         
         <div class="col-lg-6 mb-3">
-          <label for="lblCPassword" class="form-label mt-3">Confirmar Contraseña</label>
-          <input type="password" class="form-control p-3 input-text" id="cpassword" placeholder="Ingrese nuevamente su contraseña"/>
+          <label for="cpassword" class="form-label mt-3">Confirmar Contraseña</label>
+          <input type="password" class="form-control p-3 input-text" id="cpassword" formControlName="cpassword" placeholder="Ingrese nuevamente su contraseña" [class.border-danger]="cpasswordInvalid"/>
+          <div *ngIf="formsign.errors  && formsign.dirty" class="text-danger">
+            <p *ngIf="formsign.hasError('required')" >
+              Confirme la contraseña.
+            </p>
+            <p *ngIf="formsign.hasError('minlength')">
+              El password debe tener 8 dígitos o más.
+            </p>
+          </div>
         </div>
 
       </div>
@@ -111,12 +150,12 @@
     </div>
 
     <div *ngIf="step == 4">
-      <p>FELCIDADES MAN</p>
+      <p style="color: white;">GRACIAS POR SER PARTE DE PIL MONEY</p>
     </div>
 
     <div class="d-flex justify-content-center">
       <a class="btn btn-sign-h mx-2 my-3" *ngIf="step >= 2 && step < 4" (click)="anterior()">Anterior</a>
-      <button type="submit" class="btn btn-sign my-3" *ngIf="step >= 1 && step < 3">Siguiente &#8594;</button>
+      <button type="submit" class="btn btn-sign my-3" *ngIf="step >= 1 && step < 3" (click)="next()">Siguiente &#8594;</button>
       <button type="submit" class="btn btn-sign my-3" *ngIf="step == 3" (click)="confirmado()">Registrar</button>
     </div>
   </form>
