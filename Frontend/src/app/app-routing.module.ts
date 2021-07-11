@@ -9,16 +9,14 @@ import { TermsComponent } from './pages/terms/terms.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 
 const routes: Routes = [
-  
-  {path: 'home', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'signin', component: SigninComponent},
-  {path: 'wallet', component: WalletComponent},
-  {path: 'terms', component: TermsComponent},
-  {path:'**', component: NotfoundComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: 'home', component: HomeComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'signin', component: SigninComponent},
+    {path: 'wallet', component: WalletComponent},
+    {path: 'terms', component: TermsComponent},
+    {path:'**', component: NotfoundComponent},
 ];
-
 
 @NgModule({
   declarations: [],
@@ -28,4 +26,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

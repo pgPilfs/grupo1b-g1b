@@ -1,0 +1,241 @@
+/* Header */
+#header {
+    transition: all 0.5s;
+    z-index: 997;
+    background-color: var(--color-bg);
+    overflow: hidden;
+    position: fixed;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+#header.header-scrolled  {
+    background-color: var(--color-bg);
+}
+
+header > * {
+    display: block;
+    padding: 1rem;
+    flex: auto;
+}
+
+#header .logo {
+    font-size: 1.75rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.031rem;
+}
+
+#header .logo img {
+    max-height: 2.5rem;
+}
+
+#header > a > i {
+    font-size: 1.75rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.031rem;
+}
+
+a {
+    color: var(--color-text);
+    align-items: center;
+    font-family: Montserrat, sans-serif;
+}
+
+a:hover, a:active {
+    color: var(--color-text);
+    align-items: center;
+    font-family: Montserrat, sans-serif;
+}
+
+@media (max-width: 992px) {
+    #header {
+        border: 0;
+        padding: 0,938rem 0;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/** Desktop Navigation */
+
+.navbar {
+    padding: 0;
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.navbar a, .navbar a:focus {
+    display: flex;
+    align-items: center;
+    padding: 25px 3px;
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.navbar a img, .navbar a:focus img {
+    font-size: 0.875rem;
+    line-height: 0;
+    padding: 0px;
+    background: none;
+    margin-right: 0;
+}
+
+.login{
+    margin: 0 auto;
+}
+
+.navbar > a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    visibility: hidden;
+    width: 0px;
+}
+
+.navbar a:hover:before > a:before, .navbar .active:before {
+    visibility: visible;
+    width: 100%;
+    color: var(--color-text);
+}
+
+.navbar a:hover, .navbar .active, .navbar .active:focus > a {
+    color: var(--color-text);
+}
+
+@media (max-width: 1366px) {
+  .navbar  {
+    left: -90%;
+  }
+}
+
+/*** Mobile Navigation */
+.mobile-nav-toggle {
+    color: var(--color-text);
+    font-size: 1.75rem;
+    cursor: pointer;
+    display: none;
+    line-height: 0;
+    transition: 0.5s;
+}
+
+@media (max-width: 991px) {
+    .mobile-nav-toggle {
+      display: block;
+    }
+}
+
+.navbar-mobile {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: var(--color-bg);
+    transition: 0.3s;
+    z-index: 999;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+.navbar-mobile .mobile-nav-toggle {
+    position: absolute;
+}
+
+.navbar-mobile {
+    display: block;
+    position: absolute;
+    right: 0,938rem;
+    bottom: 0,938rem;
+    left: 0,938rem;
+    padding: 0.625rem 0;
+    background-color: var(--color-text);
+    overflow-y: auto;
+    transition: 0.3s;
+}
+
+.navbar-mobile a {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.938rem;
+    color: var(--color-text);
+}
+
+.navbar-mobile a:hover:before, .navbar-mobile li:hover > a:before, .navbar-mobile .active:before {
+    visibility: hidden;
+}
+
+.navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
+    color: var(--color-text);
+}
+
+.navbar-mobile {
+    position: static;
+    display: none;
+    margin: 0.625 20px;
+    padding: 0.625 0;
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+}
+
+/* ANIMATIONS */
+#header li {
+    margin-right: 70px;
+}
+
+#header .selected {
+    position: relative;
+    display: block;
+    padding: 5px;
+    color: var(--color-text);
+}
+
+#header .selected::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 50%;
+    height: 2px;
+    background: var(--color-btn);
+    z-index: 1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+    color: var(--color-text);
+}
+
+#header .selected:hover::before {
+    transform: scaleX(1);
+    color: var(--color-text);
+}
+
+
+#header[data-animation="to-left"] .selected::before {
+    transform-origin: center;
+    color: var(--color-text);
+}
+
+#header[data-animation="center"] .selected::before {
+    transform-origin: center;
+    color: var(--color-text);
+}
+
+#header[data-animation="bonus"] .selected::before {
+    transform-origin: right;
+    color: var(--color-text);
+}
+
+#header[data-animation="bonus"] .selected:hover::before {
+    transform-origin: center;
+    transform: scaleX(1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.82, 2);
+    color: var(--color-text);
+}
