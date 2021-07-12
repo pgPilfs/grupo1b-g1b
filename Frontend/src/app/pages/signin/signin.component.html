@@ -1,13 +1,16 @@
+<section>
 <div class="container">
   <div class="card">
   <form [formGroup]="formsign" (ngSubmit)="onSiguiente($event)" novalidate>
     <div *ngIf="step == 1">
       <h2 class="mb-4 text-center">Sé parte de PIL MONEY</h2>
+      <div class="section-divider"></div>
+      <h3 class="mb-4 text-center">Datos Privados</h3>
       <div class="form-group row">
 
-        <div class="col-lg-6 mb-3">
-          <label for="name" class="form-label mt-3 label-text">Nombre</label>
-          <input type="text" class="form-control p-3 input-text" id="name"  formControlName="name" placeholder="Ingrese su nombre" [class.border-danger]="nameInvalid"/>
+        <div class="col-lg-6 mb-3 form-floating">
+          <input type="text" class="form-control p-3 input-text" id="floatingInput"  formControlName="name" placeholder="Ingrese su nombre" [class.border-danger]="nameInvalid"/>
+          <label for="floatingInput">Nombre</label>
           <div *ngIf="formsign.errors  && formsign.dirty" class="text-danger">
             <p *ngIf="formsign.hasError('required')" >
               El nombre es requerido.
@@ -15,9 +18,9 @@
           </div>
         </div>
   
-        <div class="col-lg-6 mb-3">
-          <label for="lastname" class="form-label mt-3">Apellido</label>
-          <input type="text" class="form-control p-3 input-text" id="lastname" formControlName="lastname" placeholder="Ingrese su apellido" [class.border-danger]="lastnameInvalid"/>
+        <div class="col-lg-6 mb-3 form-floating"> 
+          <input type="text" class="form-control p-3 input-text" id="floatingInput" formControlName="lastname" placeholder="Ingrese su apellido" [class.border-danger]="lastnameInvalid"/>
+          <label for="floatingInput">Apellido</label>
           <div *ngIf="formsign.errors  && formsign.dirty" class="text-danger">
             <p *ngIf="formsign.hasError('required')" >
               El apellido es requerido.
@@ -25,9 +28,9 @@
           </div>    
         </div>
 
-        <div class="col-lg-6 mb-3">
-          <label for="username" class="form-label mt-3">Usuario</label>
-          <input type="text" class="form-control p-3 input-text" id="username" formControlName="username" placeholder="Ingrese su usuario" [class.border-danger]="usernameInvalid"/>
+        <div class="col-lg-6 mb-3 form-floating">
+          <input type="text" class="form-control p-3 input-text" id="floatingInput" formControlName="username" placeholder="Ingrese su usuario" [class.border-danger]="usernameInvalid"/>
+          <label for="floatingInput">Usuario</label>
           <div *ngIf="formsign.errors  && formsign.dirty" class="text-danger">
             <p *ngIf="formsign.hasError('required')" >
               El usuario es requerido.
@@ -35,9 +38,9 @@
           </div>
         </div>
       
-        <div class="col-lg-6 mb-3">
-          <label for="email" class="form-label mt-3">Email</label>
-          <input type="email" class="form-control p-3 input-text" id="email" formControlName="email" placeholder="Ingrese su email" [class.border-danger]="emailInvalid"/>
+        <div class="col-lg-6 mb-3 form-floating">      
+          <input type="email" class="form-control p-3 input-text" id="floatingInput" formControlName="email" placeholder="Ingrese su email" [class.border-danger]="emailInvalid"/>
+          <label for="floatingInput">Email</label>
           <div *ngIf="formsign.errors  && formsign.dirty" class="text-danger">
             <p *ngIf="formsign.hasError('required')" >
               El email es requerido.
@@ -48,9 +51,9 @@
           </div>
         </div>
         
-        <div class="col-lg-6 mb-3">
-          <label for="password" class="form-label mt-3">Contraseña</label>
-          <input type="password" class="form-control p-3 input-text" id="password" formControlName="password" placeholder="Ingrese su contraseña" [class.border-danger]="passwordInvalid"/>
+        <div class="col-lg-6 mb-3 form-floating">
+          <input type="password" class="form-control p-3 input-text" id="floatingInput" formControlName="password" placeholder="Ingrese su contraseña" [class.border-danger]="passwordInvalid"/>
+          <label for="floatingInput">Contraseña</label>
           <div *ngIf="formsign.errors  && formsign.dirty" class="text-danger">
             <p *ngIf="formsign.hasError('required')" >
               El password es requerido.
@@ -61,9 +64,9 @@
           </div>
         </div>
         
-        <div class="col-lg-6 mb-3">
-          <label for="cpassword" class="form-label mt-3">Confirmar Contraseña</label>
-          <input type="password" class="form-control p-3 input-text" id="cpassword" formControlName="cpassword" placeholder="Ingrese nuevamente su contraseña" [class.border-danger]="cpasswordInvalid"/>
+        <div class="col-lg-6 mb-3 form-floating">
+          <input type="password" class="form-control p-3 input-text" id="floatingInput" formControlName="cpassword" placeholder="Ingrese nuevamente su contraseña" [class.border-danger]="cpasswordInvalid"/>
+          <label for="floatingInput">Confirmar Contraseña</label>
           <div *ngIf="formsign.errors  && formsign.dirty" class="text-danger">
             <p *ngIf="formsign.hasError('required')" >
               Confirme la contraseña.
@@ -78,79 +81,91 @@
     </div>
     <div *ngIf="step == 2">
       <h2 class="mb-4 text-center">Sé parte de PIL MONEY</h2>
+      <div class="section-divider"></div>
+      <h3 class="mb-4 text-center">Datos Residenciales</h3>
       <div class="form-group row">
 
-      <div class="col-lg-6 mb-3">
-        <label for="lblPais" class="form-label mt-3">Pais</label>
-        <input type="text" class="form-control p-3 input-text" id="pais" placeholder="Ingrese su país"/>
+      <div class="col-lg-6 mb-3 form-floating"> 
+        <input type="text" class="form-control p-3 input-text" id="floatingInput" placeholder="Ingrese su país"/>
+        <label for="floatingInput">Pais</label>
       </div>
 
-      <div class="col-lg-6 mb-3">
-        <label for="lblCPostal" class="form-label mt-3">Codigo Postal</label>
-        <input type="text" class="form-control p-3 input-text" id="cp" placeholder="Ingrese su codigo postal"/>
+      <div class="col-lg-6 mb-3 form-floating">
+        <input type="text" class="form-control p-3 input-text" id="floatingInput" placeholder="Ingrese su codigo postal"/>
+        <label for="floatingInput">Codigo Postal</label>
       </div>
 
-      <div class="col-lg-6 mb-3">
-        <label for="lblProvincia" class="form-label mt-3">Provincia</label>
-        <input type="text" class="form-control p-3 input-text" id="provincia" placeholder="Ingrese su provincia"/>
+      <div class="col-lg-6 mb-3 form-floating">
+        <input type="text" class="form-control p-3 input-text" id="floatingInput" placeholder="Ingrese su provincia"/>
+        <label for="floatingInput">Provincia</label>
       </div>
 
-      <div class="col-lg-6 mb-3">
-        <label for="lblCiudad" class="form-label mt-3">Ciudad</label>
-        <input type="text" class="form-control p-3 input-text" id="ciudad" placeholder="Ingrese su ciudad"/>
+      <div class="col-lg-6 mb-3 form-floating">
+        <input type="text" class="form-control p-3 input-text" id="floatingInput" placeholder="Ingrese su ciudad"/>
+        <label for="floatingInput">Ciudad</label>
       </div>
 
-      <div class="col-lg-6 mb-3">
-        <label for="lblCalled" class="form-label mt-3">Calle</label>
-        <input type="text" class="form-control p-3 input-text" id="calle" placeholder="Ingrese su calle"/>
+      <div class="col-lg-6 mb-3 form-floating">
+        <input type="text" class="form-control p-3 input-text" id="floatingInput" placeholder="Ingrese su calle"/>
+        <label for="floatingInput" class="form-label mt-3">Calle</label>
       </div>
 
-      <div class="col-lg-6 mb-3">
-        <label for="lblPDepto" class="form-label mt-3">Piso o Dpto</label>
-        <input type="text" class="form-control p-3 input-text" id="pdepto" placeholder="Ingrese su piso o dpto"/>
+      <div class="col-lg-6 mb-3 form-floating">
+        <input type="text" class="form-control p-3 input-text" id="floatingInput" placeholder="Ingrese su piso o dpto"/>
+        <label for="floatingInput">Piso o Dpto</label>
       </div>
 
       </div>
     </div>
     <div *ngIf="step == 3">
       <h2 class="mb-4 text-center">Sé parte de PIL MONEY</h2>
+      <div class="section-divider"></div>
+      <h3 class="mb-4 text-center">Datos Personales</h3>
       <div class="form-group row">
 
-      <div class="col-lg-6 mb-3">
-        <label for="lblDni" class="form-label mt-3">DNI</label>
-        <input type="text" class="form-control p-3 input-text" id="dni" placeholder="Ingrese su DNI"/>
+      <div class="col-lg-6 mb-3 form-floating">
+        <input type="text" class="form-control p-3 input-text" id="floatingInput" placeholder="Ingrese su DNI"/>
+        <label for="floatingInput">DNI</label>
       </div>
 
-      <div class="col-lg-6 mb-3">
-        <label for="lblCuil" class="form-label mt-3">CUIL</label>
-        <input type="text" class="form-control p-3 input-text" id="cuil" placeholder="Ingrese su CUIL"/>
+      <div class="col-lg-6 mb-3 form-floating">
+        <input type="text" class="form-control p-3 input-text" id="floatingInput" placeholder="Ingrese su CUIL"/>
+        <label for="floatingInput">CUIL</label>
       </div>
 
-      <div class="col-lg-6 mb-3">
-        <label for="lblTel" class="form-label mt-3">Telefono</label>
-        <input type="text" class="form-control p-3 input-text" id="tel" placeholder="Ingrese su telefono"/>
+      <div class="col-lg-6 mb-3 form-floating">
+        <input type="text" class="form-control p-3 input-text" id="floatingInput" placeholder="Ingrese su telefono"/>
+        <label for="floatingInput">Telefono</label>
       </div>
 
-      <div class="col-lg-6 mb-3">
-        <label for="lblFecnac" class="form-label mt-3">Fecha de Nacimiento</label>
-        <input type="date" class="form-control p-3 input-text" id="fecnac" placeholder="Ingrese su fecha de nacimiento"/>
+      <div class="col-lg-6 mb-3 form-floating">
+        <input type="date" class="form-control p-3 input-text" id="floatingInput" placeholder="Ingrese su fecha de nacimiento"/>
+        <label for="floatingInput">Fecha de Nacimiento</label>
       </div>
 
-      <div class="col-lg-6 mb-3">
-        <label for="lblFoto1" class="form-label mt-3">Foto del Frente DNI</label>
-        <input type="file" class="form-control p-3 input-text" id="foto1" />
+      <div class="col-lg-6 mb-3 form-floating">
+        <input type="file" class="form-control p-3 input-text" id="floatingInput" />
+        <label for="floatingInput">Foto del Frente DNI</label>
       </div>
 
-      <div class="col-lg-6 mb-3">
-        <label for="lblFoto2" class="form-label mt-3">Foto del Dorso DNI</label>
-        <input type="file" class="form-control p-3 input-text" id="foto2" />
+      <div class="col-lg-6 mb-3 form-floating">    
+        <input type="file" class="form-control p-3 input-text" id="floatingInput" />
+        <label for="floatingInput">Foto del Dorso DNI</label>
       </div>
 
       </div>
     </div>
 
     <div *ngIf="step == 4">
-      <p style="color: white;">GRACIAS POR SER PARTE DE PIL MONEY</p>
+        <div class="row my-4">
+          <div class="col-lg-6">
+            <img src="../assets/images/cardlogo.svg" class="card-img-top" alt="">
+          </div>
+          <div class="col-lg-6">
+            <p class="card-text text-center justify-content-center">Gracias por ser parte de nuestra comunidad.<br> Ahora tus <strong>transferencias</strong> van a ser mas rápidas.</p>
+            <button class="btn btn-sign my-3">&#8592; Volver al Inicio</button>
+          </div>         
+        </div>
     </div>
 
     <div class="d-flex justify-content-center">
@@ -161,3 +176,4 @@
   </form>
   </div>
 </div>
+</section>
