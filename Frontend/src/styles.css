@@ -43,12 +43,12 @@ body, h1, h2, h3, h4, h5, h6{
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    color: var(--color-text-secundary);
+    color: var(--color-text);
 }
 
-p, div, a, label, input, span, strong{
+p, div, a, label, input, span{
     font-family: 'Biryani', sans-serif;
-    color: var(--color-bg);
+    color: var(--color-text-secundary);
 }
 
 a{

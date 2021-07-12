@@ -1,90 +1,101 @@
 import { Component, OnInit} from '@angular/core';
-import { Validators,  FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css'],
 })
-
-
-
 export class SigninComponent implements OnInit {
-    signInForm: FormGroup;
 
-    step: number = 1;
+ step: any = 1;
 
-    constructor( private formBuilder: FormBuilder) {
-      this.signInForm = this.formBuilder.group(
-		{
-			name:(['',[Validators.required]]),
-			lastname: (['',[Validators.required]]),
-			username: (['',[Validators.required]]),
-			email: (['',[Validators.required, Validators.email]]),
-			password:(['',[Validators.required, Validators.minLength(8)]]),
-			passwordRepeat:(['',[Validators.required]]),
-      	}
-	  )
+ formsign: FormGroup;
+
+ constructor(private formBuilder: FormBuilder) {
+  this.formsign= this.formBuilder.group(
+    {
+      name:['', [Validators.required, Validators.email]],
+      lastname:['', [Validators.required, Validators.email]],
+      email:['', [Validators.required, Validators.email]],
+      username:['', [Validators.required, Validators.email]],
+	  password:['',[Validators.required, Validators.minLength(8)]],
+      cpassword:['', [Validators.required, Validators.minLength(8)]]
     }
+  )
 
-    ngOnInit(): void { }
+ }
 
-    anterior(){
-      this.step = this.step - 1;
+	ngOnInit(): void {
+	}
+
+	next(){
+		this.step  = this.step + 1;
+	}
+	anterior(){
+		this.step = this.step - 1;
+	}
+	confirmado(){
+		this.step = 4;
+	}
+
+	get nameField(){
+		return this.formsign.get("name");
+	}
+
+	get lastnameField(){
+		return this.formsign.get("lastname");
+	}
+	get usernameField(){
+		return this.formsign.get("username");
+	}
+	get emailField(){
+		return this.formsign.get("email");
+		}
+
+	get passwordField(){
+		return this.formsign.get("password");
+	}
+
+	get cpasswordField(){
+		return this.formsign.get("cpassword");
+	}
+
+	get nameInvalid(){
+	return this.formsign.touched && !this.formsign.valid;
+	}
+
+	get lastnameInvalid(){
+	return this.formsign.touched && !this.formsign.valid;
+	}
+
+	get usernameInvalid(){
+	return this.formsign.touched && !this.formsign.valid;
+	}
+
+	get emailInvalid(){
+	return this.formsign.touched && !this.formsign.valid;
+	}
+
+	get passwordInvalid(){
+	return this.formsign.touched && !this.formsign.valid;
+	}
+
+	get cpasswordInvalid()
+	{
+	return this.formsign.touched && !this.formsign.valid;
+	}
+
+onSiguiente(event: Event){
+    event.preventDefault(); //Cancela la funcionalidad por default.
+    if (this.formsign.valid)
+    {
+      console.log(this.formsign.value); //se puede enviar al servidor...
     }
-
-    confirmado(){ }
-
-
-
-	// get nameField(){
-	// 	return this.signInForm.get("name");
-	// }
-
-	// get lastnameField(){
-	// 	return this.signInForm.get("lastname");
-	// }
-
-	// get usernameField(){
-	// 	return this.signInForm.get("username");
-	// }
-
-	// get emailField(){
-	// 	return this.signInForm.get("email");
-	// }
-
-	// get passwordField(){
-	// 	return this.signInForm.get("password");
-	// }
-
-	// get passwordRepeatField(){
-	// 	return this.signInForm.get("passwordRepeat");
-	// }
-
-	// get nameInvalid(){
-	// 	return this.nameField.touched && !this.nameField.valid;
-	// }
-
-	// get lastnameInvalid(){
-	// 	return this.lastnameField.touched && !this.lastnameField.valid;
-	// }
-
-	// get usernameInvalid(){
-	// 	return this.usernameField.touched && !this.usernameField.valid;
-	// }
-
-	// get emailInvalid(){
-	// 	return this.emailField.touched && !this.emailField.valid;
-	// }
-
-	// get passwordInvalid(){
-	// 	return this.passwordField.touched && !this.passwordField.valid;
-	// }
-
-	// get passwordRepeatInvalid(){
-	// 	return this.passwordRepeatField.touched && !this.passRepeatField.valid;
-	// }
-
-	siguiente(){}
+    else
+    {
+      this.formsign.markAllAsTouched(); //Activa todas las validaciones
+    }
+  }
 
 }
