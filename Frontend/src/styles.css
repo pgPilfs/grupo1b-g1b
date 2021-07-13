@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-/* Root */
-:root{
-    --color-bg: #010409;
-    --color-bg-secundary: #0D1117;
-    --color-bg-divider: #111827;
-=======
 @import 'aos/dist/aos.css';
 
 /* Root */
@@ -12,7 +5,6 @@
     --color-bg: #010409;
     --color-bg-secundary: #171B22;
     --color-bg-divider: #30363D;
->>>>>>> dab061356cc6d12f4a91ecd04b4e28a019d5db73
     --color-text: #fff;
     --color-text-secundary: rgba(255, 255, 255, 0.7);
     --color-text-disabled: rgba(255, 255, 255, 0.5);
@@ -34,11 +26,7 @@
     --color-bg-purple: #6952DC;
     --color-bg-purple-secundary: #755FE2;
     --color-bg-purple-light: #EDEAFD;
-<<<<<<< HEAD
-    --color-border-opacity: 1;
-=======
     --color-bg-shadow: rgba(1,4,9,0.8);
->>>>>>> dab061356cc6d12f4a91ecd04b4e28a019d5db73
 }
 
 html{
@@ -48,10 +36,7 @@ html{
 
 body{
     background-color: var(--color-bg);
-<<<<<<< HEAD
-=======
     margin: 0;
->>>>>>> dab061356cc6d12f4a91ecd04b4e28a019d5db73
 }
 
 body, h1, h2, h3, h4, h5, h6{
@@ -61,20 +46,12 @@ body, h1, h2, h3, h4, h5, h6{
     color: var(--color-text-secundary);
 }
 
-<<<<<<< HEAD
-p, div, a{
-=======
-p, div, a, label, input, span, strong{
->>>>>>> dab061356cc6d12f4a91ecd04b4e28a019d5db73
+p, div, a, label, input, span{
     font-family: 'Biryani', sans-serif;
     color: var(--color-bg);
 }
 
-<<<<<<< HEAD
-a, label{
-=======
 a{
->>>>>>> dab061356cc6d12f4a91ecd04b4e28a019d5db73
     color: var(--color-text);
     text-decoration: none;
 }
@@ -102,21 +79,12 @@ h2{
 
 h3{
     font-size: 1.8rem;
-<<<<<<< HEAD
 }
 
 h4{
     font-size: 1.2rem;
 }
 
-=======
-}
-
-h4{
-    font-size: 1.2rem;
-}
-
->>>>>>> dab061356cc6d12f4a91ecd04b4e28a019d5db73
 h5{
     font-size: 1rem;
 }
@@ -124,14 +92,6 @@ h5{
 p {
     font-size: 1.51rem;
     letter-spacing: .02rem;
-<<<<<<< HEAD
-} 
-
-a, label, input{
-    font-size: 1rem;
-    letter-spacing: .02rem;
-}
-=======
 }
 
 a{
@@ -150,4 +110,3 @@ a{
     border: .1875 solid var(--color-bg-divider);
     box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.2);
 }
->>>>>>> dab061356cc6d12f4a91ecd04b4e28a019d5db73

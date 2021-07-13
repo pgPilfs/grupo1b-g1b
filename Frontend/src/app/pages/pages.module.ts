@@ -22,13 +22,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-<<<<<<< HEAD
     AppRoutingModule, 
     FormsModule,
     ReactiveFormsModule
-=======
-    AppRoutingModule,
->>>>>>> dab061356cc6d12f4a91ecd04b4e28a019d5db73
   ],
   exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent]
 })

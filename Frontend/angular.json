@@ -31,19 +31,12 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
-<<<<<<< HEAD
-              "src/styles.css",
-              "node_modules/boxicons//css/boxicons.css"
-            ],
-            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-=======
               "node_modules/aos/dist/aos.css",
               "src/styles.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "node_modules/aos/dist/aos.js"
->>>>>>> dab061356cc6d12f4a91ecd04b4e28a019d5db73
             ]
           },
           "configurations": {
