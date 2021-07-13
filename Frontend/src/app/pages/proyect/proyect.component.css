@@ -1,6 +1,35 @@
-p {
-    font-size: 17px;
+.main_heading h1
+{
+	font-size: 45px;
+    font-weight: 300;
+    text-align: center;
+    line-height: 45px;
+    color: #777;
+    
+}
+.features-div
+{
+	text-align: center;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -ms-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+.features-div:hover
+{
+	margin-top: -10px;
+}
+
+.features-div h4
+{
+    color: #40b3ff;
     font-weight: 400;
-    line-height: 30px;
-    color: #fffefe;
-    margin: 0px; }
+}
+.features-div p
+{
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 25px;
+}
