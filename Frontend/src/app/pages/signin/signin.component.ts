@@ -1,7 +1,10 @@
-import { Component, OnInit} from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-
-
+import { Component, OnInit, Renderer2 } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -9,102 +12,83 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
+  step: any = 1;
 
- step: any = 1;
- 
- formsign: FormGroup;
+  formsign: FormGroup;
 
- constructor(private formBuilder: FormBuilder) {
-  this.formsign= this.formBuilder.group(
-    {
-      password:['',[Validators.required, Validators.minLength(8)]],
-      email:['', [Validators.required, Validators.email]],
-      name:['', [Validators.required, Validators.email]],   
-      lastname:['', [Validators.required, Validators.email]], 
-      username:['', [Validators.required, Validators.email]],   
-      cpassword:['', [Validators.required, Validators.minLength(8)]]  
-    }
-  )
-
- }
-
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder, myRender2: Renderer2) {
+    this.formsign = this.formBuilder.group({
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      email: ['', [Validators.required, Validators.email]],
+      name: ['', [Validators.required, Validators.email]],
+      lastname: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.email]],
+      cpassword: ['', [Validators.required, Validators.minLength(8)]],
+    });
   }
 
-  next(){
-    this.step  = this.step + 1;
+  ngOnInit(): void {}
+
+  next() {
+    this.step = this.step + 1;
   }
-  anterior(){
+  anterior() {
     this.step = this.step - 1;
   }
-  confirmado(){
-  this.step = 4;
-  
+  confirmado() {
+    this.step = 4;
   }
 
-  get nameField(){
-      return this.formsign.get("name");
+  get nameField() {
+    return this.formsign.get('name');
   }
 
-  get lastnameField(){
-      return this.formsign.get("lastname");
+  get lastnameField() {
+    return this.formsign.get('lastname');
   }
-  get usernameField(){
-      return this.formsign.get("username");
+  get usernameField() {
+    return this.formsign.get('username');
   }
-  get emailField(){
-      return this.formsign.get("email");
+  get emailField() {
+    return this.formsign.get('email');
   }
-  get passwordField(){
-      return this.formsign.get("password");
+  get passwordField() {
+    return this.formsign.get('password');
   }
-  get cpasswordField(){
-      return this.formsign.get("cpassword");
+  get cpasswordField() {
+    return this.formsign.get('cpassword');
   }
 
-  get nameInvalid()
-{
-return this.formsign.touched && !this.formsign.valid;
-}
+  get nameInvalid() {
+    return this.formsign.touched && !this.formsign.valid;
+  }
 
-get lastnameInvalid()
-{
-return this.formsign.touched && !this.formsign.valid;
-}
+  get lastnameInvalid() {
+    return this.formsign.touched && !this.formsign.valid;
+  }
 
-get usernameInvalid()
-{
-return this.formsign.touched && !this.formsign.valid;
-}
+  get usernameInvalid() {
+    return this.formsign.touched && !this.formsign.valid;
+  }
 
-get emailInvalid()
-{
-return this.formsign.touched && !this.formsign.valid;
-}
+  get emailInvalid() {
+    return this.formsign.touched && !this.formsign.valid;
+  }
 
-get passwordInvalid()
-{
-return this.formsign.touched && !this.formsign.valid;
-}
+  get passwordInvalid() {
+    return this.formsign.touched && !this.formsign.valid;
+  }
 
-get cpasswordInvalid()
-{
-return this.formsign.touched && !this.formsign.valid;
-}
+  get cpasswordInvalid() {
+    return this.formsign.touched && !this.formsign.valid;
+  }
 
-
- onSiguiente(event: Event)
-  {
+  onSiguiente(event: Event) {
     event.preventDefault(); //Cancela la funcionalidad por default.
-    if (this.formsign.valid)
-    {
+    if (this.formsign.valid) {
       console.log(this.formsign.value); //se puede enviar al servidor...
-    }
-    else
-    {
+    } else {
       this.formsign.markAllAsTouched(); //Activa todas las validaciones
     }
   }
-
 }
-
