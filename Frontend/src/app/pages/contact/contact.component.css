@@ -71,11 +71,18 @@ input:focus, input:hover, input:active, textarea:focus, textarea:hover, textarea
 }
 .datos-container p{
     color: var(--color-text-secundary);
-    padding-left: 25%;
     margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+    .datos-container p{
+        padding-left: 25%;
+    }
 }
 .datos-contacto img{
     color: var(--color-text-secundary);
     margin-right: 1rem;
 }
-
+#mapa {
+    width: 100%;
+    max-width: 20rem;
+}
