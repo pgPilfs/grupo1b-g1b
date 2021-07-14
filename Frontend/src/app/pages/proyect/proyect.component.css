@@ -4,8 +4,7 @@
     font-weight: 300;
     text-align: center;
     line-height: 45px;
-    color: #777;
-    
+    color: #777;    
 }
 .features-div
 {
@@ -25,6 +24,7 @@
 {
     color: #40b3ff;
     font-weight: 400;
+    text-transform: uppercase;
 }
 .features-div p
 {
@@ -32,4 +32,12 @@
     font-size: 17px;
     font-weight: 300;
     line-height: 25px;
+    text-align: center;
+}
+.features-div h2
+{
+    color: #40b3ff;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-bottom: 5%;
 }
