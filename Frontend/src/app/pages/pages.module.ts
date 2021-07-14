@@ -9,7 +9,6 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { DevelopersComponent } from './developers/developers.component';
 
-
 @NgModule({
   declarations: [
     WalletComponent,
