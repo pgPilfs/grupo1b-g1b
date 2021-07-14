@@ -18,10 +18,10 @@
               />
               <label for="floatingInput">Nombre</label>
               <div
-                *ngIf="formsign.errors && formsign.dirty"
+                *ngIf="formsign.get('name')?.errors && formsign.get('name')?.touched"
                 class="text-danger"
               >
-                <p *ngIf="formsign.hasError('required')">
+                <p *ngIf="formsign.get('name')?.hasError('required')" class="text-danger">
                   El nombre es requerido.
                 </p>
               </div>
@@ -38,10 +38,10 @@
               />
               <label for="floatingInput">Apellido</label>
               <div
-                *ngIf="formsign.errors && formsign.dirty"
+                *ngIf="formsign.get('lastname').errors && formsign.get('lastname').touched"
                 class="text-danger"
               >
-                <p *ngIf="formsign.hasError('required')">
+                <p *ngIf="formsign.get('lastname').hasError('required')" class="text-danger">
                   El apellido es requerido.
                 </p>
               </div>
@@ -58,10 +58,10 @@
               />
               <label for="floatingInput">Usuario</label>
               <div
-                *ngIf="formsign.errors && formsign.dirty"
+                *ngIf="formsign.get('username').errors && formsign.get('username').touched"
                 class="text-danger"
               >
-                <p *ngIf="formsign.hasError('required')">
+                <p *ngIf="formsign.get('username').hasError('required')" class="text-danger">
                   El usuario es requerido.
                 </p>
               </div>
@@ -78,13 +78,13 @@
               />
               <label for="floatingInput">Email</label>
               <div
-                *ngIf="formsign.errors && formsign.dirty"
+                *ngIf="formsign.get('email').errors && formsign.get('email').touched"
                 class="text-danger"
               >
-                <p *ngIf="formsign.hasError('required')">
+                <p *ngIf="formsign.get('email').hasError('required')" class="text-danger">
                   El email es requerido.
                 </p>
-                <p *ngIf="formsign.hasError('email')">
+                <p *ngIf="formsign.get('email').hasError('email')" class="text-danger">
                   El formato del email debe ser válido.
                 </p>
               </div>
@@ -101,13 +101,13 @@
               />
               <label for="floatingInput">Contraseña</label>
               <div
-                *ngIf="formsign.errors && formsign.dirty"
+                *ngIf="formsign.get('password').errors && formsign.get('password').touched"
                 class="text-danger"
               >
-                <p *ngIf="formsign.hasError('required')">
+                <p *ngIf="formsign.get('password').hasError('required')" class="text-danger">
                   El password es requerido.
                 </p>
-                <p *ngIf="formsign.hasError('minlength')">
+                <p *ngIf="formsign.get('password').hasError('minlength')" class="text-danger">
                   El password debe tener 8 dígitos o más.
                 </p>
               </div>
@@ -124,13 +124,13 @@
               />
               <label for="floatingInput">Confirmar Contraseña</label>
               <div
-                *ngIf="formsign.errors && formsign.dirty"
+                *ngIf="formsign.get('cpassword').errors && formsign.get('cpassword').touched"
                 class="text-danger"
               >
-                <p *ngIf="formsign.hasError('required')">
+                <p *ngIf="formsign.get('cpassword').hasError('required')" class="text-danger">
                   Confirme la contraseña.
                 </p>
-                <p *ngIf="formsign.hasError('minlength')">
+                <p *ngIf="formsign.get('cpassword').hasError('minlength')" class="text-danger">
                   El password debe tener 8 dígitos o más.
                 </p>
               </div>
@@ -148,18 +148,38 @@
                 class="form-control p-3 input-text"
                 id="floatingInput"
                 placeholder="Ingrese su país"
+                formControlName="pais"
+                [class.border-danger]="paisInvalid"
               />
               <label for="floatingInput">Pais</label>
+              <div
+                *ngIf="formsign.get('pais').errors && formsign.get('pais').touched"
+                class="text-danger"
+              >
+                <p *ngIf="formsign.get('pais').hasError('required')" class="text-danger">
+                  El pais es requerido.
+                </p>
+              </div>
             </div>
-
+            
             <div class="col-lg-6 mb-3 form-floating">
               <input
                 type="text"
                 class="form-control p-3 input-text"
                 id="floatingInput"
                 placeholder="Ingrese su codigo postal"
+                formControlName="cpostal"
+                [class.border-danger]="cpostalInvalid"
               />
               <label for="floatingInput">Codigo Postal</label>
+              <div
+              *ngIf="formsign.get('cpostal').errors && formsign.get('cpostal').touched"
+              class="text-danger"
+            >
+              <p *ngIf="formsign.get('cpostal').hasError('required')" class="text-danger">
+                Confirme el codigo postal.
+              </p>
+            </div>
             </div>
 
             <div class="col-lg-6 mb-3 form-floating">
@@ -168,8 +188,18 @@
                 class="form-control p-3 input-text"
                 id="floatingInput"
                 placeholder="Ingrese su provincia"
+                formControlName="provincia"
+                [class.border-danger]="provinciaInvalid"
               />
               <label for="floatingInput">Provincia</label>
+              <div
+              *ngIf="formsign.get('provincia').errors && formsign.get('provincia').touched"
+              class="text-danger"
+            >
+              <p *ngIf="formsign.get('provincia').hasError('required')" class="text-danger">
+                Confirme la provincia.
+              </p>
+            </div>
             </div>
 
             <div class="col-lg-6 mb-3 form-floating">
@@ -178,8 +208,18 @@
                 class="form-control p-3 input-text"
                 id="floatingInput"
                 placeholder="Ingrese su ciudad"
+                formControlName="ciudad"
+                [class.border-danger]="ciudadInvalid"
               />
               <label for="floatingInput">Ciudad</label>
+              <div
+              *ngIf="formsign.get('ciudad').errors && formsign.get('ciudad').touched"
+              class="text-danger"
+            >
+              <p *ngIf="formsign.get('ciudad').hasError('required')" class="text-danger">
+                Confirme la ciudad.
+              </p>
+            </div>
             </div>
 
             <div class="col-lg-6 mb-3 form-floating">
@@ -188,8 +228,18 @@
                 class="form-control p-3 input-text"
                 id="floatingInput"
                 placeholder="Ingrese su calle"
+                formControlName="calle"
+                [class.border-danger]="calleInvalid"
               />
               <label for="floatingInput" class="form-label mt-3">Calle</label>
+              <div
+              *ngIf="formsign.get('calle').errors && formsign.get('calle').touched"
+              class="text-danger"
+            >
+              <p *ngIf="formsign.get('calle').hasError('required')" class="text-danger">
+                Confirme la calle.
+              </p>
+            </div>
             </div>
 
             <div class="col-lg-6 mb-3 form-floating">
@@ -198,8 +248,18 @@
                 class="form-control p-3 input-text"
                 id="floatingInput"
                 placeholder="Ingrese su piso o dpto"
+                formControlName="pdpto"
+                [class.border-danger]="pdptoInvalid"
               />
               <label for="floatingInput">Piso o Dpto</label>
+              <div
+              *ngIf="formsign.get('pdpto').errors && formsign.get('pdpto').touched"
+              class="text-danger"
+            >
+              <p *ngIf="formsign.get('pdpto').hasError('required')" class="text-danger">
+                Confirme el piso o dpto.
+              </p>
+            </div>
             </div>
           </div>
         </div>
@@ -214,8 +274,18 @@
                 class="form-control p-3 input-text"
                 id="floatingInput"
                 placeholder="Ingrese su DNI"
+                formControlName="dni"
+                [class.border-danger]="dniInvalid"
               />
               <label for="floatingInput">DNI</label>
+              <div
+              *ngIf="formsign.get('dni').errors && formsign.get('dni').touched"
+              class="text-danger"
+            >
+              <p *ngIf="formsign.get('dni').hasError('required')" class="text-danger">
+                Confirme el dni.
+              </p>
+            </div>
             </div>
 
             <div class="col-lg-6 mb-3 form-floating">
@@ -224,52 +294,104 @@
                 class="form-control p-3 input-text"
                 id="floatingInput"
                 placeholder="Ingrese su CUIL"
+                formControlName="cuil"
+                [class.border-danger]="cuilInvalid"
               />
               <label for="floatingInput">CUIL</label>
+              <div
+              *ngIf="formsign.get('cuil').errors && formsign.get('cuil').touched"
+              class="text-danger"
+            >
+              <p *ngIf="formsign.get('cuil').hasError('required')" class="text-danger">
+                Confirme el cuil.
+              </p>
+            </div>
             </div>
 
             <div class="col-lg-6 mb-3">
-              <label for="floatingInput" class="mt-3">Telefono</label>
               <input
-                type="text"
-                class="form-control p-3 input-text"
-                id="floatingInput"
-                placeholder="Ingrese su telefono"
-              />
+              type="text"
+              class="form-control p-3 input-text"
+              id="floatingInput"
+              placeholder="Ingrese su telefono"
+              formControlName="tel"
+              [class.border-danger]="telInvalid"
+            />
+              <label for="floatingInput" class="mt-3">Telefono</label>
+              <div
+              *ngIf="formsign.get('tel').errors && formsign.get('tel').touched"
+              class="text-danger"
+            >
+              <p *ngIf="formsign.get('tel').hasError('required')" class="text-danger">
+                Confirme el telefono.
+              </p>
+            </div>
+            
             </div>
 
             <div class="col-lg-6 mb-3">
+              <input
+              type="date"
+              class="form-control p-3 input-text"
+              id="floatingInput"
+              placeholder="Ingrese su fecha de nacimiento"
+              formControlName="fecnac"
+              [class.border-danger]="fecnacInvalid"
+            />
               <label for="floatingInput" class="mt-3"
                 >Fecha de Nacimiento</label
               >
-              <input
-                type="date"
-                class="form-control p-3 input-text"
-                id="floatingInput"
-                placeholder="Ingrese su fecha de nacimiento"
-              />
+              <div
+              *ngIf="formsign.get('fecnac').errors && formsign.get('fecnac').touched"
+              class="text-danger"
+            >
+              <p *ngIf="formsign.get('fecnac').hasError('required')" class="text-danger">
+                Confirme la fecha de nacimiento.
+              </p>
+            </div>
             </div>
 
             <div class="col-lg-6 mb-3">
+              <input
+              class="button p-3 up"
+              id="file-upload"
+              type="file"
+              formControlName="foto1"
+              [class.border-danger]="foto1Invalid"
+            />
               <label for="file-upload" class="subir mt-3">
                 Foto del Frente DNI</label
               >
-              <input
-                class="button p-3 up"
-                id="file-upload"
-                type="file"
-              />
+              <div
+              *ngIf="formsign.get('foto1').errors && formsign.get('foto1').touched"
+              class="text-danger"
+            >
+              <p *ngIf="formsign.get('foto1').hasError('required')" class="text-danger">
+                Confirme la foto del frente del dni.
+              </p>
+            </div>
+            
             </div>
 
             <div class="col-lg-6 mb-3">
-              <label for="file-upload" class="subir mt-3">
-                Foto del Dorso DNI</label
-              >
               <input
                 class="button p-3 up"
                 id="file-upload"
                 type="file"
+                formControlName="foto2"
+              [class.border-danger]="foto2Invalid"
               />
+              <label for="file-upload" class="subir mt-3">
+                Foto del Dorso DNI</label
+              >
+              <div
+              *ngIf="formsign.get('foto2').errors && formsign.get('foto2').touched"
+              class="text-danger"
+            >
+              <p *ngIf="formsign.get('foto2').hasError('required')" class="text-danger">
+                Confirme la foto del dorso del dni.
+              </p>
+            </div>
             </div>
           </div>
         </div>
