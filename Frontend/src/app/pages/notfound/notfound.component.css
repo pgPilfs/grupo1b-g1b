@@ -31,27 +31,30 @@
 }
 
 .content p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-top: 0;
     margin-bottom: 0.6rem;
     letter-spacing: 0.1rem;
     color: var(--color-text-secundary);
 }
 .content p:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 .content button {
     margin-top: 2rem;
     padding: 0.5rem 1rem;
-    border: .1875rem solid var(--color-bg-divider);
+    border: none;
     background: transparent;
-    font-size: 1rem;
-    color: var(--color-txt);
+    font-size: 1.2rem;
+    color: var(--color-bg-purple-secundary);
     text-decoration: none;
     cursor: pointer;
     font-weight: bold;
+    border-radius: .5rem;
 }
 
+
+/* Particles */
 .particle {
     position: absolute;
     display: block;
