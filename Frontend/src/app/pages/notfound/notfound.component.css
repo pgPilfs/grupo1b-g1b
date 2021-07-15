@@ -1,26 +1,33 @@
-.container {
+.container-fluid {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     color: var(--color-bg);
     overflow: hidden;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 .content {
-    width: 37.5rem;
+    position: relative;
+    display: inline-block;
+    width: auto;
     max-width: 100%;
-    margin: 1.25rem;
-    padding: 3.75rem 2.5rem;
-    text-align: center;
-    box-shadow: -.625rem .625rem 4.18rem -.75rem rgba(0, 0, 0, 0.2);
+    background: var(--color-bg);
+    padding: 60px 40px;
+    border: 3px solid var(--color-bg-divider);
+    border-radius: .5rem;
     opacity: 0;
     animation: apparition 0.8s 1.2s cubic-bezier(0.39, 0.575, 0.28, 0.995) forwards;
+    align-items: center;
+    text-align: center;
 }
 
 .content strong {
     font-size: 2rem;
     color: var(--color-text);
+    text-align: center;
 }
 
 .content p {
