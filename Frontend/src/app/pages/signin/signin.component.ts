@@ -1,19 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormGroup,
+  ValidationErrors,
+  ValidatorFn,
   Validators,
 } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css'],
 })
+
 export class SigninComponent implements OnInit {
+
   step: any = 1;
 
   formsign: FormGroup;
+
+  minDate: Date;
+  maxDate: Date;
 
   private pattLetters: any = /^[a-zA-Z ]*$/;
   private pattUser: any = /^(?=.*[a-zA-Z]{1,})(?=.*[\d]{0,})[a-zA-Z0-9]{5,}$/;
@@ -24,13 +34,17 @@ export class SigninComponent implements OnInit {
   private pattAddress: any = /^[A-Za-z0-9\s]{5,50}$/;
 
   constructor( private formBuilder: FormBuilder) {
+    const currentYear = new Date().getFullYear();
+    this.minDate = new Date(currentYear - 90, 0, 1);
+    this.maxDate = new Date(currentYear + -18, 7, 31);
+
     this.formsign = this.formBuilder.group({
-      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(this.pattPass)]],
+      password: ['', [Validators.required, Validators.minLength(8),  Validators.maxLength(16), Validators.pattern(this.pattPass), createPasswordStrengthValidator()]],
       email: ['', [Validators.required, Validators.email, Validators.pattern(this.pattEmail)]],
       name: ['', [Validators.required, Validators.pattern(this.pattLetters)]],
       lastname: ['', [Validators.required, Validators.pattern(this.pattLetters)]],
       username: ['', [Validators.required, Validators.pattern(this.pattUser)]],
-      cpassword: ['', [Validators.required, Validators.minLength(8),  Validators.pattern(this.pattPass)]],
+      cpassword: ['', [Validators.required, Validators.minLength(8), Validators.pattern(this.pattPass),createPasswordStrengthValidator()]],
       pais: ['', [Validators.required, ]],
       cpostal: ['',[Validators.required, Validators.pattern(this.pattAddress)]],
       provincia: ['',[Validators.required]],
@@ -40,13 +54,14 @@ export class SigninComponent implements OnInit {
       dni: ['', [Validators.required, Validators.pattern(this.pattNumbers)]],
       cuil: ['', [Validators.required, Validators.pattern(this.pattNumbers)]],
       tel: ['', [Validators.required, Validators.pattern(this.pattTel), Validators.minLength(8)]],
-      fecnac: ['', [Validators.required, Validators.pattern("^(?:(?:10|12|0?[13578])/(?:3[01]|[12][0-9]|0?[1-9])/(?:1[8-9]\d{2}|[2-9]\d{3})|(?:11|0?[469])/(?:30|[12][0-9]|0?[1-9])/(?:1[8-9]\d{2}|[2-9]\d{3})|0?2/(?:2[0-8]|1[0-9]|0?[1-9])/(?:1[8-9]\d{2}|[2-9]\d{3})|0?2/29/[2468][048]00|0?2/29/[3579][26]00|0?2/29/[1][89][0][48]|0?2/29/[2-9][0-9][0][48]|0?2/29/1[89][2468][048]|0?2/29/[2-9][0-9][2468][048]|0?2/29/1[89][13579][26]|0?2/29/[2-9][0-9][13579][26])$")]],
+      fecnac: ['', [Validators.required]],
       foto1: ['', [Validators.required,]],
       foto2: ['', [Validators.required]]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void{
+  }
 
   next() {
     this.step = this.step + 1;
@@ -114,67 +129,6 @@ export class SigninComponent implements OnInit {
     return this.formsign.get("foto2");
   }
 
-  // get nameInvalid() {
-  //   return this.nameField.touched && !this.nameField.valid;
-  // }
-
-  // get lastnameInvalid() {
-  //   return this.lastnameField.touched && !this.lastnameField.valid;
-  // }
-
-  // get usernameInvalid() {
-  //   return this.usernameField.touched && !this.usernameField.valid;
-  // }
-
-  // get emailInvalid() {
-  //   return this.usernameField.touched && !this.usernameField.valid;
-  // }
-
-  // get passwordInvalid() {
-  //   return this.passwordField.touched && !this.passwordField.valid;
-  // }
-
-  // get cpasswordInvalid() {
-  //   return this.cpasswordField.touched && !this.cpasswordField.valid;
-  // }
-  // get paisInvalid(){
-  //   return this.paisField.touched && !this.paisField.valid;
-  // }
-  // get cpostalInvalid(){
-  //   return this.cpostalField.touched && !this.cpostalField.valid;
-  // }
-  // get provinciaInvalid(){
-  //   return this.provinciaField.touched && !this.provinciaField.valid;
-  // }
-  // get ciudadInvalid() {
-  //   return this.ciudadField.touched && !this.ciudadField.valid;
-  // }
-  // get calleInvalid() {
-  //   return this.calleField.touched && !this.calleField.valid;
-  // }
-  // get pdptoInvalid() {
-  //   return this.pdptoField.touched && !this.pdptoField.valid;
-  // }
-  // get dniInvalid() {
-  //   return this.dniField.touched && !this.dniField.valid;
-  // }
-  // get cuilInvalid() {
-  //   return this.cuilField.touched && !this.cuilField.valid;
-  // }
-  // get telInvalid() {
-  //   return this.telField.touched && !this.telField.valid;
-  // }
-  // get fecnacInvalid() {
-  //   return this.fecnacField.touched && !this.fecnacField.valid;
-  // }
-  // get foto1Invalid() {
-  //   return this.foto1Field.touched && !this.foto1Field.valid;
-  // }
-  // get foto2Invalid() {
-  //   return this.foto2Field.touched && !this.foto2Field.valid;
-  // }
-
-
   onSiguiente(event: Event) {
     event.preventDefault(); //Cancela la funcionalidad por default.
     if (this.formsign.valid) {
@@ -184,3 +138,23 @@ export class SigninComponent implements OnInit {
     }
   }
 }
+export function createPasswordStrengthValidator(): ValidatorFn {
+  return (control:AbstractControl) : ValidationErrors | null => {
+
+       const value = control.value;
+
+       if (!value) {
+          return null;
+      }
+
+      const hasUpperCase = /[A-Z]+/.test(value);
+
+      const hasLowerCase = /[a-z]+/.test(value);
+
+       const hasNumeric = /[0-9]+/.test(value);
+
+       const passwordValid = hasUpperCase && hasLowerCase && hasNumeric;
+
+      return !passwordValid ? {passwordStrength:true}: null;
+   }
+ }

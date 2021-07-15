@@ -13,7 +13,7 @@ section {
   border: 3px solid var(--color-bg-divider);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
-.card-text {
+.card-text, mat-label {
   color: white;
 }
 
@@ -81,4 +81,7 @@ input[type="date"]::-webkit-inner-spin-button,
 }
 input[type="date"] {
   background-color: var(--color-bg-secundary);
+}
+.text-danger{
+  font-size: 1rem;
 }
