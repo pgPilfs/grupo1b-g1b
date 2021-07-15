@@ -1,0 +1,140 @@
+#home {
+    width: 100%;
+    height: 80vh;
+    background-color: var(--color-bg);
+}
+
+#home .container {
+    padding-top: 4.5rem;
+}
+
+#home h1 {
+    margin: 0 0 0.625rem 0;
+    line-height: 4rem;
+    color: var(--color-text);
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+#home p {
+    color: var(--color-text-secundary);
+}
+
+.home-img{
+    max-width: 80%;
+    height: auto;
+    margin-left: 10%;
+}
+
+.btn-signin {
+    width: 25rem;
+    height: 3.75rem;
+    background: var(--color-btn);
+    border-radius: 55px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: inline-block;
+    color: var(--color-bg);
+    text-align: center;
+    padding: 0.9375rem 1.875rem;
+    margin-top: 1.25rem
+}
+
+.btn-txt{
+    font-style: normal;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-signin:hover {
+    background: var(--color-btn-hover);
+}
+
+@media (max-width: 991px) {
+    #home h1 {
+        line-height: 3.25rem;
+        text-align: center;
+    }
+
+    #home p {
+        line-height: 1.5rem;
+        margin-bottom: 1.875rem;
+        text-align: center;
+    }
+
+    #home .home-img img {
+        width: 70%;
+    }
+
+    #home {
+        height: 80vh;
+        text-align: center;
+        display: contents;
+    }
+
+    #home .animated {
+        -webkit-animation: none;
+        animation: none;
+    }
+
+    #home .home-img {
+        text-align: center;
+    }
+
+    #home .home-img img {
+        width: 50%;
+    }
+
+    #home .btn-signin {
+        padding: 0.9375rem 1.875rem;
+        align-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    #home h1 {
+        line-height: 3.25rem;
+        text-align: center;
+    }
+    #home p {
+        line-height: 1.5rem;
+        margin-bottom: 1.875rem;
+    }
+    #home .home-img img {
+        width: 70%;
+    }
+    #home .btn-signin {
+        margin: 1.5rem auto;
+    }
+}
+
+@media (max-width: 575px) {
+    #home .home-img img {
+        max-width: 60%;
+    }
+}
+
+@keyframes up-down {
+    0% {
+        transform: translateY(0.313rem);
+    }
+    100% {
+        transform: translateY(-0.313rem);
+    }
+}
+
+.animated {
+    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+section{
+    padding: 0;
+    overflow: hidden;
+}
+
+
+@media screen and (max-width: 768px) {
+    [data-aos-delay] {
+        transition-delay: 0 !important;
+    }
+  }

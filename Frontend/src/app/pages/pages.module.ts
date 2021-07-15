@@ -21,8 +21,10 @@ import { DevelopersComponent } from './developers/developers.component';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent]
 })
+
+
 export class PagesModule { }

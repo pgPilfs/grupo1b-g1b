@@ -1,18 +1,101 @@
-.footer-color{
-    background:#20222E;
-    position: fixed;
+#footer{
     width: 100%;
-    bottom: 0px;
+    overflow: hidden;
+    background-color: var(--color-bg);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    bottom: 0;
 }
 
-.txt{
-    color: #FCFCFC;
+#footer .footer-top{
+    background: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+.name{
+  color:antiquewhite;
+}
+
+.txt {
+    margin-bottom: 0;
+    color: var(--color-text);
     text-transform: uppercase;
     text-align: center;
-    font-size: 0.875rem;
-    font-style: bold;
+    position: relative;
 }
 
-.copy{
-    color: rgba(255, 255, 255, 0.31);
+hr{
+    background-color: var(--color-bg-divider); 
 }
+
+.copy-bg{
+    background-color: var(--color-bg);
+}
+
+.copyright {
+    color: var(--color-text-secundary);
+    font-size: .80rem;
+}
+
+
+
+#footer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #footer li {
+    margin-right: 70px;
+  }
+  
+  #footer a {
+    position: relative;
+    display: block;
+    padding: 5px;
+    color: var(--color-text);
+  }
+  
+  #footer a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    border-radius: 55px;
+    background: var(--color-btn);
+    z-index: 1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+    color: var(--color-text);
+  }
+  
+  #footer a:hover::before {
+    transform: scaleX(1);
+    color: var(--color-text);
+  }
+  
+  
+  /* ANIMATIONS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  #footer[data-animation="to-left"] a::before {
+    transform-origin: center;
+    color: var(--color-text);
+  }
+  
+  #footer[data-animation="center"] a::before {
+    transform-origin: center;
+    color: var(--color-text);
+  }
+  
+  #footer[data-animation="bonus"] a::before {
+    transform-origin: right;
+    color: var(--color-text);
+  }
+  
+  #footer[data-animation="bonus"] a:hover::before {
+    transform-origin: center;
+    transform: scaleX(1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.82, 2);
+    color: var(--color-text);
+  }
