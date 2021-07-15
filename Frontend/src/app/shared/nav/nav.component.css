@@ -4,7 +4,6 @@
     z-index: 997;
     background-color: var(--color-bg);
     overflow: hidden;
-    position: fixed;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
