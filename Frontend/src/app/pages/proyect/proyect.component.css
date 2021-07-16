@@ -1,3 +1,19 @@
+.MainContainer{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 5%;
+  }
+  .title{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(214, 214, 214);
+  }
+  .bars{
+    color: #3DD598;
+    margin-top: -20px;
+  }
 .main_heading h1
 {
 	font-size: 45px;
