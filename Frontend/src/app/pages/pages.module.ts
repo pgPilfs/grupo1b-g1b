@@ -21,7 +21,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     HomeComponent,
     TermsComponent,
     SigninComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,

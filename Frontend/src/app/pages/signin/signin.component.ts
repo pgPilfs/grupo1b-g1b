@@ -8,13 +8,12 @@ import {
   Validators,
 } from '@angular/forms';
 
-
-
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css'],
 })
+
 
 export class SigninComponent implements OnInit {
 
@@ -24,6 +23,16 @@ export class SigninComponent implements OnInit {
 
   minDate: Date;
   maxDate: Date;
+
+  files: string[] = [];
+  onFileSelected(event: { target: { files: string | any[]; }; }) {
+    if (event.target.files.length > 0) {
+      for (let i = 0; i < event.target.files.length; i++) {
+        this.files.push(event.target.files[i].name);
+        console.log(event.target.files[0].name);
+      }
+    }
+  }
 
   private pattLetters: any = /^[a-zA-Z ]*$/;
   private pattUser: any = /^(?=.*[a-zA-Z]{1,})(?=.*[\d]{0,})[a-zA-Z0-9]{5,}$/;
@@ -44,7 +53,7 @@ export class SigninComponent implements OnInit {
       name: ['', [Validators.required, Validators.pattern(this.pattLetters)]],
       lastname: ['', [Validators.required, Validators.pattern(this.pattLetters)]],
       username: ['', [Validators.required, Validators.pattern(this.pattUser)]],
-      cpassword: ['', [Validators.required, Validators.minLength(8), Validators.pattern(this.pattPass),createPasswordStrengthValidator()]],
+      cpassword: ['',[Validators.required]],
       pais: ['', [Validators.required, ]],
       cpostal: ['',[Validators.required, Validators.pattern(this.pattAddress)]],
       provincia: ['',[Validators.required]],
@@ -56,16 +65,25 @@ export class SigninComponent implements OnInit {
       tel: ['', [Validators.required, Validators.pattern(this.pattTel), Validators.minLength(8)]],
       fecnac: ['', [Validators.required]],
       foto1: ['', [Validators.required,]],
-      foto2: ['', [Validators.required]]
+      foto2: ['', [Validators.required]],
     });
   }
 
-  ngOnInit(): void{
+  ngOnInit(){
   }
 
-  constructor() { }
+  next() {
+    this.step = this.step + 1;
+  }
+  anterior() {
+    this.step = this.step - 1;
+  }
+  confirmado() {
+    this.step = 4;
+  }
 
-  ngOnInit() {
+  get nameField() {
+    return this.formsign.get("name");
   }
 
   get lastnameField() {
@@ -128,6 +146,7 @@ export class SigninComponent implements OnInit {
       this.formsign.markAllAsTouched(); //Activa todas las validaciones
     }
   }
+
 }
 export function createPasswordStrengthValidator(): ValidatorFn {
   return (control:AbstractControl) : ValidationErrors | null => {
@@ -142,9 +161,9 @@ export function createPasswordStrengthValidator(): ValidatorFn {
 
       const hasLowerCase = /[a-z]+/.test(value);
 
-       const hasNumeric = /[0-9]+/.test(value);
+      const hasNumeric = /[0-9]+/.test(value);
 
-       const passwordValid = hasUpperCase && hasLowerCase && hasNumeric;
+      const passwordValid = hasUpperCase && hasLowerCase && hasNumeric;
 
       return !passwordValid ? {passwordStrength:true}: null;
    }

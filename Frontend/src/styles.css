@@ -110,7 +110,3 @@ a{
     border: .1875 solid var(--color-bg-divider);
     box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.2);
 }
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
