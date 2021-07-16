@@ -1,15 +1,626 @@
-<mat-form-field appearance="fill">
-  <mat-label>Input</mat-label>
-  <input matInput>
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Select</mat-label>
-  <mat-select>
-    <mat-option value="one">First option</mat-option>
-    <mat-option value="two">Second option</mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Textarea</mat-label>
-  <textarea matInput></textarea>
-</mat-form-field>
+<section>
+  <div class="container">
+    <div class="card">
+      <form [formGroup]="formsign" (ngSubmit)="onSiguiente($event)" novalidate>
+        <div *ngIf="step == 1">
+          <h2 class="mb-4 text-center">Sé parte de PIL MONEY</h2>
+          <div class="section-divider"></div>
+          <h3 class="mb-4 text-center">Datos Privados</h3>
+          <div class="form-group row">
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="name"
+                  formControlName="name"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('name')?.errors && formsign.get('name')?.touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('name')?.hasError('required')"
+                  class="text-danger"
+                >
+                  El nombre es requerido.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>Apellio</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="lastname"
+                  formControlName="lastname"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('lastname').errors &&
+                  formsign.get('lastname').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('lastname').hasError('required')"
+                  class="text-danger"
+                >
+                  El apellido es requerido.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>Usuario</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="username"
+                  formControlName="username"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('username').errors &&
+                  formsign.get('username').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('username').hasError('required')"
+                  class="text-danger"
+                >
+                  El usuario es requerido.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input
+                  matInput
+                  type="email"
+                  [formControl]="email"
+                  formControlName="email"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('email').errors && formsign.get('email').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('email').hasError('required')"
+                  class="text-danger"
+                >
+                  El email es requerido.
+                </p>
+                <p
+                  *ngIf="formsign.get('email').hasError('email')"
+                  class="text-danger"
+                >
+                  El formato del email debe ser válido.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input
+                  matInput
+                  type="password"
+                  [formControl]="password"
+                  formControlName="password"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('password').errors &&
+                  formsign.get('password').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('password').hasError('required')"
+                  class="text-danger"
+                >
+                  El password es requerido.
+                </p>
+                <p
+                  *ngIf="formsign.get('password').hasError('minlength')"
+                  class="text-danger"
+                >
+                  El password debe tener 8 dígitos o más.
+                </p>
+                <p
+                  *ngIf="
+                    formsign
+                      .get('password')
+                      .hasError('createPasswordStrengthValidator')
+                  "
+                  class="text-danger"
+                >
+                  Tu contraseña debe tener una letra minuscula, una letra
+                  mayuscula y un numero.
+                </p>
+                <p
+                  *ngIf="formsign.get('password').hasError('pattern')"
+                  class="text-danger"
+                >
+                  Tu contraseña debe tener una letra minuscula, una letra
+                  mayuscula y un numero.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>Confirmar Contraseña</mat-label>
+                <input
+                  matInput
+                  type="password"
+                  [formControl]="cpassword"
+                  formControlName="cpassword"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('cpassword').errors &&
+                  formsign.get('cpassword').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('cpassword').hasError('required')"
+                  class="text-danger"
+                >
+                  Confirme la contraseña.
+                </p>
+                <p
+                  *ngIf="formsign.get('cpassword').hasError('minlength')"
+                  class="text-danger"
+                >
+                  El password debe tener 8 dígitos o más.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="step == 2">
+          <h2 class="mb-4 text-center">Sé parte de PIL MONEY</h2>
+          <div class="section-divider"></div>
+          <h3 class="mb-4 text-center">Datos Residenciales</h3>
+          <div class="form-group row">
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>Pais</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="pais"
+                  formControlName="pais"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('pais').errors && formsign.get('pais').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('pais').hasError('required')"
+                  class="text-danger"
+                >
+                  El pais es requerido.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>Codigo Postal</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="cpostal"
+                  formControlName="cpostal"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('cpostal').errors &&
+                  formsign.get('cpostal').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('cpostal').hasError('required')"
+                  class="text-danger"
+                >
+                  Confirme el codigo postal.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>Provincia</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="provincia"
+                  formControlName="provincia"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('provincia').errors &&
+                  formsign.get('provincia').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('provincia').hasError('required')"
+                  class="text-danger"
+                >
+                  Confirme la provincia.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>Ciudad</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="ciudad"
+                  formControlName="ciudad"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('ciudad').errors &&
+                  formsign.get('ciudad').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('ciudad').hasError('required')"
+                  class="text-danger"
+                >
+                  Confirme la ciudad.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>Calle</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="calle"
+                  formControlName="calle"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('calle').errors && formsign.get('calle').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('calle').hasError('required')"
+                  class="text-danger"
+                >
+                  Confirme la calle.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>Piso o Dpto</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="pdpto"
+                  formControlName="pdpto"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('pdpto').errors && formsign.get('pdpto').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('pdpto').hasError('required')"
+                  class="text-danger"
+                >
+                  Confirme el piso o dpto.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="step == 3">
+          <h2 class="mb-4 text-center">Sé parte de PIL MONEY</h2>
+          <div class="section-divider"></div>
+          <h3 class="mb-4 text-center">Datos Personales</h3>
+          <div class="form-group row">
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>DNI</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="dni"
+                  formControlName="dni"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('dni').errors && formsign.get('dni').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('dni').hasError('required')"
+                  class="text-danger"
+                >
+                  Confirme el dni.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3 form-floating">
+              <mat-form-field appearance="fill">
+                <mat-label>CUIL</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="cuil"
+                  formControlName="cuil"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('cuil').errors && formsign.get('cuil').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('cuil').hasError('required')"
+                  class="text-danger"
+                >
+                  Confirme el cuil.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Telefono</mat-label>
+                <input
+                  matInput
+                  type="tel"
+                  [formControl]="tel"
+                  formControlName="tel"
+                  placeholder="555-555-1234"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('tel').errors && formsign.get('tel').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('tel').hasError('required')"
+                  class="text-danger"
+                >
+                  Confirme el telefono.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Fecha de Nacimiento</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="picker"
+                  [formControl]="date"
+                  [min]="minDate"
+                  [max]="maxDate"
+                  formControlName="fecnac"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('fecnac').errors &&
+                  formsign.get('fecnac').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('fecnac').hasError('required')"
+                  class="text-danger"
+                >
+                  Confirme la fecha de nacimiento.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Foto del frente del DNI</mat-label>
+                <input
+                  matInput
+                  type="file"
+                  [formControl]="foto1"
+                  formControlName="foto1"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('foto1').errors && formsign.get('foto1').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('foto1').hasError('required')"
+                  class="text-danger"
+                >
+                  Confirme la foto del frente del dni.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Foto del dorso del DNI</mat-label>
+                <input
+                  matInput
+                  type="file"
+                  [formControl]="foto2"
+                  formControlName="foto2"
+                  id="floatingInput"
+                  class="form-control p-3"
+                />
+                <mat-toggle matSuffix [for]="ffloatingInput"></mat-toggle>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  formsign.get('foto2').errors && formsign.get('foto2').touched
+                "
+                class="text-danger"
+              >
+                <p
+                  *ngIf="formsign.get('foto2').hasError('required')"
+                  class="text-danger"
+                >
+                  Confirme la foto del dorso del dni.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="step == 4">
+          <div class="row my-4">
+            <div class="col-lg-6">
+              <img
+                src="../assets/images/cardlogo.svg"
+                class="card-img-top"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-6">
+              <p class="card-text text-center justify-content-center">
+                Gracias por ser parte de nuestra comunidad.<br />
+                Ahora tus <strong>transferencias</strong> van a ser mas rápidas.
+              </p>
+              <button class="btn btn-sign my-3">
+                &#8592; Volver al Inicio
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <a
+            class="btn btn-sign-h mx-2 my-3"
+            *ngIf="step >= 2 && step < 4"
+            (click)="anterior()"
+            >Anterior</a
+          >
+          <button
+            type="submit"
+            class="btn btn-sign my-3"
+            *ngIf="step >= 1 && step < 3"
+            (click)="next()"
+          >
+            Siguiente &#8594;
+          </button>
+          <button
+            type="submit"
+            class="btn btn-sign my-3"
+            *ngIf="step == 3"
+            (click)="confirmado()"
+          >
+            Registrar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
