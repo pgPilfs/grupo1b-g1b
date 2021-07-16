@@ -48,7 +48,6 @@ body, h1, h2, h3, h4, h5, h6{
 
 p, div, a, label, input, span{
     font-family: 'Biryani', sans-serif;
-    color: var(--color-bg);
 }
 
 a{
@@ -110,3 +109,12 @@ a{
     border: .1875 solid var(--color-bg-divider);
     box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.2);
 }
+
+.section-divider {
+    display: block;
+    border-radius: 55px;
+    width: 6.25rem;
+    height: .2rem;
+    background: var(--color-btn);
+    margin: 0 auto;
+  }

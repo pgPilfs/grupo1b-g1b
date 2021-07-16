@@ -2,11 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
+  FormControl,
   FormGroup,
   ValidationErrors,
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+
+interface Pais {
+  name: string;
+}
+interface CodigoPostal {
+  cp: string;
+}
+interface Provincia {
+  country: string;
+}
+
+interface Ciudad {
+  city: string;
+}
 
 @Component({
   selector: 'app-signin',
@@ -25,6 +40,7 @@ export class SigninComponent implements OnInit {
   maxDate: Date;
 
   files: string[] = [];
+  selectedFiles: any;
   onFileSelected(event: { target: { files: string | any[]; }; }) {
     if (event.target.files.length > 0) {
       for (let i = 0; i < event.target.files.length; i++) {
@@ -69,8 +85,37 @@ export class SigninComponent implements OnInit {
     });
   }
 
+  selectFormControl = new FormControl('', Validators.required);
+  paises: Pais[] = [
+    {name: 'Argentina'},
+    {name: 'Uruguay'},
+    {name: 'Chile'},
+    {name: 'Bolivia'},
+  ];
+
+  codigoPostal: CodigoPostal[] = [
+    {cp: '5000'},
+    {cp: '5000'},
+    {cp: '2000'},
+    {cp: '1313'},
+  ];
+
+  provincias: Provincia[] = [
+    {country: 'Córdoba'},
+    {country: 'Santa Fe'},
+    {country: 'Buenos Aires'},
+  ];
+
+  ciudades: Ciudad[] = [
+    {city: 'Capital'},
+    {city: 'Ciudad 2'},
+    {city: 'Cuidad 3'},
+  ];
+
+
   ngOnInit(){
   }
+
 
   next() {
     this.step = this.step + 1;
@@ -81,7 +126,9 @@ export class SigninComponent implements OnInit {
   confirmado() {
     this.step = 4;
   }
-
+  selectFile(event: { target: { files: any; }; }) {
+    this.selectedFiles = event.target.files;
+}
   get nameField() {
     return this.formsign.get("name");
   }
