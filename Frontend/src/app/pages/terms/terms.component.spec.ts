@@ -23,3 +23,5 @@ describe('TermsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+

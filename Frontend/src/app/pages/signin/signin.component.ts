@@ -1,13 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, ValidatorFn } from '@angular/forms';
-import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { FormBuilder, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
+
+interface Pais {
+  name: string;
+}
+interface CodigoPostal {
+  cp: string;
+}
+interface Provincia {
+  country: string;
+}
+
+interface Ciudad {
+  city: string;
+}
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css'],
 })
+
+
 export class SigninComponent implements OnInit {
   step: any = 1;
 
@@ -17,7 +39,10 @@ export class SigninComponent implements OnInit {
   maxDate: Date;
 
   files: string[] = [];
-  onFileSelected(event: { target: { files: string | any[] } }) {
+  selectedFiles: any;
+  selectedFilesF: any;
+
+  onFileSelected(event: { target: { files: string | any[]; }; }) {
     if (event.target.files.length > 0) {
       for (let i = 0; i < event.target.files.length; i++) {
         this.files.push(event.target.files[i].name);
@@ -26,23 +51,14 @@ export class SigninComponent implements OnInit {
     }
   }
 
-  onPasswordChange() {
-    if (this.cpassword.value == this.password.value) {
-      this.cpassword.setErrors(null);
-    } else {
-      this.cpassword.setErrors({ mismatch: true });
+  onFileSelectedF(event: { target: { files: string | any[]; }; }) {
+    if (event.target.files.length > 0) {
+      for (let i = 0; i < event.target.files.length; i++) {
+        this.files.push(event.target.files[i].name);
+        console.log(event.target.files[0].name);
+      }
     }
   }
-
-  // getting the form control elements
-  get password(): AbstractControl {
-    return this.formsign.controls['password'];
-  }
-
-  get cpassword(): AbstractControl {
-    return this.formsign.controls['cpassword'];
-  }
-
   private pattLetters: any = /^[a-zA-Z ]*$/;
   private pattUser: any = /^(?=.*[a-zA-Z]{1,})(?=.*[\d]{0,})[a-zA-Z0-9]{5,}$/;
   private pattEmail: any =
@@ -82,14 +98,11 @@ export class SigninComponent implements OnInit {
         [Validators.required, Validators.pattern(this.pattLetters)],
       ],
       username: ['', [Validators.required, Validators.pattern(this.pattUser)]],
-      cpassword: ['', [Validators.required]],
-      pais: ['', [Validators.required]],
-      cpostal: [
-        '',
-        [Validators.required, Validators.pattern(this.pattAddress)],
-      ],
-      provincia: ['', [Validators.required]],
-      ciudad: ['', [Validators.required]],
+      cpassword: ['',[Validators.required]],
+      pais: ['', [Validators.required, ]],
+      cpostal: ['',[Validators.required, Validators.pattern(this.pattAddress)]],
+      provincia: ['',[Validators.required]],
+      ciudad: ['', [Validators.required,]],
       calle: ['', [Validators.required, Validators.pattern(this.pattAddress)]],
       pdpto: ['', [Validators.required, Validators.pattern(this.pattAddress)]],
       dni: ['', [Validators.required, Validators.pattern(this.pattNumbers)]],
@@ -103,12 +116,42 @@ export class SigninComponent implements OnInit {
         ],
       ],
       fecnac: ['', [Validators.required]],
-      foto1: ['', [Validators.required]],
+      foto1: ['', [Validators.required,]],
       foto2: ['', [Validators.required]],
     });
   }
 
-  ngOnInit() {}
+  selectFormControl = new FormControl('', Validators.required);
+  paises: Pais[] = [
+    {name: 'Argentina'},
+    {name: 'Uruguay'},
+    {name: 'Chile'},
+    {name: 'Bolivia'},
+  ];
+
+  codigoPostal: CodigoPostal[] = [
+    {cp: '5000'},
+    {cp: '5000'},
+    {cp: '2000'},
+    {cp: '1313'},
+  ];
+
+  provincias: Provincia[] = [
+    {country: 'Córdoba'},
+    {country: 'Santa Fe'},
+    {country: 'Buenos Aires'},
+  ];
+
+  ciudades: Ciudad[] = [
+    {city: 'Capital'},
+    {city: 'Ciudad 2'},
+    {city: 'Cuidad 3'},
+  ];
+
+
+  ngOnInit(){
+  }
+
 
   next() {
     this.step = this.step + 1;
@@ -119,6 +162,16 @@ export class SigninComponent implements OnInit {
   confirmado() {
     this.step = 4;
   }
+
+
+  selectFile(event: { target: { files: any; }; }) {
+    this.selectedFiles = event.target.files;
+  }
+
+  selectFileF(event: { target: { files: any; }; }) {
+  this.selectedFilesF = event.target.files;
+  }
+
 
   get nameField() {
     return this.formsign.get('name');
@@ -186,6 +239,7 @@ export class SigninComponent implements OnInit {
       
     }
   }
+
 }
 
 export function createPasswordStrengthValidator(): ValidatorFn {
@@ -200,9 +254,9 @@ export function createPasswordStrengthValidator(): ValidatorFn {
 
     const hasLowerCase = /[a-z]+/.test(value);
 
-    const hasNumeric = /[0-9]+/.test(value);
+      const hasNumeric = /[0-9]+/.test(value);
 
-    const passwordValid = hasUpperCase && hasLowerCase && hasNumeric;
+      const passwordValid = hasUpperCase && hasLowerCase && hasNumeric;
 
     return !passwordValid ? { passwordStrength: true } : null;
   };
