@@ -1,6 +1,12 @@
 <section>
   <div class="container-fluid">
-    <div class="card">
+    <div
+      class="card"
+      data-aos="fade-zoom-in"
+      data-aos-easing="ease-in-back"
+      data-aos-delay="300"
+      data-aos-offset="0"
+    >
       <h2 class="my-4 text-center">Sé parte de PIL MONEY</h2>
       <div class="section-divider"></div>
       <form
@@ -12,9 +18,12 @@
           <h4 class="my-4 text-center"><STRONG>DATOS DEL USUARIO</STRONG></h4>
           <div class="mb-3 section-divider"></div>
           <!-- PASO 1 -->
-          <div class="form-group row">
+          <div
+            class="form-group row justify-content-center"
+            data-aos="zoom-out"
+          >
             <!-- NOMBRE -->
-            <div class="col-lg-4 my-4 example-container">
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Nombre</mat-label>
                 <input
@@ -38,7 +47,7 @@
             </div>
 
             <!-- APELLIDO -->
-            <div class="col-lg-4 my-4 example-container">
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Apellido</mat-label>
                 <input
@@ -64,7 +73,7 @@
             </div>
 
             <!-- USUARIO -->
-            <div class="col-lg-4 my-4 example-container">
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Usuario</mat-label>
                 <input
@@ -91,7 +100,7 @@
             </div>
 
             <!-- EMAIL -->
-            <div class="col-lg-4 my-4 example-container">
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Email</mat-label>
                 <input
@@ -120,7 +129,7 @@
             </div>
 
             <!-- CONTRASEÑA -->
-            <div class="col-lg-4 my-4 example-container">
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Contraseña</mat-label>
                 <input
@@ -175,7 +184,7 @@
             </div>
 
             <!-- REPETIR CONTRASEÑA -->
-            <div class="col-lg-4 my-4 example-container">
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Confirmar Contraseña</mat-label>
                 <input
@@ -216,9 +225,9 @@
         <div *ngIf="step == 2">
           <h4 class="my-4 text-center"><strong>DATOS RESIDENCIALES</strong></h4>
           <div class="mb-3 section-divider"></div>
-          <div class="form-group row">
+          <div class="form-group row" data-aos="zoom-out">
             <!-- PAÍS -->
-            <div class="col-lg-4 my-4 example-container">
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>País de origen</mat-label>
                 <select
@@ -246,7 +255,7 @@
             </div>
 
             <!-- CODIGO POSTAL -->
-            <div class="col-lg-4 my-4 example-container">
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Código Postal</mat-label>
                 <select
@@ -283,7 +292,7 @@
             </div>
 
             <!-- PROVINCIA -->
-            <div class="col-lg-4 my-4 example-container">
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Provincia</mat-label>
                 <select
@@ -319,7 +328,7 @@
             </div>
 
             <!-- CIUDAD -->
-            <div class="col-lg-4 my-4 example-container">
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Ciudad</mat-label>
                 <select
@@ -347,7 +356,8 @@
               </mat-form-field>
             </div>
 
-            <div class="col-lg-4 my-4 example-container">
+            <!-- DOMICILIO -->
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Domicilio</mat-label>
                 <input
@@ -371,12 +381,14 @@
               </mat-form-field>
             </div>
 
-            <div class="col-lg-4 my-4 example-container">
+            <!-- NUMERO DE DOMICILIO -->
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
-                <mat-label>Número de domicilio, Piso o Dpto </mat-label>
+                <mat-label>Número de domicilio</mat-label>
                 <input
                   matInput
                   type="text"
+                  placeholder="Ingrese su número de domicilio"
                   [formControl]="pdpto"
                   formControlName="pdpto"
                   class="form-control"
@@ -388,7 +400,8 @@
                   "
                 >
                   <mat-error *ngIf="formsign.get('pdpto')?.hasError('required')"
-                    >El domicilio es <strong>obligatorio</strong></mat-error
+                    >El número del domicilio es
+                    <strong>obligatorio</strong></mat-error
                   >
                 </mat-error>
               </mat-form-field>
@@ -398,13 +411,13 @@
 
         <!-- PASO 3 -->
         <div *ngIf="step == 3">
-          <h4 class="my-4 align-content-center text-center">
+          <h4 class="my-4 align-content-center text-center" data-aos="zoom-out">
             <STRONG>DATOS PERSONALES</STRONG>
           </h4>
           <div class="mb-3 section-divider"></div>
-          <div class="form-group row">
+          <div class="form-group row" data-aos="zoom-out">
             <!-- CUIL -->
-            <div class="col-lg-4 my-4 example-container">
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>CUIL</mat-label>
                 <input
@@ -428,7 +441,7 @@
             </div>
 
             <!-- TELEFONO -->
-            <div class="col-lg-4 my-4 example-container">
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Teléfono</mat-label>
                 <input
@@ -452,7 +465,7 @@
             </div>
 
             <!-- FECHA DE NACIMIENTO -->
-            <div class="col-lg-4 my-4 justify-content-center example-container">
+            <div class="col-lg-4 col-md-6 my-4 example-container">
               <mat-form-field>
                 <mat-label>Fecha de Nacimiento</mat-label><br />
                 <input
@@ -480,8 +493,27 @@
               </mat-form-field>
             </div>
 
+            <!-- TERMINOS Y CONDICIONES -->
+            <div class="col-lg-4 col-md-6 my-4 example-container">
+              <section class="py-4">
+                <input type="checkbox" class="example-margin" /> He leído los
+                Términos y Condiciones
+                <p class="text-start example-margin">
+                  Estoy de acuerdo con los
+                  <a class="link" routerLink="/terms">Términos y Politicas</a>
+                  de <strong>PIL MONEY</strong>
+                </p>
+                <br />
+                <input type="checkbox" class="example-margin" /> Recibir
+                novedades
+                <p class="text-start example-margin">
+                  Me gustaría recibir las <strong>últimas</strong> novedades
+                </p>
+              </section>
+            </div>
+
             <!-- DNI FRONTAL -->
-            <div class="col-lg-4 text-center my-4">
+            <div class="col-lg-4 col-md-6 text-center my-4">
               <mat-label class="mb-4">Foto del DNI Frontal</mat-label><br />
               <button class="bg-input">
                 <mat-form-field>
@@ -530,13 +562,13 @@
                 "
               >
                 <mat-error *ngIf="formsign.get('foto1').hasError('required')">
-                  Ingrese la foto de su DNI del frente
+                  <strong>Ingrese</strong> el frente de su DNI
                 </mat-error>
               </mat-error>
             </div>
 
             <!-- FOTO DNI REVERSO-->
-            <div class="col-lg-4 text-center my-4">
+            <div class="col-lg-4 col-md-6 text-center my-4">
               <mat-label>Foto del Reverso de su DNI </mat-label><br />
               <button class="bg-input" disabled>
                 <mat-form-field>
@@ -585,44 +617,56 @@
                 "
               >
                 <mat-error *ngIf="formsign.get('foto2').hasError('required')">
-                  Ingrese el reverso de su DNI
+                  <strong>Ingrese</strong> el reverso de su DNI
                 </mat-error>
               </mat-error>
-            </div>
-
-            <!-- TERMINOS Y CONDICIONES -->
-            <div class="col-lg-4 my-4 example-container">
-              <section class="example-section">
-                <input type="checkbox" class="example-margin" /> He leído los
-                Términos y Condiciones
-                <p>
-                  Estoy de acuerdo con los
-                  <a class="link" routerLink="/terms">Términos y condiciones</a>
-                  de servicio <strong>PIL MONEY</strong>
-                </p>
-              </section>
             </div>
           </div>
         </div>
 
         <!-- PASO 4 -->
         <div *ngIf="step == 4">
-          <div class="row my-4">
-            <div class="col-lg-6">
-              <img
-                src="../assets/images/cardlogo.svg"
-                class="card-img-top"
-                alt=""
-              />
-            </div>
-            <div class="col-lg-6">
-              <p class="card-text text-center justify-content-center">
-                Gracias por ser parte de nuestra comunidad.<br />
-                Ahora tus <strong>transferencias</strong> van a ser mas rápidas.
-              </p>
-              <button class="btn btn-sign my-3" routerLink="/home">
-                &#8592; Volver al Inicio
-              </button>
+          <div class="my-4">
+            <div>
+              <div
+                class="text-center justify-content-center"
+                data-aos="zoom-out"
+              >
+                <h2>
+                  Te damos la BIENVENIDA a <strong>PIL MONEY</strong><br />
+                </h2>
+                <img
+                  class="img-fluid"
+                  width="50%"
+                  src="../../../assets/images/cardlogo.svg"
+                />
+                <div>
+                  <button
+                    type="submit"
+                    class="btn btn-login my-3"
+                    routerLink="/login"
+                  >
+                    Iniciar sesion
+                  </button>
+                </div>
+                <div>
+                  <button class="btn btn-sign-h my-3" routerLink="/home">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="16"
+                      height="16"
+                    >
+                      <path fill="none" d="M0 0h24v24H0z" />
+                      <path
+                        d="M12 13v7l-8-8 8-8v7h8v2z"
+                        fill="rgba(255,255,255,1)"
+                      />
+                    </svg>
+                    Volver al Inicio
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -640,7 +684,16 @@
             *ngIf="step >= 1 && step < 3"
             (click)="next()"
           >
-            Siguiente <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 13H4v-2h8V4l8 8-8 8z"/></svg>
+            Siguiente
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="16"
+              height="16"
+            >
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path d="M12 13H4v-2h8V4l8 8-8 8z" />
+            </svg>
           </button>
           <button
             type="submit"
@@ -648,7 +701,18 @@
             *ngIf="step == 3"
             (click)="confirmado()"
           >
-            Registrar <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M11.602 13.76l1.412 1.412 8.466-8.466 1.414 1.414-9.88 9.88-6.364-6.364 1.414-1.414 2.125 2.125 1.413 1.412zm.002-2.828l4.952-4.953 1.41 1.41-4.952 4.953-1.41-1.41zm-2.827 5.655L7.364 18 1 11.636l1.414-1.414 1.413 1.413-.001.001 4.951 4.951z"/></svg>
+            Registrar
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="16"
+              height="16"
+            >
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path
+                d="M11.602 13.76l1.412 1.412 8.466-8.466 1.414 1.414-9.88 9.88-6.364-6.364 1.414-1.414 2.125 2.125 1.413 1.412zm.002-2.828l4.952-4.953 1.41 1.41-4.952 4.953-1.41-1.41zm-2.827 5.655L7.364 18 1 11.636l1.414-1.414 1.413 1.413-.001.001 4.951 4.951z"
+              />
+            </svg>
           </button>
         </div>
       </form>
