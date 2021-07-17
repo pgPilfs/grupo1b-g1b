@@ -41,6 +41,8 @@ export class SigninComponent implements OnInit {
 
   files: string[] = [];
   selectedFiles: any;
+  selectedFilesF: any;
+
   onFileSelected(event: { target: { files: string | any[]; }; }) {
     if (event.target.files.length > 0) {
       for (let i = 0; i < event.target.files.length; i++) {
@@ -50,6 +52,14 @@ export class SigninComponent implements OnInit {
     }
   }
 
+  onFileSelectedF(event: { target: { files: string | any[]; }; }) {
+    if (event.target.files.length > 0) {
+      for (let i = 0; i < event.target.files.length; i++) {
+        this.files.push(event.target.files[i].name);
+        console.log(event.target.files[0].name);
+      }
+    }
+  }
   private pattLetters: any = /^[a-zA-Z ]*$/;
   private pattUser: any = /^(?=.*[a-zA-Z]{1,})(?=.*[\d]{0,})[a-zA-Z0-9]{5,}$/;
   private pattEmail: any = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
@@ -126,9 +136,17 @@ export class SigninComponent implements OnInit {
   confirmado() {
     this.step = 4;
   }
+
+
   selectFile(event: { target: { files: any; }; }) {
     this.selectedFiles = event.target.files;
-}
+  }
+
+  selectFileF(event: { target: { files: any; }; }) {
+  this.selectedFilesF = event.target.files;
+  }
+
+
   get nameField() {
     return this.formsign.get("name");
   }

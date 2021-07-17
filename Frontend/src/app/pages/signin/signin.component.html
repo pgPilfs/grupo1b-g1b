@@ -3,39 +3,36 @@
     <div class="card">
       <h2 class="my-4 text-center">Sé parte de PIL MONEY</h2>
       <div class="section-divider"></div>
-      <form [formGroup]="formsign" (ngSubmit)="onSiguiente($event)" autocomplete="off">
+      <form
+        [formGroup]="formsign"
+        (ngSubmit)="onSiguiente($event)"
+        autocomplete="off"
+      >
         <div *ngIf="step == 1">
-          <h4 class="my-4 text-center"> <STRONG>DATOS DEL USUARIO</STRONG> </h4>
+          <h4 class="my-4 text-center"><STRONG>DATOS DEL USUARIO</STRONG></h4>
           <div class="mb-3 section-divider"></div>
           <!-- PASO 1 -->
           <div class="form-group row">
-
-
-<div class="col-lg-4">
-            <mat-form-field class="columns">
-              <mat-label *ngIf="selectedFiles; else newFile">{{selectedFiles.item(0).name}}</mat-label>
-              <ng-template #newFile>
-                  <mat-label>Ingrese imagen DNI Frontal</mat-label>
-              </ng-template>
-              <input matInput disabled>
-              <button mat-icon-button matSuffix (click)="fileInput.click()">
-                  <mat-icon>attach_file</mat-icon>
-              </button>
-              <input hidden (change)="selectFile($event)" #fileInput type="file" id="file">
-          </mat-form-field>
-</div>
-
             <!-- NOMBRE -->
-            <div class="col-lg-4 my-4">
+            <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Nombre</mat-label>
-                <input matInput type="text" [formControl]="name" formControlName="name" placeholder="Ingrese su nombre"
-                  class="form-control" />
-                <mat-error *ngIf="
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="name"
+                  formControlName="name"
+                  placeholder="Ingrese su nombre"
+                  class="form-control"
+                />
+                <mat-error
+                  *ngIf="
                     formsign.get('name').errors && formsign.get('name').touched
-                  ">
-                  <mat-error *ngIf="formsign.get('name')?.hasError('required')">El nombre es
-                    <strong>obligatorio</strong></mat-error>
+                  "
+                >
+                  <mat-error *ngIf="formsign.get('name')?.hasError('required')"
+                    >El nombre es <strong>obligatorio</strong></mat-error
+                  >
                 </mat-error>
               </mat-form-field>
             </div>
@@ -44,30 +41,49 @@
             <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Apellido</mat-label>
-                <input matInput type="text" [formControl]="lastname" formControlName="lastname"
-                  placeholder="Ingrese su apellido" class="form-control" />
-                <mat-error *ngIf="
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="lastname"
+                  formControlName="lastname"
+                  placeholder="Ingrese su apellido"
+                  class="form-control"
+                />
+                <mat-error
+                  *ngIf="
                     formsign.get('lastname').errors &&
                     formsign.get('lastname').touched
-                  ">
-                  <mat-error *ngIf="formsign.get('lastname')?.hasError('required')">El apellido es
-                    <strong>obligatorio</strong></mat-error>
+                  "
+                >
+                  <mat-error
+                    *ngIf="formsign.get('lastname')?.hasError('required')"
+                    >El apellido es <strong>obligatorio</strong></mat-error
+                  >
                 </mat-error>
               </mat-form-field>
             </div>
-
 
             <!-- USUARIO -->
             <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Usuario</mat-label>
-                <input matInput type="text" [formControl]="username" formControlName="username"
-                  placeholder="Ingrese su usuario" class="form-control" />
-                <mat-error *ngIf="
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="username"
+                  formControlName="username"
+                  placeholder="Ingrese su usuario"
+                  class="form-control"
+                />
+                <mat-error
+                  *ngIf="
                     formsign.get('username').errors &&
                     formsign.get('username').touched
-                  ">
-                  <mat-error *ngIf="formsign.get('username')?.hasError('required')">El usuario es
+                  "
+                >
+                  <mat-error
+                    *ngIf="formsign.get('username')?.hasError('required')"
+                    >El usuario es
                     <strong>obligatorio</strong>
                   </mat-error>
                 </mat-error>
@@ -78,16 +94,26 @@
             <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Email</mat-label>
-                <input matInput type="email" [formControl]="email" formControlName="email"
-                  placeholder="Ingrese su email" class="form-control" />
+                <input
+                  matInput
+                  type="email"
+                  [formControl]="email"
+                  formControlName="email"
+                  placeholder="Ingrese su email"
+                  class="form-control"
+                />
                 <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
               </mat-form-field>
-              <mat-error *ngIf="
+              <mat-error
+                *ngIf="
                   formsign.get('email').errors && formsign.get('email').touched
-                ">
+                "
+              >
                 <mat-error *ngIf="formsign.get('email').hasError('required')">
-                  El correo electrónico es <strong>obligatorio</strong><br /></mat-error>
-                <mat-error *ngIf="formsign.get('email').hasError('email')">El formato del correo electrónico debe ser
+                  El correo electrónico es <strong>obligatorio</strong><br
+                /></mat-error>
+                <mat-error *ngIf="formsign.get('email').hasError('email')"
+                  >El formato del correo electrónico debe ser
                   <strong>válido</strong><br />
                 </mat-error>
               </mat-error>
@@ -97,33 +123,53 @@
             <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Contraseña</mat-label>
-                <input matInput type="password" [formControl]="password" formControlName="password"
-                  placeholder="Ingrese una contraseña" class="form-control" />
-                <mat-error *ngIf="
+                <input
+                  matInput
+                  type="password"
+                  [formControl]="password"
+                  formControlName="password"
+                  placeholder="Ingrese una contraseña"
+                  class="form-control"
+                />
+                <mat-error
+                  *ngIf="
                     formsign.get('password').errors &&
                     formsign.get('password').touched
-                  ">
-                  <mat-error *ngIf="formsign.get('password').hasError('required')">
-                    La contraseña es <strong>obligatorio</strong><br /></mat-error>
+                  "
+                >
+                  <mat-error
+                    *ngIf="formsign.get('password').hasError('required')"
+                  >
+                    La contraseña es <strong>obligatorio</strong><br
+                  /></mat-error>
 
-                  <mat-error *ngIf="formsign.get('password').hasError('minlength')">
+                  <mat-error
+                    *ngIf="formsign.get('password').hasError('minlength')"
+                  >
                     La contraseña debe tener al menos
-                    <strong> 8 dígitos </strong><br /></mat-error>
-                  <mat-error *ngIf="
+                    <strong> 8 dígitos </strong><br
+                  /></mat-error>
+                  <mat-error
+                    *ngIf="
                       formsign
                         .get('password')
                         .hasError('createPasswordStrengthValidator')
-                    ">
+                    "
+                  >
                     La contraseña debe tener al menos una letra
                     <strong>minúscula</strong>, una letra
-                    <strong>mayúscula</strong> y un <strong>número</strong><br />
+                    <strong>mayúscula</strong> y un <strong>número</strong
+                    ><br />
                   </mat-error>
 
-                  <mat-error *ngIf="formsign.get('password').hasError('pattern')">
+                  <mat-error
+                    *ngIf="formsign.get('password').hasError('pattern')"
+                  >
                     La contraseña debe tener al menos una letra
                     <strong>minúscula</strong>, una letra
                     <strong>mayúscula</strong> y al menos un
-                    <strong>número</strong><br /></mat-error>
+                    <strong>número</strong><br
+                  /></mat-error>
                 </mat-error>
               </mat-form-field>
             </div>
@@ -132,20 +178,34 @@
             <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Confirmar Contraseña</mat-label>
-                <input matInput type="password" [formControl]="cpassword" formControlName="cpassword"
-                  placeholder="Ingrese nuevamente su contraseña" class="form-control" />
-                <mat-error *ngIf="
+                <input
+                  matInput
+                  type="password"
+                  [formControl]="cpassword"
+                  formControlName="cpassword"
+                  placeholder="Ingrese nuevamente su contraseña"
+                  class="form-control"
+                />
+                <mat-error
+                  *ngIf="
                     formsign.get('cpassword').errors &&
                     formsign.get('cpassword').touched
-                  ">
-                  <mat-error *ngIf="formsign.get('cpassword').hasError('required')">
-                    La contraseña es <strong>obligatoria</strong><br /></mat-error>
-                  <mat-error *ngIf="
+                  "
+                >
+                  <mat-error
+                    *ngIf="formsign.get('cpassword').hasError('required')"
+                  >
+                    La contraseña es <strong>obligatoria</strong><br
+                  /></mat-error>
+                  <mat-error
+                    *ngIf="
                       formsign
                         .get('cpassword')
                         .hasError('comparePasswordValidation')
-                    ">
-                    La contraseña no <strong>coinciden</strong><br /></mat-error>
+                    "
+                  >
+                    La contraseña no <strong>coinciden</strong><br
+                  /></mat-error>
                 </mat-error>
               </mat-form-field>
             </div>
@@ -154,25 +214,33 @@
 
         <!-- PASO 2 -->
         <div *ngIf="step == 2">
-          <h4 class="my-4 text-center"><strong>DATOS RESIDENCIALES</strong> </h4>
+          <h4 class="my-4 text-center"><strong>DATOS RESIDENCIALES</strong></h4>
           <div class="mb-3 section-divider"></div>
           <div class="form-group row">
-
             <!-- PAÍS -->
             <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>País de origen</mat-label>
-                <select matNativeControl [formControl]="pais" formControlName="pais" class="form-control" required>
+                <select
+                  matNativeControl
+                  [formControl]="pais"
+                  formControlName="pais"
+                  class="form-control"
+                  required
+                >
                   <option label="--Seleccione su país---" disabled></option>
                   <option *ngFor="let pais of paises" [value]="pais">
-                    {{ pais.name }}</option>
+                    {{ pais.name }}
+                  </option>
                 </select>
-                <mat-error *ngIf="
+                <mat-error
+                  *ngIf="
                     formsign.get('pais').errors && formsign.get('pais').touched
-                  ">
-                  <mat-error *ngIf="formsign.get('pais').hasError('required')">Por favor,
-                    <strong>ingrese</strong> su
-                    país</mat-error>
+                  "
+                >
+                  <mat-error *ngIf="formsign.get('pais').hasError('required')"
+                    >Por favor, <strong>ingrese</strong> su país</mat-error
+                  >
                 </mat-error>
               </mat-form-field>
             </div>
@@ -181,17 +249,35 @@
             <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Código Postal</mat-label>
-                <select matNativeControl [formControl]="cpostal" formControlName="cpostal" class="form-control"
-                  required>
-                  <option label="--Seleccione su código postal---" disabled></option>
-                  <option *ngFor="let cpostal of codigoPostal" [value]="cpostal">
-                    {{ cpostal.cp }}</option>
+                <select
+                  matNativeControl
+                  [formControl]="cpostal"
+                  formControlName="cpostal"
+                  class="form-control"
+                  required
+                >
+                  <option
+                    label="--Seleccione su código postal---"
+                    disabled
+                  ></option>
+                  <option
+                    *ngFor="let cpostal of codigoPostal"
+                    [value]="cpostal"
+                  >
+                    {{ cpostal.cp }}
+                  </option>
                 </select>
-                <mat-error *ngIf="
-                    formsign.get('cpostal').errors && formsign.get('cpostal').touched
-                  ">
-                  <mat-error *ngIf="formsign.get('cpostal').hasError('required')">Por favor,
-                    <strong>ingrese</strong> su código postal</mat-error>
+                <mat-error
+                  *ngIf="
+                    formsign.get('cpostal').errors &&
+                    formsign.get('cpostal').touched
+                  "
+                >
+                  <mat-error
+                    *ngIf="formsign.get('cpostal').hasError('required')"
+                    >Por favor, <strong>ingrese</strong> su código
+                    postal</mat-error
+                  >
                 </mat-error>
               </mat-form-field>
             </div>
@@ -200,36 +286,63 @@
             <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Provincia</mat-label>
-                <select matNativeControl [formControl]="provincia" formControlName="provincia" class="form-control"
-                  required>
-                  <option label="--Seleccione su provincia---" disabled></option>
-                  <option *ngFor="let provincia of provincias" [value]="provincia">
-                    {{ provincia.country }}</option>
+                <select
+                  matNativeControl
+                  [formControl]="provincia"
+                  formControlName="provincia"
+                  class="form-control"
+                  required
+                >
+                  <option
+                    label="--Seleccione su provincia---"
+                    disabled
+                  ></option>
+                  <option
+                    *ngFor="let provincia of provincias"
+                    [value]="provincia"
+                  >
+                    {{ provincia.country }}
+                  </option>
                 </select>
-                <mat-error *ngIf="
-                  formsign.get('provincia').errors && formsign.get('provincia').touched
-                ">
-                  <mat-error *ngIf="formsign.get('provincia').hasError('required')">Por favor,
-                    <strong>ingrese</strong> su provincia</mat-error>
+                <mat-error
+                  *ngIf="
+                    formsign.get('provincia').errors &&
+                    formsign.get('provincia').touched
+                  "
+                >
+                  <mat-error
+                    *ngIf="formsign.get('provincia').hasError('required')"
+                    >Por favor, <strong>ingrese</strong> su provincia</mat-error
+                  >
                 </mat-error>
               </mat-form-field>
             </div>
-
 
             <!-- CIUDAD -->
             <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Ciudad</mat-label>
-                <select matNativeControl [formControl]="ciudad" formControlName="ciudad" class="form-control" required>
+                <select
+                  matNativeControl
+                  [formControl]="ciudad"
+                  formControlName="ciudad"
+                  class="form-control"
+                  required
+                >
                   <option label="--Seleccione su ciudad---" disabled></option>
                   <option *ngFor="let ciudad of ciudades" [value]="ciudad">
-                    {{ ciudad.city }}</option>
+                    {{ ciudad.city }}
+                  </option>
                 </select>
-                <mat-error *ngIf="
-                            formsign.get('ciudad').errors && formsign.get('ciudad').touched
-                          ">
-                  <mat-error *ngIf="formsign.get('ciudad').hasError('required')">Por favor,
-                    <strong>ingrese</strong> su ciudad</mat-error>
+                <mat-error
+                  *ngIf="
+                    formsign.get('ciudad').errors &&
+                    formsign.get('ciudad').touched
+                  "
+                >
+                  <mat-error *ngIf="formsign.get('ciudad').hasError('required')"
+                    >Por favor, <strong>ingrese</strong> su ciudad</mat-error
+                  >
                 </mat-error>
               </mat-form-field>
             </div>
@@ -237,13 +350,23 @@
             <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Domicilio</mat-label>
-                <input matInput type="text" [formControl]="calle" formControlName="calle"
-                  placeholder="Ingrese su domicilio" class="form-control" />
-                <mat-error *ngIf="
-                    formsign.get('calle').errors && formsign.get('calle').touched
-                  ">
-                  <mat-error *ngIf="formsign.get('calle')?.hasError('required')">El domicilio es
-                    <strong>obligatorio</strong></mat-error>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="calle"
+                  formControlName="calle"
+                  placeholder="Ingrese su domicilio"
+                  class="form-control"
+                />
+                <mat-error
+                  *ngIf="
+                    formsign.get('calle').errors &&
+                    formsign.get('calle').touched
+                  "
+                >
+                  <mat-error *ngIf="formsign.get('calle')?.hasError('required')"
+                    >El domicilio es <strong>obligatorio</strong></mat-error
+                  >
                 </mat-error>
               </mat-form-field>
             </div>
@@ -251,12 +374,22 @@
             <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Número de domicilio, Piso o Dpto </mat-label>
-                <input matInput type="text" [formControl]="pdpto" formControlName="pdpto" class="form-control" />
-                <mat-error *ngIf="
-                  formsign.get('pdpto').errors && formsign.get('pdpto').touched
-                ">
-                  <mat-error *ngIf="formsign.get('pdpto')?.hasError('required')">El domicilio es
-                    <strong>obligatorio</strong></mat-error>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="pdpto"
+                  formControlName="pdpto"
+                  class="form-control"
+                />
+                <mat-error
+                  *ngIf="
+                    formsign.get('pdpto').errors &&
+                    formsign.get('pdpto').touched
+                  "
+                >
+                  <mat-error *ngIf="formsign.get('pdpto')?.hasError('required')"
+                    >El domicilio es <strong>obligatorio</strong></mat-error
+                  >
                 </mat-error>
               </mat-form-field>
             </div>
@@ -265,125 +398,209 @@
 
         <!-- PASO 3 -->
         <div *ngIf="step == 3">
-          <h4 class="my-4 text-center"> <STRONG>DATOS PERSONALES</STRONG> </h4>
+          <h4 class="my-4 align-content-center text-center">
+            <STRONG>DATOS PERSONALES</STRONG>
+          </h4>
           <div class="mb-3 section-divider"></div>
           <div class="form-group row">
-
-            <!-- DNI -->
-            <div class="col-lg-4 my-4 example-container">
-              <mat-form-field appearance="fill">
-                <mat-label>DNI</mat-label>
-                <input matInput type="text" [formControl]="dni" formControlName="dni"
-                  placeholder="Ingrese su DNI" class="form-control" />
-                <mat-error *ngIf="
-                formsign.get('dni').errors && formsign.get('dni').touched
-              ">
-                  <mat-error *ngIf="formsign.get('dni')?.hasError('required')">El DNI es
-                    <strong>obligatorio</strong></mat-error>
-                </mat-error>
-              </mat-form-field>
-            </div>
-
             <!-- CUIL -->
             <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>CUIL</mat-label>
-                <input matInput type="text" [formControl]="cuil" formControlName="cuil" placeholder="Ingrese su CUIL"
-                  class="form-control" />
-              <mat-error *ngIf="
-              formsign.get('cuil').errors && formsign.get('cuil').touched
-            ">
-                <mat-error *ngIf="formsign.get('cuil')?.hasError('required')">El CUIL es
-                  <strong>obligatorio</strong></mat-error>
-              </mat-error>
-            </mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  [formControl]="cuil"
+                  formControlName="cuil"
+                  placeholder="Ingrese su CUIL"
+                  class="form-control"
+                />
+                <mat-error
+                  *ngIf="
+                    formsign.get('cuil').errors && formsign.get('cuil').touched
+                  "
+                >
+                  <mat-error *ngIf="formsign.get('cuil')?.hasError('required')"
+                    >El CUIL es <strong>obligatorio</strong>
+                  </mat-error>
+                </mat-error>
+              </mat-form-field>
             </div>
 
             <!-- TELEFONO -->
             <div class="col-lg-4 my-4 example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Teléfono</mat-label>
-                <input matInput type="tel" [formControl]="tel" formControlName="tel" placeholder="555-555-1234"
-                  class="form-control"/>
-                  <mat-error *ngIf="
-                  formsign.get('tel').errors && formsign.get('tel').touched
-                ">
-                    <mat-error *ngIf="formsign.get('tel')?.hasError('required')">El teléfono es
-                      <strong>obligatorio</strong></mat-error>
-                  </mat-error>
-                </mat-form-field>
+                <input
+                  matInput
+                  type="tel"
+                  [formControl]="tel"
+                  formControlName="tel"
+                  placeholder="555-555-1234"
+                  class="form-control"
+                />
+                <mat-error
+                  *ngIf="
+                    formsign.get('tel').errors && formsign.get('tel').touched
+                  "
+                >
+                  <mat-error *ngIf="formsign.get('tel')?.hasError('required')"
+                    >El teléfono es <strong>obligatorio</strong></mat-error
+                  >
+                </mat-error>
+              </mat-form-field>
             </div>
 
             <!-- FECHA DE NACIMIENTO -->
-            <div class="col-lg-4 my-4 example-container">
-            <mat-form-field >
-              <mat-label>Fecha de Nacimiento</mat-label>
-              <input matInput [matDatepicker]="picker" placeholder="dd/mm/yy">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-              <mat-error *ngIf="formsign.get('fecnac').errors && formsign.get('fecnac').touched">
-              <mat-error *ngIf="formsign.get('fecnac').hasError('required')">
-                Confirme la fecha de nacimiento.
-              </mat-error>
-            </mat-error>
-            </mat-form-field>
-            </div>
-
-              <!-- <mat-form-field appearance="fill">
-                <mat-datepicker-toggle matSuffix [for]="picker">
-                  <mat-label>Fecha de Nacimiento</mat-label>
-                  <mat-datepicker #picker></mat-datepicker>
-                </mat-datepicker-toggle>
-                <input matInput [matDatepicker]="picker" [formControl]="date" [min]="minDate" [max]="maxDate"
-                  formControlName="fecnac" placeholder="Ingrese su Fecha de nacimiento" class="form-control p-3" />
-
-                </div>
-              </mat-form-field> -->
-
-
-            <!-- FOTO DNI
-            <div class="col-lg-6 mb-3">
-              <mat-form-field appearance="fill">
-                <mat-label>Foto del frente del DNI</mat-label>
+            <div class="col-lg-4 my-4 justify-content-center example-container">
+              <mat-form-field>
+                <mat-label>Fecha de Nacimiento</mat-label><br />
                 <input
                   matInput
+                  [matDatepicker]="picker"
+                  placeholder="dd/mm/yy"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker><br />
+                <mat-error
+                  *ngIf="
+                    formsign.get('fecnac').errors &&
+                    formsign.get('fecnac').touched
+                  "
+                >
+                  <mat-error
+                    *ngIf="formsign.get('fecnac').hasError('required')"
+                  >
+                    Confirme la fecha de nacimiento.
+                  </mat-error>
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <!-- DNI FRONTAL -->
+            <div class="col-lg-4 text-center my-4">
+              <mat-label class="mb-4">Foto del DNI Frontal</mat-label><br />
+              <button class="bg-input">
+                <mat-form-field>
+                  <mat-label class="file-txt"
+                    >Ingresar la imagen:<br />
+                    <mat-label *ngIf="selectedFiles; else newFile"
+                      >{{ selectedFiles.item(0).name }}<br
+                    /></mat-label>
+                    <ng-template #newFile></ng-template>
+                  </mat-label>
+                </mat-form-field>
+                <button
+                  class="btn-upload my-3"
+                  mat-icon-button
+                  matSuffix
+                  (click)="fileInput.click()"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="32"
+                    height="32"
+                  >
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path
+                      d="M7 20.981a6.5 6.5 0 0 1-2.936-12 8.001 8.001 0 0 1 15.872 0 6.5 6.5 0 0 1-2.936 12V21H7v-.019zM13 13h3l-4-5-4 5h3v4h2v-4z"
+                      fill="rgba(23,27,34,1)"
+                    />
+                  </svg>
+                </button>
+                <input
+                  hidden
+                  (change)="selectFile($event)"
+                  #fileInput
                   type="file"
+                  id="file"
                   [formControl]="foto1"
                   formControlName="foto1"
-                  class="form-control p-3"
-                />
-                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
-              </mat-form-field>
-              <div
+                  class="form-control"
+                /></button
+              ><br />
+              <mat-error
+                class="text-center"
                 *ngIf="
                   formsign.get('foto1').errors && formsign.get('foto1').touched
                 "
               >
-              <ul>
-                <li
-                  *ngIf="formsign.get('foto1').hasError('required')"
-                >
-                  Confirme la foto del frente del dni.
-                </li>
-              </ul>
-              </div>
-            </div> -->
+                <mat-error *ngIf="formsign.get('foto1').hasError('required')">
+                  Ingrese la foto de su DNI del frente
+                </mat-error>
+              </mat-error>
+            </div>
 
-            <!-- FOTO DORSO DNI -->
-            <div class="col-lg-6 mb-3">
-              <mat-form-field appearance="fill">
-                <mat-label>Foto del Dorso del DNI</mat-label>
-                <input matInput type="file" [formControl]="foto2" formControlName="foto2" id="floatingInput"
-                  class="form-control p-3" />
-                <mat-toggle matSuffix [for]="ffloatingInput"></mat-toggle>
-              </mat-form-field>
-              <div *ngIf="
+            <!-- FOTO DNI REVERSO-->
+            <div class="col-lg-4 text-center my-4">
+              <mat-label>Foto del Reverso de su DNI </mat-label><br />
+              <button class="bg-input" disabled>
+                <mat-form-field>
+                  <mat-label class="file-txt"
+                    >Ingresar la imagen: <br />
+                    <mat-label *ngIf="selectedFilesF; else newFile"
+                      >{{ selectedFilesF.item(0).name }}<br
+                    /></mat-label>
+                    <ng-template #newFile></ng-template>
+                  </mat-label>
+                </mat-form-field>
+                <button
+                  class="btn-upload my-3"
+                  matSuffix
+                  (click)="fileInputF.click()"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="32"
+                    height="32"
+                  >
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path
+                      d="M7 20.981a6.5 6.5 0 0 1-2.936-12 8.001 8.001 0 0 1 15.872 0 6.5 6.5 0 0 1-2.936 12V21H7v-.019zM13 13h3l-4-5-4 5h3v4h2v-4z"
+                      fill="rgba(23,27,34,1)"
+                    />
+                  </svg>
+                </button>
+                <input
+                  hidden
+                  (change)="selectFileF($event)"
+                  #fileInputF
+                  type="file"
+                  id="file2"
+                  [formControl]="foto2"
+                  formControlName="foto2"
+                  class="form-control"
+                />
+              </button>
+              <br />
+              <mat-error
+                class="text-center"
+                *ngIf="
                   formsign.get('foto2').errors && formsign.get('foto2').touched
-                ">
-                <li *ngIf="formsign.get('foto2').hasError('required')">
-                  Ingrese la foto del Dorso del DNI.
-                </li>
-              </div>
+                "
+              >
+                <mat-error *ngIf="formsign.get('foto2').hasError('required')">
+                  Ingrese el reverso de su DNI
+                </mat-error>
+              </mat-error>
+            </div>
+
+            <!-- TERMINOS Y CONDICIONES -->
+            <div class="col-lg-4 my-4 example-container">
+              <section class="example-section">
+                <input type="checkbox" class="example-margin" /> He leído los
+                Términos y Condiciones
+                <p>
+                  Estoy de acuerdo con los
+                  <a class="link" routerLink="/terms">Términos y condiciones</a>
+                  de servicio <strong>PIL MONEY</strong>
+                </p>
+              </section>
             </div>
           </div>
         </div>
@@ -392,7 +609,11 @@
         <div *ngIf="step == 4">
           <div class="row my-4">
             <div class="col-lg-6">
-              <img src="../assets/images/cardlogo.svg" class="card-img-top" alt="" />
+              <img
+                src="../assets/images/cardlogo.svg"
+                class="card-img-top"
+                alt=""
+              />
             </div>
             <div class="col-lg-6">
               <p class="card-text text-center justify-content-center">
@@ -407,12 +628,27 @@
         </div>
 
         <div class="d-flex justify-content-center">
-          <a class="btn btn-sign-h mx-2 my-3" *ngIf="step >= 2 && step < 4" (click)="anterior()">Anterior</a>
-          <button type="submit" class="btn btn-sign my-3" *ngIf="step >= 1 && step < 3" (click)="next()">
-            Siguiente &#8594;
+          <a
+            class="btn btn-sign-h my-3"
+            *ngIf="step >= 2 && step < 4"
+            (click)="anterior()"
+            >Anterior</a
+          >
+          <button
+            type="submit"
+            class="btn btn-sign my-3"
+            *ngIf="step >= 1 && step < 3"
+            (click)="next()"
+          >
+            Siguiente <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 13H4v-2h8V4l8 8-8 8z"/></svg>
           </button>
-          <button type="submit" class="btn btn-sign my-3" *ngIf="step == 3" (click)="confirmado()">
-            Registrar
+          <button
+            type="submit"
+            class="btn btn-sign my-3"
+            *ngIf="step == 3"
+            (click)="confirmado()"
+          >
+            Registrar <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M11.602 13.76l1.412 1.412 8.466-8.466 1.414 1.414-9.88 9.88-6.364-6.364 1.414-1.414 2.125 2.125 1.413 1.412zm.002-2.828l4.952-4.953 1.41 1.41-4.952 4.953-1.41-1.41zm-2.827 5.655L7.364 18 1 11.636l1.414-1.414 1.413 1.413-.001.001 4.951 4.951z"/></svg>
           </button>
         </div>
       </form>

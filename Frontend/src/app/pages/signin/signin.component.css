@@ -13,9 +13,6 @@ section {
   border: 3px solid var(--color-bg-divider);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
-.card-text, mat-label {
-  color: white;
-}
 
 h2 {
   color: var(--color-text);
@@ -40,64 +37,83 @@ input,
   font-size: 1rem;
 }
 
-
 input:focus,
 input:hover,
 input:active {
   background-color: var(--color-bg-secundary);
   color: var(--color-text-secundary);
-  box-shadow: 0px 3px 0px 0px var(--color-bg-red);
+  box-shadow: 0px 3px 0px 0px var(--color-bg-red-light);
 }
 
 .btn-sign {
   background-color: var(--color-btn);
-  width: 15rem;
+  width: 13rem;
   height: 3rem;
   font-size: 1.3rem;
+  border-radius: 50px;
 }
 
 .btn-sign-h {
   background-color: var(--color-bg-secundary);
   color: var(--color-text-secundary);
-  width: 15rem;
+  width: 13rem;
   height: 3rem;
   font-size: 1.3rem;
-  padding-top: 0.875rem;
+  border-radius: 50px;
 }
-
 
 .example-container .mat-form-field + .mat-form-field {
   margin-left: 8px;
 }
 
- mat-error {
-  color: var(--color-bg-red);
+mat-error {
+  color: var(--color-bg-red-light);
 }
 
-mat-datepicker-toggle{
-  color: var(--color-btn);
-}
-.input-container {
-  position:relative;
-  color: red;
-  padding: 2rem;
-}
-#inputf{
-  opacity: 0;
-  position:absolute;
-  left:0px;
-  top:10px;
-  width:100%;
-  height:100%;
-}
-#botonf{
-  border-radius: 3rem;
-  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+.bg-input {
+  background-color: var(--color-bg-secundary);
+  border-bottom: 3px solid var(--color-bg-divider);
+  height: auto;
+  padding: 1rem;
+  width: 50%;
+  height: auto;
+  letter-spacing: .02rem;
 }
 
-.btn-file{
-  padding: auto 2rem;
-  background: pink;
-  border-radius: .5rem;
+.file-txt {
+  color: var(--color-text-secundary);
+  padding: 2rem auto;
+  font-size: 0.875rem;
 }
 
+
+button{
+  letter-spacing: .02rem;
+  border: none;
+  color: var(--color-bg-secundary);
+}
+
+.btn-upload{
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  background-image: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%);
+  transition: all .15s ease;
+  box-shadow: none;
+}
+
+
+.example-section {
+  margin: 12px 0;
+}
+
+.example-margin {
+  margin: 0 12px;
+  font-size: 1rem;
+}
+
+.link{
+  color: var(--color-link);
+}
+p{
+  font-size: 1rem;
+}
