@@ -14,7 +14,7 @@ import {FormControl,  FormGroup, Validators} from '@angular/forms';
   constructor(private formBuilder: FormBuilder) {
     this.loginform= this.formBuilder.group(
       {
-        mail:['', [Validators.required, Validators.email]]   
+        mail:['', [Validators.required, Validators.email]]
       }
     )
 
@@ -45,12 +45,10 @@ import {FormControl,  FormGroup, Validators} from '@angular/forms';
     }
   }*/
 
-  
-
   export class LoginComponent {
 
     loginForm: FormGroup;
-    
+
     constructor() {
       this.loginForm = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),

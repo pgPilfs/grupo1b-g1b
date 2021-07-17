@@ -1,101 +1,79 @@
 .login-card {
-    margin-top: 150px;
-    width: 320px;
-    height: 400px;
-    top: 250%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    padding: 50px 30px;
-    background-color: #22343C;
-    border-radius: 10%;
-  }
+  width: fit-content;
+  border-radius: 0.5rem;
+  background-color: var(--color-bg-secundary);
+  padding: 2rem;
+  margin: 5rem auto;
+  height: auto;
+  border: 3px solid var(--color-bg-divider);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
 
-  .login-card h1 {
-    margin: 0;
-    padding: 0 0 20px;
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-  }
+.contraseña,
+.email {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
 
-  .contraseña, .email{
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-    display: block;
-  }
- 
-  .login-card a {
-    text-decoration: none;
-    font-size: 8px;
-    line-height: 20px;
-    color: darkgrey;
-  }
-  .login-card input[type="email"], .login-card input[type="password"] {
-    width: 100%;
-    margin-bottom: 20px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    outline: none;
-    height: 20px;
-    color: #fff;
-    font-size: 10px;
-  }
-  .contraseña, .email{
-    background: transparent;
-    height: 10px;
-    color: #fff;
-    font-size: 10px;
-    padding-bottom: 30px;
-  }
-  .login-card input {
-    border: none;
-    background: transparent;
-    outline: none;
-    height: 40px;
-    font-size: 16px;
-  }
-  .ingresar {
-    text-align: center;
-    width: 100%;
-    border: none;
-    outline: none;
-    height: 40px;
-    background: #40DF9F;
-    color: rgb(5, 2, 2);
-    font-size: 15px;
-    border-radius: 10px;
-    margin-top: 20px;
-  }
-  .radio{
-    height: 10px;
-    color: #fff;
-    font-size: 10px;
-  }
-  .label{
-    height: 10px;
-    color: #fff;
-    font-size: 10px;
-    margin-left: 10px;
-  }
-  .login-card input[type="checkbox"] {
-    height: 10px;
-    top: 100%;  
-  }
-  .small1{
-    background: transparent;
-    height: 10px;
-    color: #fff;
-    font-size: 10px;
-    padding-bottom: 10px;
-  }
-  .items-card{
-    display: flex;
-    align-items: center;
-  }
-  .a1{
-    margin-left: 90px;
-  }
+label {
+  color: var(--color-text);
+  padding-left: 1rem;
+}
+
+label:after {
+  color: var(--color-text);
+  padding-left: 1rem;
+  font-size: 1rem;
+}
+
+.login-card a {
+  text-decoration: none;
+  line-height: 1.5rem;
+}
+.login-card input[type="email"],
+.login-card input[type="password"] {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  color: var(--color-text-secundary);
+}
+
+.contraseña,
+.email {
+  background: transparent;
+  color: var(--color-text);
+  padding-bottom: 1rem;
+}
+
+
+.login-card input {
+  border: none;
+  background: transparent;
+  outline: none;
+}
+.ingresar {
+  background-color: var(--color-btn);
+  width: 15rem;
+  height: 3rem;
+  font-size: 1.3rem;
+}
+
+.label {
+  color: var(--color-text);
+  margin-left: 0.875rem;
+}
+
+.small1 {
+  color: var(--color-bg-red);
+  padding-top: 0rem;
+}
+
+a {
+  text-align: right;
+  color: var(--color-link);
+}

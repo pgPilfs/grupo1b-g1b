@@ -1,28 +1,63 @@
-<section class="login-card">
-    <h1>Bienvenido</h1>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-       <!-- EMAIL INPUT -->
-      <div class="form-group">
-        <label class="email">Email</label> 
-        <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
-        <small class="small1" *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required" style="color:red">Por favor, ingrese el email</small>
-        <small class="small1" *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email" style="color:red">Email mal ingresado</small> 
+<section class="container-fluid my-4">
+  <div class="card login-card">
+    <h2 class="text-center my-4">Bienvenido a <strong>PIL MONEY</strong></h2>
+    <div class="section-divider"></div>
+    <h3 class="text-center my-4">Te extranamos !</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+      <!-- EMAIL INPUT -->
+      <div class="form-group my-4">
+        <label class="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          placeholder="Ingrese su email"
+        />
+        <small
+          class="small1"
+          *ngIf="
+            loginForm.controls.email.touched &&
+            loginForm.controls.email.errors?.required
+          "
+          >Por favor, <strong>ingrese</strong> su email</small
+        >
+        <small
+          class="small1"
+          *ngIf="
+            loginForm.controls.email.touched &&
+            loginForm.controls.email.errors?.email
+          "
+        >
+          Email mal ingresado</small
+        >
       </div>
       <!-- CONTRASEÑA INPUT -->
-      <div class="form-group"> 
-        <label class="contraseña">Contraseña</label> 
-        <input type="password" class="form-control" formControlName="password" placeholder="Password">
-        <small class="small1" *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required" style="color:red">Por favor, ingrese contraseña</small> 
-     </div>
-      <div class="items-card">
-        <input class="radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="label" for="flexRadioDefault1"> Recordar</label>
+      <div class="form-group my-4">
+        <label class="contraseña">Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+          placeholder="Ingrese su contraseña"
+        />
+        <small
+          class="small1"
+          *ngIf="
+            loginForm.controls.password.touched &&
+            loginForm.controls.password.errors?.required
+          "
+          >Por favor, <strong>ingrese</strong> contraseña</small
+        >
+      </div>
+      <div class="items-card my-4">
         <div class="a1">
           <a href="#">Me olvide la contraseña</a>
         </div>
       </div>
-      <div class="ingresar">
-       <input type="submit" value="Ingresar">
+      <!-- BOTON -->
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn ingresar text-center">Ingresar</button>
       </div>
-   </form>
+    </form>
+  </div>
 </section>
