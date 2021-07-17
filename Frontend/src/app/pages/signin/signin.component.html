@@ -1,7 +1,7 @@
 <section>
   <div class="container">
     <div class="card">
-      <form [formGroup]="formsign" (ngSubmit)="onSiguiente($event)" novalidate>
+      <form [formGroup]="formsign" (ngSubmit)="onSiguiente($event)" novalidate autocomplete="off">
         <div *ngIf="step == 1">
           <h2 class="mb-4 text-center">Sé parte de PIL MONEY</h2>
           <div class="section-divider"></div>
@@ -135,8 +135,8 @@
                   type="password"
                   [formControl]="password"
                   formControlName="password"
-                  id="floatingInput"
                   class="form-control p-3"
+                  (change)="onPasswordChange()"
                 />
                 <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
               </mat-form-field>
@@ -190,6 +190,7 @@
                   formControlName="cpassword"
                   id="floatingInput"
                   class="form-control p-3"
+                  (change)="onPasswordChange()"
                 />
                 <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
               </mat-form-field>
@@ -206,11 +207,8 @@
                 >
                   Confirme la contraseña.
                 </p>
-                <p
-                  *ngIf="formsign.get('cpassword').hasError('minlength')"
-                  class="text-danger"
-                >
-                  El password debe tener 8 dígitos o más.
+                <p *ngIf="cpassword.hasError('mismatch')" class="text-danger">
+                  Las contraseñas no coinciden.
                 </p>
               </div>
             </div>
@@ -231,6 +229,7 @@
                   formControlName="pais"
                   id="floatingInput"
                   class="form-control p-3"
+                  autocomplete="off"
                 />
                 <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
               </mat-form-field>
@@ -259,6 +258,7 @@
                   formControlName="cpostal"
                   id="floatingInput"
                   class="form-control p-3"
+                  autocomplete="off"
                 />
                 <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
               </mat-form-field>
@@ -288,6 +288,7 @@
                   formControlName="provincia"
                   id="floatingInput"
                   class="form-control p-3"
+                  autocomplete="off"
                 />
                 <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
               </mat-form-field>
@@ -317,6 +318,7 @@
                   formControlName="ciudad"
                   id="floatingInput"
                   class="form-control p-3"
+                  autocomplete="off"
                 />
                 <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
               </mat-form-field>
@@ -519,17 +521,26 @@
             </div>
 
             <div class="col-lg-6 mb-3">
-              <mat-form-field appearance="fill">
-                <mat-label>Foto del frente del DNI</mat-label>
-                <input
-                  matInput
-                  type="file"
-                  [formControl]="foto1"
-                  formControlName="foto1"
-                  id="floatingInput"
-                  class="form-control p-3"
-                />
-                <mat-toggle matSuffix [for]="floatingInput"></mat-toggle>
+              <mat-label>ADJUNTAR FOTO DNI FRONTAL</mat-label>
+              <mat-form-field appearance="fill" class="input-container">
+                <button
+                  #file
+                  mat-flat-button
+                  color="primary"
+                  id="botonf"
+                  class="btn"
+                >
+                  DNI FRONTAL
+                  <input
+                    multiple
+                    (change)="onFileSelected($event)"
+                    id="inputf"
+                    type="file"
+                    [formControl]="foto1"
+                    formControlName="foto1"
+                  />
+                </button>
+                {{ files | json }}
               </mat-form-field>
               <div
                 *ngIf="
@@ -547,17 +558,26 @@
             </div>
 
             <div class="col-lg-6 mb-3">
-              <mat-form-field appearance="fill">
-                <mat-label>Foto del dorso del DNI</mat-label>
-                <input
-                  matInput
-                  type="file"
-                  [formControl]="foto2"
-                  formControlName="foto2"
-                  id="floatingInput"
-                  class="form-control p-3"
-                />
-                <mat-toggle matSuffix [for]="ffloatingInput"></mat-toggle>
+              <mat-label>ADJUNTAR FOTO DNI DORSO</mat-label>
+              <mat-form-field appearance="fill" class="input-container">
+                <button
+                  #file
+                  mat-flat-button
+                  color="primary"
+                  id="botonf"
+                  class="btn"
+                >
+                  DNI DORSO
+                  <input
+                    multiple
+                    (change)="onFileSelected($event)"
+                    type="file"
+                    id="inputf"
+                    [formControl]="foto2"
+                    formControlName="foto2"
+                  />
+                </button>
+                {{ files | json }}
               </mat-form-field>
               <div
                 *ngIf="
@@ -608,6 +628,8 @@
             class="btn btn-sign my-3"
             *ngIf="step >= 1 && step < 3"
             (click)="next()"
+            id="btnNext"
+            [disabled]="!formsign.valid"
           >
             Siguiente &#8594;
           </button>

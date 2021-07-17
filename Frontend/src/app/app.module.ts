@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -16,7 +17,8 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     AppRoutingModule,
     PagesModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

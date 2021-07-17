@@ -85,3 +85,20 @@ input[type="date"] {
 .text-danger{
   font-size: 1rem;
 }
+.input-container {
+  position:relative;
+  color: red;
+  padding: 2rem;
+}
+#inputf{
+  opacity: 0; 
+  position:absolute; 
+  left:0px; 
+  top:10px; 
+  width:100%; 
+  height:100%;
+}
+#botonf{
+  border-radius: 3rem;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
