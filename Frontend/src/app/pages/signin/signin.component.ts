@@ -28,8 +28,6 @@ interface Ciudad {
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css'],
 })
-
-
 export class SigninComponent implements OnInit {
   step: any = 1;
 
@@ -42,7 +40,7 @@ export class SigninComponent implements OnInit {
   selectedFiles: any;
   selectedFilesF: any;
 
-  onFileSelected(event: { target: { files: string | any[]; }; }) {
+  onFileSelected(event: { target: { files: string | any[] } }) {
     if (event.target.files.length > 0) {
       for (let i = 0; i < event.target.files.length; i++) {
         this.files.push(event.target.files[i].name);
@@ -51,7 +49,7 @@ export class SigninComponent implements OnInit {
     }
   }
 
-  onFileSelectedF(event: { target: { files: string | any[]; }; }) {
+  onFileSelectedF(event: { target: { files: string | any[] } }) {
     if (event.target.files.length > 0) {
       for (let i = 0; i < event.target.files.length; i++) {
         this.files.push(event.target.files[i].name);
@@ -59,6 +57,25 @@ export class SigninComponent implements OnInit {
       }
     }
   }
+
+  onPasswordChange() {
+    if (this.cpassword.value == this.password.value) {
+      this.cpassword.setErrors(null);
+    } else {
+      this.cpassword.setErrors({ mismatch: true });
+    }
+  }
+
+   // getting the form control elements
+   get password(): AbstractControl {
+    return this.formsign.controls['password'];
+  }
+
+  get cpassword(): AbstractControl {
+    return this.formsign.controls['cpassword'];
+  }
+
+
   private pattLetters: any = /^[a-zA-Z ]*$/;
   private pattUser: any = /^(?=.*[a-zA-Z]{1,})(?=.*[\d]{0,})[a-zA-Z0-9]{5,}$/;
   private pattEmail: any =
@@ -98,11 +115,14 @@ export class SigninComponent implements OnInit {
         [Validators.required, Validators.pattern(this.pattLetters)],
       ],
       username: ['', [Validators.required, Validators.pattern(this.pattUser)]],
-      cpassword: ['',[Validators.required]],
-      pais: ['', [Validators.required, ]],
-      cpostal: ['',[Validators.required, Validators.pattern(this.pattAddress)]],
-      provincia: ['',[Validators.required]],
-      ciudad: ['', [Validators.required,]],
+      cpassword: ['', [Validators.required]],
+      pais: ['', [Validators.required]],
+      cpostal: [
+        '',
+        [Validators.required, Validators.pattern(this.pattAddress)],
+      ],
+      provincia: ['', [Validators.required]],
+      ciudad: ['', [Validators.required]],
       calle: ['', [Validators.required, Validators.pattern(this.pattAddress)]],
       pdpto: ['', [Validators.required, Validators.pattern(this.pattAddress)]],
       dni: ['', [Validators.required, Validators.pattern(this.pattNumbers)]],
@@ -116,42 +136,39 @@ export class SigninComponent implements OnInit {
         ],
       ],
       fecnac: ['', [Validators.required]],
-      foto1: ['', [Validators.required,]],
+      foto1: ['', [Validators.required]],
       foto2: ['', [Validators.required]],
     });
   }
 
   selectFormControl = new FormControl('', Validators.required);
   paises: Pais[] = [
-    {name: 'Argentina'},
-    {name: 'Uruguay'},
-    {name: 'Chile'},
-    {name: 'Bolivia'},
+    { name: 'Argentina' },
+    { name: 'Uruguay' },
+    { name: 'Chile' },
+    { name: 'Bolivia' },
   ];
 
   codigoPostal: CodigoPostal[] = [
-    {cp: '5000'},
-    {cp: '5000'},
-    {cp: '2000'},
-    {cp: '1313'},
+    { cp: '5000' },
+    { cp: '5000' },
+    { cp: '2000' },
+    { cp: '1313' },
   ];
 
   provincias: Provincia[] = [
-    {country: 'Córdoba'},
-    {country: 'Santa Fe'},
-    {country: 'Buenos Aires'},
+    { country: 'Córdoba' },
+    { country: 'Santa Fe' },
+    { country: 'Buenos Aires' },
   ];
 
   ciudades: Ciudad[] = [
-    {city: 'Capital'},
-    {city: 'Ciudad 2'},
-    {city: 'Cuidad 3'},
+    { city: 'Capital' },
+    { city: 'Ciudad 2' },
+    { city: 'Cuidad 3' },
   ];
 
-
-  ngOnInit(){
-  }
-
+  ngOnInit() {}
 
   next() {
     this.step = this.step + 1;
@@ -163,15 +180,13 @@ export class SigninComponent implements OnInit {
     this.step = 4;
   }
 
-
-  selectFile(event: { target: { files: any; }; }) {
+  selectFile(event: { target: { files: any } }) {
     this.selectedFiles = event.target.files;
   }
 
-  selectFileF(event: { target: { files: any; }; }) {
-  this.selectedFilesF = event.target.files;
+  selectFileF(event: { target: { files: any } }) {
+    this.selectedFilesF = event.target.files;
   }
-
 
   get nameField() {
     return this.formsign.get('name');
@@ -233,13 +248,10 @@ export class SigninComponent implements OnInit {
     event.preventDefault(); //Cancela la funcionalidad por default.
     if (this.formsign.valid) {
       console.log(this.formsign.value); //se puede enviar al servidor...
-  
     } else {
       this.formsign.markAllAsTouched(); //Activa todas las validaciones
-      
     }
   }
-
 }
 
 export function createPasswordStrengthValidator(): ValidatorFn {
@@ -254,9 +266,9 @@ export function createPasswordStrengthValidator(): ValidatorFn {
 
     const hasLowerCase = /[a-z]+/.test(value);
 
-      const hasNumeric = /[0-9]+/.test(value);
+    const hasNumeric = /[0-9]+/.test(value);
 
-      const passwordValid = hasUpperCase && hasLowerCase && hasNumeric;
+    const passwordValid = hasUpperCase && hasLowerCase && hasNumeric;
 
     return !passwordValid ? { passwordStrength: true } : null;
   };

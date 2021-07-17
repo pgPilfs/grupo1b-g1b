@@ -194,6 +194,7 @@
                   formControlName="cpassword"
                   placeholder="Ingrese nuevamente su contraseña"
                   class="form-control"
+                  (change)="onPasswordChange()"
                 />
                 <mat-error
                   *ngIf="
@@ -207,11 +208,7 @@
                     La contraseña es <strong>obligatoria</strong><br
                   /></mat-error>
                   <mat-error
-                    *ngIf="
-                      formsign
-                        .get('cpassword')
-                        .hasError('comparePasswordValidation')
-                    "
+                  *ngIf="cpassword.hasError('mismatch')"
                   >
                     La contraseña no <strong>coinciden</strong><br
                   /></mat-error>
@@ -684,7 +681,7 @@
             *ngIf="step >= 1 && step < 3"
             (click)="next()"
             id="btnNext"
-            [disabled]="!formsign.valid"
+           
           >
             Siguiente
             <svg
