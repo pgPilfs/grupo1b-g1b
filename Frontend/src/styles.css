@@ -33,22 +33,27 @@
 html{
     box-sizing: border-box;
     font-size: 16px;
+    min-height: 100%;
+    position: relative;
 }
 
 body{
     background-color: var(--color-bg);
     margin: 0;
+    padding: 0;
 }
+
 
 body, h1, h2, h3, h4, h5, h6{
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    color: var(--color-text-secundary);
+    color: var(--color-text);
 }
 
 p, div, a, label, input, span{
     font-family: 'Biryani', sans-serif;
+    color: var(--color-text-secundary);
 }
 
 a{
@@ -64,7 +69,7 @@ a:hover, a:active, a:focus{
 
 
 hr{
-    background-color: var(--color-bg-divider);
+    border: 1px solid var(--color-bg-divider);
 }
 
 /* Typography */
@@ -90,7 +95,7 @@ h5{
 }
 
 p {
-    font-size: 1.51rem;
+    font-size: 1.5rem;
     letter-spacing: .02rem;
 }
 
