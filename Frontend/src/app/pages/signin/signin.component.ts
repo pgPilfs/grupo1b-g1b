@@ -126,7 +126,7 @@ export class SigninComponent implements OnInit {
       calle: ['', [Validators.required, Validators.pattern(this.pattAddress)]],
       pdpto: ['', [Validators.required, Validators.pattern(this.pattAddress)]],
       dni: ['', [Validators.required, Validators.pattern(this.pattNumbers)]],
-      cuil: ['', [Validators.required, Validators.pattern(this.pattNumbers)]],
+      cuil: ['', [Validators.required, Validators.pattern(this.pattNumbers), Validators.minLength(9), Validators.max(11)]],
       tel: [
         '',
         [
