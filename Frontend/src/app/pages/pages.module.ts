@@ -11,6 +11,7 @@ import { PesoComponent } from './wallet/operation/peso/peso.component';
 import { DashboardComponent } from './wallet/dashboard/dashboard.component';
 
 
+
 @NgModule({
   declarations: [
     WalletComponent,
@@ -25,8 +26,10 @@ import { DashboardComponent } from './wallet/dashboard/dashboard.component';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, PesoComponent, DashboardComponent]
 })
+
+
 export class PagesModule { }
