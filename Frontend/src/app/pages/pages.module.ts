@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     WalletComponent,
@@ -30,4 +31,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ProyectComponent]
 })
+
+
 export class PagesModule { }
