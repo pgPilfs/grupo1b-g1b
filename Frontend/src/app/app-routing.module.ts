@@ -10,7 +10,6 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { DevelopersComponent } from './pages/developers/developers.component';
 
 const routes: Routes = [
-  
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signin', component: SigninComponent},
