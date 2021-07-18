@@ -123,3 +123,24 @@ a{
     background: var(--color-btn);
     margin: 1rem auto;
   }
+
+  .card{
+    border-radius: .5rem;
+    background-color: var(--color-bg-secundary);
+    padding: 2rem;
+    margin: 5rem auto;
+    width: 80%;
+    height: auto;
+    border: .1875rem solid var(--color-bg-divider);
+    box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.2);
+}
+
+.section-divider {
+    display: block;
+    border-radius: 55px;
+    width: 6.25rem;
+    height: .2rem;
+    background: var(--color-btn);
+    margin: 0 auto;
+  }
+
