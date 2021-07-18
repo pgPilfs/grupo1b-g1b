@@ -9,63 +9,51 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-.contraseña,
-.email {
-  margin: 0;
-  padding: 0;
-  display: block;
-}
-
 label {
   color: var(--color-text);
   padding-left: 1rem;
+  margin-left: 0.875rem;
 }
 
-label:after {
-  color: var(--color-text);
-  padding-left: 1rem;
-  font-size: 1rem;
-}
-
-.login-card a {
-  text-decoration: none;
-  line-height: 1.5rem;
-}
 .login-card input[type="email"],
 .login-card input[type="password"] {
   width: 100%;
-  padding: 1rem;
   border-radius: 0;
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 3px solid var(--color-bg-divider);
   background: transparent;
   outline: none;
   color: var(--color-text-secundary);
+  font-size: 0.875rem;
 }
 
-.contraseña,
-.email {
-  background: transparent;
-  color: var(--color-text);
-  padding-bottom: 1rem;
+input:focus,
+input:hover,
+input:active {
+  background-color: var(--color-bg-secundary);
+  color: var(--color-text-secundary);
+  border-bottom: 3px solid var(--color-bg-red-secundary);
+  font-size: 1rem;
 }
 
-
-.login-card input {
-  border: none;
-  background: transparent;
-  outline: none;
-}
-.ingresar {
+button {
   background-color: var(--color-btn);
   width: 15rem;
   height: 3rem;
   font-size: 1.3rem;
+  color: var(--color-bg-secundary);
+  border: none;
 }
 
-.label {
-  color: var(--color-text);
-  margin-left: 0.875rem;
+button:hover,
+button:focus,
+button:active {
+  background-color: var(--color-btn-hover);
+  width: 15rem;
+  height: 3rem;
+  font-size: 1.3rem;
+  color: var(--color-bg-secundary);
+  border: none;
 }
 
 .small1 {
@@ -74,6 +62,7 @@ label:after {
 }
 
 a {
-  text-align: right;
-  color: var(--color-link);
+  color: var(--color-btn-hover);
+  font-size: 0.875rem;
+  line-height: 1.5rem;
 }

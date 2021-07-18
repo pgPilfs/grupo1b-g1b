@@ -1,125 +1,138 @@
-@import 'aos/dist/aos.css';
+@import "aos/dist/aos.css";
 
 /* Root */
-:root{
-    --color-bg: #010409;
-    --color-bg-secundary: #171B22;
-    --color-bg-divider: #30363D;
-    --color-text: #fff;
-    --color-text-secundary: rgba(255, 255, 255, 0.7);
-    --color-text-disabled: rgba(255, 255, 255, 0.5);
-    --color-link: #40DF9F;
-    --color-btn: #40DF9F;
-    --color-btn-hover: #7AE3B9;
-    --color-bg-red: #FF464F;
-    --color-bg-red-secundary: #FF575F;
-    --color-bg-red-light: #FFE5E7;
-    --color-bg-orange: #FF8A34;
-    --color-bg-orange-secundary: #FF974A;
-    --color-bg-orange-light: #FFEFE3;
-    --color-bg-yellow: #FFBC25;
-    --color-bg-yellow-secundary: #FFC542;
-    --color-bg-yellow-light: #FEF3D9;
-    --color-bg-blue: #005DF2;
-    --color-bg-blue-secundary: #0062FF;
-    --color-bg-blue-light: #E3EEFF;
-    --color-bg-purple: #6952DC;
-    --color-bg-purple-secundary: #755FE2;
-    --color-bg-purple-light: #EDEAFD;
-    --color-bg-shadow: rgba(1,4,9,0.8);
+:root {
+  --color-bg: #010409;
+  --color-bg-secundary: #171b22;
+  --color-bg-divider: #30363d;
+  --color-text: #fff;
+  --color-text-secundary: rgba(255, 255, 255, 0.7);
+  --color-text-disabled: rgba(255, 255, 255, 0.5);
+  --color-link: #40df9f;
+  --color-btn: #40df9f;
+  --color-btn-hover: #7ae3b9;
+  --color-bg-red: #ff464f;
+  --color-bg-red-secundary: #ff575f;
+  --color-bg-red-light: #ffe5e7;
+  --color-bg-orange: #ff8a34;
+  --color-bg-orange-secundary: #ff974a;
+  --color-bg-orange-light: #ffefe3;
+  --color-bg-yellow: #ffbc25;
+  --color-bg-yellow-secundary: #ffc542;
+  --color-bg-yellow-light: #fef3d9;
+  --color-bg-blue: #005df2;
+  --color-bg-blue-secundary: #0062ff;
+  --color-bg-blue-light: #e3eeff;
+  --color-bg-purple: #6952dc;
+  --color-bg-purple-secundary: #755fe2;
+  --color-bg-purple-light: #edeafd;
+  --color-bg-shadow: rgba(1, 4, 9, 0.8);
 }
 
-html{
-    box-sizing: border-box;
-    font-size: 16px;
-    min-height: 100%;
-    position: relative;
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  height:100%;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
 }
 
-body{
-    background-color: var(--color-bg);
-    margin: 0;
-    padding: 0;
+body {
+  background-color: var(--color-bg);
+  margin: 0;
+  height:100%;
+  padding: 0;
 }
 
-
-body, h1, h2, h3, h4, h5, h6{
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--color-text);
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  color: var(--color-text);
 }
 
-p, div, a, label, input, span{
-    font-family: 'Biryani', sans-serif;
-    color: var(--color-text-secundary);
+p,
+div,
+a,
+label,
+input,
+span {
+  font-family: "Biryani", sans-serif;
+  color: var(--color-text-secundary);
 }
 
-a{
-    color: var(--color-text);
-    text-decoration: none;
+a {
+  color: var(--color-text);
+  text-decoration: none;
 }
 
-a:hover, a:active, a:focus{
-    color: var(--color-link);
-    outline: none;
-    text-decoration: none;
+a:hover,
+a:active,
+a:focus {
+  color: var(--color-link);
+  outline: none;
+  text-decoration: none;
 }
 
-
-hr{
-    border: 1px solid var(--color-bg-divider);
+hr {
+  border: 1px solid var(--color-bg-divider);
 }
 
 /* Typography */
 
-h1{
-    font-size: 2.8rem;
+h1 {
+  font-size: 2.8rem;
 }
 
-h2{
-    font-size: 2.2rem;
+h2 {
+  font-size: 2.2rem;
 }
 
-h3{
-    font-size: 1.8rem;
+h3 {
+  font-size: 1.8rem;
 }
 
-h4{
-    font-size: 1.2rem;
+h4 {
+  font-size: 1.2rem;
 }
 
-h5{
-    font-size: 1rem;
+h5 {
+  font-size: 1rem;
 }
 
 p {
-    font-size: 1.5rem;
-    letter-spacing: .02rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.02rem;
 }
 
-a{
-    font-size: 1rem;
-    letter-spacing: .02rem;
+a {
+  font-size: 1rem;
+  letter-spacing: 0.02rem;
 }
 
 /* Class */
-.card{
-    border-radius: .5rem;
-    background-color: var(--color-bg-secundary);
-    padding: 2rem;
-    margin: 5rem auto;
-    width: 80%;
-    height: auto;
-    border: .1875 solid var(--color-bg-divider);
-    box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.2);
+.card {
+  border-radius: 0.5rem;
+  background-color: var(--color-bg-secundary);
+  padding: 2rem;
+  margin: 5rem auto;
+  width: 80%;
+  height: auto;
+  border: 0.1875 solid var(--color-bg-divider);
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
 }
 
-.section-divider{
-    display: block;
-    border-radius: 55px;
-    width: 6.25rem;
-    height: 0.3125rem;
-    background: var(--color-btn);
-    margin: 1rem auto;
+.section-divider {
+  display: block;
+  border-radius: 55px;
+  width: 6.25rem;
+  height: 0.3125rem;
+  background: var(--color-btn);
+  margin: 1rem auto;
 }
