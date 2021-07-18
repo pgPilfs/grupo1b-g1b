@@ -16,8 +16,9 @@ const routes: Routes = [
   {path: 'wallet', component: WalletComponent},
   {path: 'terms', component: TermsComponent},
   {path: 'developers', component: DevelopersComponent},
-  {path:'**', component: NotfoundComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path:'**', component: NotfoundComponent},
+
 ];
 
 @NgModule({

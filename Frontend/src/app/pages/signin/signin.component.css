@@ -65,7 +65,7 @@ input:focus, input:hover, input:active{
     border-radius: 55px;
     width: 6.25rem;
     height: 0.3125rem;
-    background: var(--color-btn);;
+    background: var(--color-btn);
     margin: 0 auto;
     margin-bottom: 0px;
     margin-bottom: 20px;
