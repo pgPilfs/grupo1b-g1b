@@ -1,8 +1,8 @@
 section {
   padding: 0;
   overflow: hidden;
+  margin: 5rem auto;
 }
-
 
 h2 {
   color: var(--color-text);
@@ -21,7 +21,6 @@ input,
 .form-control {
   background-color: var(--color-bg-secundary);
   color: var(--color-text-secundary);
-
   border: none;
   border-radius: 0;
   border-bottom: 3px solid var(--color-bg-divider);
@@ -42,7 +41,6 @@ input:active {
   border-radius: 0.5rem;
   padding: 0 1.5rem;
   background-color: var(--color-bg-secundary);
-  margin: 1rem auto;
   height: auto;
   border: 3px solid var(--color-bg-divider);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
@@ -71,16 +69,18 @@ input:active {
   width: 11rem;
   height: 3rem;
   font-size: 1rem;
-  border-radius: 50px;
+  border-radius: .5rem;
 }
 
-.btn-login:focus, .btn-login:active,.btn-login:hover {
+.btn-login:focus,
+.btn-login:active,
+.btn-login:hover {
   color: var(--color-bg-purple);
-  border: 1px solid var(--color-purple);
+  border: 1px solid var(--color-bg-purple);
   width: 11rem;
   height: 3rem;
   font-size: 1rem;
-  border-radius: 50px;
+  border-radius: .5rem;
 }
 
 .btn-return {
@@ -92,8 +92,12 @@ input:active {
   border-radius: 50px;
 }
 
-.example-container .mat-form-field + .mat-form-field {
+.example-container .mat-form-field+.mat-form-field {
   margin-left: 8px;
+}
+
+.example-container {
+  align-self: center;
 }
 
 mat-datepicker-toggle {
@@ -142,13 +146,16 @@ button {
   margin: 0 12px;
   font-size: 1rem;
 }
+
 input[type="checkbox"] {
   width: 1rem;
   height: 1rem;
 }
+
 .link {
   color: var(--color-link);
 }
+
 p {
   font-size: 1rem;
 }
