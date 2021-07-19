@@ -8,16 +8,18 @@ import { WalletComponent } from './pages/wallet/wallet.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { DevelopersComponent } from './pages/developers/developers.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'signin', component: SigninComponent },
-  { path: 'wallet', component: WalletComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'terms', component: TermsComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: NotfoundComponent },
+  {path: 'home', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'signin', component: SigninComponent},
+  {path: 'wallet', component: WalletComponent},
+  {path: 'terms', component: TermsComponent},
+  {path: 'developers', component: DevelopersComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path:'**', component: NotfoundComponent},
+
 ];
 
 @NgModule({

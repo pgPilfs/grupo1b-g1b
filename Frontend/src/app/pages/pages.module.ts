@@ -7,11 +7,11 @@ import { TermsComponent } from './terms/terms.component';
 import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { DevelopersComponent } from './developers/developers.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatDatepickerModule, MatDatepickerToggle } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MAT_DATE_LOCALE } from '@angular/material/core';
-import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
 import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
@@ -22,6 +22,7 @@ import { ContactComponent } from './contact/contact.component';
     TermsComponent,
     SigninComponent,
     LoginComponent,
+    DevelopersComponent,
     ContactComponent
   ],
   imports: [
