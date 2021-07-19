@@ -1,9 +1,9 @@
-@import 'aos/dist/aos.css';
+@import "aos/dist/aos.css";
 
 /* Root */
 :root{
     --color-bg: #010409;
-    --color-bg-secundary: #171B22;
+    --color-bg-secundary: #0d1117;
     --color-bg-divider: #30363D;
     --color-text: #fff;
     --color-text-secundary: rgba(255, 255, 255, 0.7);
@@ -13,7 +13,7 @@
     --color-btn-hover: #7AE3B9;
     --color-bg-red: #FF464F;
     --color-bg-red-secundary: #FF575F;
-    --color-bg-red-light: #FFE5E7;
+    --color-bg-red-light: #cf6679;
     --color-bg-orange: #FF8A34;
     --color-bg-orange-secundary: #FF974A;
     --color-bg-orange-light: #FFEFE3;
@@ -27,6 +27,7 @@
     --color-bg-purple-secundary: #545BDB;
     --color-bg-purple-light: #EDEAFD;
     --color-bg-shadow: rgba(1,4,9,0.8);
+    --color-btn-primary:
 }
 
 html{
@@ -73,74 +74,53 @@ hr{
 
 /* Typography */
 
-h1{
-    font-size: 2.8rem;
+h1 {
+  font-size: 2.8rem;
 }
 
-h2{
-    font-size: 2.2rem;
+h2 {
+  font-size: 2.2rem;
 }
 
-h3{
-    font-size: 1.8rem;
+h3 {
+  font-size: 1.8rem;
 }
 
-h4{
-    font-size: 1.2rem;
+h4 {
+  font-size: 1.2rem;
 }
 
-h5{
-    font-size: 1rem;
+h5 {
+  font-size: 1rem;
 }
 
 p {
-    font-size: 1.5rem;
-    letter-spacing: .02rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.02rem;
 }
 
-a{
-    font-size: 1rem;
-    letter-spacing: .02rem;
+a {
+  font-size: 1rem;
+  letter-spacing: 0.02rem;
 }
 
 /* Class */
-.card{
-    border-radius: .5rem;
-    background-color: var(--color-bg-secundary);
-    padding: 2rem;
-    margin: 5rem auto;
-    width: 80%;
-    height: auto;
-    border: .1875 solid var(--color-bg-divider);
-    box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.2);
-}
-
-.section-divider{
-    display: block;
-    border-radius: 55px;
-    width: 6.25rem;
-    height: 0.3125rem;
-    background: var(--color-btn);
-    margin: 1rem auto;
-  }
-
-  .card{
-    border-radius: .5rem;
-    background-color: var(--color-bg-secundary);
-    padding: 2rem;
-    margin: 5rem auto;
-    width: 80%;
-    height: auto;
-    border: .1875rem solid var(--color-bg-divider);
-    box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.2);
+.card {
+  border-radius: 0.5rem;
+  background-color: var(--color-bg-secundary);
+  padding: 2rem;
+  margin: 5rem auto;
+  width: 80%;
+  height: auto;
+  border: 0.1875 solid var(--color-bg-divider);
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
 }
 
 .section-divider {
-    display: block;
-    border-radius: 55px;
-    width: 6.25rem;
-    height: .2rem;
-    background: var(--color-btn);
-    margin: 0 auto;
-  }
-
+  display: block;
+  border-radius: 55px;
+  width: 6.25rem;
+  height: 0.3125rem;
+  background: var(--color-btn);
+  margin: 1rem auto;
+}
