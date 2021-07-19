@@ -66,8 +66,8 @@ input:active {
 .btn-login {
   color: var(--color-bg-text);
   border: 1px solid var(--color-text);
-  width: 11rem;
-  height: 3rem;
+  width: auto;
+  height: 4rem;
   font-size: 1rem;
   border-radius: .5rem;
 }
@@ -77,7 +77,7 @@ input:active {
 .btn-login:hover {
   color: var(--color-bg-purple);
   border: 1px solid var(--color-bg-purple);
-  width: 11rem;
+  width: auto;
   height: 3rem;
   font-size: 1rem;
   border-radius: .5rem;
