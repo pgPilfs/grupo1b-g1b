@@ -5,6 +5,7 @@ import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +19,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     PagesModule,
     SharedModule,
     BrowserAnimationsModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,37 +1,65 @@
-<section class="section m-3 ">
+<section class="section m-3">
   <div class="container-fluid p-4">
-    <div class="card login-card " data-aos="zoom-in">
-      <h2 class="text-center my-4">Te damos la bienvenida <br>a <strong>PIL MONEY</strong></h2>
+    <div class="card login-card" data-aos="zoom-in">
+      <h2 class="text-center my-4">
+        Te damos la bienvenida <br />a <strong>PIL MONEY</strong>
+      </h2>
       <div class="section-divider"></div>
       <h4 class="text-center my-2">¡ Te extrañamos !</h4>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off" novalidate>
+      <form
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+        autocomplete="off"
+        novalidate
+      >
         <!-- EMAIL INPUT -->
         <div class="form-group my-4">
           <div class="form-floating">
-            <input type="email" class="form-control" formControlName="email" id="floatingInput"
-              placeholder="Ingrese su email" />
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email"
+              id="floatingInput"
+              placeholder="Ingrese su email"
+            />
             <label for="floatingInput">Email</label>
-            <small class="small1" *ngIf="
-            loginForm.controls.email.touched &&
-            loginForm.controls.email.errors?.required
-          ">Por favor, ingrese su <strong>email</strong></small>
-            <small class="small1" *ngIf="
-            loginForm.controls.email.touched &&
-            loginForm.controls.email.errors?.email
-          ">
-              Email mal ingresado</small>
+            <small
+              class="small1"
+              *ngIf="
+                loginForm.controls.email.touched &&
+                loginForm.controls.email.errors?.required
+              "
+              >Por favor, ingrese su <strong>email</strong></small
+            >
+            <small
+              class="small1"
+              *ngIf="
+                loginForm.controls.email.touched &&
+                loginForm.controls.email.errors?.email
+              "
+            >
+              Email mal ingresado</small
+            >
           </div>
         </div>
         <!-- CONTRASEÑA INPUT -->
         <div class="form-group my-4">
           <div class="form-floating">
-            <input type="password" class="form-control" formControlName="password"
-              placeholder="Ingrese su contraseña" />
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              placeholder="Ingrese su contraseña"
+            />
             <label for="floatingInput">Contraseña</label>
-            <small class="small1" *ngIf="
-            loginForm.controls.password.touched &&
-            loginForm.controls.password.errors?.required
-          ">Por favor, ingrese su <strong>contraseña</strong></small>
+            <small
+              class="small1"
+              *ngIf="
+                loginForm.controls.password.touched &&
+                loginForm.controls.password.errors?.required
+              "
+              >Por favor, ingrese su <strong>contraseña</strong></small
+            >
           </div>
         </div>
         <div class="items-card text-center my-4">
@@ -44,7 +72,13 @@
 
         <!-- BOTON -->
         <div class="d-flex justify-content-center">
-          <button type="submit" class="btn ingresar text-center" routerLink="/wallet">Ingresar</button>
+          <button
+            type="submit"
+            class="btn ingresar text-center"
+            routerLink="/wallet"
+          >
+            Ingresar
+          </button>
         </div>
       </form>
     </div>
