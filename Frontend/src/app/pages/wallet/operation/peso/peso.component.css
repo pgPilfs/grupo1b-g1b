@@ -1,0 +1,23 @@
+.table, td {
+    color: var(--color-text-secundary);
+    margin: 1rem 0;
+}
+.table th svg {
+    padding: 0;
+}
+thead {
+    border-bottom: solid 1px var(--color-text-secundary);
+}
+.title {
+    display: flex;
+    justify-content: space-between;
+}
+.btn-printer {
+    background-color: var(--color-btn);
+    width: 4.2rem;
+    padding: 0.2rem 1rem;
+}
+.btn-printer img {
+    background-color: var(--color-btn);
+    width: 100%;
+}
