@@ -9,6 +9,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { DevelopersComponent } from './pages/developers/developers.component';
+import { ProyectComponent } from './pages/proyect/proyect.component';
+
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -16,6 +18,8 @@ const routes: Routes = [
   {path: 'signin', component: SigninComponent},
   {path: 'wallet', component: WalletComponent},
   {path: 'terms', component: TermsComponent},
+  {path: 'contact', component: ContactComponent},
+  {path: 'proyect', component: ProyectComponent},
   {path: 'developers', component: DevelopersComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path:'**', component: NotfoundComponent},

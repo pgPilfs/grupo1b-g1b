@@ -1,0 +1,58 @@
+.MainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title {
+  letter-spacing: 0.02rem;
+  text-transform: uppercase;
+}
+
+.bars {
+  display: block;
+  border-radius: 0.5rem;
+  width: 12rem;
+  height: 0.05rem;
+  background: var(--color-btn);
+}
+
+.card-b {
+  border-radius: 0.5rem;
+  background-color: var(--color-bg-secundary);
+  padding: 4rem;
+  margin: 2rem auto;
+  width: fit-content;
+  height: auto;
+  border: 3px solid var(--color-bg-divider);
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.features-div {
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  -ms-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+
+.features-div:hover {
+  margin-top: -10px;
+}
+
+.features-div h4 {
+  color: var(--color-bg-purple-secundary);
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-bottom: 1.7rem;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.features-div p {
+  color: var(--color-text-secundary);
+  font-size: 1.3rem;
+  letter-spacing: 0.02rem;
+  text-align: start;
+}

@@ -13,6 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { ContactComponent } from './contact/contact.component';
+import { ProyectComponent } from './proyect/proyect.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ContactComponent } from './contact/contact.component';
     SigninComponent,
     LoginComponent,
     DevelopersComponent,
-    ContactComponent
+    ContactComponent,
+    ProyectComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,7 @@ import { ContactComponent } from './contact/contact.component';
     MatNativeDateModule,
     MatRadioModule,
   ],
-  exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ContactComponent],
+  exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ContactComponent, ProyectComponent],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'es'},
   ]
