@@ -13,7 +13,7 @@
     --color-btn-hover: #7AE3B9;
     --color-bg-red: #FF464F;
     --color-bg-red-secundary: #FF575F;
-    --color-bg-red-light: #FFE5E7;
+    --color-bg-red-light: #cf6679;
     --color-bg-orange: #FF8A34;
     --color-bg-orange-secundary: #FF974A;
     --color-bg-orange-light: #FFEFE3;
@@ -25,8 +25,9 @@
     --color-bg-blue-light: #E3EEFF;
     --color-bg-purple: #6952DC;
     --color-bg-purple-secundary: #755FE2;
-    --color-bg-purple-light: #EDEAFD;
+    --color-bg-purple-light: #bb86fc;
     --color-bg-shadow: rgba(1,4,9,0.8);
+    --color-btn-primary:
 }
 
 html{
@@ -111,15 +112,56 @@ a{
     margin: 5rem auto;
     width: 80%;
     height: auto;
-    border: .1875 solid var(--color-bg-divider);
+    border: .1875rem solid var(--color-bg-divider);
     box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.2);
 }
 
-.section-divider{
+.section-divider {
     display: block;
     border-radius: 55px;
     width: 6.25rem;
-    height: 0.3125rem;
+    height: .2rem;
     background: var(--color-btn);
-    margin: 1rem auto;
+    margin: 0 auto;
   }
+
+.btn-primary{
+    background: top right/210% 210% #e14eca;
+    background-image: linear-gradient(to bottom left,#e14eca,#ba54f5,#e14eca);
+    transition: all .15s ease;
+    box-shadow: none;
+    color: #fff;
+}
+
+.btn-info{
+    background: top right/210% 210% #bb86fc;
+    background-image: linear-gradient(to bottom left,#1d8cf8,#3358f4,#1d8cf8);
+    transition: all .15s ease;
+    box-shadow: none;
+    color: #fff;
+}
+
+.btn-success{
+    background: top right/210% 210% #00f2c3;
+    background-image: linear-gradient(to bottom left,#00f2c3,#0098f0,#00f2c3);
+    transition: all .15s ease;
+    box-shadow: none;
+    color: #fff;
+}
+
+.btn-warning{
+    background: top right/210% 210% #ff8d72;
+    background-image: linear-gradient(to bottom left,#ff8d72,#ff6491,#ff8d72);
+    transition: all .15s ease;
+    box-shadow: none;
+    color: #fff;
+}
+
+.btn-danger{
+    background: top right/210% 210% #fd5d93;
+    background-image: linear-gradient(to bottom left,#fd5d93,#ec250d,#fd5d93);
+    transition: all .15s ease;
+    box-shadow: none;
+    color: #fff;
+}
+
