@@ -10,11 +10,11 @@
   text-transform: uppercase;
 }
 
-.bars {
+.section-divider {
   display: block;
-  border-radius: 0.5rem;
-  width: 12rem;
-  height: 0.05rem;
+  border-radius: 55px;
+  width: 6.25rem;
+  height: 0.3125rem;
   background: var(--color-btn);
 }
 

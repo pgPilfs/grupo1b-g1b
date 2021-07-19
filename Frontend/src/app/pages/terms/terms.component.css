@@ -1,0 +1,31 @@
+main{
+  margin:auto;
+  margin-bottom:20em;
+  color: var(--color-text-secundary);
+}
+h3, h2{
+  text-align:center;
+  color: var(--color-text);
+  margin: 1.5rem auto;
+}
+
+ol{
+  margin: auto 2rem;
+  line-height: 1.5;
+}
+ol li{
+  font-size: 1.7em;
+  line-height: 1.5;
+}
+p{
+  padding-inline: 5em;
+  text-align:justify;
+  line-height: 1.5;
+}
+.bars {
+  display: block;
+  border-radius: 0.5rem;
+  width: 12rem;
+  height: 0.05rem;
+  background: var(--color-btn);
+}
