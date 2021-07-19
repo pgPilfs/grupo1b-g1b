@@ -21,21 +21,27 @@ h2{
 label {
     color: var(--color-text);
     padding-left: 1rem;
-    color: var(--color-text);
 }
 
-input{
+label:after {
+    color: var(--color-text);
+    padding-left: 1rem;
+    font-size: 1rem;
+}
+
+input, .form-control{
     background-color: var(--color-bg-secundary);
     color: var(--color-text-secundary);
     border: none;
+    border-radius:0;
+    box-shadow: 0px 3px 0px 0px var(--color-bg-divider);
+    font-size: 1rem;
 }
 
 input:focus, input:hover, input:active{
     background-color: var(--color-bg-secundary);
-    border: 0;
     color: var(--color-text-secundary);
-    box-shadow: 0px 3px 0px 0px var(--color-bg-purple);
-
+    box-shadow: 0px 3px 0px 0px var(--color-bg-purple-secundary);
 }
 
 .btn-sign{
@@ -64,3 +70,4 @@ input:focus, input:hover, input:active{
     margin-bottom: 0px;
     margin-bottom: 20px;
 }
+
