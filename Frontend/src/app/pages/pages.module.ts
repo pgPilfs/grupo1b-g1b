@@ -17,6 +17,7 @@ import { ProyectComponent } from './proyect/proyect.component';
 
 
 
+
 @NgModule({
   declarations: [
     WalletComponent,
@@ -25,26 +26,18 @@ import { ProyectComponent } from './proyect/proyect.component';
     TermsComponent,
     SigninComponent,
     LoginComponent,
-<<<<<<< HEAD
-  
-=======
     DevelopersComponent,
     ContactComponent,
     ProyectComponent
->>>>>>> 3a6b9e21b343e49fc53e579a1f972fdb3d977fd0
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
-<<<<<<< HEAD
-    
-=======
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
->>>>>>> 3a6b9e21b343e49fc53e579a1f972fdb3d977fd0
   ],
   exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ContactComponent, ProyectComponent],
   providers: [

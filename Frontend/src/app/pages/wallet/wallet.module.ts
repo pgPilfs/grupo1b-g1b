@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { PesoComponent } from './operation/peso/peso.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { PesoComponent } from './operation/peso/peso.component';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
+    MatSelectModule,
   ],
-  exports:[MenuComponent, PesoComponent]
+  exports:[MenuComponent]
 })
 export class WalletModule { }

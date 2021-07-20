@@ -7,10 +7,6 @@
             close
         </mat-icon>
     </button>
-    <a class="navbar-brand">
-        <img class="d-inline-block align-text-top logo" width="30" src="../../../favicon.ico" alt="">
-            PIL MONEY
-    </a>
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -24,27 +20,34 @@
         <mat-divider></mat-divider>
 
         <button mat-button class="btn menu-button">
-            <mat-icon>home</mat-icon>
-            <span>Home</span>
+            <mat-icon>account_balance_wallet</mat-icon>
+            <span>Billetera</span>
         </button>
+        <!-- <button mat-button class="btn menu-button">
+            <mat-icon>account_balance</mat-icon>
+            <span>Operaciones</span>
+        </button>  -->
+        <mat-icon>account_balance</mat-icon>
+            <span>Operaciones</span>
+        <mat-select>
+            <mat-option *ngFor="let operation of ops" [value]="operation.value">
+              {{operation.viewValue}}
+            </mat-option>
+          </mat-select>
         <button mat-button class="btn menu-button">
-            <mat-icon>person</mat-icon>
-            <span>Profile</span>
-        </button>
-        <button mat-button class="btn menu-button">
-            <mat-icon>info</mat-icon>
-            <span>About</span>
+            <mat-icon>account_circle</mat-icon>
+            <span>Perfil</span>
         </button>
 
         <mat-divider></mat-divider>
 
         <button mat-button class="btn menu-button">
-            <mat-icon>help</mat-icon>
-            <span>Help</span>
+            <mat-icon>settings</mat-icon>
+            <span>Configuracion</span>
         </button>
 
     </mat-sidenav>
-    <mat-sidenav-content>
+   
         <div class="content mat-elevation-z8">
             <section class="m-4" data-aos="zoom-in" data-aos-duration="1500">
                 <div class="container-fluid">
@@ -179,34 +182,28 @@
                               <tr>
                                 <th scope="col">Moneda</th>
                                 <th scope="col">Compra</th>
-                                <th scope="col">Venta</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
                                 <th scope="row">Dólar Oficial</th>
                                 <td>U$S 95.25</td>
-                                <td>U$S 101.25</td>
                               </tr>
                               <tr>
                                 <th scope="row">Dólar Libre</th>
                                 <td>U$S 176</td>
-                                <td>U$S 179</td>
                               </tr>
                               <tr>
                                 <th scope="row">Euro</th>
                                 <td>$ 113.48</td>
-                                <td>$ 113.58</td>
                               </tr>
                               <tr>
                                 <th scope="row">Bitcoin</th>
                                 <td>U$S 3175</td>
-                                <td>594,34B $</td>
                               </tr>
                               <tr>
                                 <th scope="row">Ethereum</th>
                                 <td>U$S 2645</td>
-                                <td>2209B $</td>
                               </tr>
                             </tbody>
                           </table>
@@ -218,5 +215,5 @@
               </section>
               
         </div>
-    </mat-sidenav-content>
+    
 </mat-sidenav-container>

@@ -23,15 +23,9 @@
     --color-bg-blue: #005DF2;
     --color-bg-blue-secundary: #0062FF;
     --color-bg-blue-light: #E3EEFF;
-<<<<<<< HEAD
-    --color-bg-purple: #464898;
-    --color-bg-purple-secundary: #545BDB;
-    --color-bg-purple-light: #EDEAFD;
-=======
     --color-bg-purple: #6952DC;
     --color-bg-purple-secundary: #755FE2;
     --color-bg-purple-light: #bb86fc;
->>>>>>> 3a6b9e21b343e49fc53e579a1f972fdb3d977fd0
     --color-bg-shadow: rgba(1,4,9,0.8);
     --color-btn-primary:
 }
@@ -111,48 +105,6 @@ a {
 }
 
 /* Class */
-<<<<<<< HEAD
-.card{
-    border-radius: .5rem;
-    background-color: var(--color-bg-secundary);
-    padding: 2rem;
-    margin: 5rem auto;
-    width: 80%;
-    height: auto;
-    border: .1875 solid var(--color-bg-divider);
-    box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.2);
-}
-
-.section-divider{
-    display: block;
-    border-radius: 55px;
-    width: 6.25rem;
-    height: 0.3125rem;
-    background: var(--color-btn);
-    margin: 1rem auto;
-  }
-
-  .card{
-    border-radius: .5rem;
-    background-color: var(--color-bg-secundary);
-    padding: 2rem;
-    margin: 5rem auto;
-    width: 80%;
-    height: auto;
-    border: .1875rem solid var(--color-bg-divider);
-    box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.2);
-}
-
-.section-divider {
-    display: block;
-    border-radius: 55px;
-    width: 6.25rem;
-    height: .2rem;
-    background: var(--color-btn);
-    margin: 0 auto;
-  }
-
-=======
 .card {
   border-radius: 0.5rem;
   background-color: var(--color-bg-secundary);
@@ -172,4 +124,3 @@ a {
   background: var(--color-btn);
   margin: 1rem auto;
 }
->>>>>>> 3a6b9e21b343e49fc53e579a1f972fdb3d977fd0

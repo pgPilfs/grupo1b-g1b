@@ -10,26 +10,17 @@
   },
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "@angular/animations": "~12.1.1",
-    "@angular/cdk": "^12.1.2",
-=======
     "@amgular/material": "^1.0.0",
     "@angular-material-components/file-input": "^6.0.0",
     "@angular/animations": "^12.1.2",
     "@angular/cdk": "github:angular/cdk-builds",
->>>>>>> 3a6b9e21b343e49fc53e579a1f972fdb3d977fd0
     "@angular/common": "~12.1.1",
     "@angular/compiler": "~12.1.1",
     "@angular/core": "~12.1.1",
     "@angular/flex-layout": "^12.0.0-beta.34",
     "@angular/forms": "~12.1.1",
-<<<<<<< HEAD
-    "@angular/material": "^12.1.2",
-=======
     "@angular/material": "github:angular/material2-builds",
     "@angular/material-moment-adapter": "^12.1.2",
->>>>>>> 3a6b9e21b343e49fc53e579a1f972fdb3d977fd0
     "@angular/platform-browser": "~12.1.1",
     "@angular/platform-browser-dynamic": "~12.1.1",
     "@angular/router": "~12.1.1",

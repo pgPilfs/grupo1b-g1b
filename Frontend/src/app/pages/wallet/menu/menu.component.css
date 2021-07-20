@@ -30,6 +30,7 @@ mat-sidenav {
 
 mat-sidenav-container {
     height: calc(100vh - 65px);
+    background: var(--color-bg);
 }
 
 .menu-button {
@@ -44,6 +45,23 @@ mat-sidenav-container {
 mat-icon {
         margin-right: 8px;
     }
+
+mat-drawer-content {
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+}
+mat-select{
+    color: white;
+    background-color: var(--color-bg-secundary);
+}
+mat-option{
+    background: var(--color-bg);
+}
+mat-select-mat-select-arrow {
+    color: white;
+}
 
 .avatar {
     margin-top: 16px;
