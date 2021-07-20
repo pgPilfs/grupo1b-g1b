@@ -7,11 +7,10 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { WalletComponent } from './pages/wallet/wallet.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
-import { DashboardComponent } from './pages/wallet/dashboard/dashboard.component';
 import { PesoComponent } from './pages/wallet/operation/peso/peso.component';
 
 const routes: Routes = [
-  
+
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signin', component: SigninComponent},
@@ -19,12 +18,10 @@ const routes: Routes = [
   {path: 'terms', component: TermsComponent},
   {path:'wallet',
   loadChildren: () => import('./pages/wallet/wallet.module').then(m=>m.WalletModule)},
-  {path: 'dashboard', component: DashboardComponent},
   {path: 'peso', component: PesoComponent},
   {path:'**', component: NotfoundComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
-
 
 @NgModule({
   declarations: [],
@@ -34,4 +31,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

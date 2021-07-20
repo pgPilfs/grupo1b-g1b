@@ -8,8 +8,6 @@ import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { PesoComponent } from './wallet/operation/peso/peso.component';
-import { DashboardComponent } from './wallet/dashboard/dashboard.component';
-
 
 @NgModule({
   declarations: [
@@ -20,13 +18,13 @@ import { DashboardComponent } from './wallet/dashboard/dashboard.component';
     SigninComponent,
     LoginComponent,
     PesoComponent,
-    DashboardComponent
-  
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, PesoComponent, DashboardComponent]
+  exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, PesoComponent]
 })
+
+
 export class PagesModule { }
