@@ -23,7 +23,6 @@ const routes: Routes = [
   {path: 'developers', component: DevelopersComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path:'**', component: NotfoundComponent},
-
 ];
 
 @NgModule({

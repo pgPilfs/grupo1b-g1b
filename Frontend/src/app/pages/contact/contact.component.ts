@@ -5,29 +5,27 @@ import { FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent implements OnInit {
-  name = new FormControl('',[ Validators.required ],[]);
-  mail = new FormControl('',[ Validators.required, Validators.email ],[]);
-  issue = new FormControl('',[ Validators.required ],[]);
-  msg = new FormControl('',[ Validators.required ],[]);
+  name = new FormControl('', [Validators.required], []);
+  mail = new FormControl('', [Validators.required, Validators.email], []);
+  issue = new FormControl('', [Validators.required], []);
+  msg = new FormControl('', [Validators.required], []);
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-  get nameField(){
+  ngOnInit(): void {}
+  get nameField() {
     return this.name;
   }
-  get mailField(){
+  get mailField() {
     return this.mail;
   }
-  get issueField(){
+  get issueField() {
     return this.issue;
   }
-  get msgField(){
+  get msgField() {
     return this.msg;
   }
 }

@@ -42,13 +42,14 @@ input:active {
   padding: 0 1.5rem;
   background-color: var(--color-bg-secundary);
   height: auto;
+  width: auto;
   border: 3px solid var(--color-bg-divider);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .btn-sign {
   background-color: var(--color-btn);
-  width: 13rem;
+  width: 10rem;
   height: 3rem;
   font-size: 1rem;
   border-radius: 50px;
@@ -57,7 +58,7 @@ input:active {
 .btn-sign-h {
   background-color: var(--color-bg-secundary);
   color: var(--color-text-secundary);
-  width: 13rem;
+  width: 10rem;
   height: 3rem;
   font-size: 1rem;
   border-radius: 50px;
@@ -67,9 +68,9 @@ input:active {
   color: var(--color-bg-text);
   border: 1px solid var(--color-text);
   width: auto;
-  height: 4rem;
+  height: 3rem;
   font-size: 1rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .btn-login:focus,
@@ -80,7 +81,7 @@ input:active {
   width: auto;
   height: 3rem;
   font-size: 1rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .btn-return {
@@ -92,7 +93,7 @@ input:active {
   border-radius: 50px;
 }
 
-.example-container .mat-form-field+.mat-form-field {
+.example-container .mat-form-field + .mat-form-field {
   margin-left: 8px;
 }
 

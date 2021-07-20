@@ -113,7 +113,7 @@ a {
   width: 80%;
   height: auto;
   border: 0.1875 solid var(--color-bg-divider);
-  box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 .section-divider {

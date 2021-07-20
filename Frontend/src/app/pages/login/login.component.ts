@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl,  FormGroup, Validators} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 
 /*export class LoginComponent implements OnInit {
@@ -44,24 +44,22 @@ import {FormControl,  FormGroup, Validators} from '@angular/forms';
       this.form.markAllAsTouched(); //Activa todas las validaciones
     }
   }*/
+export class LoginComponent {
+  loginForm: FormGroup;
 
-  export class LoginComponent {
+  constructor() {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
+    });
+  }
 
-    loginForm: FormGroup;
-
-    constructor() {
-      this.loginForm = new FormGroup({
-        email: new FormControl('', [Validators.required, Validators.email]),
-        password: new FormControl('', [Validators.required])
-      });
+  onSubmit() {
+    if (this.loginForm.valid) {
+      console.log(this._v());
     }
-
-    onSubmit() {
-      if (this.loginForm.valid) {
-        console.log(this._v());
-      }
-    }
-    _v() {
-      return this.loginForm.value;
-    }
+  }
+  _v() {
+    return this.loginForm.value;
+  }
 }

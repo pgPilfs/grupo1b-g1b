@@ -1,7 +1,7 @@
-<section class="m-2">
+<section class="my-3">
   <div class="container-fluid p-5">
     <div
-      class="card"
+      class="card "
       data-aos="fade-zoom-in"
       data-aos-easing="ease-in-back"
       data-aos-delay="300"
@@ -519,7 +519,7 @@
               <button class="bg-input">
                 <mat-form-field>
                   <mat-label class="file-txt"
-                    >Ingresar la imagen:<br />
+                    >
                     <mat-label *ngIf="selectedFiles; else newFile"
                       >{{ selectedFiles.item(0).name }}<br
                     /></mat-label>
@@ -574,7 +574,7 @@
               <button class="bg-input" disabled>
                 <mat-form-field>
                   <mat-label class="file-txt"
-                    >Ingresar la imagen: <br />
+                    >
                     <mat-label *ngIf="selectedFilesF; else newFile"
                       >{{ selectedFilesF.item(0).name }}<br
                     /></mat-label>
@@ -618,7 +618,7 @@
                 "
               >
                 <mat-error *ngIf="formsign.get('foto2').hasError('required')">
-                  <strong>Ingrese</strong> el reverso de su DNI
+                  <strong>Ingrese</strong> el reverso del DNI
                 </mat-error>
               </mat-error>
             </div>

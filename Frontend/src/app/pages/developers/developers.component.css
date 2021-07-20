@@ -106,9 +106,9 @@ svg {
 
 /* ANIMATIONS */
 .grid-item {
-  transition: transform .2s; 
+  transition: transform 0.2s;
 }
 
 .grid-item:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }

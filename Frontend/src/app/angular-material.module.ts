@@ -34,15 +34,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { A11yModule } from '@angular/cdk/a11y';
-import {ClipboardModule} from '@angular/cdk/clipboard';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {CdkStepperModule} from '@angular/cdk/stepper';
-import {CdkTableModule} from '@angular/cdk/table';
-import {DragDropModule} from '@angular/cdk/drag-drop';
-import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { CdkStepperModule } from '@angular/cdk/stepper';
+import { CdkTableModule } from '@angular/cdk/table';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 const materialModules = [
   CdkTreeModule,
@@ -194,5 +194,4 @@ const materialModules = [
     ScrollingModule,
   ],
 })
-
-export class AngularMaterialModule { }
+export class AngularMaterialModule {}

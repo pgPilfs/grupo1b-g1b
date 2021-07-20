@@ -13,7 +13,7 @@
 .section-divider {
   display: block;
   border-radius: 55px;
-  width: 6.25rem;
+  width: 9rem;
   height: 0.3125rem;
   background: var(--color-btn);
 }
@@ -21,7 +21,7 @@
 .card-b {
   border-radius: 0.5rem;
   background-color: var(--color-bg-secundary);
-  padding: 3.5rem;
+  padding: 2rem;
   margin: 2rem auto;
   width: fit-content;
   height: auto;
