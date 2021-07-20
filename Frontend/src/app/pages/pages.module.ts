@@ -9,7 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { PesoComponent } from './wallet/operation/peso/peso.component';
 import { DashboardComponent } from './wallet/dashboard/dashboard.component';
-
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,12 +22,15 @@ import { DashboardComponent } from './wallet/dashboard/dashboard.component';
     SigninComponent,
     LoginComponent,
     PesoComponent,
-    DashboardComponent
+    DashboardComponent,
+    
   
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, PesoComponent, DashboardComponent]
 })
