@@ -1,4 +1,4 @@
-# PROYECTO PIL 2021 | AULA 1 GRUPO B 
+# PROYECTO PIL 2021 | AULA 1 GRUPO B
 
 ### INTEGRANTES:
 
@@ -14,7 +14,7 @@
 
 
 
-## FRONTEND 
+## FRONTEND
 
 ### Requisitos:
 
@@ -28,7 +28,7 @@ npm install -g @angular/cli
 
 
 ### Desarrollo :
-Desde la la terminal necesitamos instalar las dependencias, en la carpeta Frontend 
+Desde la la terminal necesitamos instalar las dependencias, en la carpeta Frontend
 ```
 cd Frontend
 ```
