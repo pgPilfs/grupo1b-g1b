@@ -8,6 +8,7 @@ import { WalletComponent } from './pages/wallet/wallet.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { PesoComponent } from './pages/wallet/operation/peso/peso.component';
+import { MenuComponent } from './pages/wallet/menu/menu.component';
 
 const routes: Routes = [
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'wallet',
   loadChildren: () => import('./pages/wallet/wallet.module').then(m=>m.WalletModule)},
   {path: 'peso', component: PesoComponent},
+  {path: 'menu', component: MenuComponent},
   {path:'**', component: NotfoundComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];

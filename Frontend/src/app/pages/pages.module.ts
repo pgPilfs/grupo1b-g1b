@@ -7,7 +7,9 @@ import { TermsComponent } from './terms/terms.component';
 import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { PesoComponent } from './wallet/operation/peso/peso.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -17,13 +19,14 @@ import { PesoComponent } from './wallet/operation/peso/peso.component';
     TermsComponent,
     SigninComponent,
     LoginComponent,
-    PesoComponent,
+  
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
+    
   ],
-  exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, PesoComponent]
+  exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent]
 })
 
 
