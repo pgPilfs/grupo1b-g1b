@@ -29,12 +29,12 @@
     <mat-divider></mat-divider>
     <button mat-button class="btn menu-button">
       <mat-icon>account_balance</mat-icon>
-      <span routerLink="peso">Operaciones</span>
-      <mat-select>
-        <mat-option *ngFor="let operation of ops" [value]="operation.value">
-          {{ operation.viewValue }}
-        </mat-option>
-      </mat-select>
+      <span>Operaciones</span>
+      <!-- <mat-select>
+        <mat-option>Peso</mat-option>
+        <mat-option>Dolar</mat-option>
+        <mat-option>Cripto</mat-option>
+      </mat-select> -->
     </button>
     <mat-divider></mat-divider>
     <button mat-button class="btn menu-button">

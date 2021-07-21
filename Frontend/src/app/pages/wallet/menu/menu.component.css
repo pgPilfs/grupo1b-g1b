@@ -5,7 +5,7 @@ mat-toolbar {
 
 mat-sidenav {
   margin: 16px;
-  width: 200px;
+  width: auto;
   border-right: none;
   background: var(--color-bg-secundary);
   color: var(--color-text);
@@ -13,6 +13,7 @@ mat-sidenav {
   padding: 1em;
   text-align: center;
 }
+
 
 .content {
   height: calc(100vh - 98px);
@@ -29,6 +30,7 @@ mat-sidenav {
 mat-sidenav-container {
   height: calc(100vh - 65px);
   background: var(--color-bg);
+  overflow: none;
 }
 
 .menu-button {
