@@ -25,7 +25,7 @@ export class PesoComponent implements OnInit {
     this.operacionForm = new FormGroup({
       numeroTarjetaD: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$") ,Validators.minLength(16),Validators.maxLength(16)]),
       fechaD: new FormControl('', [Validators.required]),
-      montoD: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      montoD: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(100)]),
       numeroCVVD: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$") ,Validators.minLength(3),Validators.maxLength(3)]),
 
 
