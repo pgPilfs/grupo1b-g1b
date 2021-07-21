@@ -11,6 +11,7 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { PesoComponent } from './pages/wallet/operation/peso/peso.component';
 import { ProyectComponent } from './pages/proyect/proyect.component';
 import { DevelopersComponent } from './pages/developers/developers.component';
+import { MenuComponent } from './pages/wallet/menu/menu.component';
 
 const routes: Routes = [
 
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:'wallet',
   loadChildren: () => import('./pages/wallet/wallet.module').then(m=>m.WalletModule)},
   {path: 'peso', component: PesoComponent},
+  {path: 'menu', component: MenuComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path:'**', component: NotfoundComponent},
 

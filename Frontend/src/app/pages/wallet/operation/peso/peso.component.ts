@@ -1,73 +1,73 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from 'src/app/models/cliente.model';
-import { Cuenta } from 'src/app/models/cuenta.model';
-import { Deposito } from 'src/app/models/deposito.model';
-import { Extraccion } from 'src/app/models/extraccion.model';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-peso',
   templateUrl: './peso.component.html',
-  styleUrls: ['./peso.component.css']
+  styleUrls: ['./peso.component.css'],
 })
-
-
 export class PesoComponent implements OnInit {
-  seccionDeposito = false;
-  seccionExtraccion = false;
-  
-  cuentasDelCliente: Cuenta[] = [];
-  cuentaDestino: Cliente[] = [];
+  seccionIngreso = false;
+  seccionRetiro = false;
+
   form: any = {};
-  fechaD: Date | undefined;
 
   operacionForm: FormGroup;
 
-
   constructor() {
     this.operacionForm = new FormGroup({
-      numeroTarjetaD: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$") ,Validators.minLength(16),Validators.maxLength(16)]),
+      numeroTarjetaD: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+        Validators.minLength(16),
+        Validators.maxLength(16),
+      ]),
       fechaD: new FormControl('', [Validators.required]),
-      montoD: new FormControl('', [Validators.required]),
+      montoD: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+        Validators.min(100),
+      ]),
+      numeroCVVD: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+        Validators.minLength(3),
+        Validators.maxLength(3),
+      ]),
 
-
-      numeroTarjeta: new FormControl('', [Validators.required]),
+      numeroTarjeta: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+        Validators.minLength(16),
+        Validators.maxLength(16),
+      ]),
       fecha: new FormControl('', [Validators.required]),
-      monto: new FormControl('', [Validators.required]),
+      monto: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+        Validators.min(100),
+      ]),
+      numeroCVV: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+        Validators.minLength(3),
+        Validators.maxLength(3),
+      ]),
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  habilitarIngreso(): void {
+    this.seccionIngreso = true;
+    this.seccionRetiro = false;
   }
 
-
-  habilitarDeposito(): void {
-    this.seccionDeposito = true;
-    this.seccionExtraccion = false;
+  habilitarRetiro(): void {
+    this.seccionRetiro = true;
+    this.seccionIngreso = false;
   }
 
-  habilitarExtraccion(): void {
-    this.seccionExtraccion = true;
-    this.seccionDeposito = false;
-  }
-
-  depositar(){
-    if (this.form.cuenta != undefined && this.form.monto != undefined) {
-      let deposito = new Deposito();
-      deposito.id_cuenta_virtual = this.form.cuenta.Id;
-      deposito.monto = this.form.monto;
-    }
-  }
-  extraer(){
-    if (this.form.cuenta != undefined && this.form.monto != undefined) {
-      let extraccion = new Extraccion();
-      extraccion.id_cuenta_virtual = this.form.cuenta.Id;
-      extraccion.monto = this.form.monto;
-
-    }
-  }
-  
-  
-
+  ingresar() {}
+  retiro() {}
 }
-

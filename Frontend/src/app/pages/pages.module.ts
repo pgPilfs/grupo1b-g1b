@@ -24,10 +24,9 @@ import { ProyectComponent } from './proyect/proyect.component';
     TermsComponent,
     SigninComponent,
     LoginComponent,
-    PesoComponent,
     DevelopersComponent,
     ContactComponent,
-    ProyectComponent
+    ProyectComponent,
   ],
   imports: [
     CommonModule,

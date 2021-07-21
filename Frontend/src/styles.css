@@ -111,7 +111,7 @@ a {
   margin: 5rem auto;
   width: 80%;
   height: auto;
-  border: 0.1875 solid var(--color-bg-divider);
+  border: 3px solid var(--color-bg-divider);
   box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
 }
 
