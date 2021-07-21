@@ -1,28 +1,19 @@
-
-
-<section class="m-4">
-    <div class="container-fluid">
-        <!-- CARD -->
-      <div class="container">
-        <h2>Operaciones</h2>
-        <div class="card shadow ">
-        <h6 class="texto-seleccion card-header font-weight-bold">Seleccione la operación que desea realizar</h6>
-        <div class="card-body">
-          <div class="row">
-            <div class="contenedor-operaciones col">
-              <button type="button" (click)="habilitarDeposito()" class="btn-ope btn btn-light"><i
-                  class="fas fa-dollar-sign"></i> Ingresar Dinero</button>
-            </div>
-            <div class=" contenedor-operaciones col">
-              <button type="button" (click)="habilitarExtraccion()" class="btn-ope btn btn-light"><i
-                  class="fas fa-hand-holding-usd"></i> Retirar Dinero</button>
-            </div>
-          </div>
+<div class="container">
+  <h2>Operaciones</h2>
+  <div class="card shadow ">
+    <h6 class="texto-seleccion card-header font-weight-bold">Seleccione la operación que desea realizar</h6>
+    <div class="card-body">
+      <div class="row">
+        <div class="contenedor-operaciones col">
+          <button type="button" (click)="habilitarDeposito()" class="btn-ope btn btn-light"><i
+              class="fas fa-dollar-sign"></i> Ingresar Dinero</button>
+        </div>
+        <div class=" contenedor-operaciones col">
+          <button type="button" (click)="habilitarExtraccion()" class="btn-ope btn btn-light"><i
+              class="fas fa-hand-holding-usd"></i> Retirar Dinero</button>
+        </div>
       </div>
-    </div>
-  </div>
 </div>
-</section>
 
  <!-- Seccion para el deposito de dinero en cuenta de usuario -->
  
@@ -215,17 +206,13 @@
       </div>
     </form>
   </div>
-
-
 </div>
 
-<!-- Seccion para ver ultimos movimientos -->
+
+
 <section class="card">
   <div class="title">
       <h3>Últimos movimientos</h3>
-      <button class="btn btn-printer">
-          <img src="../../../../../assets/icons/printer.svg" alt="imprimir comprobante">
-      </button>
   </div>
   <table class="table table-dark table-hover text-center">
       <thead class="text-uppercase">

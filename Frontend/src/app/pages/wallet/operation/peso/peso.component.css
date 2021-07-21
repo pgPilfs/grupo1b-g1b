@@ -8,10 +8,6 @@
 thead {
     border-bottom: solid 1px var(--color-text-secundary);
 }
-.title {
-    display: flex;
-    justify-content: space-between;
-}
 .btn-printer {
     background-color: var(--color-btn);
     width: 4.2rem;
@@ -25,92 +21,96 @@ h2{
     color: #8B8E95;
     font-size: 30px;
 }
-
-.texto-seleccion{
-    background-color: #40DF9F;
-    color: white;
+.MainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.contenedor-operaciones{
-    padding: 0 !important;
-    margin: 1rem;
-    background-color:#F7F7F7;
-    height: 15vh;
-    text-align: center;
+.title {
+  letter-spacing: 0.02rem;
+  text-transform: uppercase;
 }
 
-.btn-ope{
-    background-color: white !important;
-    width: 100% !important;
-    height: 15vh !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border-radius: none !important;
-    /*border-radius: 10px 10px 10px 10px;*/
-    border-bottom: 1px solid #40DF9F !important;
-    border-top: 1px solid #40DF9F !important ;
-    border-left: 1px solid #40DF9F !important ;
-    border-right: 1px solid #40DF9F !important ;
-    color: #40DF9F !important;
-    font-size: 1.5rem !important;
-}
-.btn-ope:hover{
-    background-color: #40DF9F !important;
-    border-bottom: 1px solid white !important ;
-    border-top: 1px solid white !important ;
-    border-left: 1px solid white !important ;
-    border-right: 1px solid white !important ;
-    color: white !important;
+.texto-seleccion {
+  background-color: var(--color-bg-secundary);
+  color: var(--color-text-secundary);
 }
 
-.btn-ope:active{
-    background-color: #40DF9F !important;
-    border-bottom: 1px solid white !important ;
-    border-top: 1px solid white !important ;
-    border-left: 1px solid white !important ;
-    border-right: 1px solid white !important ;
-    color: white !important;
+.contenedor-operaciones {
+  padding: 0 !important;
+  margin: 1rem;
+  height: 15vh;
+  text-align: center;
 }
 
-.texto-ingreso{
-    background-color: #40DF9F;
-    color: white;
+.btn-ope {
+  background-color: var(--color-btn) !important;
+  width: 100% !important;
+  height: 15vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: none !important;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-bg-divider) !important;
+  color: var(--color-bg-secundary);
+  font-size: 1.5rem !important;
+}
+.btn-ope:hover,
+.btn-ope:active {
+  background-color: var(--color-btn-hover) !important;
+  border: 1px solid var(--color-bg-divider) !important ;
+  color: var(--color-bg-secundary);
 }
 
-.texto-retiro{
-    background-color: #40DF9F;
-    color: white;
+.texto-ingreso {
+  background-color: #40df9f;
+  color: white;
 }
 
-label{
-    color: #8B8E95;
+.texto-retiro {
+  background-color: #40df9f;
+  color: white;
 }
-select{
-    color:rgb(32, 31, 31) !important;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    box-shadow: none !important;
-    font-size: 2.6vh;
+
+label {
+  color: var(--color-text);
+  padding-left: 1rem;
+  background: transparent;
+  font-size: 1rem;
+  margin-top: 1rem;
 }
-select:focus{
- border-bottom-color: #40DF9F !important;
+
+input {
+  color: var(--color-text-secundary) !important;
+  border: none;
+  border-bottom: 3px solid var(--color-bg-divider);
+  background: transparent;
+  box-shadow: none !important;
+  font-size: 2.6vh;
+  font-weight: 500;
 }
-input{
-    color:rgb(32, 31, 31);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    box-shadow: none !important;
-    font-size: 2.6vh;
-    font-weight: 500;
+input:focus {
+  border: none;
+  border-bottom: 3px solid var(--color-bg-divider);
+  background: transparent;
 }
-input:focus{
-    border-bottom-color: #40DF9F !important;
-   }
-input::after{
-    border-bottom-color: #40DF9F !important;
-   }
+input::after {
+  border: none;
+  border-bottom: 3px solid var(--color-bg-divider);
+  background: transparent;
+}
+
+input[type="date"] {
+  color: var(--color-text-secundary) !important;
+  border: none;
+  border-bottom: 3px solid var(--color-bg-divider);
+  background: transparent;
+  box-shadow: none !important;
+  font-size: 2.6vh;
+  font-weight: 500;
+}
 
 .small1 {
     color: var(--color-bg-red);

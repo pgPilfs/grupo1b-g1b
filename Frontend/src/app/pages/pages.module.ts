@@ -8,9 +8,13 @@ import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { PesoComponent } from './wallet/operation/peso/peso.component';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { ContactComponent } from './contact/contact.component';
+import { DevelopersComponent } from './developers/developers.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { ProyectComponent } from './proyect/proyect.component';
 
 @NgModule({
   declarations: [
@@ -20,18 +24,23 @@ import { ReactiveFormsModule } from '@angular/forms';
     TermsComponent,
     SigninComponent,
     LoginComponent,
-    PesoComponent,
-    
-  
+    DevelopersComponent,
+    ContactComponent,
+    ProyectComponent,
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
-    FormsModule
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
   ],
-  exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, PesoComponent]
+  exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ContactComponent, ProyectComponent],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'es'},
+  ]
 })
 
-
-export class PagesModule { }
+export class PagesModule{ }

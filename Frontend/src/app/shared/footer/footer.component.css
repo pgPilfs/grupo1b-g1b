@@ -1,97 +1,85 @@
-#footer{
-    width: 100%;
-    overflow: hidden;
-    background-color: var(--color-bg);
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-    bottom: 0;
-
-}
-
-.name{
-  color:antiquewhite;
+#footer {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-bg);
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  bottom: 0;
 }
 
 .txt {
-    margin-bottom: 0;
-    color: var(--color-text);
-    text-transform: uppercase;
-    text-align: center;
-    position: relative;
+  margin-bottom: 0;
+  color: var(--color-text);
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
 }
 
-hr{
-    background-color: var(--color-bg-divider);
+hr {
+  background-color: var(--color-bg-divider);
 }
 
-.copy-bg{
-    background-color: var(--color-bg);
+.copy-bg {
+  background-color: var(--color-bg);
 }
 
 .copyright {
-    color: var(--color-text-secundary);
-    font-size: .80rem;
+  color: var(--color-text-secundary);
+  font-size: 0.8rem;
+  bottom: 0;
 }
 
+#footer li {
+  margin-right: 70px;
+}
 
+#footer a {
+  position: relative;
+  display: block;
+  padding: 5px;
+  color: var(--color-text);
+}
 
-#footer {
-    display: flex;
-    justify-content: center;
-  }
+#footer a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  border-radius: 55px;
+  background: var(--color-btn);
+  z-index: 1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+  color: var(--color-text);
+}
 
-  #footer li {
-    margin-right: 70px;
-  }
+#footer a:hover::before {
+  transform: scaleX(1);
+  color: var(--color-text);
+}
 
-  #footer a {
-    position: relative;
-    display: block;
-    padding: 5px;
-    color: var(--color-text);
-  }
-
-  #footer a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 25%;
-    width: 50%;
-    height: 2px;
-    border-radius: 55px;
-    background: var(--color-btn);
-    z-index: 1;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s ease-in-out;
-    color: var(--color-text);
-  }
-  
-  #footer a:hover::before {
-    transform: scaleX(1);
-    color: var(--color-text);
-  }
-  
-  
-  /* ANIMATIONS
+/* ANIMATIONS
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  #footer[data-animation="to-left"] a::before {
-    transform-origin: center;
-    color: var(--color-text);
-  }
-  
-  #footer[data-animation="center"] a::before {
-    transform-origin: center;
-    color: var(--color-text);
-  }
-  
-  #footer[data-animation="bonus"] a::before {
-    transform-origin: right;
-    color: var(--color-text);
-  }
-  
-  #footer[data-animation="bonus"] a:hover::before {
-    transform-origin: center;
-    transform: scaleX(1);
-    transition-timing-function: cubic-bezier(0.2, 1, 0.82, 2);
-    color: var(--color-text);
-  }
+#footer[data-animation="to-left"] a::before {
+  transform-origin: center;
+  color: var(--color-text);
+}
+
+#footer[data-animation="center"] a::before {
+  transform-origin: center;
+  color: var(--color-text);
+}
+
+#footer[data-animation="bonus"] a::before {
+  transform-origin: right;
+  color: var(--color-text);
+}
+
+#footer[data-animation="bonus"] a:hover::before {
+  transform-origin: center;
+  transform: scaleX(1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.82, 2);
+  color: var(--color-text);
+}

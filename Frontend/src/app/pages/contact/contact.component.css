@@ -1,0 +1,141 @@
+/* GENERAL */
+section {
+  text-align: center;
+  color: var(--color-text);
+}
+
+hr {
+  height: auto;
+  width: 0.2rem;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+}
+section p {
+  font-size: 1rem;
+  margin: 0;
+}
+.card {
+  margin: 2rem auto;
+  padding-top: 2rem;
+  border: 3px solid var(--color-bg-divider);
+}
+
+/* TITULO */
+section h2 {
+  font-weight: bold;
+  color: var(--color-text);
+}
+.green-line {
+  background-color: var(--color-link);
+  height: 0.2rem;
+  width: 8rem;
+  margin: 0.6rem auto;
+}
+
+/* CONSULTA */
+label {
+  color: var(--color-text);
+  padding-left: 1rem;
+  margin-left: 0.875rem;
+  background: transparent;
+}
+
+input {
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  border-bottom: 3px solid var(--color-bg-divider);
+  background: transparent;
+  outline: none;
+  color: var(--color-text-secundary);
+  font-size: 0.875rem;
+}
+
+textarea {
+  background-color: var(--color-bg-secundary);
+  color: var(--color-text-secundary);
+  border: 2px solid var(--color-bg-divider);
+  height: 150px;
+}
+
+input:focus,
+input:hover,
+input:active,
+textarea:focus,
+textarea:hover,
+textarea:active {
+  background-color: var(--color-bg-secundary);
+  border: 0;
+  color: var(--color-text-secundary);
+  border-bottom: 3px solid var(--color-bg-red);
+}
+
+.small {
+  color: var(--color-bg-red);
+  padding-top: 0rem;
+}
+
+.small p strong {
+  color: var(--color-bg-red);
+  padding-top: 0rem;
+}
+
+.btn-submit {
+  background-color: var(--color-btn);
+  width: 15rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  color: var(--color-bg-secundary);
+  border: none;
+}
+
+.btn-submit:hover,
+.btn-submit:focus,
+.btn-submit:active {
+  background-color: var(--color-btn-hover);
+  width: 15rem;
+  height: 3rem;
+  font-size: 1.3rem;
+  color: var(--color-bg-secundary);
+  border: none;
+}
+
+/* DATOS DE CONTACTO */
+.datos-container {
+  padding-top: 5rem;
+  color: var(--color-text-secundary);
+}
+
+.datos-container p {
+  color: var(--color-text-secundary);
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  align-items: center;
+}
+
+svg {
+  color: var(--color-text-secundary);
+  margin-right: 1.5rem;
+}
+
+#mapa {
+  width: 100%;
+  max-width: 20rem;
+}
+
+/* ANIMATIONS */
+#mapa {
+  transition: transform 0.2s;
+}
+
+#mapa:hover {
+  transform: scale(1.1);
+}
+
+@media (min-width: 768px) {
+  .content {
+    display: grid;
+    grid-template-columns: 47.5% 5% 47.5%;
+    margin-top: 2rem;
+  }
+}

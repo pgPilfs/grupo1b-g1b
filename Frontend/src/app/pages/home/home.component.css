@@ -46,7 +46,7 @@
 }
 
 .btn-signin {
-    background: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);;
+    background: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
     border-radius: .5rem;
     font-size: 1.5rem;
     color: var(--color-bg-secundary);
@@ -63,6 +63,18 @@
     background: var(--color-btn-hover);
 }
 
+.btn-login{
+    background: var(--color-bg-secundary);
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    color: var(--color-text-secundary);
+    text-align: center;
+    margin-top: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    border:var(--color-bg-divider);
+}
+
 section{
     background-color: var(--color-bg-secundary);
     padding: 0;
@@ -70,24 +82,22 @@ section{
 }
 
 .section-divider{
-    display: block;
-    border-radius: 55px;
-    width: 6.25rem;
-    height: 0.3125rem;
-    background: var(--color-btn);
-    margin: 1rem auto;
+    width: 11em;
+    height: 0.2rem;
+}
+
+.content2 {
+    padding: 4rem;
+    line-height: 1.5;
 }
 
 .content2 h2 {
     font-size: 2rem;
-    margin: 1rem auto;
-    color: var(--color-text);
 }
 
 .content2 p {
-    margin: 1rem auto;
+    margin: 2rem auto;
     letter-spacing: 0.1rem;
-    padding: 0 4rem;
     line-height: 1.5;
     font-size: 1rem;
     color: var(--color-text);

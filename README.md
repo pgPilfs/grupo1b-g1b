@@ -12,10 +12,10 @@
 - Vazquez, Ignacio.
 - Visintini, Juan.
 
-______
+
 
 ## FRONTEND 
-____
+
 ### Requisitos:
 
 - Installar [Node.js](https://nodejs.org/es/)
