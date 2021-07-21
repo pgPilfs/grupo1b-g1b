@@ -8,11 +8,13 @@ import { WalletComponent } from './pages/wallet/wallet.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
-import { DevelopersComponent } from './pages/developers/developers.component';
+import { PesoComponent } from './pages/wallet/operation/peso/peso.component';
 import { ProyectComponent } from './pages/proyect/proyect.component';
-
+import { DevelopersComponent } from './pages/developers/developers.component';
+import { MenuComponent } from './pages/wallet/menu/menu.component';
 
 const routes: Routes = [
+  
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signin', component: SigninComponent},
@@ -21,6 +23,10 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'proyect', component: ProyectComponent},
   {path: 'developers', component: DevelopersComponent},
+  {path:'wallet',
+  loadChildren: () => import('./pages/wallet/wallet.module').then(m=>m.WalletModule)},
+  {path: 'peso', component: PesoComponent},
+  {path: 'menu', component: MenuComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path:'**', component: NotfoundComponent},
 ];

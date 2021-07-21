@@ -17,17 +17,16 @@
     --color-bg-orange: #FF8A34;
     --color-bg-orange-secundary: #FF974A;
     --color-bg-orange-light: #FFEFE3;
-    --color-bg-yellow: #FFBC25;
-    --color-bg-yellow-secundary: #FFC542;
+    --color-bg-yellow: #DAA522;
+    --color-bg-yellow-secundary: #D6B34E;
     --color-bg-yellow-light: #FEF3D9;
     --color-bg-blue: #005DF2;
     --color-bg-blue-secundary: #0062FF;
     --color-bg-blue-light: #E3EEFF;
-    --color-bg-purple: #6952DC;
-    --color-bg-purple-secundary: #755FE2;
-    --color-bg-purple-light: #bb86fc;
+    --color-bg-purple: #464898;
+    --color-bg-purple-secundary: #545BDB;
+    --color-bg-purple-light: #EDEAFD;
     --color-bg-shadow: rgba(1,4,9,0.8);
-    --color-btn-primary:
 }
 
 html{
@@ -112,8 +111,8 @@ a {
   margin: 5rem auto;
   width: 80%;
   height: auto;
-  border: 0.1875 solid var(--color-bg-divider);
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border: 3px solid var(--color-bg-divider);
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
 }
 
 .section-divider {
