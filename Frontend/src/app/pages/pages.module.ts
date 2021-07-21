@@ -7,14 +7,13 @@ import { TermsComponent } from './terms/terms.component';
 import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { PesoComponent } from './wallet/operation/peso/peso.component';
-import { ContactComponent } from './contact/contact.component';
 import { DevelopersComponent } from './developers/developers.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { ProyectComponent } from './proyect/proyect.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,7 @@ import { ProyectComponent } from './proyect/proyect.component';
     LoginComponent,
     DevelopersComponent,
     ContactComponent,
-    ProyectComponent,
+    ProyectComponent
   ],
   imports: [
     CommonModule,

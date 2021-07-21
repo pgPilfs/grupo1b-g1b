@@ -1,52 +1,219 @@
 <mat-toolbar class="mat-elevation-z8">
-  <button
-    class="btn"
-    mat-icon-button
-    *ngIf="sidenav.mode === 'over'"
-    (click)="sidenav.toggle()"
-  >
-    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
-    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
-  </button>
+    <button class="btn" mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-    <img
-      class="avatar mat-elevation-z8"
-      src="../../../../assets/avatars/default.png"
-    />
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
-    <h4 class="name">Username</h4>
-    <p class="designation">Usuario</p>
+        <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
 
-    <mat-divider></mat-divider>
+        <h4 class="name">John Smith</h4>
+        <p class="designation">Software Engineer</p>
 
-    <button mat-button class="btn menu-button">
-      <mat-icon>account_balance_wallet</mat-icon>
-      <span routerLink="/wallet">Billetera Virtual</span>
-    </button>
-    <mat-divider></mat-divider>
-    <button mat-button class="btn menu-button">
-      <mat-icon>account_balance</mat-icon>
-      <span>Operaciones</span>
-      <!-- <mat-select>
-        <mat-option>Peso</mat-option>
-        <mat-option>Dolar</mat-option>
-        <mat-option>Cripto</mat-option>
-      </mat-select> -->
-    </button>
-    <mat-divider></mat-divider>
-    <button mat-button class="btn menu-button">
-      <mat-icon>account_circle</mat-icon>
-      <span routerLink="/perfil">Perfil</span>
-    </button>
+        <mat-divider></mat-divider>
 
-    <mat-divider></mat-divider>
+        <button mat-button class="btn menu-button">
+            <mat-icon>account_balance_wallet</mat-icon>
+            <span>Billetera</span>
+        </button>
+        <!-- <button mat-button class="btn menu-button">
+            <mat-icon>account_balance</mat-icon>
+            <span>Operaciones</span>
+        </button>  -->
+        <mat-icon>account_balance</mat-icon>
+            <span>Operaciones</span>
+        <mat-select>
+            <mat-option *ngFor="let operation of ops" [value]="operation.value">
+              {{operation.viewValue}}
+            </mat-option>
+          </mat-select>
+        <button mat-button class="btn menu-button">
+            <mat-icon>account_circle</mat-icon>
+            <span>Perfil</span>
+        </button>
 
-    <button mat-button class="btn menu-button">
-      <mat-icon>settings</mat-icon>
-      <span>Configuracion</span>
-    </button>
-  </mat-sidenav>
+        <mat-divider></mat-divider>
+
+        <button mat-button class="btn menu-button">
+            <mat-icon>settings</mat-icon>
+            <span>Configuracion</span>
+        </button>
+
+    </mat-sidenav>
+   
+        <div class="content mat-elevation-z8">
+            <section class="m-4" data-aos="zoom-in" data-aos-duration="1500">
+                <div class="container-fluid">
+                  <div class="title text-center">
+                    <h2><strong>Hola NAME</strong>, te damos la bienvenida de vuelta!</h2>
+                  </div>
+              
+                  <div class="header pb-8 pt-5 pt-md-8">
+                    <div class="container-fluid">
+                      <div class="header-body">
+                        <div class="row">
+                          <!-- PESOS -->
+                          <div class="col-xl-4 col-lg-6">
+                            <div class="card card1 mb-4 mb-xl-0">
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col">
+                                    <h3 class="text-uppercase card-title1 my-2">
+                                      Saldo en pesos
+                                    </h3>
+                                    <span class="h2 font-weight-bold mb-0"> $ 3500,897</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- DOLAR -->
+                          <div class="col-xl-4 col-lg-6">
+                            <div class="card card2 mb-4 mb-xl-0">
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col">
+                                    <h3 class="card-title2 text-uppercase my-2">
+                                      Saldo en dólar
+                                    </h3>
+                                    <span class="h2 font-weight-bold mb-0"> U$S 2,356</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- CRIPTO -->
+                          <div class="col-xl-4 col-lg-6">
+                            <div class="card card3 mb-4 mb-xl-0">
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col">
+                                    <h3 class="card-title3 text-uppercase my-2">
+                                      SALDO EN CRIPTOMONEDA
+                                    </h3>
+                                    <span class="h2 font-weight-bold mb-0">924B $</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <div class="row my-4">
+                    <div class="col-xl-8 mb-5 mb-xl-0">
+                      <div class="card">
+                        <div>
+                          <div class="row align-items-center pb-4">
+                            <div class="col">
+                              <h2 class="my-2">Últimos movimientos</h2>
+                            </div>
+                            <div class="col more">
+                              <a class="more" href="">Ver más</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="table-responsive">
+                          <!-- Projects table -->
+                          <table class="align-items-center my-4">
+                            <thead class="">
+                              <tr class="my-2">
+                                <th scope="col">Cuenta</th>
+                                <th class="text-center" scope="col">Fecha</th>
+                                <th class="text-center" scope="col">Movimiento</th>
+                                <th class="text-center" scope="col">Ingreso</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Margarita</th>
+                                <td>19/07/2021</td>
+                                <td class="ingreso">$ 340</td>
+                                <td class="ingreso">&#8648;</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Alejandra</th>
+                                <td>14/07/2021</td>
+                                <td class="ingreso">$ 1319</td>
+                                <td class="ingreso">&#8648;</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Starbucks</th>
+                                <td>05/07/2021</td>
+                                <td class="egreso">$ 513</td>
+                                <td class="egreso">&#8650;</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Fabricio</th>
+                                <td>05/07/2021</td>
+                                <td class="egreso">$ 2050</td>
+                                <td class="egreso">&#8650;</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-4">
+                      <div class="card">
+                        <div class="card-header border-0">
+                          <div class="row align-items-center pb-4">
+                            <div class="col">
+                              <h2 class="my-2">Cotización</h2>
+                            </div>
+                            <div class="col more">
+                              <a class="more" href="/pesos">Ver más</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="table-responsive">
+                          <!-- Projects table -->
+                          <table class="align-items-center">
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">Moneda</th>
+                                <th scope="col">Compra</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Dólar Oficial</th>
+                                <td>U$S 95.25</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Dólar Libre</th>
+                                <td>U$S 176</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Euro</th>
+                                <td>$ 113.48</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Bitcoin</th>
+                                <td>U$S 3175</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Ethereum</th>
+                                <td>U$S 2645</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              
+        </div>
+    
 </mat-sidenav-container>
