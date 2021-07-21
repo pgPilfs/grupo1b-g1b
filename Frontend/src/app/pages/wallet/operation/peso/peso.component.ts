@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from 'src/app/models/cliente.model';
-import { Cuenta } from 'src/app/models/cuenta.model';
-import { Deposito } from 'src/app/models/deposito.model';
-import { Extraccion } from 'src/app/models/extraccion.model';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-peso',
@@ -16,10 +13,10 @@ export class PesoComponent implements OnInit {
   seccionDeposito = false;
   seccionExtraccion = false;
   
-  cuentasDelCliente: Cuenta[] = [];
-  cuentaDestino: Cliente[] = [];
   form: any = {};
-  fechaD: Date | undefined;
+
+
+
 
   operacionForm: FormGroup;
 
@@ -28,17 +25,20 @@ export class PesoComponent implements OnInit {
     this.operacionForm = new FormGroup({
       numeroTarjetaD: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$") ,Validators.minLength(16),Validators.maxLength(16)]),
       fechaD: new FormControl('', [Validators.required]),
-      montoD: new FormControl('', [Validators.required]),
+      montoD: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      numeroCVVD: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$") ,Validators.minLength(3),Validators.maxLength(3)]),
 
 
-      numeroTarjeta: new FormControl('', [Validators.required]),
+      numeroTarjeta: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$") ,Validators.minLength(16),Validators.maxLength(16)]),
       fecha: new FormControl('', [Validators.required]),
-      monto: new FormControl('', [Validators.required]),
+      monto: new FormControl('', [Validators.required , Validators.pattern("^[0-9]*$")]),
+      numeroCVV: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$") ,Validators.minLength(3),Validators.maxLength(3)]),
     });
   }
 
   ngOnInit(): void {
   }
+  
 
 
   habilitarDeposito(): void {
@@ -52,19 +52,10 @@ export class PesoComponent implements OnInit {
   }
 
   depositar(){
-    if (this.form.cuenta != undefined && this.form.monto != undefined) {
-      let deposito = new Deposito();
-      deposito.id_cuenta_virtual = this.form.cuenta.Id;
-      deposito.monto = this.form.monto;
-    }
+    
   }
   extraer(){
-    if (this.form.cuenta != undefined && this.form.monto != undefined) {
-      let extraccion = new Extraccion();
-      extraccion.id_cuenta_virtual = this.form.cuenta.Id;
-      extraccion.monto = this.form.monto;
-
-    }
+  
   }
   
   
