@@ -31,7 +31,7 @@ export class PesoComponent implements OnInit {
 
       numeroTarjeta: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$") ,Validators.minLength(16),Validators.maxLength(16)]),
       fecha: new FormControl('', [Validators.required]),
-      monto: new FormControl('', [Validators.required , Validators.pattern("^[0-9]*$")]),
+      monto: new FormControl('', [Validators.required , Validators.pattern("^[0-9]*$"), Validators.min(100)]),
       numeroCVV: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$") ,Validators.minLength(3),Validators.maxLength(3)]),
     });
   }

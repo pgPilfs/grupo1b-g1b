@@ -85,7 +85,7 @@
       </div>
       <div [formGroup]="operacionForm"  class="form-group" novalidate>
         <label for="monto">Ingrese el monto que desea depositar:</label>
-        <input type="number" class="form-control" formControlName= "montoD" name="montoD" [(ngModel)]="form.montoD" required
+        <input type="text" class="form-control" formControlName= "montoD" name="montoD" [(ngModel)]="form.montoD" required
           autocomplete="off">
           <small class="small1" *ngIf="
           operacionForm.controls.montoD.touched &&
@@ -96,6 +96,11 @@
           operacionForm.controls.montoD.touched &&
           operacionForm.controls.montoD.errors?.pattern
           ">Por favor, ingrese solo <strong>numeros</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.montoD.touched &&
+          operacionForm.controls.montoD.errors?.min
+          ">Por favor, ingrese un monto igual o superior a <strong>100</strong></small>
       </div>
       
 
@@ -188,6 +193,11 @@
           operacionForm.controls.monto.touched &&
           operacionForm.controls.monto.errors?.pattern
           ">Por favor, ingrese solo <strong>numeros</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.monto.touched &&
+          operacionForm.controls.monto.errors?.min
+          ">Por favor, ingrese un monto igual o superior a <strong>100</strong></small>
 
       </div>
 
