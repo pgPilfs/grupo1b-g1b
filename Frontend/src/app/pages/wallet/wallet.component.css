@@ -1,24 +1,85 @@
-.card{
-    border-radius: .5rem;
-    padding: 2rem;
-    margin: 5rem auto;
-    width: 80%;
-    height: auto;
+.title {
+  margin-top: 4rem;
 }
 
-.card1{
-    border:none;
-    border-left: 10px solid var(--color-bg-purple);
-    background-color:black;
-    box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.2);
+.card1 {
+  border-left: 10px solid var(--color-bg-purple-secundary);
+  box-shadow: 0 .125rem .25rem 0 rgba(0, 0, 0, .2);
 }
 
-.card-title{
-    font-size: 1.5rem;
-    text-transform: uppercase;
+.card2 {
+  border-left: 10px solid var(--color-btn);
+  box-shadow: 0 .125rem .25rem 0 rgba(0, 0, 0, .2);
 }
 
-.card-body{
-    font-size: 2rem;
-    text-transform: uppercase;
+.card3 {
+  border-left: 10px solid var(--color-bg-yellow);
+  box-shadow: 0 .125rem .25rem 0 rgba(0, 0, 0, .2);
+}
+
+.card-title1 {
+  color: var(--color-bg-purple-secundary);
+}
+
+.card-title2 {
+  color: var(--color-btn);
+}
+
+.card-title3 {
+  color: var(--color-bg-yellow);
+}
+
+.more {
+  text-align: end;
+}
+
+th {
+  color: var(--color-text);
+  font-size: 1.5rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+
+td {
+  font-size: 1.4rem;
+  text-align: start;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  color: var(--color-text-secundary);
+}
+
+.ingreso {
+  color: var(--color-btn);
+}
+
+.egreso {
+  color: var(--color-bg-red);
+}
+
+
+/* ANIMATIONS */
+.card {
+  transition: transform .2s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width:800px) {
+  th{
+    font-size: 3.2vw;
+  }
+  td{
+    font-size: 2.5vw;
+  }
+  .card{
+    margin: auto;
+    width: 100%;
+    padding:1em;
+  }
 }

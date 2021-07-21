@@ -2,57 +2,251 @@
 
 <section class="m-4">
     <div class="container-fluid">
-      <!-- CARD -->
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="card card1">
-            <div class="card-title">Saldo en ARS$</div>
-            <div class="card-body"><strong>$ 3000</strong></div>
+        <!-- CARD -->
+      <div class="container">
+        <h2>Operaciones</h2>
+        <div class="card shadow ">
+        <h6 class="texto-seleccion card-header font-weight-bold">Seleccione la operación que desea realizar</h6>
+        <div class="card-body">
+          <div class="row">
+            <div class="contenedor-operaciones col">
+              <button type="button" (click)="habilitarDeposito()" class="btn-ope btn btn-light"><i
+                  class="fas fa-dollar-sign"></i> Ingresar Dinero</button>
+            </div>
+            <div class=" contenedor-operaciones col">
+              <button type="button" (click)="habilitarExtraccion()" class="btn-ope btn btn-light"><i
+                  class="fas fa-hand-holding-usd"></i> Retirar Dinero</button>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card card2">
-            <div class="card-title">Saldo en US$</div>
-            <div class="card-body">$3000</div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card card3">
-            <div class="card-title">Saldo en Criptomoneda</div>
-            <div class="card-body">$3000</div>
-          </div>
-        </div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
+</section>
 
+ <!-- Seccion para el deposito de dinero en cuenta de usuario -->
+ 
+ <div class="card shadow" style="margin-top: 25px;" *ngIf="seccionDeposito">
+  <h6 class=" texto-ingreso card-header">Ingreso de dinero a mi cuenta</h6>
+  <div class="card-body">
+    <form style="margin-inline: 25%;" (ngSubmit)="depositar()">
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="numeroTarjeta">Ingrese el numero de la tarjeta :</label>
+        <input type="text" class="form-control"  formControlName="numeroTarjetaD" name="numeroTarjetaD" [(ngModel)]="form.numeroTarjetaD" required
+          autocomplete="off">
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroTarjetaD.touched &&
+          operacionForm.controls.numeroTarjetaD.errors?.required 
+          ">Por favor, ingrese el <strong>numero de tarjeta</strong></small>
+        
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroTarjetaD.touched &&
+          operacionForm.controls.numeroTarjetaD.errors?.pattern
+          ">Por favor, ingrese solo <strong>numeros</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroTarjetaD.touched &&
+          operacionForm.controls.numeroTarjetaD.errors?.maxlength
+          ">El numero maximo es de solo <strong>16 digitos</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroTarjetaD.touched &&
+          operacionForm.controls.numeroTarjetaD.errors?.minlength
+          ">El numero minimo es de solo <strong>16 digitos</strong></small>
+
+      </div>
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="numeroCVVD">Ingrese el codigo CVV :</label>
+        <input type="text" class="form-control"  formControlName="numeroCVVD" name="numeroCVVD" [(ngModel)]="form.numeroCVVD" required
+          autocomplete="off">
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroCVVD.touched &&
+          operacionForm.controls.numeroCVVD.errors?.required 
+          ">Por favor, ingrese el <strong>Codigo CVV</strong></small>
+        
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroCVVD.touched &&
+          operacionForm.controls.numeroCVVD.errors?.pattern
+          ">Por favor, ingrese solo <strong>numeros</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroCVVD.touched &&
+          operacionForm.controls.numeroCVVD.errors?.maxlength
+          ">El numero maximo es de solo <strong>3 digitos</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroCVVD.touched &&
+          operacionForm.controls.numeroCVVD.errors?.minlength
+          ">El numero minimo es de solo <strong>3 digitos</strong></small>
+
+      </div>
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="fecha">Ingrese la fecha de vencimiento de su tarjeta :</label>
+        <input  type="date" class="form-control" formControlName="fechaD" name="fechaD" [ngModel]="form.fechaD"  required
+          autocomplete="off">
+          <small class="small1" *ngIf="
+          operacionForm.controls.fechaD.touched &&
+          operacionForm.controls.fechaD.errors?.required
+          ">Por favor, ingrese la <strong>Fecha</strong></small>
+      </div>
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="monto">Ingrese el monto que desea depositar:</label>
+        <input type="text" class="form-control" formControlName= "montoD" name="montoD" [(ngModel)]="form.montoD" required
+          autocomplete="off">
+          <small class="small1" *ngIf="
+          operacionForm.controls.montoD.touched &&
+          operacionForm.controls.montoD.errors?.required 
+          ">Por favor, ingrese su <strong>monto</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.montoD.touched &&
+          operacionForm.controls.montoD.errors?.pattern
+          ">Por favor, ingrese solo <strong>numeros</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.montoD.touched &&
+          operacionForm.controls.montoD.errors?.min
+          ">Por favor, ingrese un monto igual o superior a <strong>100</strong></small>
+      </div>
+      
+
+      <div class="form-group" style="text-align: right;margin-top: 30px;">
+        <button type="submit" class="btn btn-outline-success btn-block"><i class="fas fa-check"></i>
+          Confirmar</button>
+      </div>
+    </form>
+  </div>
+</div>
+ <!-- Seccion para retirar dinero de una cuenta de usuario -->
+ <div class="card shadow" style="margin-top: 25px;" *ngIf="seccionExtraccion">
+  <h6 class=" texto-retiro card-header">Retiro de dinero de mi cuenta</h6>
+
+  <div class="card-body">
+    <form style="margin-inline: 25%;" (ngSubmit)="extraer()">
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="numeroTarjeta">Ingrese el numero de la tarjeta :</label>
+        <input type="text" class="form-control" formControlName="numeroTarjeta" name="numeroTarjeta" [(ngModel)]="form.numeroTarjeta" required
+          autocomplete="off">
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroTarjeta.touched &&
+          operacionForm.controls.numeroTarjeta.errors?.required
+          ">Por favor, ingrese el <strong>numero de tarjeta</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroTarjeta.touched &&
+          operacionForm.controls.numeroTarjeta.errors?.pattern
+          ">Por favor, ingrese solo <strong>numeros</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroTarjeta.touched &&
+          operacionForm.controls.numeroTarjeta.errors?.maxlength
+          ">El numero maximo es de solo <strong>16 digitos</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroTarjeta.touched &&
+          operacionForm.controls.numeroTarjeta.errors?.minlength
+          ">El numero minimo es de solo <strong>16 digitos</strong></small>
+
+      </div>
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="numeroCVV">Ingrese el codigo CVV :</label>
+        <input type="text" class="form-control"  formControlName="numeroCVV" name="numeroCVV" [(ngModel)]="form.numeroCVV" required
+          autocomplete="off">
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroCVV.touched &&
+          operacionForm.controls.numeroCVV.errors?.required 
+          ">Por favor, ingrese el <strong>Codigo CVV</strong></small>
+        
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroCVV.touched &&
+          operacionForm.controls.numeroCVV.errors?.pattern
+          ">Por favor, ingrese solo <strong>numeros</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroCVV.touched &&
+          operacionForm.controls.numeroCVV.errors?.maxlength
+          ">El numero maximo es de solo <strong>3 digitos</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroCVV.touched &&
+          operacionForm.controls.numeroCVV.errors?.minlength
+          ">El numero minimo es de solo <strong>3 digitos</strong></small>
+
+      </div>
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="fecha">Ingrese la fecha de vencimiento :</label>
+        <input type="date" formControlName="fecha" class="form-control" name="fecha" [(ngModel)]="form.fecha" required
+          autocomplete="off">
+          <small class="small1" *ngIf="
+          operacionForm.controls.fecha.touched &&
+          operacionForm.controls.fecha.errors?.required
+          ">Por favor, ingrese la <strong>fecha</strong></small>
+      </div>
+
+
+
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="monto">Ingrese el monto que desea extraer:</label>
+        <input type="text" formControlName="monto" class="form-control" name="monto" [(ngModel)]="form.monto" required
+          autocomplete="off">
+          <small class="small1" *ngIf="
+          operacionForm.controls.monto.touched &&
+          operacionForm.controls.monto.errors?.required
+          ">Por favor, ingrese su <strong>monto</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.monto.touched &&
+          operacionForm.controls.monto.errors?.pattern
+          ">Por favor, ingrese solo <strong>numeros</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.monto.touched &&
+          operacionForm.controls.monto.errors?.min
+          ">Por favor, ingrese un monto igual o superior a <strong>100</strong></small>
+
+      </div>
+
+      <div class="form-group" style="text-align: right;margin-top: 30px;">
+        <button type="submit" class="btn btn-outline-success btn-block"><i class="fas fa-check"></i>
+          Confirmar</button>
+      </div>
+    </form>
+  </div>
+
+
+</div>
+
+<!-- Seccion para ver ultimos movimientos -->
 <section class="card">
-    <div class="title">
-        <h3>Últimos movimientos</h3>
-        <button class="btn btn-printer">
-            <img src="../../../../../assets/icons/printer.svg" alt="imprimir comprobante">
-        </button>
-    </div>
-    <table class="table table-dark table-hover text-center">
-        <thead class="text-uppercase">
-            <th class="col-lg-3 col-sm-2">ID</th>
-            <th class="col-lg-4 col-sm-3">Cuenta</th>
-            <th class="col-lg-2 col-sm-1">Fecha</th>
-            <th class="col-lg-2 col-sm-1">Monto</th>
-            <th class="col-lg-1 col-sm-1 ">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6 19H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-3v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm0-2v-1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1h2V9H4v8h2zM8 4v3h8V4H8zm0 13v3h8v-3H8zm-3-7h3v2H5v-2z" fill="rgba(255,255,255,0.7)"/></svg>            
-            </th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of movimientos">
-                <td > {{item.id}} </td>
-                <td > {{item.cuenta}} </td>
-                <td > {{item.fecha}} </td>
-                <td >$  {{item.monto}} </td>
-                <td> 
-                    <input type="checkbox">
-                </td>
-            </tr>
-        </tbody>
-    </table>
+  <div class="title">
+      <h3>Últimos movimientos</h3>
+      <button class="btn btn-printer">
+          <img src="../../../../../assets/icons/printer.svg" alt="imprimir comprobante">
+      </button>
+  </div>
+  <table class="table table-dark table-hover text-center">
+      <thead class="text-uppercase">
+          <th class="col-lg-3 col-sm-2">ID</th>
+          <th class="col-lg-4 col-sm-3">Cuenta</th>
+          <th class="col-lg-2 col-sm-1">Fecha</th>
+          <th class="col-lg-2 col-sm-1">Monto</th>
+          <th class="col-lg-1 col-sm-1 ">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6 19H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-3v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm0-2v-1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1h2V9H4v8h2zM8 4v3h8V4H8zm0 13v3h8v-3H8zm-3-7h3v2H5v-2z" fill="rgba(255,255,255,0.7)"/></svg>            
+          </th>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of movimientos">
+              <td > {{item.id}} </td>
+              <td > {{item.cuenta}} </td>
+              <td > {{item.fecha}} </td>
+              <td >$  {{item.monto}} </td>
+              <td> 
+                  <input type="checkbox">
+              </td>
+          </tr>
+      </tbody>
+  </table>
 </section>
