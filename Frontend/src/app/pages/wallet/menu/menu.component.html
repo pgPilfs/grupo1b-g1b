@@ -1,18 +1,21 @@
 <mat-toolbar class="mat-elevation-z8">
-  <button class="btn" mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-    <mat-icon *ngIf="!sidenav.opened">
-      menu
-    </mat-icon>
-    <mat-icon *ngIf="sidenav.opened">
-      close
-    </mat-icon>
+  <button
+    class="btn"
+    mat-icon-button
+    *ngIf="sidenav.mode === 'over'"
+    (click)="sidenav.toggle()"
+  >
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
   </button>
 </mat-toolbar>
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-
-    <img class="avatar mat-elevation-z8" src="../../../../assets/avatars/default.png" />
+    <img
+      class="avatar mat-elevation-z8"
+      src="../../../../assets/avatars/default.png"
+    />
 
     <h4 class="name">Username</h4>
     <p class="designation">Usuario</p>
@@ -29,7 +32,7 @@
       <span routerLink="peso">Operaciones</span>
       <mat-select>
         <mat-option *ngFor="let operation of ops" [value]="operation.value">
-          {{operation.viewValue}}
+          {{ operation.viewValue }}
         </mat-option>
       </mat-select>
     </button>
@@ -43,7 +46,7 @@
 
     <button mat-button class="btn menu-button">
       <mat-icon>settings</mat-icon>
-      <span >Configuracion</span>
+      <span>Configuracion</span>
     </button>
   </mat-sidenav>
 </mat-sidenav-container>

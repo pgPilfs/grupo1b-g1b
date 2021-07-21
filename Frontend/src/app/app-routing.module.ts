@@ -14,7 +14,7 @@ import { DevelopersComponent } from './pages/developers/developers.component';
 import { MenuComponent } from './pages/wallet/menu/menu.component';
 
 const routes: Routes = [
-
+  
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signin', component: SigninComponent},

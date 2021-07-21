@@ -1,5 +1,5 @@
 <div class="MainContainer m-4">
-  <h2 class="title text-center">Operaciones</h2>
+  <h2 class="title text-center">Operaciones en Pesos</h2>
   <div class="section-divider"></div>
   <div class="card">
     <h3 class="texto-seleccion card-header text-center font-weight-bold">
@@ -8,12 +8,20 @@
     <div class="card-body">
       <div class="row">
         <div class="contenedor-operaciones col">
-          <button type="button" (click)="habilitarIngreso()" class="btn-ope btn btn-light">
+          <button
+            type="button"
+            (click)="habilitarIngreso()"
+            class="btn-ope btn btn-light"
+          >
             Ingresar Dinero
           </button>
         </div>
         <div class="contenedor-operaciones col">
-          <button type="button" (click)="habilitarRetiro()" class="btn-ope btn btn-light">
+          <button
+            type="button"
+            (click)="habilitarRetiro()"
+            class="btn-ope btn btn-light"
+          >
             Retirar Dinero
           </button>
         </div>
@@ -29,81 +37,158 @@
         <form style="margin-inline: 25%" (ngSubmit)="ingresar()">
           <div [formGroup]="operacionForm" class="form-group" novalidate>
             <label for="numeroTarjeta">Ingrese el número de la tarjeta :</label>
-            <input type="text" class="form-control" formControlName="numeroTarjetaD" name="numeroTarjetaD"
-              [(ngModel)]="form.numeroTarjetaD" required autocomplete="off" />
-            <small class="small1" *ngIf="
+            <input
+              type="text"
+              class="form-control"
+              formControlName="numeroTarjetaD"
+              name="numeroTarjetaD"
+              [(ngModel)]="form.numeroTarjetaD"
+              required
+              autocomplete="off"
+            />
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroTarjetaD.touched &&
                 operacionForm.controls.numeroTarjetaD.errors?.required
-              ">Por favor, ingrese el <strong>número de la tarjeta</strong><br /></small>
+              "
+              >Por favor, ingrese el <strong>número de la tarjeta</strong><br
+            /></small>
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroTarjetaD.touched &&
                 operacionForm.controls.numeroTarjetaD.errors?.pattern
-              ">Por favor, ingrese solo <strong>números</strong> <br /></small>
+              "
+              >Por favor, ingrese solo <strong>números</strong> <br
+            /></small>
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroTarjetaD.touched &&
                 operacionForm.controls.numeroTarjetaD.errors?.maxlength
-              ">El número máximo es de solo <strong>16 digitos</strong> <br />
+              "
+              >El número máximo es de solo <strong>16 digitos</strong> <br />
             </small>
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroTarjetaD.touched &&
                 operacionForm.controls.numeroTarjetaD.errors?.minlength
-              ">El número mínimo es de solo <strong>16 digitos</strong><br /></small>
+              "
+              >El número mínimo es de solo <strong>16 digitos</strong><br
+            /></small>
           </div>
           <div [formGroup]="operacionForm" class="form-group" novalidate>
             <label for="numeroCVVD">Ingrese el codigo CVV :</label>
-            <input type="text" class="form-control" formControlName="numeroCVVD" name="numeroCVVD"
-              [(ngModel)]="form.numeroCVVD" required autocomplete="off" />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="numeroCVVD"
+              name="numeroCVVD"
+              [(ngModel)]="form.numeroCVVD"
+              required
+              autocomplete="off"
+            />
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroCVVD.touched &&
                 operacionForm.controls.numeroCVVD.errors?.required
-              ">Por favor, ingrese el <strong>Codigo CVV</strong><br /></small>
-            <small class="small1" *ngIf="
+              "
+              >Por favor, ingrese el <strong>Codigo CVV</strong><br
+            /></small>
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroCVVD.touched &&
                 operacionForm.controls.numeroCVVD.errors?.pattern
-              ">Por favor, ingrese solo <strong>numeros</strong><br /></small>
+              "
+              >Por favor, ingrese solo <strong>numeros</strong><br
+            /></small>
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroCVVD.touched &&
                 operacionForm.controls.numeroCVVD.errors?.maxlength
-              ">El número máximo es de solo <strong>3 digitos</strong><br /></small>
+              "
+              >El número máximo es de solo <strong>3 digitos</strong><br
+            /></small>
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroCVVD.touched &&
                 operacionForm.controls.numeroCVVD.errors?.minlength
-              ">El número mínimo es de solo <strong>3 digitos</strong><br /></small>
+              "
+              >El número mínimo es de solo <strong>3 digitos</strong><br
+            /></small>
           </div>
           <div [formGroup]="operacionForm" class="form-group" novalidate>
-            <label for="fecha">Ingrese la fecha de vencimiento de su tarjeta :</label>
-            <input type="date" class="form-control" formControlName="fechaD" name="fechaD" [ngModel]="form.fechaD"
-              required autocomplete="off" />
-            <small class="small1" *ngIf="
+            <label for="fecha"
+              >Ingrese la fecha de vencimiento de su tarjeta :</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              formControlName="fechaD"
+              name="fechaD"
+              [ngModel]="form.fechaD"
+              required
+              autocomplete="off"
+            />
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.fechaD.touched &&
                 operacionForm.controls.fechaD.errors?.required
-              ">Por favor, ingrese la <strong>Fecha</strong><br /></small>
+              "
+              >Por favor, ingrese la <strong>Fecha</strong><br
+            /></small>
           </div>
           <div [formGroup]="operacionForm" class="form-group" novalidate>
             <label for="monto">Ingrese el monto que desea Ingresar:</label>
-            <input type="text" class="form-control" formControlName="montoD" name="montoD" [(ngModel)]="form.montoD"
-              required autocomplete="off" />
-            <small class="small1" *ngIf="
+            <input
+              type="text"
+              class="form-control"
+              formControlName="montoD"
+              name="montoD"
+              [(ngModel)]="form.montoD"
+              required
+              autocomplete="off"
+            />
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.montoD.touched &&
                 operacionForm.controls.montoD.errors?.required
-              ">Por favor, ingrese su <strong>monto</strong><br /></small>
+              "
+              >Por favor, ingrese su <strong>monto</strong><br
+            /></small>
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.montoD.touched &&
                 operacionForm.controls.montoD.errors?.pattern
-              ">Por favor, ingrese solo <strong>numeros</strong><br /></small>
+              "
+              >Por favor, ingrese solo <strong>numeros</strong><br
+            /></small>
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.montoD.touched &&
                 operacionForm.controls.montoD.errors?.min
-              ">Por favor, ingrese un monto igual o superior a
-              <strong>100</strong><br /></small>
+              "
+              >Por favor, ingrese un monto igual o superior a
+              <strong>100</strong><br
+            /></small>
           </div>
 
           <div class="form-group" style="text-align: right; margin-top: 30px">
@@ -125,82 +210,158 @@
         <form style="margin-inline: 25%" (ngSubmit)="retiro()">
           <div [formGroup]="operacionForm" class="form-group" novalidate>
             <label for="numeroTarjeta">Ingrese el número de la tarjeta :</label>
-            <input type="text" class="form-control" formControlName="numeroTarjeta" name="numeroTarjeta"
-              [(ngModel)]="form.numeroTarjeta" required autocomplete="off" />
-            <small class="small1" *ngIf="
+            <input
+              type="text"
+              class="form-control"
+              formControlName="numeroTarjeta"
+              name="numeroTarjeta"
+              [(ngModel)]="form.numeroTarjeta"
+              required
+              autocomplete="off"
+            />
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroTarjeta.touched &&
                 operacionForm.controls.numeroTarjeta.errors?.required
-              ">Por favor, ingrese el <strong>numero de tarjeta</strong></small>
+              "
+              >Por favor, ingrese el <strong>número de tarjeta</strong></small
+            >
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroTarjeta.touched &&
                 operacionForm.controls.numeroTarjeta.errors?.pattern
-              ">Por favor, ingrese solo <strong>números</strong><br /></small>
+              "
+              >Por favor, ingrese solo <strong>números</strong><br
+            /></small>
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroTarjeta.touched &&
                 operacionForm.controls.numeroTarjeta.errors?.maxlength
-              ">El número máximo es de solo <strong>16 dígitos</strong><br /></small>
+              "
+              >El número máximo es de solo <strong>16 dígitos</strong><br
+            /></small>
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroTarjeta.touched &&
                 operacionForm.controls.numeroTarjeta.errors?.minlength
-              ">El número mínimo es de solo <strong>16 dígitos</strong><br /></small>
+              "
+              >El número mínimo es de solo <strong>16 dígitos</strong><br
+            /></small>
           </div>
           <div [formGroup]="operacionForm" class="form-group" novalidate>
             <label for="numeroCVV">Ingrese el código CVU :</label>
-            <input type="text" class="form-control" formControlName="numeroCVV" name="numeroCVV"
-              [(ngModel)]="form.numeroCVV" required autocomplete="off" />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="numeroCVV"
+              name="numeroCVV"
+              [(ngModel)]="form.numeroCVV"
+              required
+              autocomplete="off"
+            />
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroCVV.touched &&
                 operacionForm.controls.numeroCVV.errors?.required
-              ">Por favor, ingrese el <strong>Código CVU</strong><br /></small>
+              "
+              >Por favor, ingrese el <strong>Código CVU</strong><br
+            /></small>
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroCVV.touched &&
                 operacionForm.controls.numeroCVV.errors?.pattern
-              ">Por favor, ingrese solo <strong>números</strong><br /></small>
+              "
+              >Por favor, ingrese solo <strong>números</strong><br
+            /></small>
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroCVV.touched &&
                 operacionForm.controls.numeroCVV.errors?.maxlength
-              ">El número máximo es de solo <strong>3 dígitos</strong><br /></small>
+              "
+              >El número máximo es de solo <strong>3 dígitos</strong><br
+            /></small>
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.numeroCVV.touched &&
                 operacionForm.controls.numeroCVV.errors?.minlength
-              ">El número mínimo es de solo <strong>3 dígitos</strong><br /></small>
+              "
+              >El número mínimo es de solo <strong>3 dígitos</strong><br
+            /></small>
           </div>
           <div [formGroup]="operacionForm" class="form-group" novalidate>
             <label for="fecha">Ingrese la fecha de vencimiento :</label>
-            <input type="date" formControlName="fecha" class="form-control" name="fecha" [(ngModel)]="form.fecha"
-              required autocomplete="off" />
-            <small class="small1" *ngIf="
+            <input
+              type="date"
+              formControlName="fecha"
+              class="form-control"
+              name="fecha"
+              [(ngModel)]="form.fecha"
+              required
+              autocomplete="off"
+            />
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.fecha.touched &&
                 operacionForm.controls.fecha.errors?.required
-              ">Por favor, ingrese la <strong>fecha</strong><br /></small>
+              "
+              >Por favor, ingrese la <strong>fecha</strong><br
+            /></small>
           </div>
 
           <div [formGroup]="operacionForm" class="form-group" novalidate>
             <label for="monto">Ingrese el monto que desea retirar:</label>
-            <input type="text" formControlName="monto" class="form-control" name="monto" [(ngModel)]="form.monto"
-              required autocomplete="off" />
-            <small class="small1" *ngIf="
+            <input
+              type="text"
+              formControlName="monto"
+              class="form-control"
+              name="monto"
+              [(ngModel)]="form.monto"
+              required
+              autocomplete="off"
+            />
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.monto.touched &&
                 operacionForm.controls.monto.errors?.required
-              ">Por favor, ingrese su <strong>monto</strong><br /></small>
+              "
+              >Por favor, ingrese su <strong>monto</strong><br
+            /></small>
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.monto.touched &&
                 operacionForm.controls.monto.errors?.pattern
-              ">Por favor, ingrese solo <strong>números</strong></small>
+              "
+              >Por favor, ingrese solo <strong>números</strong></small
+            >
 
-            <small class="small1" *ngIf="
+            <small
+              class="small1"
+              *ngIf="
                 operacionForm.controls.monto.touched &&
                 operacionForm.controls.monto.errors?.min
-              ">Por favor, ingrese un monto igual o superior a
-              <strong>100</strong><br /></small>
+              "
+              >Por favor, ingrese un monto igual o superior a
+              <strong>100</strong><br
+            /></small>
           </div>
 
           <div class="form-group" style="text-align: right; margin-top: 30px">
@@ -213,3 +374,42 @@
     </div>
   </div>
 </div>
+
+<section class="card">
+  <div class="title">
+    <h3>Últimos movimientos</h3>
+  </div>
+  <table class="table table-dark table-hover text-center">
+    <thead class="text-uppercase">
+      <th class="col-lg-3 col-sm-2">ID</th>
+      <th class="col-lg-4 col-sm-3">Cuenta</th>
+      <th class="col-lg-2 col-sm-1">Fecha</th>
+      <th class="col-lg-2 col-sm-1">Monto</th>
+      <th class="col-lg-1 col-sm-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+        >
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path
+            d="M6 19H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-3v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm0-2v-1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1h2V9H4v8h2zM8 4v3h8V4H8zm0 13v3h8v-3H8zm-3-7h3v2H5v-2z"
+            fill="rgba(255,255,255,0.7)"
+          />
+        </svg>
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of movimientos">
+        <td>{{ item.id }}</td>
+        <td>{{ item.cuenta }}</td>
+        <td>{{ item.fecha }}</td>
+        <td>$ {{ item.monto }}</td>
+        <td>
+          <input type="checkbox" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
