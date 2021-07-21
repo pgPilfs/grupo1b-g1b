@@ -1,0 +1,136 @@
+
+<div class="container">
+  <h2>Operaciones</h2>
+  <div class="card shadow ">
+    <h6 class="texto-seleccion card-header font-weight-bold">Seleccione la operación que desea realizar</h6>
+    <div class="card-body">
+      <div class="row">
+        <div class="contenedor-operaciones col">
+          <button type="button" (click)="habilitarDeposito()" class="btn-ope btn btn-light"><i
+              class="fas fa-dollar-sign"></i> Ingresar Dinero</button>
+        </div>
+        <div class=" contenedor-operaciones col">
+          <button type="button" (click)="habilitarExtraccion()" class="btn-ope btn btn-light"><i
+              class="fas fa-hand-holding-usd"></i> Retirar Dinero</button>
+        </div>
+      </div>
+</div>
+
+ <!-- Seccion para el deposito de dinero en cuenta de usuario -->
+ 
+ <div class="card shadow" style="margin-top: 25px;" *ngIf="seccionDeposito">
+  <h6 class=" texto-ingreso card-header">Ingreso de dinero a mi cuenta</h6>
+  <div class="card-body">
+    <form style="margin-inline: 25%;" (ngSubmit)="depositar()">
+     <!--  <div class="form-group">
+        <label for="cuenta_virtual">Seleccione la cuenta a la que va a depositar</label>
+        <select class="form-control" [(ngModel)]="form.cuenta" name="cuenta">
+          <option *ngFor="let cuenta of cuentasDelCliente" [ngValue]="cuenta">{{cuenta.IdTipoCuenta}}
+            {{cuenta.nroCuenta}} - Saldo: {{cuenta.saldo}}</option>
+        </select>
+      </div> -->
+
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="numeroTarjeta">Ingrese el numero de la tarjeta :</label>
+        <input type="text" class="form-control"  formControlName="numeroTarjetaD" name="numeroTarjetaD" [(ngModel)]="form.numeroTarjetaD" required
+          autocomplete="off">
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroTarjetaD.touched &&
+          operacionForm.controls.numeroTarjetaD.errors?.required
+          ">Por favor, ingrese el <strong>numero de tarjeta</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroTarjetaD.touched &&
+          operacionForm.controls.numeroTarjetaD.errors?.pattern
+          ">Por favor, ingrese solo <strong>numeros</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroTarjetaD.touched &&
+          operacionForm.controls.numeroTarjetaD.errors?.maxlength
+          ">El numero maximo es de solo <strong>16 digitos</strong></small>
+
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroTarjetaD.touched &&
+          operacionForm.controls.numeroTarjetaD.errors?.minlength
+          ">El numero minimo es de solo <strong>16 digitos</strong></small>
+
+      </div>
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="fecha">Ingrese la fecha de vencimiento de su tarjeta :</label>
+        <input type="date" [value]="fechaD | date: 'MM/yyyy'" class="form-control" formControlName="fechaD" name="fechaD" [(ngModel)]="form.fechaD" required
+          autocomplete="off">
+          <small class="small1" *ngIf="
+          operacionForm.controls.fechaD.touched &&
+          operacionForm.controls.fechaD.errors?.required
+          ">Por favor, ingrese la <strong>Fecha</strong></small>
+      </div>
+
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="monto">Ingrese el monto que desea depositar:</label>
+        <input type="number" class="form-control" formControlName= "montoD" name="montoD" [(ngModel)]="form.montoD" required
+          autocomplete="off">
+          <small class="small1" *ngIf="
+          operacionForm.controls.montoD.touched &&
+          operacionForm.controls.montoD.errors?.required 
+          ">Por favor, ingrese su <strong>monto</strong></small>
+      </div>
+
+      <div class="form-group" style="text-align: right;margin-top: 30px;">
+        <button type="submit" class="btn btn-outline-success btn-block"><i class="fas fa-check"></i>
+          Confirmar</button>
+      </div>
+    </form>
+  </div>
+</div>
+ <!-- Seccion para retirar dinero de una cuenta de usuario -->
+ <div class="card shadow" style="margin-top: 25px;" *ngIf="seccionExtraccion">
+  <h6 class=" texto-retiro card-header">Retiro de dinero de mi cuenta</h6>
+
+  <div class="card-body">
+    <form style="margin-inline: 25%;" (ngSubmit)="extraer()">
+     <!--  <div class="form-group">
+        <label for="cuenta_virtual">Seleccione la cuenta a la que va a extraer dinero:</label>
+        <select class="form-control" [(ngModel)]="form.cuenta" name="cuenta">
+          <option *ngFor="let cuenta of cuentasDelCliente" [ngValue]="cuenta">{{cuenta.IdTipoCuenta}}
+            {{cuenta.nroCuenta}} - Saldo: {{cuenta.saldo}}</option>
+        </select>
+      </div> -->
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="numeroTarjeta">Ingrese el numero de la tarjeta :</label>
+        <input type="number" class="form-control" formControlName="numeroTarjeta" name="numeroTarjeta" [(ngModel)]="form.numeroTarjeta" required
+          autocomplete="off">
+          <small class="small1" *ngIf="
+          operacionForm.controls.numeroTarjeta.touched &&
+          operacionForm.controls.numeroTarjeta.errors?.required
+          ">Por favor, ingrese el <strong>numero de tarjeta</strong></small>
+      </div>
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="fecha">Ingrese la fecha de vencimiento :</label>
+        <input type="number" formControlName="fecha" class="form-control" name="fecha" [(ngModel)]="form.fecha" required
+          autocomplete="off">
+          <small class="small1" *ngIf="
+          operacionForm.controls.fecha.touched &&
+          operacionForm.controls.fecha.errors?.required
+          ">Por favor, ingrese la <strong>fecha</strong></small>
+      </div>
+
+
+
+      <div [formGroup]="operacionForm"  class="form-group" novalidate>
+        <label for="monto">Ingrese el monto que desea extraer:</label>
+        <input type="number" formControlName="monto" class="form-control" name="monto" [(ngModel)]="form.monto" required
+          autocomplete="off">
+          <small class="small1" *ngIf="
+          operacionForm.controls.monto.touched &&
+          operacionForm.controls.monto.errors?.required
+          ">Por favor, ingrese su <strong>monto</strong></small>
+      </div>
+
+      <div class="form-group" style="text-align: right;margin-top: 30px;">
+        <button type="submit" class="btn btn-outline-success btn-block"><i class="fas fa-check"></i>
+          Confirmar</button>
+      </div>
+    </form>
+  </div>
+</div>
