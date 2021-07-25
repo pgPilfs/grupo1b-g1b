@@ -79,16 +79,24 @@
   <span class="particle">&#65284;</span>
   <span class="particle">&#65284;</span>
   <span class="particle">&#65284;</span>
+<!-- Card -->
+<section>
+<mat-card>
+    <!--Title-->
+    <mat-card-title>
+      <h2 class="py-4" data-aos="zoom-in">
+        Te damos la bienvenida a <br><strong>PIL MONEY</strong>
+      </h2>
+    </mat-card-title>
 
-  <article class="content">
-    <h2 class="mb-4" data-aos="zoom-in">
-      Te damos la bienvenida<br />a <strong>PIL MONEY</strong>
-    </h2>
-    <p data-aos="zoom-in">
-      Ya podes <strong>administrar</strong> tu dinero <br />en cualquier
-      dispositivo <strong>sin hacer fila</strong>
-    </p>
-    <button
+    <!--Text-->
+    <mat-card-content> 
+      <p data-aos="zoom-in">
+        Ya podes <strong>administrar</strong> tu dinero <br />en cualquier
+        dispositivo <strong>sin hacer fila</strong>
+      </p>    
+      <mat-card-actions>
+      <button
       class="btn-signin"
       type="button"
       routerLink="/signin"
@@ -96,25 +104,28 @@
     >
       Creá tu cuenta
     </button>
-    <br />
-    <button
-      class="btn-login"
-      type="button"
-      routerLink="/login"
-      data-aos="zoom-in"
-    >
-      Iniciar sesión
-    </button>
-  </article>
+    </mat-card-actions>
+    <mat-card-actions>
+      <a
+            routerLink="/login"
+          >
+            Iniciar sesión
+    </a>
+    </mat-card-actions>
+    </mat-card-content>
+
+</mat-card>
+<!-- Card -->
+</section>
 </main>
 
-<section id="home" class="text-center margin-top: 2rem;">
+<section id="home" class="text-center m-2">
   <article
     class="container content2 justify-content-center my-5"
     data-aos="fade-zoom-in"
   >
     <h2 class="text-center my-4">BILLETERA VIRTUAL <br />PIL MONEY</h2>
-    <div class="section-divider"></div>
+    <mat-divider ></mat-divider>
     <p class="text-center">
       Es una App digital con la que puedes hacer múltiples operaciones
       financieras con el fin de facilitar y agilizar transacciones a cualquier
@@ -151,6 +162,9 @@
       pocos minutos podrás cargar los datos solicitados, comenzar a utilizarla y
       ser parte de <strong>PIL MONEY</strong> 🥳.
     </p>
-    <div class="section-divider"></div>
+    <mat-divider ></mat-divider>
   </article>
 </section>
+
+
+
