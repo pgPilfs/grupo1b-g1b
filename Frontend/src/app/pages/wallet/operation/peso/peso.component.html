@@ -201,13 +201,13 @@
     </div>
 
     <!-- Seccion para retirar dinero en cuenta de usuario -->
-    <div class="card" style="margin-top: 25px" *ngIf="seccionRetiro">
+    <div class="card subcard" *ngIf="seccionRetiro">
       <h4 class="card-header text-center text-uppercase py-2">
         Retirar dinero de mi cuenta
       </h4>
 
       <div class="card-body">
-        <form style="margin-inline: 25%" (ngSubmit)="retiro()">
+        <form (ngSubmit)="retiro()">
           <div [formGroup]="operacionForm" class="form-group" novalidate>
             <label for="numeroTarjeta">Ingrese el número de la tarjeta :</label>
             <input
