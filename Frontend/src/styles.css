@@ -125,7 +125,14 @@ a {
   h2{
     font-size: 8vw;
   }
+  th{
+    font-size: 3.2vw;
+  }
+  td{
+    font-size: 2.5vw;
+  }
 }
+
 
 .section-divider {
   display: block;

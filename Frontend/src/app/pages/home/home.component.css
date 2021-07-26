@@ -12,6 +12,7 @@
 }
 
 .background-pesos{
+  overflow: hidden;
   position:absolute;
   display: flex;
   align-items: center;
@@ -25,7 +26,7 @@
 .content {
   position: relative;
   display: block;
-  width: 30%;
+  max-width: 600px;
   margin: 20vh auto;
   background: var(--color-bg-secundary);
   padding: 80px 40px;
@@ -39,8 +40,7 @@
 
 @media (max-width:800px) {
   .content{
-    margin: 1em;
-    width: auto;
+    width: 90vw;
     padding:1em;
   }
 }

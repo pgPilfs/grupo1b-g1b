@@ -1,3 +1,16 @@
+.card{
+  overflow:auto;
+}
+.subcard{
+  margin:0px;
+  padding: 0px;
+}
+
+.form-group{
+  max-width: 300px;
+  margin: auto;
+}
+
 .table, td {
     color: var(--color-text-secundary);
     margin: 1rem 0;
