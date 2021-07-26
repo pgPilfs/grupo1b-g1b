@@ -1,3 +1,5 @@
+
+
 .container-fluid {
   position: relative;
   display: flex;
@@ -9,11 +11,22 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
+.background-pesos{
+  position:absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width:100vw;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  z-index: -10;
+}
+
 .content {
   position: relative;
-  display: inline-block;
-  width: auto;
-  max-width: 100%;
+  display: block;
+  width: 30%;
+  margin: 20vh auto;
   background: var(--color-bg-secundary);
   padding: 80px 40px;
   border: 3px solid var(--color-bg-divider);
@@ -22,6 +35,14 @@
   animation: apparition 0.8s 1.2s cubic-bezier(0.39, 0.575, 0.28, 0.995)
     forwards;
   text-align: center;
+}
+
+@media (max-width:800px) {
+  .content{
+    margin: 1em;
+    width: auto;
+    padding:1em;
+  }
 }
 
 .content h1 {
@@ -88,7 +109,7 @@ section {
 }
 
 .content2 {
-  padding: 4rem;
+  padding: 1rem;
   line-height: 1.5;
 }
 
@@ -117,12 +138,7 @@ section {
   position: absolute;
   display: block;
   pointer-events: none;
-}
-
-.particle {
-  position: absolute;
-  display: block;
-  pointer-events: none;
+  z-index: inherit;
 }
 .particle:nth-child(1) {
   top: 3.9360393604%;

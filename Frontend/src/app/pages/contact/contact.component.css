@@ -14,11 +14,14 @@ section p {
   font-size: 1rem;
   margin: 0;
 }
+
+/*
 .card {
   margin: 2rem auto;
   padding-top: 2rem;
   border: 3px solid var(--color-bg-divider);
 }
+*/
 
 /* TITULO */
 section h2 {

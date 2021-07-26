@@ -1,5 +1,6 @@
 .login-card {
-  width: fit-content;
+  width: auto;
+  max-width: 30rem;
   border-radius: 0.5rem;
   background-color: var(--color-bg-secundary);
   padding: 2rem;
@@ -8,6 +9,8 @@
   border: 3px solid var(--color-bg-divider);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
+
+
 
 label {
   color: var(--color-text);
