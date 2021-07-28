@@ -15,18 +15,18 @@
       >
         <!-- EMAIL INPUT -->
         <div class="form-group my-4">
-          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-form-field class="example-full-width" appearance="standard">
             <mat-label>Correo Electrónico</mat-label>
             <input
               matInput
-              placeholder="pat@example.com"
+              placeholder="pilmoney@mail.com"
               formControlName="email"
               type="email"
               name="email"
               autocomplete="off"
               id="email"
-              required
-            />
+              required>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
             <mat-hint>El email es <strong>requerido</strong></mat-hint>
             <mat-error>
               <mat-error *ngIf="loginForm.controls.email.touched &&
@@ -42,7 +42,7 @@
         </div>
         <!-- CONTRASEÑA INPUT -->
         <div class="form-group my-4">
-          <mat-form-field class="example-full-width"  appearance="fill">
+          <mat-form-field class="example-full-width"  appearance="standard">
             <mat-label>Ingrese su contraseña</mat-label>
             <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -56,11 +56,10 @@
           </mat-form-field>
         </div>
 
-        <div class="items-card text-center my-4">
-          <div class="a1">
-            <a href="#">Me olvidé la contraseña</a>
-            -
-            <a routerLink="/signin">Create una cuenta</a>
+        <div class="text-center my-4 example-label">
+          <div class="example-button-row">
+            <button mat-button color="accent"><a href="#" class="color-btn">Me olvidé la contraseña</a></button>
+            <button mat-button color="accent"><a class="color-btn" routerLink="/signin">Create una cuenta</a></button>
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WalletComponent } from './wallet/wallet.component';
+import { WalletComponent } from './wallet/wallet/wallet.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HomeComponent } from './home/home.component';
 import { TermsComponent } from './terms/terms.component';
@@ -52,6 +52,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatButtonModule,
     MatExpansionModule,
     MatMenuModule,
+
   ],
   exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ContactComponent, ProyectComponent],
   providers: [

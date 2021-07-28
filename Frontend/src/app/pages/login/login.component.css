@@ -11,34 +11,6 @@
 }
 
 
-/* 
-label {
-  color: var(--color-text);
-  padding-left: 1rem;
-  margin-left: 0.875rem;
-}
-
-.login-card input[type="email"],
-.login-card input[type="password"] {
-  width: 100%;
-  border-radius: 0;
-  border: none;
-  border-bottom: 3px solid var(--color-bg-divider);
-  background: transparent;
-  outline: none;
-  color: var(--color-text-secundary);
-  font-size: 0.875rem;
-}
-
-input:focus,
-input:hover,
-input:active {
-  background-color: var(--color-bg-secundary);
-  color: var(--color-text-secundary);
-  border-bottom: 3px solid var(--color-bg-red-secundary);
-  font-size: 1rem;
-} */
-
 .example-form {
   min-width: 150px;
   max-width: 500px;
@@ -56,6 +28,7 @@ input:active {
 .example-right-align {
   text-align: right;
 }
+
 
 input.example-right-align::-webkit-outer-spin-button,
 input.example-right-align::-webkit-inner-spin-button {
@@ -85,7 +58,7 @@ input.example-right-align {
   border: none;
 }
 
-a {
+.color-btn {
   color: var(--color-btn-hover);
   font-size: 0.875rem;
   line-height: 1.5rem;
