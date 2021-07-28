@@ -1,6 +1,9 @@
 import { animateChild } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatAccordion } from '@angular/material/expansion';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-contact',
@@ -8,6 +11,7 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent implements OnInit {
+
   name = new FormControl('', [Validators.required], []);
   mail = new FormControl('', [Validators.required, Validators.email], []);
   issue = new FormControl('', [Validators.required], []);
@@ -28,4 +32,5 @@ export class ContactComponent implements OnInit {
   get msgField() {
     return this.msg;
   }
+
 }

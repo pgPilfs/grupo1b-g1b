@@ -124,10 +124,9 @@ a {
   margin: 1rem auto;
 }
 
-mat-divider {
-  background-color: var(--color-btn)
-}
 
 section{
   margin-top: 4rem;
 }
+html, body { height: 100%; }
+
