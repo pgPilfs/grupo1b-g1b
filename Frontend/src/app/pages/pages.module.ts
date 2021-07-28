@@ -16,6 +16,13 @@ import { ProyectComponent } from './proyect/proyect.component';
 import { ContactComponent } from './contact/contact.component';
 import { MatCard, MatCardModule, MatCardTitle } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MatAccordion } from '@angular/material/expansion';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -38,7 +45,13 @@ import { MatDividerModule } from '@angular/material/divider';
     MatNativeDateModule,
     MatRadioModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    MatExpansionModule,
+    MatMenuModule,
   ],
   exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ContactComponent, ProyectComponent],
   providers: [

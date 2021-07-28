@@ -4,30 +4,25 @@ section {
   color: var(--color-text);
 }
 
+.card {
+  margin: 2rem auto;
+  padding-top: 2rem;
+  border: 3px solid var(--color-bg-divider);
+}
+
 hr {
   height: auto;
   width: 0.2rem;
   margin: 0 auto;
   border-radius: 0.5rem;
 }
-section p {
-  font-size: 1rem;
-  margin: 0;
-}
-
-/*
-.card {
-  margin: 2rem auto;
-  padding-top: 2rem;
-  border: 3px solid var(--color-bg-divider);
-}
-*/
 
 /* TITULO */
 section h2 {
   font-weight: bold;
   color: var(--color-text);
 }
+
 .green-line {
   background-color: var(--color-link);
   height: 0.2rem;
@@ -36,51 +31,44 @@ section h2 {
 }
 
 /* CONSULTA */
-label {
-  color: var(--color-text);
-  padding-left: 1rem;
-  margin-left: 0.875rem;
-  background: transparent;
+
+.example-container .mat-form-field+.mat-form-field {
+  margin-left: 8px;
+  color: var(--color-txt);
 }
 
-input {
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
   width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+
+.example-right-align {
+  text-align: right;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mat-form-field-infix {
   border-radius: 0;
   border: none;
-  border-bottom: 3px solid var(--color-bg-divider);
   background: transparent;
   outline: none;
   color: var(--color-text-secundary);
   font-size: 0.875rem;
 }
 
-textarea {
-  background-color: var(--color-bg-secundary);
-  color: var(--color-text-secundary);
-  border: 2px solid var(--color-bg-divider);
-  height: 150px;
-}
-
-input:focus,
-input:hover,
-input:active,
-textarea:focus,
-textarea:hover,
-textarea:active {
-  background-color: var(--color-bg-secundary);
-  border: 0;
-  color: var(--color-text-secundary);
-  border-bottom: 3px solid var(--color-bg-red);
-}
-
-.small {
-  color: var(--color-bg-red);
-  padding-top: 0rem;
-}
-
-.small p strong {
-  color: var(--color-bg-red);
-  padding-top: 0rem;
+mat-label {
+  color: var(--color-txt);
 }
 
 .btn-submit {
@@ -116,9 +104,22 @@ textarea:active {
   align-items: center;
 }
 
-svg {
-  color: var(--color-text-secundary);
-  margin-right: 1.5rem;
+mat-icon {
+  color: var(--color-bg-secundary);
+}
+
+.btn-des {
+  background-color: var(--color-btn);
+}
+
+.btn-des:hover,
+.btn-des:focus,
+.btn-des:active {
+  background-color: var(--color-btn-hover);
+}
+
+.mat-icon-button {
+  margin: 2rem;
 }
 
 #mapa {

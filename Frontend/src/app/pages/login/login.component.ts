@@ -45,6 +45,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
     }
   }*/
 export class LoginComponent {
+  hide = true;
   loginForm: FormGroup;
 
   constructor() {

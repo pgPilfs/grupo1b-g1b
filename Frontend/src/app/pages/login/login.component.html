@@ -7,6 +7,7 @@
       <div class="section-divider"></div>
       <h4 class="text-center my-2">¡ Te extrañamos !</h4>
       <form
+        class="example-form"
         [formGroup]="loginForm"
         (ngSubmit)="onSubmit()"
         autocomplete="off"
@@ -14,54 +15,47 @@
       >
         <!-- EMAIL INPUT -->
         <div class="form-group my-4">
-          <div class="form-floating">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Correo Electrónico</mat-label>
             <input
-              type="email"
-              class="form-control"
+              matInput
+              placeholder="pat@example.com"
               formControlName="email"
-              id="floatingInput"
-              placeholder="Ingrese su email"
+              type="email"
+              name="email"
+              autocomplete="off"
+              id="email"
+              required
             />
-            <label for="floatingInput">Email</label>
-            <small
-              class="small1"
-              *ngIf="
-                loginForm.controls.email.touched &&
-                loginForm.controls.email.errors?.required
-              "
-              >Por favor, ingrese su <strong>email</strong></small
-            >
-            <small
-              class="small1"
-              *ngIf="
-                loginForm.controls.email.touched &&
-                loginForm.controls.email.errors?.email
-              "
-            >
-              Email mal ingresado</small
-            >
-          </div>
+            <mat-hint>El email es <strong>requerido</strong></mat-hint>
+            <mat-error>
+              <mat-error *ngIf="loginForm.controls.email.touched &&
+              loginForm.controls.email.errors?.required">
+                El email es <strong>requerido</strong>
+              </mat-error>
+              <mat-error *ngIf="loginForm.controls.email.touched &&
+              loginForm.controls.email.errors?.email">
+                El <strong>formato del mail</strong> debe ser válido.
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
         </div>
         <!-- CONTRASEÑA INPUT -->
         <div class="form-group my-4">
-          <div class="form-floating">
-            <input
-              type="password"
-              class="form-control"
-              formControlName="password"
-              placeholder="Ingrese su contraseña"
-            />
-            <label for="floatingInput">Contraseña</label>
-            <small
-              class="small1"
-              *ngIf="
-                loginForm.controls.password.touched &&
-                loginForm.controls.password.errors?.required
-              "
-              >Por favor, ingrese su <strong>contraseña</strong></small
-            >
-          </div>
+          <mat-form-field class="example-full-width"  appearance="fill">
+            <mat-label>Ingrese su contraseña</mat-label>
+            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-hint>La contraseña es <strong>requerido</strong></mat-hint>
+              <mat-error *ngIf="loginForm.controls.password.touched &&
+              loginForm.controls.password.errors?.required">
+              La contraseña es <strong>requerido</strong>
+              </mat-error>
+          </mat-form-field>
         </div>
+
         <div class="items-card text-center my-4">
           <div class="a1">
             <a href="#">Me olvidé la contraseña</a>
@@ -73,8 +67,7 @@
         <!-- BOTON -->
         <div class="d-flex justify-content-center">
           <button
-            type="submit"
-            class="btn ingresar text-center"
+            class="btn btn-login"
             routerLink="/wallet"
           >
             Ingresar

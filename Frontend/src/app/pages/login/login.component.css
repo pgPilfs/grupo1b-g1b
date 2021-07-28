@@ -11,7 +11,7 @@
 }
 
 
-
+/* 
 label {
   color: var(--color-text);
   padding-left: 1rem;
@@ -37,31 +37,52 @@ input:active {
   color: var(--color-text-secundary);
   border-bottom: 3px solid var(--color-bg-red-secundary);
   font-size: 1rem;
+} */
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
 }
 
-button {
+.example-full-width {
+  width: 100%;
+}
+
+.example-container .mat-form-field+.mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+.btn-login {
   background-color: var(--color-btn);
   width: 15rem;
   height: 3rem;
-  font-size: 1.2em;
   color: var(--color-bg-secundary);
   border: none;
 }
 
-button:hover,
-button:focus,
-button:active {
+.btn-log:hover,
+.btn-log:focus,
+.btn-log:active {
   background-color: var(--color-btn-hover);
   width: 15rem;
   height: 3rem;
   font-size: 1.2rem;
   color: var(--color-bg-secundary);
   border: none;
-}
-
-.small1 {
-  color: var(--color-bg-red);
-  padding-top: 0rem;
 }
 
 a {
