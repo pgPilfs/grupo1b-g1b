@@ -14,6 +14,8 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { ProyectComponent } from './proyect/proyect.component';
 import { ContactComponent } from './contact/contact.component';
+import { MatCard, MatCardModule, MatCardTitle } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { ContactComponent } from './contact/contact.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
+    MatCardModule,
+    MatDividerModule
   ],
   exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ContactComponent, ProyectComponent],
   providers: [

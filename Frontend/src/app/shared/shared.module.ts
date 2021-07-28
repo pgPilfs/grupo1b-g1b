@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 
@@ -14,6 +16,8 @@ import { AppRoutingModule } from '../app-routing.module';
   imports: [
     CommonModule,
     AppRoutingModule,
+    MatMenuModule,
+    MatToolbarModule
   ],
   exports: [FooterComponent, NavComponent]
 })
