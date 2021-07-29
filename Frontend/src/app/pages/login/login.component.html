@@ -23,16 +23,12 @@
               formControlName="email"
               type="email"
               name="email"
-              autocomplete="off"
-              id="email"
               required>
             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
             <mat-hint>El email es <strong>requerido</strong></mat-hint>
-            <mat-error>
-              <mat-error *ngIf="loginForm.controls.email.touched &&
+            <mat-error *ngIf="loginForm.controls.email.touched &&
               loginForm.controls.email.errors?.required">
                 El email es <strong>requerido</strong>
-              </mat-error>
               <mat-error *ngIf="loginForm.controls.email.touched &&
               loginForm.controls.email.errors?.email">
                 El <strong>formato del mail</strong> debe ser válido.

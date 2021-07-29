@@ -23,6 +23,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatAccordion } from '@angular/material/expansion';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatSelectModule} from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatButtonModule,
     MatExpansionModule,
     MatMenuModule,
-
+    MatSelectModule,
+    MatCheckboxModule,
+    MatStepperModule
   ],
   exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ContactComponent, ProyectComponent],
   providers: [

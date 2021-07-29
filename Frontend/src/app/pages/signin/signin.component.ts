@@ -29,16 +29,22 @@ interface Ciudad {
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
+  hide = true;
   step: any = 1;
 
   formsign: FormGroup;
-
+  firstFormGroup: FormGroup | undefined;
+  secondFormGroup: FormGroup | undefined;
   minDate: Date;
   maxDate: Date;
 
   files: string[] = [];
   selectedFiles: any;
   selectedFilesF: any;
+
+  isLinear = false;
+ 
+
 
   onFileSelected(event: { target: { files: string | any[] } }) {
     if (event.target.files.length > 0) {
@@ -67,15 +73,57 @@ export class SigninComponent implements OnInit {
   }
 
    // getting the form control elements
+  get name(): AbstractControl {
+    return this.formsign.controls['name'];
+  }
+  get lastname(): AbstractControl {
+    return this.formsign.controls['lastname'];
+  }
+  get username(): AbstractControl {
+    return this.formsign.controls['username'];
+  }
+  get email(): AbstractControl {
+    return this.formsign.controls['email'];
+  }
    get password(): AbstractControl {
     return this.formsign.controls['password'];
   }
-
   get cpassword(): AbstractControl {
     return this.formsign.controls['cpassword'];
   }
-
-
+  get pais(): AbstractControl {
+    return this.formsign.controls['pais'];
+  }
+  get provincia(): AbstractControl {
+    return this.formsign.controls['provincia'];
+  }
+  get ciudad(): AbstractControl {
+    return this.formsign.controls['ciudad'];
+  }
+  get cpostal(): AbstractControl {
+    return this.formsign.controls['cpostal'];
+  }
+  get calle(): AbstractControl {
+    return this.formsign.controls['calle'];
+  }
+  get pdpto(): AbstractControl {
+    return this.formsign.controls['pdpto'];
+  }
+  get cuil(): AbstractControl {
+    return this.formsign.controls['cuil'];
+  }
+  get tel(): AbstractControl {
+    return this.formsign.controls['tel'];
+  }
+  get fecnac(): AbstractControl {
+    return this.formsign.controls['fecnac'];
+  }
+  get foto1(): AbstractControl {
+    return this.formsign.controls['foto1'];
+  }
+  get foto2(): AbstractControl {
+    return this.formsign.controls['foto2'];
+  }
   private pattLetters: any = /^[a-zA-Z ]*$/;
   private pattUser: any = /^(?=.*[a-zA-Z]{1,})(?=.*[\d]{0,})[a-zA-Z0-9]{5,}$/;
   private pattEmail: any =
@@ -125,7 +173,6 @@ export class SigninComponent implements OnInit {
       ciudad: ['', [Validators.required]],
       calle: ['', [Validators.required, Validators.pattern(this.pattAddress)]],
       pdpto: ['', [Validators.required, Validators.pattern(this.pattAddress)]],
-      dni: ['', [Validators.required, Validators.pattern(this.pattNumbers)]],
       cuil: ['', [Validators.required, Validators.pattern(this.pattNumbers), Validators.minLength(9), Validators.max(11)]],
       tel: [
         '',
@@ -139,6 +186,8 @@ export class SigninComponent implements OnInit {
       foto1: ['', [Validators.required]],
       foto2: ['', [Validators.required]],
     });
+
+ 
   }
 
   selectFormControl = new FormControl('', Validators.required);
@@ -168,7 +217,14 @@ export class SigninComponent implements OnInit {
     { city: 'Cuidad 3' },
   ];
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.firstFormGroup = this.formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this.formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
+  }
 
   next() {
     this.step = this.step + 1;
@@ -252,7 +308,12 @@ export class SigninComponent implements OnInit {
       this.formsign.markAllAsTouched(); //Activa todas las validaciones
     }
   }
+
+
 }
+
+
+
 
 export function createPasswordStrengthValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -273,3 +334,7 @@ export function createPasswordStrengthValidator(): ValidatorFn {
     return !passwordValid ? { passwordStrength: true } : null;
   };
 }
+function getErrorMessage() {
+  throw new Error('Function not implemented.');
+}
+
