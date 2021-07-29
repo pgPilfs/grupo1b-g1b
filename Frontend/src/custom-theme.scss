@@ -3,7 +3,7 @@
 @include mat.core();
 
 // Define a dark theme
-$dark-primary: mat.define-palette(mat.$pink-palette);
+$dark-primary: mat.define-palette(mat.$purple-green-palette);
 $dark-accent: mat.define-palette(mat.$blue-gray-palette);
 $dark-theme: mat.define-dark-theme((
  color: (
