@@ -12,8 +12,8 @@ h2 {
   border-radius: 0.5rem;
   padding: 0 1.5rem;
   background-color: var(--color-bg-secundary);
-  height: auto;
   width: auto;
+  height: auto;
   border: 3px solid var(--color-bg-divider);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
@@ -95,13 +95,10 @@ button {
   box-shadow: none;
 }
 
-
-
-
 .link {
   color: var(--color-link);
 }
-/* 
+
 p {
   font-size: 1rem;
 }
@@ -115,7 +112,7 @@ p {
   height: auto;
   text-align: center;
   border: none;
-} */
+}
 
 .example-section {
   margin: 12px 0;
@@ -135,12 +132,8 @@ p {
   width: 100%;
 }
 
-mat-form-field.mat-form-field-infix{
-  width:auto;
-}
-
 mat-form-field.mat-form-field {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .example-container .mat-form-field + .mat-form-field {
@@ -149,4 +142,13 @@ mat-form-field.mat-form-field {
 
 .example-container {
   align-self: center;
+}
+
+mat-error {
+  margin-bottom: .5rem;
+  font-size: .8rem;
+  color: var(--color-bg-red);
+}
+mat-form-field{
+  margin: 1rem;
 }

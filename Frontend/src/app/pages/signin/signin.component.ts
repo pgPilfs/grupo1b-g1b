@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -29,6 +29,7 @@ interface Ciudad {
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
+
   hide = true;
   step: any = 1;
 
@@ -38,13 +39,10 @@ export class SigninComponent implements OnInit {
   minDate: Date;
   maxDate: Date;
 
+  isLinear = false;
   files: string[] = [];
   selectedFiles: any;
   selectedFilesF: any;
-
-  isLinear = false;
- 
-
 
   onFileSelected(event: { target: { files: string | any[] } }) {
     if (event.target.files.length > 0) {
@@ -118,12 +116,7 @@ export class SigninComponent implements OnInit {
   get fecnac(): AbstractControl {
     return this.formsign.controls['fecnac'];
   }
-  get foto1(): AbstractControl {
-    return this.formsign.controls['foto1'];
-  }
-  get foto2(): AbstractControl {
-    return this.formsign.controls['foto2'];
-  }
+
   private pattLetters: any = /^[a-zA-Z ]*$/;
   private pattUser: any = /^(?=.*[a-zA-Z]{1,})(?=.*[\d]{0,})[a-zA-Z0-9]{5,}$/;
   private pattEmail: any =
@@ -243,7 +236,7 @@ export class SigninComponent implements OnInit {
   selectFileF(event: { target: { files: any } }) {
     this.selectedFilesF = event.target.files;
   }
-
+  
   get nameField() {
     return this.formsign.get('name');
   }
