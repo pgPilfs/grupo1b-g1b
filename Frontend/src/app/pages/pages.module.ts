@@ -26,7 +26,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatStepperModule } from '@angular/material/stepper';
-
+import { GoogleMapsModule } from "@angular/google-maps";
 @NgModule({
   declarations: [
     WalletComponent,
@@ -57,7 +57,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatMenuModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatStepperModule
+    MatStepperModule,
+    GoogleMapsModule
   ],
   exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ContactComponent, ProyectComponent],
   providers: [

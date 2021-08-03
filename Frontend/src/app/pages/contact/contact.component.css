@@ -121,20 +121,6 @@ mat-icon {
   margin: 2rem;
 }
 
-#mapa {
-  width: 100%;
-  max-width: 20rem;
-}
-
-/* ANIMATIONS */
-#mapa {
-  transition: transform 0.2s;
-}
-
-#mapa:hover {
-  transform: scale(1.1);
-}
-
 @media (min-width: 768px) {
   .content {
     display: grid;
@@ -142,3 +128,4 @@ mat-icon {
     margin-top: 2rem;
   }
 }
+

@@ -50,7 +50,7 @@ body, h1, h2, h3, h4, h5, h6{
     color: var(--color-text);
 }
 
-p, div, a, label, input, span{
+p, div, a, label, input, span, button{
     font-family: 'Biryani', sans-serif;
     color: var(--color-text-secundary);
 }
@@ -133,7 +133,6 @@ a {
   }
 }
 
-
 .section-divider {
   display: block;
   border-radius: 55px;
@@ -143,11 +142,10 @@ a {
   margin: 1rem auto;
 }
 
-
 section{
   margin-top: 4rem;
 }
+
 html, body { height: 100%; }
 
 
-html, body { height: 100%; }
