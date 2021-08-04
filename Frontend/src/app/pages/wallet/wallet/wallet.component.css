@@ -64,12 +64,10 @@ table {
 /* ANIMATIONS */
 .card {
   transition: transform .2s;
-  margin: auto;
 }
 
 .card:hover {
   transform: scale(1.1);
-  z-index:100;
 }
 
 @media (max-width:800px) {
@@ -78,5 +76,10 @@ table {
   }
   td{
     font-size: 2.5vw;
+  }
+  .card{
+    margin: auto;
+    width: 100%;
+    padding:1em;
   }
 }

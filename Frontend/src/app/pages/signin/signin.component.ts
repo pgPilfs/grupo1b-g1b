@@ -226,7 +226,7 @@ export class SigninComponent implements OnInit {
     this.step = this.step - 1;
   }
   confirmado() {
-    this.step = 4;
+    this.step = 6;
   }
 
   selectFile(event: { target: { files: any } }) {

@@ -1,4 +1,4 @@
-<div class="MainContainer">
+<div class="MainContainer m-4">
   <h2 class="title text-center">Operaciones en Pesos</h2>
   <div class="section-divider"></div>
   <div class="card">
@@ -29,12 +29,12 @@
     </div>
 
     <!-- Seccion para el ingresar dinero en cuenta de usuario -->
-    <div class="card subcard" style="margin-top: 25px" *ngIf="seccionIngreso">
+    <div class="card" style="margin-top: 25px" *ngIf="seccionIngreso">
       <h4 class="card-header text-center text-uppercase py-2">
         Ingreso de dinero a mi cuenta
       </h4>
       <div class="card-body">
-        <form (ngSubmit)="ingresar()">
+        <form style="margin-inline: 25%" (ngSubmit)="ingresar()">
           <div [formGroup]="operacionForm" class="form-group" novalidate>
             <label for="numeroTarjeta">Ingrese el número de la tarjeta :</label>
             <input
@@ -201,13 +201,13 @@
     </div>
 
     <!-- Seccion para retirar dinero en cuenta de usuario -->
-    <div class="card subcard" *ngIf="seccionRetiro">
+    <div class="card" style="margin-top: 25px" *ngIf="seccionRetiro">
       <h4 class="card-header text-center text-uppercase py-2">
         Retirar dinero de mi cuenta
       </h4>
 
       <div class="card-body">
-        <form (ngSubmit)="retiro()">
+        <form style="margin-inline: 25%" (ngSubmit)="retiro()">
           <div [formGroup]="operacionForm" class="form-group" novalidate>
             <label for="numeroTarjeta">Ingrese el número de la tarjeta :</label>
             <input
@@ -405,7 +405,7 @@
         <td>{{ item.id }}</td>
         <td>{{ item.cuenta }}</td>
         <td>{{ item.fecha }}</td>
-        <td nowrap>$ {{ item.monto }}</td>
+        <td>$ {{ item.monto }}</td>
         <td>
           <input type="checkbox" />
         </td>

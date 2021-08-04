@@ -1,0 +1,41 @@
+<mat-toolbar class="mat-elevation">
+  <button class="btn" mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">
+          menu
+      </mat-icon>
+      <mat-icon *ngIf="sidenav.opened">
+          close
+      </mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation">
+      <img class="avatar mat-elevation-z8" src="../../../assets/avatars/default.png" />
+      <h4 class="name">Pepe Gomez</h4>
+      <mat-divider></mat-divider>
+      <button mat-button class="btn menu-button" routerLink="/menu/wallet">
+          <mat-icon>account_balance_wallet</mat-icon>
+          <span>Billetera</span>
+      </button>
+      <mat-divider></mat-divider>
+      <mat-icon>account_balance</mat-icon>
+        <mat-label>Operaciones</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let operation of ops" [value]="operation.value" [routerLink]="operation.value">
+            {{operation.viewValue}}
+          </mat-option>
+        </mat-select>
+
+      <mat-divider></mat-divider>
+      <button mat-button class="btn menu-button" routerLink="/menu/perfil">
+          <mat-icon>account_circle</mat-icon>
+          <span>Perfil</span>
+      </button>
+      <mat-divider></mat-divider>
+  </mat-sidenav>
+      <div class="content mat-elevation-z8">
+        <router-outlet></router-outlet>
+      </div>
+</mat-sidenav-container>
+
