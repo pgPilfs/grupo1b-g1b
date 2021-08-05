@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WalletComponent } from './wallet/wallet/wallet.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HomeComponent } from './home/home.component';
 import { TermsComponent } from './terms/terms.component';
@@ -14,22 +13,26 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { ProyectComponent } from './proyect/proyect.component';
 import { ContactComponent } from './contact/contact.component';
-import { MatCard, MatCardModule, MatCardTitle } from '@angular/material/card';
+import { MatCardModule, MatCardTitle } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
-import { MatAccordion } from '@angular/material/expansion';
+
 import { MatMenuModule } from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatStepperModule } from '@angular/material/stepper';
 import { GoogleMapsModule } from "@angular/google-maps";
+import { MenuComponent } from './wallet/menu.component';
+import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 @NgModule({
   declarations: [
-    WalletComponent,
+   MenuComponent,
     NotfoundComponent,
     HomeComponent,
     TermsComponent,
@@ -58,9 +61,12 @@ import { GoogleMapsModule } from "@angular/google-maps";
     MatSelectModule,
     MatCheckboxModule,
     MatStepperModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    RouterModule,
+    MatToolbarModule,
+    MatSidenavModule
   ],
-  exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ContactComponent, ProyectComponent],
+  exports: [MenuComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ContactComponent, ProyectComponent],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'es'},
   ]

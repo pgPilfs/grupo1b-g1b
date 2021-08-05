@@ -4,29 +4,36 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SigninComponent } from './pages/signin/signin.component';
-import { WalletComponent } from './pages/wallet/wallet/wallet.component';
+import { MenuComponent } from './pages/wallet/menu.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { DevelopersComponent } from './pages/developers/developers.component';
 import { ProyectComponent } from './pages/proyect/proyect.component';
+import { PerfilComponent } from './pages/wallet/perfil/perfil.component';
+import { DolarComponent } from './pages/wallet/dolar/dolar.component';
+import { CryptoComponent } from './pages/wallet/crypto/crypto.component';
 import { PesoComponent } from './pages/wallet/operation/peso/peso.component';
-import { MenuComponent } from './pages/wallet/menu/menu.component';
+import { WalletComponent } from './pages/wallet/wallet/wallet.component';
 
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signin', component: SigninComponent},
-  {path: 'wallet', component: WalletComponent},
+  {path: 'menu', component: MenuComponent},
   {path: 'terms', component: TermsComponent},
   {path: 'developers', component: DevelopersComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'proyect', component: ProyectComponent},
-  {path:'wallet',
-  loadChildren: () => import('./pages/wallet/wallet.module').then(m=>m.WalletModule)},
-  {path: 'peso', component: PesoComponent},
-  {path: 'menu', component: MenuComponent},
+  {path:'menu', component: MenuComponent,
+  children:[
+    {path: 'peso', component: PesoComponent},
+    {path: 'wallet', component: WalletComponent},
+    {path: 'perfil', component: PerfilComponent},
+    {path: 'dolar', component: DolarComponent},
+    {path: 'crypto', component: CryptoComponent},
+  ]},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path:'**', component: NotfoundComponent},
   

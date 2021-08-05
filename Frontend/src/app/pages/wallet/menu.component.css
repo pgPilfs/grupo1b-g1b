@@ -1,0 +1,180 @@
+mat-toolbar {
+  background: var(--color-bg);
+  color: white;
+}
+
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: var(--color-bg-secundary);
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  color: lightgray;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+  background: var(--color-bg);
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+
+  
+}
+mat-icon {
+      margin-right: 8px;
+  }
+
+mat-drawer-content {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+}
+mat-select{
+  color: white;
+  background-color: var(--color-bg-secundary);
+}
+mat-option{
+  background: var(--color-bg);
+  box-shadow: none;
+}
+mat-select-mat-select-arrow {
+  color: white;
+}
+
+.avatar {
+  margin-top: 16px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.name {
+  margin-top: 8px;
+  font-weight: normal;
+}
+
+.designation {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: lightgrey;
+}
+
+mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: var(--color-bg-divider);
+}
+
+.title {
+  margin-top: 4rem;
+}
+
+.card1 {
+  border-left: 10px solid var(--color-bg-purple-secundary);
+  box-shadow: 0 .125rem .25rem 0 rgba(0, 0, 0, .2);
+}
+
+.card2 {
+  border-left: 10px solid var(--color-btn);
+  box-shadow: 0 .125rem .25rem 0 rgba(0, 0, 0, .2);
+}
+
+.card3 {
+  border-left: 10px solid var(--color-bg-yellow);
+  box-shadow: 0 .125rem .25rem 0 rgba(0, 0, 0, .2);
+}
+
+.card-title1 {
+  color: var(--color-bg-purple-secundary);
+}
+
+.card-title2 {
+  color: var(--color-btn);
+}
+
+.card-title3 {
+  color: var(--color-bg-yellow);
+}
+
+.more {
+  text-align: end;
+}
+
+th {
+  color: var(--color-text);
+  font-size: 1.5rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+
+td {
+  font-size: 1.4rem;
+  text-align: start;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  color: var(--color-text-secundary);
+}
+
+.ingreso {
+  color: var(--color-btn);
+}
+
+.egreso {
+  color: var(--color-bg-red);
+}
+
+
+/* ANIMATIONS */
+.card {
+  transition: transform .2s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.example-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}

@@ -1,0 +1,13 @@
+.form-control{
+  background: var(--color-bg-primary);
+}
+.card-item img{
+  width: 25rem;
+  height: 12rem;
+}
+.editar{
+  padding: 0.5rem;
+  border-bottom: 3px solid var(--color-bg-btn);
+  border-radius: 0.5rem;
+  margin-left: 69rem;
+}
