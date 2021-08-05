@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { ViewChild } from '@angular/core';
+import {MediaMatcher} from '@angular/cdk/layout';
 
 
 interface Operation {
@@ -15,6 +16,7 @@ interface Operation {
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  mobileQuery: MediaQueryList;
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
@@ -25,8 +27,13 @@ export class MenuComponent implements OnInit {
     {value: '/menu/crypto', viewValue: 'Crypto'}
   ];
 
+  private _mobileQueryListener: () => void;
 
-  constructor(private observer: BreakpointObserver) { }
+  constructor(private observer: BreakpointObserver, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngAfterViewInit() {
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
@@ -41,6 +48,7 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
 }
