@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HomeComponent } from './home/home.component';
@@ -18,21 +18,21 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatExpansionModule} from '@angular/material/expansion';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatStepperModule } from '@angular/material/stepper';
-import { GoogleMapsModule } from "@angular/google-maps";
 import { MenuComponent } from './wallet/menu.component';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+
+
 @NgModule({
   declarations: [
-   MenuComponent,
+    MenuComponent,
     NotfoundComponent,
     HomeComponent,
     TermsComponent,
@@ -40,7 +40,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     LoginComponent,
     DevelopersComponent,
     ContactComponent,
-    ProyectComponent
+    ProyectComponent,
   ],
   imports: [
     CommonModule,
@@ -61,15 +61,21 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSelectModule,
     MatCheckboxModule,
     MatStepperModule,
-    GoogleMapsModule,
     RouterModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
   ],
-  exports: [MenuComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ContactComponent, ProyectComponent],
-  providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'es'},
-  ]
+  exports: [
+    MenuComponent,
+    NotfoundComponent,
+    HomeComponent,
+    TermsComponent,
+    SigninComponent,
+    LoginComponent,
+    ContactComponent,
+    ProyectComponent,
+  ],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es' }],
+ 
 })
-
-export class PagesModule{ }
+export class PagesModule {}

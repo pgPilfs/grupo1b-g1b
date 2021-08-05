@@ -27,12 +27,14 @@ export class MenuComponent implements OnInit {
     {value: '/menu/crypto', viewValue: 'Crypto'}
   ];
 
-  private _mobileQueryListener: () => void;
 
   constructor(private observer: BreakpointObserver, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+  }
+  private _mobileQueryListener(_mobileQueryListener: any) {
+    throw new Error('Method not implemented.');
   }
 
   ngAfterViewInit() {
