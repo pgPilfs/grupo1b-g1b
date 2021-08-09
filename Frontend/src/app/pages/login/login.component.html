@@ -1,5 +1,5 @@
 <section class="section">
-  <div class="container-fluid ">
+  <div class="container-fluid">
     <div class="card login-card" data-aos="zoom-in">
       <h2 class="text-center my-4">
         Te damos la bienvenida <br />a <strong>PIL MONEY</strong>
@@ -8,7 +8,7 @@
       <h4 class="text-center my-4">¡ Te extrañamos !</h4>
       <form
         class="example-form"
-        [formGroup]="loginForm"
+        [formGroup]="loginform"
         (ngSubmit)="onSubmit()"
         autocomplete="off"
         novalidate
@@ -21,52 +21,66 @@
               matInput
               placeholder="pilmoney@mail.com"
               formControlName="email"
+              [formControl]="email"
               type="email"
               name="email"
-              required>
+              id="email"
+              required
+            />
             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            <mat-hint>El email es <strong>requerido</strong></mat-hint>
-            <mat-error *ngIf="loginForm.controls.email.touched &&
-              loginForm.controls.email.errors?.required">
-                El email es <strong>requerido</strong>
-              <mat-error *ngIf="loginForm.controls.email.touched &&
-              loginForm.controls.email.errors?.email">
-                El <strong>formato del mail</strong> debe ser válido.
-              </mat-error>
+            <mat-error
+              *ngIf="
+                loginform.get('email').errors && loginform.get('email').touched
+              "
+            >
+              El correo electrónico es <strong>obligatorio</strong>
             </mat-error>
           </mat-form-field>
         </div>
         <!-- CONTRASEÑA INPUT -->
         <div class="form-group my-4">
-          <mat-form-field class="example-full-width"  appearance="standard">
+          <mat-form-field class="example-full-width" appearance="standard">
             <mat-label>Ingrese su contraseña</mat-label>
-            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <input
+              matInput
+              formControlName="password"
+              [formControl]="password"
+              [type]="hide ? 'password' : 'text'"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
             </button>
-            <mat-hint>La contraseña es <strong>requerido</strong></mat-hint>
-              <mat-error *ngIf="loginForm.controls.password.touched &&
-              loginForm.controls.password.errors?.required">
-              La contraseña es <strong>requerido</strong>
-              </mat-error>
+            <mat-error
+              *ngIf="
+                loginform.get('password').errors &&
+                loginform.get('password').touched
+              "
+            >
+              La contraseña es <strong>requerida</strong>
+            </mat-error>
           </mat-form-field>
         </div>
 
         <div class="text-center my-4 example-label">
           <div class="example-button-row">
-            <button mat-button color="accent"><a href="#" class="color-btn">Me olvidé la contraseña</a></button>
-            <button mat-button color="accent"><a class="color-btn" routerLink="/signin">Create una cuenta</a></button>
+            <button mat-button color="accent">
+              <a href="#" class="color-btn">Me olvidé la contraseña</a>
+            </button>
+            <button mat-button color="accent">
+              <a class="color-btn" routerLink="/signin">Create una cuenta</a>
+            </button>
           </div>
         </div>
 
         <!-- BOTON -->
         <div class="d-flex justify-content-center">
-          <button
-            class="btn btn-login"
-            routerLink="/wallet"
-          >
-            Ingresar
-          </button>
+          <button class="btn btn-login" routerLink="/wallet">Ingresar</button>
         </div>
       </form>
     </div>
