@@ -27,6 +27,7 @@
     "@angular/router": "~12.1.1",
     "@material-ui/core": "^4.12.1",
     "@material-ui/icons": "^4.11.2",
+    "angular-maps": "^6.0.3",
     "aos": "^2.3.4",
     "bootstrap": "^5.0.2",
     "boxicons": "^2.0.7",
