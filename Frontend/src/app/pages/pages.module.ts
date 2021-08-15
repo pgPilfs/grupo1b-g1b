@@ -28,6 +28,7 @@ import { MenuComponent } from './wallet/menu.component';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { GoogleMapsModule } from "@angular/google-maps";
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     RouterModule,
     MatToolbarModule,
     MatSidenavModule,
+    GoogleMapsModule,
   ],
   exports: [
     MenuComponent,
@@ -76,6 +78,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     ProyectComponent,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es' }],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
  
 })
 export class PagesModule {}
