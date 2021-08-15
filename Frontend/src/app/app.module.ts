@@ -11,6 +11,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from "@angular/google-maps";
+import { MatCardModule } from '@angular/material/card';
+import { MenuModule } from './pages/wallet/menu.module';
 
 
 
@@ -23,6 +25,7 @@ import { GoogleMapsModule } from "@angular/google-maps";
     AppRoutingModule,
     PagesModule,
     SharedModule,
+    MenuModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -30,7 +33,8 @@ import { GoogleMapsModule } from "@angular/google-maps";
     MatFormFieldModule,
     MatButtonModule,
     FormsModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
