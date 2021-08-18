@@ -11,6 +11,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSortModule,
     MatTableModule,
     MatDialogModule,
-    MatDividerModule
+    MatDividerModule,
+    MatIconModule
   ],
   exports:[WalletComponent, PesoComponent, PerfilComponent, DolarComponent, CryptoComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

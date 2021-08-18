@@ -1,6 +1,7 @@
-<section class="m-4" data-aos="zoom-in" data-aos-duration="1500">
+<section  data-aos="zoom-in" data-aos-duration="1500">
   <div class="container-fluid ">
     <div class="title text-center">
+      <mat-divider class="my-4"></mat-divider>
       <h2><strong>Hola NAME</strong>, te damos la bienvenida de vuelta!</h2>
       <mat-divider class="my-4"></mat-divider>
     </div>
@@ -44,7 +45,9 @@
                   <span>Últimos movimientos</span> 
                 </div>
                 <div class="col text-end">
-                <a routerLink="/menu/peso">Ver más</a>
+                <a routerLink="/menu/peso">Ver más
+                <mat-icon>chevron_right</mat-icon>
+                </a>
                 </div>
               </div>
                
@@ -91,6 +94,7 @@
               <mat-title class="py-4">Cotización
               <div class="text-end">
                  <a  routerLink="/menu/peso">Ver más</a>
+                 <mat-icon>chevron_right</mat-icon>
               </div>   
              </mat-title>
           <table mat-table [dataSource]="dataSource2" class="  mat-elevation-z8 demo-table">
