@@ -9,6 +9,8 @@ import { CryptoComponent } from './crypto/crypto.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatCardModule,
     MatSortModule,
     MatTableModule,
+    MatDialogModule,
+    MatDividerModule
   ],
   exports:[WalletComponent, PesoComponent, PerfilComponent, DolarComponent, CryptoComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

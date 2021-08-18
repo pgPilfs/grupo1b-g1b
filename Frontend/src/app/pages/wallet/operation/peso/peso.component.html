@@ -1,12 +1,13 @@
-<div class="MainContainer m-4">
+<section class="m-4" data-aos="zoom-in" data-aos-duration="1500">
+<div class="container-fluid">
+  <mat-divider class="my-4"></mat-divider>
   <h2 class="title text-center">Operaciones en Pesos</h2>
-  <div class="section-divider"></div>
-
-  <div class="card">
-    <h3 class="texto-seleccion card-header text-center font-weight-bold">
+  <mat-divider class="my-4"></mat-divider>
+  <mat-card>
+    <mat-title>
       Seleccione la operación que desea realizar
-    </h3>
-    <div class="card-body">
+    </mat-title>
+    <mat-body class="card-body">
       <div class="row">
         <div class="contenedor-operaciones col">
           <button
@@ -26,8 +27,8 @@
             Retirar Dinero
           </button>
         </div>
+      
       </div>
-    </div>
 
     <!-- Seccion para el ingresar dinero en cuenta de usuario -->
     <div class="card" style="margin-top: 25px" *ngIf="seccionIngreso">
@@ -373,7 +374,8 @@
         </form>
       </div>
     </div>
-  </div>
+    </mat-body>
+</mat-card>
 </div>
 
 <section class="card">
@@ -413,4 +415,6 @@
       </tr>
     </tbody>
   </table>
+</section>
+
 </section>

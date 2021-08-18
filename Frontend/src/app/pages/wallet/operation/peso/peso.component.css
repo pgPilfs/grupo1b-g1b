@@ -116,3 +116,16 @@ input[type="date"] {
     color: var(--color-bg-red);
     padding-top: 0rem;
   }
+
+mat-card{
+  background-color: var(--color-bg-secundary);
+  border-radius: .5rem;
+  border: 3px solid var(--color-bg-divider);
+}
+
+mat-title{
+    text-align: center;
+    font-size: 1.7rem;
+    padding-left: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}

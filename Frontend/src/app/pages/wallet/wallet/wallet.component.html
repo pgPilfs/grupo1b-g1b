@@ -2,6 +2,7 @@
   <div class="container-fluid ">
     <div class="title text-center">
       <h2><strong>Hola NAME</strong>, te damos la bienvenida de vuelta!</h2>
+      <mat-divider class="my-4"></mat-divider>
     </div>
 
     <div class="header pb-8 pt-5 pt-md-8">
@@ -9,21 +10,21 @@
         <div class="header-body">
           <div class="row">
             <!-- PESOS -->
-            <div class="col-lg-4 col-sm-12 col-md-12 my-2">
+            <div class="col-lg-4 col-sm-12 col-md-12 my-4">
               <mat-card class="example-card card1 py-4">
                 <mat-card-title class="text-uppercase card-title1 my-2">Saldo en PESOS</mat-card-title>
                 <mat-card-subtitle class="h4 font-weight-bold mb-0">$ 4000</mat-card-subtitle>
               </mat-card>
             </div>
 
-            <div class="col-lg-4 col-sm-12 col-md-12 my-2">
+            <div class="col-lg-4 col-sm-12 col-md-12 my-4">
               <mat-card class="example-card card2 py-4">
                 <mat-card-title class="text-uppercase card-title2 my-2">Saldo en Dólar</mat-card-title>
                 <mat-card-subtitle class="h4 font-weight-bold mb-0">U$S 4000</mat-card-subtitle>
               </mat-card>
             </div>
 
-            <div class="col-lg-4 col-sm-12 col-md-12 my-2">
+            <div class="col-lg-4 col-sm-12 col-md-12 my-4">
               <mat-card class="example-card card3 py-4">
                 <mat-card-title class="text-uppercase card-title3 my-2">Saldo en Cripto</mat-card-title>
                 <mat-card-subtitle class="h4 font-weight-bold mb-0">924B $</mat-card-subtitle>
@@ -33,17 +34,23 @@
         </div>
       </div>
     </div>
-
-
-
+    
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-8 my-4">
           <mat-card>
-            <mat-title class="py-4">Últimos movimientos
-            <div class="text-end">
-               <a  routerLink="/menu/peso">Ver más</a>
-            </div>   
-           </mat-title>
+            <mat-title class="p-4">
+              <div class="row">
+                <div class="col">
+                  <span>Últimos movimientos</span> 
+                </div>
+                <div class="col text-end">
+                <a routerLink="/menu/peso">Ver más</a>
+                </div>
+              </div>
+               
+              
+            </mat-title>
+           
             
             
           <table mat-table [dataSource]="dataSource" class=" mat-elevation-z8 demo-table">

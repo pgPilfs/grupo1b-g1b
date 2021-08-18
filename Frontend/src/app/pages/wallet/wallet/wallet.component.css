@@ -22,14 +22,17 @@
 
 .card-title1 {
   color: var(--color-bg-purple-secundary);
+  font-size: 1.5rem;
 }
 
 .card-title2 {
   color: var(--color-btn);
+  font-size: 1.5rem;
 }
 
 .card-title3 {
   color: var(--color-bg-yellow);
+  font-size: 1.5rem;
 }
 
 .more {
@@ -69,6 +72,7 @@ td {
   font-family: 'Biryani', sans-serif;
   width: 100%;
   background: var(--color-bg-secundary);
+  box-shadow: none;
 }
 
 .mat-row:hover .mat-cell {
@@ -82,8 +86,8 @@ mat-card{
 }
 
 mat-title{
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.7rem;
+  padding-left: 1rem;
   font-family: 'Montserrat', sans-serif;
 }
 
