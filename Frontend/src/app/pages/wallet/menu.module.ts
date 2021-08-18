@@ -7,8 +7,8 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { DolarComponent } from './dolar/dolar.component';
 import { CryptoComponent } from './crypto/crypto.component';
 import { MatCardModule } from '@angular/material/card';
-
-
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,8 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
     AppRoutingModule,
     MatCardModule,
+    MatSortModule,
+    MatTableModule,
   ],
   exports:[WalletComponent, PesoComponent, PerfilComponent, DolarComponent, CryptoComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -29,6 +29,7 @@ import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { GoogleMapsModule } from "@angular/google-maps";
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -66,6 +67,8 @@ import { GoogleMapsModule } from "@angular/google-maps";
     MatToolbarModule,
     MatSidenavModule,
     GoogleMapsModule,
+    MatTableModule,
+
   ],
   exports: [
     MenuComponent,
