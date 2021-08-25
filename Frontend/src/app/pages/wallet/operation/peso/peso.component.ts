@@ -1,5 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
+
 
 import data from './data.json';
 
@@ -8,11 +17,15 @@ import data from './data.json';
   templateUrl: './peso.component.html',
   styleUrls: ['./peso.component.css'],
 })
+
+
 export class PesoComponent implements OnInit {
   seccionIngreso = false;
   seccionRetiro = false;
   form: any = {};
   operacionForm: FormGroup;
+
+  
   movimientos: { id: String; cuenta: String; fecha: String; monto: String }[] =
     data;
 

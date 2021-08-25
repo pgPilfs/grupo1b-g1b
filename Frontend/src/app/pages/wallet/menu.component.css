@@ -14,7 +14,7 @@ mat-sidenav {
 }
 
 mat-sidenav-container {
-  height: calc(100vh - 65px);
+  height: auto;
   background: var(--color-bg);
 }
 
