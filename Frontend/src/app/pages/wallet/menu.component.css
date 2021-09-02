@@ -1,28 +1,27 @@
 mat-toolbar {
   background: var(--color-bg);
   color: var(--color-text);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 mat-sidenav {
   width: 200px;
+  height: 100vh;
   border-right: none;
   background: var(--color-bg-secundary);
   color: var(--color-text);
   padding: 1rem;
   text-align: center;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 
 mat-sidenav-container {
-  height: auto;
   background: var(--color-bg);
-}
-
-mat-drawer-content {
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  height: auto;
+  width: auto;
+  text-align: -webkit-center;
 }
 
 mat-option {
@@ -31,6 +30,7 @@ mat-option {
   text-align: center;
   color: var(--color-text-secundary);
   font-size: 1rem;
+
 }
 
 mat-divider {
@@ -39,14 +39,13 @@ mat-divider {
   background-color: var(--color-bg-divider);
 }
 
-mat-icon{
+mat-icon {
   margin-right: 1rem;
 }
 
-mat-sidenav .options{
+mat-sidenav .options {
   text-align: left;
-  font-family: 'Biryani', sans-serif;
-
+  font-family: "Biryani", sans-serif;
 }
 
 .avatar {
@@ -76,6 +75,10 @@ mat-sidenav .options{
 .designation {
   margin-top: 2px;
   font-size: 0.7rem;
+}
+
+.options {
+  font-size: 1rem;
 }
 
 .example-sidenav-container {

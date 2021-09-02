@@ -4,7 +4,6 @@ export interface Movimiento {
   cuenta: string;
   fecha: string;
   movimiento: string;
-  ingreso: string;
 }
 
 export interface Cotizacion {
@@ -13,11 +12,9 @@ export interface Cotizacion {
 }
 
 const ELEMENT_DATA: Movimiento[] = [
-  {cuenta: "Starbucks", fecha: '19/08/2021 13:00', movimiento: "$400", ingreso: '⬆️'},
-  {cuenta: "Disco", fecha:'19/08/2021 08:47' , movimiento: "$600", ingreso: '⬇️'},
-  {cuenta: "Alejandra", fecha: '18/08/2021 06:09', movimiento: "$90", ingreso: '⬆️'},
-  {cuenta: "Fabricio", fecha: '17/08/2021 16:00', movimiento: "$700", ingreso: '⬇️'},
-  {cuenta: "Farmacity", fecha: '17/08/2021 04:45', movimiento: "$60", ingreso: '⬇️'},
+  {cuenta: "Starbucks", fecha: '19/08/2021 13:00', movimiento: "$ 400"},
+  {cuenta: "Disco", fecha:'19/08/2021 08:47' , movimiento: "$ 600"}
+  
 ];
 
 const ELEMENT_DATA2: Cotizacion[] = [
@@ -32,7 +29,7 @@ const ELEMENT_DATA2: Cotizacion[] = [
 
 
 export class WalletComponent implements OnInit {
-  displayedColumns: string[] = ['cuenta', 'fecha', 'movimiento', 'ingreso'];
+  displayedColumns: string[] = ['cuenta', 'fecha', 'movimiento'];
   dataSource = ELEMENT_DATA;
   clickedRows = new Set<Movimiento>();
   displayedColumns2: string[] = ['cotizacion', 'monto'];

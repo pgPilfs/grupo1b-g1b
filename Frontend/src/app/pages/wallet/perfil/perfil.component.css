@@ -1,13 +1,15 @@
-.form-control{
-  background: var(--color-bg-primary);
+img.mat-card-avatar{
+  width:150px;
+  height: 150px;
+  background-size: cover;
 }
-.card-item img{
-  width: 25rem;
-  height: 12rem;
+
+mat-card-header{
+  justify-content: center;
 }
-.editar{
-  padding: 0.5rem;
-  border-bottom: 3px solid var(--color-bg-btn);
-  border-radius: 0.5rem;
-  margin-left: 69rem;
+
+mat-card-content{
+  padding-top:1rem;
+  text-align: left;
+  justify-content: center;
 }

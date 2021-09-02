@@ -18,7 +18,8 @@
           <h4 class="my-4 text-center"><STRONG>DATOS DEL USUARIO</STRONG></h4>
           <mat-divider ></mat-divider>
           <!-- PASO 1 -->
-          <div class="row justify-content-center" data-aos="zoom-out">
+
+          <div class="row form-group" data-aos="zoom-out">
             <!-- NOMBRE -->
             <div class="form-group col-lg-4 my-2 col-md-6">
               <mat-form-field class="example-full-width" appearance="standard">
@@ -70,33 +71,7 @@
               </mat-form-field>
             </div>
 
-            <!-- USUARIO -->
-            <div class="form-group col-lg-4 my-2 col-md-6">
-              <mat-form-field class="example-full-width" appearance="standard">
-                <mat-label>Usuario</mat-label>
-                <input
-                  matInput
-                  type="text"
-                  [formControl]="username"
-                  formControlName="username"
-                  placeholder="Ingrese su usuario"
-                  required
-                />
-                <mat-error
-                  *ngIf="
-                    formsign.get('username').errors &&
-                    formsign.get('username').touched
-                  "
-                >
-                  <mat-error
-                    *ngIf="formsign.get('username')?.hasError('required')"
-                    >El usuario es
-                    <strong>obligatorio</strong>
-                  </mat-error>
-                </mat-error>
-              </mat-form-field>
-            </div>
-
+          
             <!-- EMAIL -->
             <div class="form-group col-lg-4 my-2 col-md-6">
               <mat-form-field class="example-full-width" appearance="standard">
@@ -244,31 +219,6 @@
           <h4 class="my-4 text-center"><STRONG>DATOS DE RESIDENCIA</STRONG></h4>
           <mat-divider ></mat-divider>
           <div class="form-group row" data-aos="zoom-out">
-            <!-- PAÍS -->
-            <div class="form-group col-lg-4 my-2 col-md-6">
-              <mat-form-field class="example-full-width" appearance="standard">
-                <mat-label>País de origen</mat-label>
-                <mat-select
-                  matNativeControl
-                  [formControl]="pais"
-                  formControlName="pais"
-                  required
-                >
-                  <mat-option *ngFor="let pais of paises" [value]="pais">
-                    {{ pais.name }}
-                  </mat-option>
-                </mat-select>
-                <mat-error
-                  *ngIf="
-                    formsign.get('pais').errors && formsign.get('pais').touched
-                  "
-                >
-                  <mat-error *ngIf="formsign.get('pais').hasError('required')"
-                    >Por favor, <strong>ingrese</strong> su país</mat-error
-                  >
-                </mat-error>
-              </mat-form-field>
-            </div>
 
             <!-- PROVINCIA -->
             <div class="form-group col-lg-4 my-2 col-md-6">
@@ -623,15 +573,16 @@
                 class="text-center justify-content-center my-4"
                 data-aos="zoom-out"
               >
-                <h2 class="mt-4">
+              <button class="button m-4">
+                  <h2 class="mt-4">
                   Te damos la BIENVENIDA <br />a <strong>PIL MONEY</strong
                   ><br />
                 </h2>
-                <img
-                  class="img-fluid"
-                  width="50%"
-                  src="../../../assets/images/cardlogo.svg"
-                />
+                <div class="button__horizontal"></div>
+                <div class="button__vertical"></div>
+              </button>
+
+               
                 <div>
                   <button
                     type="submit"

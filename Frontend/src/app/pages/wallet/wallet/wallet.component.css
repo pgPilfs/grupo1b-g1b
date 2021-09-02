@@ -35,16 +35,22 @@
   text-align: end;
 }
 
+.mov{
+  margin:4rem;
+}
+
 th {
   color: var(--color-text);
-  padding-bottom: 1.5rem;
-  font-size: .95rem;
+  padding-bottom: 2rem;
+  font-size: 1.3rem;
   border: 1px solid transparent;
   font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
 }
 
 td {
-  padding-bottom: 1.5rem;
+  padding-bottom: 2rem;
+  font-size: 1.2rem;
   text-align: center;
   border-bottom: 1px solid transparent;
 }
@@ -78,12 +84,14 @@ mat-card{
   border: 1px solid var(--color-bg-divider);
   border-radius: .5rem;
   background-color: var(--color-bg-secundary);
+  box-shadow: 0 .125rem .25rem 0 rgba(0, 0, 0, .2);
 }
 
 mat-title{
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   padding-left: 1rem;
   font-family: 'Montserrat', sans-serif;
+
 }
 
 /* ANIMATIONS */
@@ -98,4 +106,10 @@ mat-title{
 
 a{
   color: var(--color-btn-hover);
+  font-size: 1.2rem;
 }
+
+mat-icon{
+  font-size: .8rem;
+}
+

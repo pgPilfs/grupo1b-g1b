@@ -1,9 +1,16 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar>
-    <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
-      <span> Billetera Virtual</span>
-    </button>
+    <button  mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>more_vert</mat-icon>
+     
+    </button><span> Menu</span>
+    <span class="example-spacer"></span>
+    <button  mat-icon-button routerLink="/home">
+      <mat-icon class="text-end">logout</mat-icon>
+     
+    </button><span class="text-end"></span>
+   
+    
   </mat-toolbar>
   <mat-sidenav-container
     class="example-sidenav-container"
@@ -69,7 +76,6 @@
       </div>
       <mat-divider></mat-divider>
     </mat-sidenav>
-
     <router-outlet></router-outlet>
   </mat-sidenav-container>
 </div>
