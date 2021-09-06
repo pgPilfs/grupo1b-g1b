@@ -15,7 +15,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MenuModule } from './pages/wallet/menu.module';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

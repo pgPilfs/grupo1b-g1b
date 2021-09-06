@@ -23,8 +23,8 @@ export class MenuComponent implements OnInit {
 
   ops: Operation[] = [
     {value: '/menu/peso', viewValue: 'Peso'},
-    {value: '/menu/dolar', viewValue: 'Dolar'},
-    {value: '/menu/crypto', viewValue: 'Crypto'}
+    // {value: '/menu/dolar', viewValue: 'Dolar'},
+    // {value: '/menu/crypto', viewValue: 'Crypto'}
   ];
 
 

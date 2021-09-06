@@ -29,7 +29,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableModule,
     MatDialogModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
   ],
   exports:[WalletComponent, PesoComponent, PerfilComponent, DolarComponent, CryptoComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

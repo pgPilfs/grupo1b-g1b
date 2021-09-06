@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 
 
 
@@ -8,15 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
- 
-
-  constructor() { }
 
 
-  ngOnInit() {
-
-  }
-  
-
+  ngOnInit() { }
 }
 

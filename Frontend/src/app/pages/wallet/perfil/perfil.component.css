@@ -8,6 +8,10 @@ mat-card-header{
   justify-content: center;
 }
 
+mat-card-subtitle{
+  font-family: sans-serif;
+}
+
 mat-card-content{
   padding-top:1rem;
   text-align: left;

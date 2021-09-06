@@ -7,78 +7,45 @@
     <mat-card class="example-card card">
       <mat-card-header>
         <div>
-          <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
-          <img
-            mat-card-avatar
-            src="../../../../assets/avatars/default.png"
-            alt="Foto Perfil"
-          />
-          <div>
-            <a href="" class="my-4">Editar foto</a>
-          </div>
-          <h4 class="name my-4">User Name</h4>
+          <img mat-card-avatar src="../../../../assets/avatars/default.png" alt="Foto Perfil" />
+          <mat-card-title class="my-4">User Name</mat-card-title>
           <mat-divider></mat-divider>
         </div>
       </mat-card-header>
       <mat-card-content>
-        <mat-card-title>Name LastName </mat-card-title>
-        <mat-card-subtitle>Email</mat-card-subtitle>
+        
+        <mat-card-subtitle>Nombre: </mat-card-subtitle>
+        <mat-card-subtitle>Email: </mat-card-subtitle>
+        <mat-card-subtitle>Teléfono: </mat-card-subtitle>
+        <mat-card-subtitle>Fecha de Nacimiento: </mat-card-subtitle>
+        <mat-card-subtitle>CUIL: </mat-card-subtitle>
+        <mat-card-subtitle>Alias: </mat-card-subtitle>
+        <mat-card-subtitle>Dirección: </mat-card-subtitle>
+
       </mat-card-content>
-    </mat-card>
+      <mat-divider></mat-divider>
+  </mat-card>
   </div>
-</section>
-<!-- <div id="profile" class="card">
-  <section>
-    <div class="form-control">
-      <h1 align="center">Pepe Gomez</h1>
-      <div class="row">
-        <div class="bio-row">
-          <p><span> CVU</span>: 22954845178</p>
-        </div>
-        <div class="bio-row">
-          <p><span>Alias </span>: gomez-p.22</p>
-        </div>
-        <div class="bio-row">
-          <p><span>Fecha Nacimiento</span>: 27 Agosto 1987</p>
-        </div>
-        <div class="bio-row">
-          <p><span>Pais </span>: Argentina</p>
-        </div>
-        <div class="bio-row">
-          <p><span>Email </span>: elpepe@gmail.com</p>
-        </div>
-        <div class="bio-row">
-          <p><span>Celular </span>: (351) 456789</p>
-        </div>
-      </div>
-      <button type="button" class="btn btn-primary editar">Editar Perfil</button>
-    </div>
-  </section>
-  
-  <section>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Tarjeta 1</h5>
-            <div class="card-item">
-              <img src="../../../../assets/images/card2.png" alt="tarjeta master card">
-              <a href="#" class="btn btn-primary">Ver Tarjeta</a>
+</section> 
+
+<button mdbBtn color="primary" class="waves-light" (click)="showAndHideModal()">Open modal</button>
+
+<div mdbModal #demoBasic="mdbModal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="demoBasic.hide()">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Tarjeta 2</h5>
-            <div class="card-item">
-              <img src="../../../../assets/images/master1.png" alt="tarjeta master card">
-              <a href="#" class="btn btn-primary">Ver Tarjeta</a>
+            <div class="modal-body">
+                ...
             </div>
-          </div>
+            <div class="modal-footer">
+                <button type="button" mdbBtn color="secondary" size="sm" class="bwaves-light" data-dismiss="modal" (click)="demoBasic.hide()" mdbWavesEffect>Close</button>
+                <button type="button" mdbBtn color="primary" size="sm" class="waves-light" mdbWavesEffect>Save changes</button>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
-</div> -->
+</div>
