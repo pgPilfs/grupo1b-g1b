@@ -9,6 +9,7 @@ import { CryptoComponent } from './crypto/crypto.component';
 
 
 
+
 @NgModule({
   declarations: [
     WalletComponent,
@@ -21,7 +22,8 @@ import { CryptoComponent } from './crypto/crypto.component';
     CommonModule,
     AppRoutingModule
   ],
-  exports:[WalletComponent, PesoComponent, PerfilComponent, DolarComponent, CryptoComponent]
+  exports:[WalletComponent, PesoComponent, PerfilComponent, DolarComponent, CryptoComponent],
+  
  
 })
 export class MenuModule { }

@@ -160,7 +160,7 @@ table {
   transform: scale(1.1);
 }
 .example-container {
-  display: flex;
+  display: flex; 
   flex-direction: column;
   position: relative;
   top: 0;
