@@ -12,10 +12,11 @@
           <mat-divider></mat-divider>
         </div>
       </mat-card-header>
-      <mat-card-content>
-        
+      <mat-card-content class="m-4">
         <mat-card-subtitle>Nombre: </mat-card-subtitle>
+        <mat-card-subtitle>Apellido: </mat-card-subtitle>
         <mat-card-subtitle>Email: </mat-card-subtitle>
+        <mat-card-subtitle>Contraseña: </mat-card-subtitle>
         <mat-card-subtitle>Teléfono: </mat-card-subtitle>
         <mat-card-subtitle>Fecha de Nacimiento: </mat-card-subtitle>
         <mat-card-subtitle>CUIL: </mat-card-subtitle>
@@ -24,28 +25,13 @@
 
       </mat-card-content>
       <mat-divider></mat-divider>
-  </mat-card>
+      <div>
+        <button mat-button class="btn my-4 btn-sign" (click)="openDialog()">Editar Perfil</button>
+      </div>
+      <div>
+        <a routerLink="/home" class="text-end">Desactivar cuenta</a>
+      </div>
+      
+    </mat-card>
   </div>
 </section> 
-
-<button mdbBtn color="primary" class="waves-light" (click)="showAndHideModal()">Open modal</button>
-
-<div mdbModal #demoBasic="mdbModal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="demoBasic.hide()">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" mdbBtn color="secondary" size="sm" class="bwaves-light" data-dismiss="modal" (click)="demoBasic.hide()" mdbWavesEffect>Close</button>
-                <button type="button" mdbBtn color="primary" size="sm" class="waves-light" mdbWavesEffect>Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>

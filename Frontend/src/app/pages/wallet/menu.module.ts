@@ -10,8 +10,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDividerModule } from '@angular/material/divider';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatDialogModule,
     MatDividerModule,
     MatIconModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   exports:[WalletComponent, PesoComponent, PerfilComponent, DolarComponent, CryptoComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

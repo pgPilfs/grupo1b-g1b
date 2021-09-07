@@ -13,12 +13,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from "@angular/google-maps";
 import { MatCardModule } from '@angular/material/card';
 import { MenuModule } from './pages/wallet/menu.module';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DataDialogComponent } from './pages/wallet/perfil/perfil.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    DataDialogComponent
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,9 +37,11 @@ import { MenuModule } from './pages/wallet/menu.module';
     MatButtonModule,
     FormsModule,
     GoogleMapsModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [],
+  entryComponents: [DataDialogComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

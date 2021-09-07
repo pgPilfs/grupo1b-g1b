@@ -29,8 +29,7 @@ import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { GoogleMapsModule } from "@angular/google-maps";
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -45,6 +44,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ContactComponent,
     ProyectComponent,
   ],
+  
   imports: [
     CommonModule,
     AppRoutingModule,
