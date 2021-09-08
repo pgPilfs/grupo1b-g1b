@@ -2,13 +2,13 @@
   <mat-toolbar>
     <button  mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>list</mat-icon>
-     
     </button><span> Menu</span>
     <span class="example-spacer"></span>
-    <button  mat-icon-button routerLink="/home">
-      <mat-icon class="text-end">logout</mat-icon>
-     
-    </button><span class="text-end"></span>
+    <span class="text-end">Salir</span>
+    <button  mat-icon-button routerLink="/home" class="mx-2">
+      <mat-icon>logout
+      </mat-icon>     
+    </button>
    
     
   </mat-toolbar>
@@ -65,6 +65,21 @@
       <div class="options">
         <button
           mat-icon-button
+          routerLink="/menu/transfer"
+          class="example-icon"
+          aria-label="Icono Transferencia"
+        >
+          <mat-icon>sync_alt</mat-icon>
+
+          <span>Transferencia</span>
+        </button>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="options">
+        <button
+          mat-icon-button
           routerLink="/menu/perfil"
           class="example-icon"
           aria-label="Icono Perfil"
@@ -73,8 +88,8 @@
 
           <span>Perfil</span>
         </button>
+        <mat-divider></mat-divider>
       </div>
-      <mat-divider></mat-divider>
     </mat-sidenav>
     <router-outlet></router-outlet>
   </mat-sidenav-container>

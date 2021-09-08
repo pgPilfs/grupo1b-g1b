@@ -1,31 +1,30 @@
-<h2 mat-dialog-title class="text-center">Editar Perfil</h2>
+<h2 mat-dialog-title class="text-center" >Editar Perfil</h2>
 <mat-divider></mat-divider>
-<mat-dialog-content class="mat-typography">
+<mat-dialog-content class="mat-typography" style="background-color: transparent;">
   <mat-card-content>
     <div class="row form-group text-center">
-      <div class="example-form col-lg-12 col-md-4">
-        <form>
-          <mat-form-field class="example-full-width mx-4" appearance="standard">
-            <mat-label>Email</mat-label>
+        <form >
+          <mat-form-field class="example-full-width m-2 " appearance="standard">
+            <mat-label >Email</mat-label>
+            <input matInput type="email" />
           </mat-form-field>
 
-          <mat-form-field class="example-full-width mx-4" appearance="standard">
-            <mat-label>Contrasena</mat-label>
+          <mat-form-field class="example-full-width m-2" appearance="standard">
+            <mat-label>Contraseña</mat-label>
             <input matInput type="password" />
           </mat-form-field>
 
-          <mat-form-field class="example-full-width mx-4" appearance="standard">
+          <mat-form-field class="example-full-width m-2" appearance="standard">
             <mat-label>Alias</mat-label>
             <input matInput placeholder="Nombre" type="text" />
           </mat-form-field>
 
-          <mat-form-field class="example-full-width mx-4" appearance="standard">
+          <mat-form-field class="example-full-width m-2" appearance="standard">
             <mat-label>Telefono</mat-label>
             <span matPrefix>+ &nbsp;</span>
             <input type="tel" matInput placeholder="(54) 351-123-123" />
           </mat-form-field>
         </form>
-      </div>
     </div>
   </mat-card-content>
 </mat-dialog-content>

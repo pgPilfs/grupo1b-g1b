@@ -28,9 +28,9 @@
           </div>
 
     
-    <div class="row mov">
-        <div class="col-sm-12 col-md-12 col-lg-8 ">
-          <mat-card class="">
+    <div class="row mov ">
+        <div class="col-sm-12 col-md-12 col-lg-8">
+          <mat-card>
               <mat-title class="p-4">
                 <div class="row">
                   <div class="col text-start">
@@ -44,7 +44,7 @@
                 </div>              
               </mat-title>
 
-            <table mat-table [dataSource]="dataSource" class=" mat-elevation-z8 demo-table">
+            <table mat-table [dataSource]="dataSource" class=" mat-elevation-z8">
               <!-- Cuenta  -->
               <ng-container matColumnDef="cuenta">
                 <th mat-header-cell *matHeaderCellDef class="text-star text-uppercase">Cuenta</th>
@@ -62,8 +62,9 @@
                 <th mat-header-cell *matHeaderCellDef class="text-center text-uppercase">Monto</th>
                 <td mat-cell *matCellDef="let element">{{element.movimiento}}</td>
               </ng-container>
-
+        
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              
               <tr mat-row (click)="clickedRows.add(row)" [class.demo-row-is-clicked]="clickedRows.has(row)"
                 *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
