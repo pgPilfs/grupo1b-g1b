@@ -1,131 +1,78 @@
-.table, td {
-    color: var(--color-text-secundary);
-    margin: 1rem 0;
-}
-.table th svg {
-    padding: 0;
-}
-thead {
-    border-bottom: solid 1px var(--color-text-secundary);
-}
-.btn-printer {
-    background-color: var(--color-btn);
-    width: 4.2rem;
-    padding: 0.2rem 1rem;
-}
-.btn-printer img {
-    background-color: var(--color-btn);
-    width: 100%;
-}
-h2{
-    color: #8B8E95;
-    font-size: 30px;
-}
-.MainContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
 
-.title {
-  letter-spacing: 0.02rem;
-  text-transform: uppercase;
-}
-
-.texto-seleccion {
-  background-color: var(--color-bg-secundary);
-  color: var(--color-text-secundary);
-}
-
-.contenedor-operaciones {
-  padding: 0 !important;
-  margin: 1rem;
-  height: 15vh;
-  text-align: center;
-}
-
-.btn-ope {
-  background-color: var(--color-btn) !important;
+.btn-sel{
+  background-color: var(--color-btn);
   width: 100% !important;
-  height: 15vh !important;
+  height: 10vh !important;
   margin: 0 !important;
   padding: 0 !important;
-  border-radius: none !important;
-  border-radius: 0.5rem;
-  border: 1px solid var(--color-bg-divider) !important;
-  color: var(--color-bg-secundary);
+  color: var(--color-bg);
   font-size: 1.5rem !important;
-}
-.btn-ope:hover,
-.btn-ope:active {
-  background-color: var(--color-btn-hover) !important;
-  border: 1px solid var(--color-bg-divider) !important ;
-  color: var(--color-bg-secundary);
-}
-
-.texto-ingreso {
-  background-color: #40df9f;
-  color: white;
-}
-
-.texto-retiro {
-  background-color: #40df9f;
-  color: white;
-}
-
-label {
-  color: var(--color-text);
-  padding-left: 1rem;
-  background: transparent;
-  font-size: 1rem;
-  margin-top: 1rem;
-}
-
-input {
-  color: var(--color-text-secundary) !important;
   border: none;
-  border-bottom: 3px solid var(--color-bg-divider);
-  background: transparent;
-  box-shadow: none !important;
-  font-size: 2.6vh;
-  font-weight: 500;
-}
-input:focus {
-  border: none;
-  border-bottom: 3px solid var(--color-bg-divider);
-  background: transparent;
-}
-input::after {
-  border: none;
-  border-bottom: 3px solid var(--color-bg-divider);
-  background: transparent;
 }
 
-input[type="date"] {
-  color: var(--color-text-secundary) !important;
-  border: none;
-  border-bottom: 3px solid var(--color-bg-divider);
-  background: transparent;
-  box-shadow: none !important;
-  font-size: 2.6vh;
-  font-weight: 500;
+.btn-sel:hover, .btn-ope:active {
+  background-color: var(--color-btn-hover);
+  color: var(--color-bg);
 }
 
-.small1 {
-    color: var(--color-bg-red);
-    padding-top: 0rem;
-  }
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+mat-form-field.mat-form-field {
+  font-size: 0.9rem;
+}
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-container {
+  align-self: center;
+}
+
+mat-error {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-bg-red);
+}
+
+mat-form-field {
+  margin: 1rem;
+}
+
+mat-checkbox {
+  white-space: -webkit-nowrap;
+}
 
 mat-card{
   background-color: var(--color-bg-secundary);
-  border-radius: .5rem;
-  border: 3px solid var(--color-bg-divider);
+  width: max-content;
 }
 
-mat-title{
-    text-align: center;
-    font-size: 1.7rem;
-    padding-left: 1rem;
-    font-family: 'Montserrat', sans-serif;
+.btn-print {
+  border: 1px solid var(--color-btn-hover);
+  background-color: transparent;
+  color: var(--color-text);
+  width: 15rem;
+  height: 3rem;
+  font-size: 1rem;
+  border-radius: .5rem;
+  text-align: center;
+  padding-right: 0px;
+}
+
+table, th, td{
+  background-color: transparent;
+  border: none;
+}
+
+mat-icon{
+  background-color: transparent;
 }

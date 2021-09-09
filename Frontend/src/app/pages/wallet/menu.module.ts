@@ -14,6 +14,8 @@ import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dia
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDatepickerModule, MatSingleDateSelectionModel } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { MatInputModule } from '@angular/material/input';
     MatDividerModule,
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule, 
+    MatProgressBarModule,
+    MatDatepickerModule,
   ],
   exports:[WalletComponent, PesoComponent, PerfilComponent, DolarComponent, CryptoComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
