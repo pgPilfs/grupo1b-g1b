@@ -1,56 +1,66 @@
-.title {
-  margin-top: 4rem;
-}
-
 .card1 {
+  border: 1px solid var(--color-bg-purple-secundary);
   border-left: 10px solid var(--color-bg-purple-secundary);
   box-shadow: 0 .125rem .25rem 0 rgba(0, 0, 0, .2);
 }
 
 .card2 {
+  border: 1px solid var(--color-btn);
   border-left: 10px solid var(--color-btn);
   box-shadow: 0 .125rem .25rem 0 rgba(0, 0, 0, .2);
 }
 
 .card3 {
+  border: 1px solid var(--color-bg-yellow);
   border-left: 10px solid var(--color-bg-yellow);
   box-shadow: 0 .125rem .25rem 0 rgba(0, 0, 0, .2);
 }
 
 .card-title1 {
   color: var(--color-bg-purple-secundary);
+  font-size: 1.5rem;
 }
 
 .card-title2 {
   color: var(--color-btn);
+  font-size: 1.5rem;
 }
 
 .card-title3 {
   color: var(--color-bg-yellow);
+  font-size: 1.5rem;
 }
 
 .more {
   text-align: end;
 }
 
-th {
-  color: var(--color-text);
-  font-size: 1.5rem;
-  padding-bottom: 1.5rem;
-  text-align: center;
+.mov{
+  margin:4rem;
 }
 
-td {
-  font-size: 1.4rem;
-  text-align: start;
-  padding-bottom: 1.5rem;
-  text-align: center;
-}
 
 table {
   width: 100%;
-  color: var(--color-text-secundary);
+  background-color: var(--color-bg-secundary);
 }
+
+ th {
+  color: var(--color-text);
+  padding-bottom: 2rem;
+  font-size: 1.3rem;
+  border: 1px solid transparent;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+td {
+  padding-bottom: 2rem;
+  font-size: 1.2rem;
+  text-align: center;
+  border-bottom: 1px solid transparent;
+} 
 
 .ingreso {
   color: var(--color-btn);
@@ -60,26 +70,48 @@ table {
   color: var(--color-bg-red);
 }
 
+.example-card {
+  font-family: 'Biryani', sans-serif;
+  max-width: 400px;
+  background-color: var(--color-bg-secundary);
+}
+
+
+.mat-row:hover .mat-cell {
+  border-color: var(--color-bg-divider);
+}
+
+mat-card{
+  border: 1px solid var(--color-bg-divider);
+  border-radius: .5rem;
+  background-color: var(--color-bg-secundary);
+  box-shadow: 0 .125rem .25rem 0 rgba(0, 0, 0, .2);
+  width: max-content;
+}
+
+mat-title{
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  font-family: 'Montserrat', sans-serif;
+
+}
 
 /* ANIMATIONS */
-.card {
+.example-card {
   transition: transform .2s;
 }
 
-.card:hover {
+.example-card:hover {
   transform: scale(1.1);
 }
 
-@media (max-width:800px) {
-  th{
-    font-size: 3.2vw;
-  }
-  td{
-    font-size: 2.5vw;
-  }
-  .card{
-    margin: auto;
-    width: 100%;
-    padding:1em;
-  }
+
+a{
+  color: var(--color-btn-hover);
+  font-size: 1.2rem;
 }
+
+mat-icon{
+  font-size: .8rem;
+}
+

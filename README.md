@@ -1,5 +1,7 @@
 # PROYECTO PIL 2021 | AULA 1 GRUPO B
 
+![Logo PILMONEY](Frontend/src/assets/logo/PILMONEY-logo.png)
+
 ### INTEGRANTES:
 
 - Acosta, Johana.
