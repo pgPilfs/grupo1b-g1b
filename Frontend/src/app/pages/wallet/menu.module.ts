@@ -41,12 +41,7 @@ import { MatDatepickerModule, MatSingleDateSelectionModel } from '@angular/mater
     MatDatepickerModule,
   ],
   exports:[WalletComponent, PesoComponent, PerfilComponent, DolarComponent, CryptoComponent],
-<<<<<<< HEAD
-  
- 
-=======
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
   
->>>>>>> 177f21c78ee9b5ea9a010e6ad15e394db7db45e5
 })
 export class MenuModule { }

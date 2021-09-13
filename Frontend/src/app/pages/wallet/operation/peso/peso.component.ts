@@ -1,13 +1,8 @@
-import { animateChild } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { ViewChild } from '@angular/core';
-import { MatAccordion } from '@angular/material/expansion';
-import { MatMenuTrigger } from '@angular/material/menu';
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { 
   FormBuilder,
   FormGroup,
-  FormControl,
   Validators 
 } from '@angular/forms';
 
@@ -23,23 +18,23 @@ export class PesoComponent implements OnInit {
   seccionIngreso = false;
   seccionRetiro = false;
 
-  form: any = {};
   //carga de movimientos SACAR ESTA PARTE
   movimientos: { id: String; cuenta: String; fecha: String; monto: String }[] = data;
 
+  operacionForm1: FormGroup;
   operacionForm: FormGroup;
 
   get cardNumberD(): AbstractControl {
-    return this.operacionForm.controls['cardNumberD'];
+    return this.operacionForm1.controls['cardNumberD'];
   }
   get numberCVVD(): AbstractControl {
-    return this.operacionForm.controls['numberCVVD'];
+    return this.operacionForm1.controls['numberCVVD'];
   }
   get dateD(): AbstractControl {
-    return this.operacionForm.controls['dateD'];
+    return this.operacionForm1.controls['dateD'];
   }
   get montoD(): AbstractControl {
-    return this.operacionForm.controls['montoD'];
+    return this.operacionForm1.controls['montoD'];
   }
   get cardNumber(): AbstractControl {
     return this.operacionForm.controls['cardNumber'];
@@ -58,7 +53,7 @@ export class PesoComponent implements OnInit {
   private pattNumbers: any = /^[0-9]{7,}$/;
 
   constructor( private formBuilder: FormBuilder ) {
-    this.operacionForm = this.formBuilder.group(
+    this.operacionForm1 = this.formBuilder.group(
       {
         cardNumberD:['',[
           Validators.required,
@@ -83,12 +78,14 @@ export class PesoComponent implements OnInit {
 
     this.operacionForm = this.formBuilder.group(
       {
-        cardNumber:['',[
+        cardNumber:['',
+        [
           Validators.required,
           Validators.pattern(this.pattNumbers),
           Validators.minLength(16),
           Validators.maxLength(16),
-        ]],
+        ]
+      ],
         numberCVV:['',[
           Validators.required,
           Validators.pattern(this.pattNumbers),
@@ -109,10 +106,10 @@ export class PesoComponent implements OnInit {
 
   onSubmitIngreso(event: Event) {
     event.preventDefault(); //Cancela la funcionalidad por default.
-    if (this.operacionForm.valid) {
-      console.log(this.operacionForm.value);
+    if (this.operacionForm1.valid) {
+      console.log(this.operacionForm1.value);
     } else {
-      this.operacionForm.markAllAsTouched(); //Activa todas las validaciones
+      this.operacionForm1.markAllAsTouched(); //Activa todas las validaciones
     }
   }
   onSubmitRetiro(event: Event) {
@@ -129,16 +126,16 @@ export class PesoComponent implements OnInit {
   
   
   get cardNumberDField() {
-    return this.operacionForm.get('cardNumberD');
+    return this.operacionForm1.get('cardNumberD');
   }
   get numberCVVDField() {
-    return this.operacionForm.get('numberCVVD');
+    return this.operacionForm1.get('numberCVVD');
   }
   get dateDField() {
-    return this.operacionForm.get('dateD');
+    return this.operacionForm1.get('dateD');
   }
   get montoDField() {
-    return this.operacionForm.get('montoD');
+    return this.operacionForm1.get('montoD');
   }
 
 

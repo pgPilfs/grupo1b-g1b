@@ -15,6 +15,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MenuModule } from './pages/wallet/menu.module';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DataDialogComponent } from './pages/wallet/perfil/perfil.component';
+import { ClienteService } from './servicios/cliente.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -38,9 +40,10 @@ import { DataDialogComponent } from './pages/wallet/perfil/perfil.component';
     FormsModule,
     GoogleMapsModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ClienteService],
   entryComponents: [DataDialogComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

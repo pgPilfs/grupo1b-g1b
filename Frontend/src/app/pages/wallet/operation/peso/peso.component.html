@@ -25,7 +25,7 @@
         <h3 class="my-4">Ingresar Dinero</h3>
         <div class="col-lg-12">
           <form
-            [formGroup]="operacionForm"
+            [formGroup]="operacionForm1"
             class="example-form"
             (ngSubmit)="onSubmitIngreso($event)"
             autocomplete="off"
@@ -35,21 +35,25 @@
               <mat-label>Número Tarjeta</mat-label>
               <input
                 matInput
-                [formControl]="cardNumber"
-                formControlName="cardNumber"
+                [formControl]="cardNumberD"
+                formControlName="cardNumberD"
                 placeholder="Ingrese el número de su tarjeta"
+                type="text"
+                name="cardNumberD"
+                id="cardNumberD"
               />
               <mat-error
                 *ngIf="
-                  operacionForm.get('cardNumber').errors &&
-                  operacionForm.get('cardNumber').touched
+                  operacionForm1.get('cardNumberD').errors &&
+                  operacionForm1.get('cardNumberD').touched
                 "
               >
                 <mat-error
-                  *ngIf="operacionForm.get('cardNumber')?.hasError('required')"
+                  *ngIf="operacionForm1.get('cardNumberD')?.hasError('required')"
                   >Por favor, ingrese el <strong>número de tarjeta</strong></mat-error
                 >
               </mat-error>
+             
             </mat-form-field>
 
 
@@ -57,18 +61,21 @@
               <mat-label>Número CVV</mat-label>
               <input
                 matInput
-                [formControl]="numberCVV"
-                formControlName="numberCVV"
+                [formControl]="numberCVVD"
+                formControlName="numberCVVD"
                 placeholder="Ingrese el código CVV:"
+                type="text"
+                name="numberCVVD"
+                id="numberCVVD"
               />
               <mat-error
                 *ngIf="
-                  operacionForm.get('numberCVV').errors &&
-                  operacionForm.get('numberCVV').touched
+                  operacionForm1.get('numberCVVD').errors &&
+                  operacionForm1.get('numberCVVD').touched
                 "
               >
                 <mat-error
-                  *ngIf="operacionForm.get('numberCVV')?.hasError('required')"
+                  *ngIf="operacionForm1.get('numberCVVD')?.hasError('required')"
                   >Por favor, ingrese el <strong>Codigo CVV</strong></mat-error
                 >
               </mat-error>
@@ -80,9 +87,8 @@
               matInput
               [matDatepicker]="picker"
               placeholder="dd/mm/yy"
-                [formControl]="date"
-                formControlName="date"
-                
+                [formControl]="dateD"
+                formControlName="dateD"
               />
               <mat-datepicker-toggle
                   matSuffix
@@ -90,12 +96,12 @@
                 ></mat-datepicker-toggle>
               <mat-error
                 *ngIf="
-                  operacionForm.get('date').errors &&
-                  operacionForm.get('date').touched
+                  operacionForm1.get('dateD').errors &&
+                  operacionForm1.get('dateD').touched
                 "
               >
                 <mat-error
-                  *ngIf="operacionForm.get('date')?.hasError('required')"
+                  *ngIf="operacionForm1.get('dateD')?.hasError('required')"
                   >Por favor, ingrese solo <strong>números</strong></mat-error
                 >
               </mat-error>
@@ -105,19 +111,19 @@
               <mat-label>Monto a Ingresar</mat-label>
               <input
                 matInput
-                [formControl]="monto"
-                formControlName="monto"
+                [formControl]="montoD"
+                formControlName="montoD"
                 placeholder="Ingrese el monto que desea depositar"
                 
               />
               <mat-error
                 *ngIf="
-                  operacionForm.get('monto').errors &&
-                  operacionForm.get('monto').touched
+                  operacionForm1.get('montoD').errors &&
+                  operacionForm1.get('montoD').touched
                 "
               >
                 <mat-error
-                  *ngIf="operacionForm.get('monto')?.hasError('required')"
+                  *ngIf="operacionForm1.get('montoD')?.hasError('required')"
                   >El monto es <strong>obligatorio</strong></mat-error
                 >
               </mat-error>

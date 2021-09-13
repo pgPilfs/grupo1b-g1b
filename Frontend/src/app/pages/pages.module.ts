@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HomeComponent } from './home/home.component';
@@ -66,14 +66,10 @@ import { MatTableModule } from '@angular/material/table';
     MatStepperModule,
     RouterModule,
     MatToolbarModule,
-<<<<<<< HEAD
-    MatSidenavModule
-=======
     MatSidenavModule,
     GoogleMapsModule,
     MatTableModule,
 
->>>>>>> 177f21c78ee9b5ea9a010e6ad15e394db7db45e5
   ],
   exports: [
     MenuComponent,

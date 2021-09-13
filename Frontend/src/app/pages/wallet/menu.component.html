@@ -1,12 +1,4 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-<<<<<<< HEAD
-  <button mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <mat-sidenav-container
-    class="example-sidenav-container"
-    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
-=======
   <mat-toolbar>
     <button  mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>list</mat-icon>
@@ -23,7 +15,6 @@
   <mat-sidenav-container
     class="example-sidenav-container"
     [style.marginTop.px]="mobileQuery.matches ? '56' : 0"
->>>>>>> 177f21c78ee9b5ea9a010e6ad15e394db7db45e5
   >
     <mat-sidenav
       #sidenav
@@ -80,10 +71,6 @@
         >
           <mat-icon>sync_alt</mat-icon>
 
-<<<<<<< HEAD
-      <router-outlet></router-outlet>
-   
-=======
           <span>Transferencia</span>
         </button>
       </div>
@@ -105,6 +92,5 @@
       </div>
     </mat-sidenav>
     <router-outlet></router-outlet>
->>>>>>> 177f21c78ee9b5ea9a010e6ad15e394db7db45e5
   </mat-sidenav-container>
 </div>
