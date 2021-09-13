@@ -4,6 +4,8 @@
   <div class="content" data-aos="zoom-in">
     <form
         class="example-form"
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
         autocomplete="off"
         novalidate
       >
@@ -14,6 +16,7 @@
             <mat-label>Nombre</mat-label>
             <input
               matInput
+              formControlName="name"
               [formControl]="name"
               type="text"
               name="name"
@@ -21,36 +24,30 @@
               autocomplete="off"
             />
             <mat-hint>El Nombre es <strong>requerido</strong></mat-hint>
-            <mat-error *ngIf="nameField.errors && nameField.dirty">
-              <mat-error *ngIf="nameField.hasError('required')">
-                El nombre es <strong>requerido</strong>
-              </mat-error>
+            <mat-error *ngIf="contactForm.get('name').errors && contactForm.get('name').touched">
+              El nombre es <strong>obligatorio</strong>
             </mat-error>
           </mat-form-field>
         </div>
 
-        <!-- CONTACTO -->
+        <!-- EMAIL -->
         <div class="form-group my-4">
           <mat-form-field class="example-full-width" appearance="standard">
             <mat-label>Correo Electrónico</mat-label>
             <input
               matInput
               placeholder="pat@example.com"
-              [formControl]="mail"
+              formControlName="email"
+              [formControl]="email"
               type="email"
               name="email"
-              autocomplete="off"
               id="email"
-              required
+              autocomplete="off"
             />
             <mat-hint>El email es <strong>requerido</strong></mat-hint>
-            <mat-error *ngIf="mailField.errors && mailField.dirty">
-              <mat-error *ngIf="mailField.hasError('required')">
-                El email es <strong>requerido</strong>
-              </mat-error>
-              <mat-error *ngIf="mailField.hasError('email')">
-                El <strong>formato del mail</strong> debe ser válido.
-              </mat-error>
+            <mat-error
+              *ngIf="contactForm.get('email').errors && contactForm.get('email').touched">
+              El correo electrónico es <strong>obligatorio</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -61,6 +58,7 @@
             <mat-label>Asunto</mat-label>
             <input
               matInput
+              formControlName="issue"
               [formControl]="issue"
               type="text"
               name="issue"
@@ -68,10 +66,8 @@
               autocomplete="off"
             />
             <mat-hint>El asunto es <strong>requerido</strong></mat-hint>
-            <mat-error *ngIf="issueField.errors && issueField.dirty">
-              <mat-error *ngIf="issueField.hasError('required')">
-                El asunto es <strong>requerido</strong>
-              </mat-error>
+            <mat-error *ngIf="contactForm.get('issue').errors && contactForm.get('issue').touched">
+              El asunto es <strong>obligatorio</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -80,7 +76,15 @@
         <div class="form-group my-4 text-start">
           <mat-form-field class="example-full-width" appearance="standard">
             <mat-label>Mensaje</mat-label>
-            <textarea matInput></textarea>
+            <textarea 
+            matInput
+            formControlName="msg"
+            [formControl]="msg"
+            ></textarea>
+            <mat-hint>El mensaje es <strong>requerido</strong></mat-hint>
+            <mat-error *ngIf="contactForm.get('msg').errors && contactForm.get('msg').touched">
+              El mensaje es <strong>obligatorio</strong>
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="d-flex justify-content-center">
@@ -93,7 +97,7 @@
 
     <hr class="d-flex text-center" />
       <div class="justify-content-center text-center">
-        <!-- <google-map width='auto' height='400'></google-map> -->
+        <google-map width='auto' height='400'></google-map>
         <!-- HOME -->
         <button
           class="btn-des"
@@ -117,11 +121,11 @@
           class="btn-des"
           mat-icon-button
           aria-label="Icono Decorativo de Email"
-          [matMenuTriggerFor]="email"
+          [matMenuTriggerFor]="email_button"
         >
           <mat-icon>email</mat-icon>
         </button>
-        <mat-menu #email="matMenu">
+        <mat-menu #email_button="matMenu">
           <button mat-menu-item>
             <mat-icon>email</mat-icon>
             <span>hola@pilmoney.com</span>

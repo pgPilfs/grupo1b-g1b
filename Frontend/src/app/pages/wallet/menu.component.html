@@ -1,10 +1,20 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-  <button mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
+  <mat-toolbar>
+    <button  mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>list</mat-icon>
+    </button><span> Menu</span>
+    <span class="example-spacer"></span>
+    <span class="text-end">Salir</span>
+    <button  mat-icon-button routerLink="/home" class="mx-2">
+      <mat-icon>logout
+      </mat-icon>     
+    </button>
+   
+    
+  </mat-toolbar>
   <mat-sidenav-container
     class="example-sidenav-container"
-    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+    [style.marginTop.px]="mobileQuery.matches ? '56' : 0"
   >
     <mat-sidenav
       #sidenav
@@ -14,20 +24,33 @@
     >
       <img
         class="avatar mat-elevation-z8"
-        src="https://source.unsplash.com/c_GmwfHBDzk/200x200"
+        src="../../../assets/avatars/default.png"
       />
 
-      <h4 class="name">Pepe Gomez</h4>
-
+      <h4 class="name my-4">User Name</h4>
       <mat-divider></mat-divider>
-
-      <button mat-button class="btn menu-button" routerLink="/menu/wallet">
-        <mat-icon>account_balance_wallet</mat-icon>
-        <span>Billetera</span>
-      </button>
-      <mat-icon>account_balance</mat-icon>
-      <span>Operaciones</span>
-      <mat-select class="mat-select-panel">
+      <div class="options">
+        <button
+          mat-icon-button
+          routerLink="/menu/wallet"
+          class="example-icon"
+          aria-label="Icono Billetera"
+        >
+          <mat-icon>account_balance_wallet</mat-icon>
+          <span>Billetera</span>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="options">
+        <button
+          mat-icon-button
+          routerLink="/menu/wallet"
+          class="example-icon"
+          aria-label="Icono Operaciones"
+        >
+          <mat-icon>account_balance</mat-icon>
+        </button>
+        <span>Operaciones</span>
         <mat-option
           *ngFor="let operation of ops"
           [value]="operation.value"
@@ -35,21 +58,44 @@
         >
           {{ operation.viewValue }}
         </mat-option>
-      </mat-select>
-      <button mat-button class="btn menu-button" routerLink="/menu/perfil">
-        <mat-icon>account_circle</mat-icon>
-        <span>Perfil</span>
-      </button>
+      </div>
 
       <mat-divider></mat-divider>
 
-      <button mat-button class="btn menu-button">
-        <mat-icon>settings</mat-icon>
-        <span>Configuracion</span>
-      </button>
-    </mat-sidenav>
+      <div class="options">
+        <button
+          mat-icon-button
+          routerLink="/menu/transfer"
+          class="example-icon"
+          aria-label="Icono Transferencia"
+        >
+          <mat-icon>sync_alt</mat-icon>
 
+<<<<<<< HEAD
       <router-outlet></router-outlet>
    
+=======
+          <span>Transferencia</span>
+        </button>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="options">
+        <button
+          mat-icon-button
+          routerLink="/menu/perfil"
+          class="example-icon"
+          aria-label="Icono Perfil"
+        >
+          <mat-icon>account_circle</mat-icon>
+
+          <span>Perfil</span>
+        </button>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-sidenav>
+    <router-outlet></router-outlet>
+>>>>>>> 177f21c78ee9b5ea9a010e6ad15e394db7db45e5
   </mat-sidenav-container>
 </div>

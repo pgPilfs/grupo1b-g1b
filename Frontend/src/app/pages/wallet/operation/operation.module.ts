@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -10,6 +9,7 @@ import { DatePipe } from '@angular/common';
   imports: [
     CommonModule
   ],
-  providers: [DatePipe]
+  providers: []
 })
+
 export class OperationModule { }

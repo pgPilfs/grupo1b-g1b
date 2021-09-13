@@ -3,7 +3,7 @@
 /* Root */
 :root{
     --color-bg: #010409;
-    --color-bg-secundary: #0d1117;
+    --color-bg-secundary: #0D1117;
     --color-bg-divider: #30363D;
     --color-text: #fff;
     --color-text-secundary: rgba(255, 255, 255, 0.7);
@@ -41,7 +41,6 @@ body{
     margin: 0;
     padding: 0;
 }
-
 
 body, h1, h2, h3, h4, h5, h6{
     margin: 0;
@@ -147,5 +146,6 @@ section{
 }
 
 html, body { height: 100%; }
+
 
 

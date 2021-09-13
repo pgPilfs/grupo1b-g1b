@@ -10,7 +10,6 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-
 .example-form {
   min-width: 150px;
   max-width: 500px;
@@ -28,7 +27,6 @@
 .example-right-align {
   text-align: right;
 }
-
 
 input.example-right-align::-webkit-outer-spin-button,
 input.example-right-align::-webkit-inner-spin-button {
@@ -62,4 +60,8 @@ input.example-right-align {
   color: var(--color-btn-hover);
   font-size: 0.875rem;
   line-height: 1.5rem;
+}
+
+mat-divider{
+  background-color: var(--color-bg-divider);
 }
