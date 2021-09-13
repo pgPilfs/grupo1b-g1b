@@ -1,0 +1,118 @@
+<!-- profile -->
+<section class="m-4" data-aos="zoom-in" data-aos-duration="1500">
+    <div class="container-fluid">
+      <mat-divider class="my-4"></mat-divider>
+      <h2 class="title text-center">PERFIL</h2>
+      <mat-divider class="my-4"></mat-divider>
+      <mat-card class="example-card card">
+        <mat-card-header>
+          <div>
+            <img mat-card-avatar src="../../../../assets/avatars/default.png" alt="Foto Perfil" />
+            <mat-card-title class="my-4">User Name</mat-card-title>
+            <mat-divider></mat-divider>
+          </div>
+        </mat-card-header>
+        <div class="row form-group" >
+            <h3 class="my-4">Retirar Dinero</h3>
+            <div class="col-lg-12">
+            <form
+              [formGroup]="operacionTransfer"
+              class="example-form"
+              (ngSubmit)="onSubmitTransfer($event)"
+              autocomplete="off"
+            >
+              
+                <mat-form-field class="example-full-width" appearance="standard">
+                  <mat-label>Número Tarjeta</mat-label>
+                  <input
+                    matInput
+                    [formControl]="cuentaO"
+                    formControlName="cuentaO"
+                    placeholder="Ingrese el numero de su tarjeta"
+                  />
+                  <mat-error
+                    *ngIf="
+                      operacionTransfer.get('cuentaO').errors &&
+                      operacionTransfer.get('cuentaO').touched
+                    "
+                  >
+                    <mat-error
+                      *ngIf="operacionTransfer.get('cuentaO')?.hasError('required')"
+                      >Por favor, ingrese el <strong>número de tarjeta</strong></mat-error
+                    >
+                  </mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width" appearance="standard">
+                  <mat-label>Cuenta del Destinatario</mat-label>
+                  <input
+                    matInput
+                    [formControl]="cuentaD"
+                    formControlName="cuentaD"
+                    placeholder="Ingrese cuenta del destinatario:"
+                  />
+                  <mat-error
+                    *ngIf="
+                      operacionTransfer.get('cuentaD').errors &&
+                      operacionTransfer.get('cuentaD').touched
+                    "
+                  >
+                    <mat-error
+                      *ngIf="operacionTransfer.get('cuentaD')?.hasError('required')"
+                      >El nombre es <strong>obligatorio</strong></mat-error
+                    >
+                  </mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width" appearance="standard">
+                  <mat-label>Concepto de pago</mat-label>
+                  <input
+                    matInput
+                    [formControl]="concepPago"
+                    formControlName="concepPago"
+                    placeholder="Concepto de Pago:"
+                  />
+                  <mat-error
+                    *ngIf="
+                      operacionTransfer.get('concepPago').errors &&
+                      operacionTransfer.get('concepPago').touched
+                    "
+                  >
+                    <mat-error
+                      *ngIf="operacionTransfer.get('concepPago')?.hasError('required')"
+                      >Por favor, ingrese solo <strong>números</strong></mat-error
+                    >
+                  </mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width" appearance="standard">
+                  <mat-label>Monto a Transferir</mat-label>
+                  <input
+                    matInput
+                    [formControl]="monto"
+                    formControlName="monto"
+                    placeholder="Ingrese el monto que desea retirar"
+                  />
+                  <mat-error
+                    *ngIf="
+                      operacionTransfer.get('monto').errors &&
+                      operacionTransfer.get('monto').touched
+                    "
+                  >
+                    <mat-error
+                      *ngIf="operacionTransfer.get('monto')?.hasError('required')"
+                      >El nombre es <strong>obligatorio</strong></mat-error
+                    >
+                  </mat-error>
+                </mat-form-field>
+              <div>
+                <button type="submit" class="btn btn-outline-success btn-block">
+                  Confirmar
+                </button>
+              </div>
+            </form>
+          </div>
+          </div>
+      </mat-card>
+    </div>
+  </section>                                                     

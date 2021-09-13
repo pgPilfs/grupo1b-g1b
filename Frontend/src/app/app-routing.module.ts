@@ -11,10 +11,9 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { DevelopersComponent } from './pages/developers/developers.component';
 import { ProyectComponent } from './pages/proyect/proyect.component';
 import { PerfilComponent } from './pages/wallet/perfil/perfil.component';
-import { DolarComponent } from './pages/wallet/dolar/dolar.component';
-import { CryptoComponent } from './pages/wallet/crypto/crypto.component';
 import { PesoComponent } from './pages/wallet/operation/peso/peso.component';
 import { WalletComponent } from './pages/wallet/wallet/wallet.component';
+import { TransferComponent } from './pages/wallet/transfer/transfer.component';
 
 
 const routes: Routes = [
@@ -31,8 +30,7 @@ const routes: Routes = [
     {path: 'peso', component: PesoComponent},
     {path: 'wallet', component: WalletComponent},
     {path: 'perfil', component: PerfilComponent},
-    {path: 'dolar', component: DolarComponent},
-    {path: 'crypto', component: CryptoComponent},
+    {path: 'transfer', component: TransferComponent},
   ]},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path:'**', component: NotfoundComponent},

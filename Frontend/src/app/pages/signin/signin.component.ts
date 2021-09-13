@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -28,6 +28,7 @@ interface Ciudad {
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css'],
 })
+
 export class SigninComponent implements OnInit {
 
   hide = true;
@@ -70,7 +71,7 @@ export class SigninComponent implements OnInit {
     }
   }
 
-   // getting the form control elements
+  // getting the form control elements
   get name(): AbstractControl {
     return this.formsign.controls['name'];
   }
@@ -83,7 +84,7 @@ export class SigninComponent implements OnInit {
   get email(): AbstractControl {
     return this.formsign.controls['email'];
   }
-   get password(): AbstractControl {
+  get password(): AbstractControl {
     return this.formsign.controls['password'];
   }
   get cpassword(): AbstractControl {
@@ -179,8 +180,6 @@ export class SigninComponent implements OnInit {
       foto1: ['', [Validators.required]],
       foto2: ['', [Validators.required]],
     });
-
- 
   }
 
   selectFormControl = new FormControl('', Validators.required);
@@ -236,7 +235,7 @@ export class SigninComponent implements OnInit {
   selectFileF(event: { target: { files: any } }) {
     this.selectedFilesF = event.target.files;
   }
-  
+
   get nameField() {
     return this.formsign.get('name');
   }
