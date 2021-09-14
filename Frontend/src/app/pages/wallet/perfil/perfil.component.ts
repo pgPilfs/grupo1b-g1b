@@ -37,6 +37,8 @@ export class PerfilComponent implements OnInit {
 @Component({
   selector: 'edit',
   templateUrl: 'edit.html',
+  styleUrls: ['./edit.css']
+
 })
 
 export class DataDialogComponent {

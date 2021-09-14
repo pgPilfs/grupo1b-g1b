@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-transfer',
   templateUrl: './transfer.component.html',
   styleUrls: ['./transfer.component.css']
 })
+
+
+
 export class TransferComponent implements OnInit {
+  
   operacionTransfer: FormGroup;
 
   get cuentaD(): AbstractControl {
@@ -56,11 +60,13 @@ export class TransferComponent implements OnInit {
   }
 
   onSubmitTransfer(event: Event) {
-    event.preventDefault(); //Cancela la funcionalidad por default.
+    event.preventDefault(); 
     if (this.operacionTransfer.valid) {
-      console.log(this.operacionTransfer.value); //se puede enviar al servidor...
+      console.log(this.operacionTransfer.value); 
+      alert("Transferencia exitosa!")
     } else {
-      this.operacionTransfer.markAllAsTouched(); //Activa todas las validaciones
+      this.operacionTransfer.markAllAsTouched(); 
+      alert("Transferencia fallida!")
     }
   }
 
