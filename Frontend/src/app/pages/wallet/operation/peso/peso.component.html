@@ -21,13 +21,13 @@
         </div>
       </mat-body>
 
-      <div class="row form-group" data-aos="zoom-out" *ngIf="seccionIngreso">
-        <h3 class="my-4">Ingresar Dinero</h3>
+      <div class="row form-group" data-aos="zoom-out">
+        <h3 class="my-4">{{operacion}} Dinero</h3>
         <div class="col-lg-12">
           <form
             [formGroup]="operacionForm"
             class="example-form"
-            (ngSubmit)="onSubmitIngreso($event)"
+            (ngSubmit)="onSubmit()"
             autocomplete="off"
           >
 
@@ -73,41 +73,59 @@
                 >
               </mat-error>
             </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="standard">
-              <mat-label>Fecha de vencimiento</mat-label>
-              <input
-              matInput
-              [matDatepicker]="picker"
-              placeholder="dd/mm/yy"
-                [formControl]="date"
-                formControlName="date"
-                
-              />
-              <mat-datepicker-toggle
-                  matSuffix
-                  [for]="picker"
-                ></mat-datepicker-toggle>
-              <mat-error
-                *ngIf="
-                  operacionForm.get('date').errors &&
-                  operacionForm.get('date').touched
-                "
-              >
+            <p>Fecha de vencimiento</p>
+            <div class="row">
+              <mat-form-field class="col-lg-6 col-md-12 col-sm-12 my-2" appearance="standard">
+                <mat-label>Mes</mat-label>
+                <input
+                  matInput
+                  placeholder="mm/yy"
+                  [formControl]="month"
+                  formControlName="month"
+                />
                 <mat-error
-                  *ngIf="operacionForm.get('date')?.hasError('required')"
-                  >Por favor, ingrese solo <strong>números</strong></mat-error
+                  *ngIf="
+                    operacionForm.get('month').errors &&
+                    operacionForm.get('month').touched
+                  "
                 >
-              </mat-error>
-            </mat-form-field>
+                  <mat-error
+                    *ngIf="operacionForm.get('month')?.hasError('required')"
+                    >Por favor, ingrese solo <strong>números</strong></mat-error
+                  >
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class=" col-lg-6 col-md-12 col-sm-12 my-2" appearance="standard">
+                <mat-label>Año</mat-label>
+                <input
+                  matInput
+                  placeholder="mm/yy"
+                  [formControl]="year"
+                  formControlName="year"
+                />
+                <mat-error
+                  *ngIf="
+                    operacionForm.get('year').errors &&
+                    operacionForm.get('year').touched
+                  "
+                >
+                  <mat-error
+                    *ngIf="operacionForm.get('year')?.hasError('required')"
+                    >Por favor, ingrese solo <strong>números</strong></mat-error
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+            
 
             <mat-form-field class="example-full-width" appearance="standard">
-              <mat-label>Monto a Ingresar</mat-label>
+              <mat-label>Monto a {{operacion}}</mat-label>
               <input
                 matInput
                 [formControl]="monto"
                 formControlName="monto"
-                placeholder="Ingrese el monto que desea depositar"
+                placeholder="Ingrese el monto"
                 
               />
               <mat-error
@@ -129,117 +147,6 @@
             </div>
           </form>
         </div>
-      </div>
-
-      <div class="row form-group" data-aos="zoom-out" *ngIf="seccionRetiro">
-        <h3 class="my-4">Retirar Dinero</h3>
-        <div class="col-lg-12">
-        <form
-          [formGroup]="operacionForm"
-          class="example-form"
-          (ngSubmit)="onSubmitRetiro($event)"
-          autocomplete="off"
-        >
-          
-            <mat-form-field class="example-full-width" appearance="standard">
-              <mat-label>Número Tarjeta</mat-label>
-              <input
-                matInput
-                [formControl]="cardNumber"
-                formControlName="cardNumber"
-                placeholder="Ingrese el numero de su tarjeta"
-                
-              />
-              <mat-error
-                *ngIf="
-                  operacionForm.get('cardNumber').errors &&
-                  operacionForm.get('cardNumber').touched
-                "
-              >
-                <mat-error
-                  *ngIf="operacionForm.get('cardNumber')?.hasError('required')"
-                  >Por favor, ingrese el <strong>número de tarjeta</strong></mat-error
-                >
-              </mat-error>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="standard">
-              <mat-label>Número CVV</mat-label>
-              <input
-                matInput
-                [formControl]="numberCVV"
-                formControlName="numberCVV"
-                placeholder="Ingrese el código CVV:"
-                
-              />
-              <mat-error
-                *ngIf="
-                  operacionForm.get('numberCVV').errors &&
-                  operacionForm.get('numberCVV').touched
-                "
-              >
-                <mat-error
-                  *ngIf="operacionForm.get('numberCVV')?.hasError('required')"
-                  >El nombre es <strong>obligatorio</strong></mat-error
-                >
-              </mat-error>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="standard">
-              <mat-label>Fecha de vencimiento</mat-label>
-              <input
-                matInput
-                [matDatepicker]="picker"
-              placeholder="dd/mm/yy"
-                [formControl]="date"
-                formControlName="date"
-                
-              />
-              <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-              <mat-error
-                *ngIf="
-                  operacionForm.get('date').errors &&
-                  operacionForm.get('date').touched
-                "
-              >
-                <mat-error
-                  *ngIf="operacionForm.get('date')?.hasError('required')"
-                  >Por favor, ingrese solo <strong>números</strong></mat-error
-                >
-              </mat-error>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="standard">
-              <mat-label>Monto a Retirar</mat-label>
-              <input
-                matInput
-                [formControl]="monto"
-                formControlName="monto"
-                placeholder="Ingrese el monto que desea retirar"
-                
-              />
-              <mat-error
-                *ngIf="
-                  operacionForm.get('monto').errors &&
-                  operacionForm.get('monto').touched
-                "
-              >
-                <mat-error
-                  *ngIf="operacionForm.get('monto')?.hasError('required')"
-                  >El nombre es <strong>obligatorio</strong></mat-error
-                >
-              </mat-error>
-            </mat-form-field>
-          <div>
-            <button type="submit" class="btn btn-outline-success btn-block">
-              Confirmar
-            </button>
-          </div>
-        </form>
-      </div>
       </div>
     </mat-card>
   </div>

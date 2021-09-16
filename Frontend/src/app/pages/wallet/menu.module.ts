@@ -16,7 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule, MatSingleDateSelectionModel } from '@angular/material/datepicker';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     WalletComponent,
@@ -38,6 +38,7 @@ import { MatDatepickerModule, MatSingleDateSelectionModel } from '@angular/mater
     MatFormFieldModule, 
     MatProgressBarModule,
     MatDatepickerModule,
+    ReactiveFormsModule
   ],
   exports:[WalletComponent, PesoComponent, PerfilComponent, DolarComponent, CryptoComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
