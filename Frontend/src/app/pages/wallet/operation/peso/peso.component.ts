@@ -47,7 +47,7 @@ export class PesoComponent implements OnInit {
 
 
   private pattNumbers: any = /^[0-9]{7,}$/;
-
+  private pattCVV: any = /^[0-9]{3,}$/;
   constructor( private formBuilder: FormBuilder ) {
     this.operacionForm = this.formBuilder.group(
       {
@@ -56,11 +56,10 @@ export class PesoComponent implements OnInit {
           Validators.pattern(this.pattNumbers),
           Validators.minLength(16),
           Validators.maxLength(16),
-        ]
-      ],
+        ]],
         numberCVV:['',[
           Validators.required,
-          Validators.pattern(this.pattNumbers),
+          Validators.pattern(this.pattCVV),
           Validators.minLength(3),
           Validators.maxLength(3),
         ]],
@@ -78,7 +77,6 @@ export class PesoComponent implements OnInit {
       
   }
 
-  selectFormControl = new FormControl('', Validators.required);
   months: Month[] = [
     { mes: '01' },
     { mes: '02' },
