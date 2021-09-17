@@ -81,6 +81,21 @@ mat-sidenav .options {
   font-size: 1rem;
 }
 
+<<<<<<< HEAD
+.card:hover {
+  transform: scale(1.1);
+}
+.example-container {
+  display: flex; 
+  flex-direction: column;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+=======
+>>>>>>> 177f21c78ee9b5ea9a010e6ad15e394db7db45e5
 .example-sidenav-container {
   /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
      causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */

@@ -38,6 +38,9 @@
                 [formControl]="cardNumber"
                 formControlName="cardNumber"
                 placeholder="Ingrese el número de su tarjeta"
+                type="text"
+                name="cardNumber"
+                id="cardNumber"
               />
               <mat-error
                 *ngIf="
@@ -50,6 +53,7 @@
                   >Por favor, ingrese el <strong>número de tarjeta</strong></mat-error
                 >
               </mat-error>
+             
             </mat-form-field>
 
 
@@ -60,6 +64,9 @@
                 [formControl]="numberCVV"
                 formControlName="numberCVV"
                 placeholder="Ingrese el código CVV:"
+                type="text"
+                name="numberCVV"
+                id="numberCVV"
               />
               <mat-error
                 *ngIf="
@@ -73,46 +80,61 @@
                 >
               </mat-error>
             </mat-form-field>
-            <p>Fecha de vencimiento</p>
-            <div class="row">
-              <mat-form-field class="col-lg-6 col-md-12 col-sm-12 my-2" appearance="standard">
+            <p class="expiration-date-title">Fecha de vencimiento</p>
+            <div class="row expiration-date">
+              
+              <mat-form-field appearance="standard">
                 <mat-label>Mes</mat-label>
-                <input
-                  matInput
-                  placeholder="mm/yy"
+                <mat-select
+                  matNativeControl
                   [formControl]="month"
                   formControlName="month"
-                />
+                  ngDefaultControl
+                  name="month"
+                >
+                  <mat-option 
+                    *ngFor="let month of months"
+                    [value]="month"
+                  >
+                    {{ month.mes }}
+                  </mat-option>
+                </mat-select>
                 <mat-error
                   *ngIf="
                     operacionForm.get('month').errors &&
                     operacionForm.get('month').touched
                   "
                 >
-                  <mat-error
+                  <mat-error 
                     *ngIf="operacionForm.get('month')?.hasError('required')"
-                    >Por favor, ingrese solo <strong>números</strong></mat-error
+                    >Por favor, <strong>ingrese</strong> el mes de vencimiento</mat-error
                   >
                 </mat-error>
               </mat-form-field>
-
-              <mat-form-field class=" col-lg-6 col-md-12 col-sm-12 my-2" appearance="standard">
+              <mat-form-field appearance="standard">
                 <mat-label>Año</mat-label>
-                <input
-                  matInput
-                  placeholder="mm/yy"
+                <mat-select
+                  matNativeControl
                   [formControl]="year"
                   formControlName="year"
-                />
+                  ngDefaultControl
+                >
+                  <mat-option 
+                    *ngFor="let year of years"
+                    [value]="year"
+                  >
+                    {{ year.anio }}
+                  </mat-option>
+                </mat-select>
                 <mat-error
                   *ngIf="
                     operacionForm.get('year').errors &&
                     operacionForm.get('year').touched
                   "
                 >
-                  <mat-error
+                  <mat-error 
                     *ngIf="operacionForm.get('year')?.hasError('required')"
-                    >Por favor, ingrese solo <strong>números</strong></mat-error
+                    >Por favor, <strong>ingrese</strong> el año de vencimiento</mat-error
                   >
                 </mat-error>
               </mat-form-field>

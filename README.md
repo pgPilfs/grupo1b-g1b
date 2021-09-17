@@ -5,7 +5,6 @@
 ### INTEGRANTES:
 
 - Acosta, Johana.
-- Barrera, Javier.
 - Juncos, Lautaro.
 - Navoni, Mauricio.
 - Nieva, Luciana.

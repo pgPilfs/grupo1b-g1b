@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSelectModule } from '@angular/material/select';
 import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -34,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatDividerModule,
     MatIconModule,
+    MatSelectModule,
     MatInputModule,
     MatFormFieldModule, 
     MatProgressBarModule,

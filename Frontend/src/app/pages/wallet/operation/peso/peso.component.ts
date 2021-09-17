@@ -1,18 +1,21 @@
-import { animateChild } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { ViewChild } from '@angular/core';
-import { MatAccordion } from '@angular/material/expansion';
-import { MatMenuTrigger } from '@angular/material/menu';
-import { AbstractControl } from '@angular/forms';
 import { 
+  AbstractControl, 
+  ValidationErrors, 
+  ValidatorFn,
   FormBuilder,
-  FormGroup,
   FormControl,
+  FormGroup,
   Validators 
 } from '@angular/forms';
-
 import data from './data.json';
 
+interface Month {
+  mes: string;
+}
+interface Year {
+  anio: string;
+}
 @Component({
   selector: 'app-peso',
   templateUrl: './peso.component.html',
@@ -53,7 +56,8 @@ export class PesoComponent implements OnInit {
           Validators.pattern(this.pattNumbers),
           Validators.minLength(16),
           Validators.maxLength(16),
-        ]],
+        ]
+      ],
         numberCVV:['',[
           Validators.required,
           Validators.pattern(this.pattNumbers),
@@ -74,6 +78,32 @@ export class PesoComponent implements OnInit {
       
   }
 
+  selectFormControl = new FormControl('', Validators.required);
+  months: Month[] = [
+    { mes: '01' },
+    { mes: '02' },
+    { mes: '03' },
+    { mes: '04' },
+    { mes: '05' },
+    { mes: '06' },
+    { mes: '07' },
+    { mes: '08' },
+    { mes: '09' },
+    { mes: '10' },
+    { mes: '11' },
+    { mes: '12' },
+  ];
+  years: Year[] = [
+    { anio: '22' },
+    { anio: '23' },
+    { anio: '24' },
+    { anio: '25' },
+    { anio: '26' },
+    { anio: '27' },
+    { anio: '28' },
+    { anio: '29' },
+    { anio: '30' },
+  ];
   ngOnInit(): void{};
 
   onSubmit() {
@@ -81,10 +111,6 @@ export class PesoComponent implements OnInit {
     if (this.operacionForm.valid) {
       console.log(this.operacionForm.value);
     }
-  }
-  
-  print(){
-    console.log(this.cardNumber);
   }
   
   get cardNumberField() {

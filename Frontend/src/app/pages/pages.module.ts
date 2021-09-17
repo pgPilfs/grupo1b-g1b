@@ -13,7 +13,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { ProyectComponent } from './proyect/proyect.component';
 import { ContactComponent } from './contact/contact.component';
-import { MatCardModule, MatCardTitle } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';

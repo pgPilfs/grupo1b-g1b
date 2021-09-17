@@ -9,7 +9,7 @@
     >
       <form
         [formGroup]="formsign"
-        (ngSubmit)="onSiguiente($event)"
+        (ngSubmit)="onSiguiente($event, usuario)"
         autocomplete="off"
       >
         <div *ngIf="step == 1">
@@ -31,6 +31,7 @@
                   formControlName="name"
                   placeholder="Ingrese su nombre"
                   required
+                  [(ngModel)]="usuario.nombre"
                 />
                 <mat-error
                   *ngIf="
@@ -55,6 +56,7 @@
                   formControlName="lastname"
                   placeholder="Ingrese su apellido"
                   required
+                  [(ngModel)]="usuario.apellido"
                 />
 
                 <mat-error
@@ -85,6 +87,7 @@
                   name="email"
                   id="email"
                   required
+                  [(ngModel)]="usuario.email"
                 />
                 <mat-error
                   *ngIf="
@@ -113,6 +116,7 @@
                   [formControl]="password"
                   formControlName="password"
                   placeholder="Ingrese una contraseña"
+                  [(ngModel)]="usuario.password"
                 />
                 <button
                   mat-icon-button
@@ -229,6 +233,8 @@
                   [formControl]="provincia"
                   formControlName="provincia"
                   required
+                  [(ngModel)]="usuario.provincia"
+                  
                 >
                   <mat-option
                     *ngFor="let provincia of provincias"
@@ -260,6 +266,7 @@
                   [formControl]="ciudad"
                   formControlName="ciudad"
                   required
+                  [(ngModel)]="usuario.ciudad"
                 >
                   <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad">
                     {{ ciudad.city }}
@@ -289,6 +296,7 @@
                   formControlName="cpostal"
                   placeholder="Ingrese su código postal"
                   required
+                  [(ngModel)]="usuario.cpostal"
                 />
                 <mat-error
                   *ngIf="
@@ -338,6 +346,7 @@
                   placeholder="Ingrese su número de domicilio"
                   [formControl]="pdpto"
                   formControlName="pdpto"
+                  [(ngModel)]="usuario.pdpto"
                 />
                 <mat-error
                   *ngIf="
@@ -372,6 +381,7 @@
                   [formControl]="cuil"
                   formControlName="cuil"
                   placeholder="Ingrese su CUIL"
+                  [(ngModel)]="usuario.cuil"
                 />
                 <mat-error
                   *ngIf="
@@ -396,6 +406,7 @@
                   placeholder="(54) 351-123-123"
                   [formControl]="tel"
                   formControlName="tel"
+                  [(ngModel)]="usuario.telefono"
                 />
                 <mat-icon matSuffix>phone</mat-icon>
                 <mat-error
@@ -420,6 +431,7 @@
                   placeholder="dd/mm/yy"
                   [formControl]="fecnac"
                   formControlName="fecnac"
+                  [(ngModel)]="usuario.fecnac"
                 />
                 <mat-datepicker-toggle
                   matSuffix
@@ -495,6 +507,7 @@
                   [formControl]="foto1"
                   formControlName="foto1"
                   class="form-control"
+                  [(ngModel)]="usuario.foto_dni_frente"
                 />
                 <mat-error
                   class="text-center"
@@ -537,6 +550,8 @@
                   color="primary"
                   text-center
                   (click)="fileInputF.click()"
+                  
+                  
                 >
                   Subir imagen <mat-icon>cloud_upload</mat-icon>
                 </button>
@@ -549,6 +564,7 @@
                   [formControl]="foto2"
                   formControlName="foto2"
                   class="form-control"
+                  [(ngModel)]="usuario.foto_dni_reversa"
                 />
                 <mat-error
                   class="text-center"
@@ -643,7 +659,7 @@
             type="submit"
             class="btn btn-sign my-3"
             *ngIf="step == 5"
-            (click)="confirmado()"
+            
           >
             Registrar
             <svg
