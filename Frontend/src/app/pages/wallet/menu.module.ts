@@ -4,8 +4,6 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { WalletComponent } from './wallet/wallet.component';
 import { PesoComponent } from './operation/peso/peso.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import { DolarComponent } from './dolar/dolar.component';
-import { CryptoComponent } from './crypto/crypto.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
@@ -25,8 +23,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     WalletComponent,
     PesoComponent,
     PerfilComponent,
-    DolarComponent,
-    CryptoComponent,
     TransferComponent
   ],
   imports: [
@@ -45,7 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDatepickerModule,
     ReactiveFormsModule
   ],
-  exports:[WalletComponent, PesoComponent, PerfilComponent, DolarComponent, CryptoComponent],
+  exports:[WalletComponent, PesoComponent, PerfilComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
   
 })
