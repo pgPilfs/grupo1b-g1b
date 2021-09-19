@@ -1,0 +1,38 @@
+<!-- profile -->
+<section class="m-4" data-aos="zoom-in" data-aos-duration="1500">
+  <div class="container-fluid">
+    <mat-divider class="my-4"></mat-divider>
+    <h2 class="title text-center">PERFIL</h2>
+    <mat-divider class="my-4"></mat-divider>
+    <mat-card class="example-card card">
+      <mat-card-header>
+        <div>
+          <img mat-card-avatar src="../../../../assets/avatars/default.png" alt="Foto Perfil" />
+          <mat-card-title class="my-4">User Name</mat-card-title>
+          <mat-divider></mat-divider>
+        </div>
+      </mat-card-header>
+      <mat-card-content class="m-4">
+        <form >
+        <mat-card-subtitle>Nombre: </mat-card-subtitle>
+        <mat-card-subtitle>Apellido: </mat-card-subtitle>
+        <mat-card-subtitle>Email: </mat-card-subtitle>
+        <mat-card-subtitle>Contraseña: </mat-card-subtitle>
+        <mat-card-subtitle>Teléfono: </mat-card-subtitle>
+        <mat-card-subtitle>Fecha de Nacimiento: </mat-card-subtitle>
+        <mat-card-subtitle>CUIL: </mat-card-subtitle>
+        <mat-card-subtitle>Alias: </mat-card-subtitle>
+        <mat-card-subtitle>Dirección: </mat-card-subtitle>
+        </form>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <div>
+        <button mat-button class="btn my-4 btn-sign" (click)="openDialog()">Editar Perfil</button>
+      </div>
+      <div>
+        <a routerLink="/home" class="text-end">Desactivar cuenta</a>
+      </div>
+      
+    </mat-card>
+  </div>
+</section> 

@@ -1,5 +1,6 @@
 .login-card {
-  width: fit-content;
+  width: auto;
+  max-width: 30rem;
   border-radius: 0.5rem;
   background-color: var(--color-bg-secundary);
   padding: 2rem;
@@ -9,45 +10,44 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-label {
-  color: var(--color-text);
-  padding-left: 1rem;
-  margin-left: 0.875rem;
-}
-
-.login-card input[type="email"],
-.login-card input[type="password"] {
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
   width: 100%;
-  border-radius: 0;
-  border: none;
-  border-bottom: 3px solid var(--color-bg-divider);
-  background: transparent;
-  outline: none;
-  color: var(--color-text-secundary);
-  font-size: 0.875rem;
 }
 
-input:focus,
-input:hover,
-input:active {
-  background-color: var(--color-bg-secundary);
-  color: var(--color-text-secundary);
-  border-bottom: 3px solid var(--color-bg-red-secundary);
-  font-size: 1rem;
+.example-full-width {
+  width: 100%;
 }
 
-button {
+.example-container .mat-form-field+.mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+.btn-login {
   background-color: var(--color-btn);
   width: 15rem;
   height: 3rem;
-  font-size: 1.2em;
   color: var(--color-bg-secundary);
   border: none;
 }
 
-button:hover,
-button:focus,
-button:active {
+.btn-log:hover,
+.btn-log:focus,
+.btn-log:active {
   background-color: var(--color-btn-hover);
   width: 15rem;
   height: 3rem;
@@ -56,13 +56,12 @@ button:active {
   border: none;
 }
 
-.small1 {
-  color: var(--color-bg-red);
-  padding-top: 0rem;
-}
-
-a {
+.color-btn {
   color: var(--color-btn-hover);
   font-size: 0.875rem;
   line-height: 1.5rem;
+}
+
+mat-divider{
+  background-color: var(--color-bg-divider);
 }

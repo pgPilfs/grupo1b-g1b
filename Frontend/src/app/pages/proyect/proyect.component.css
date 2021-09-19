@@ -10,14 +10,6 @@
   text-transform: uppercase;
 }
 
-.section-divider {
-  display: block;
-  border-radius: 55px;
-  width: 9rem;
-  height: 0.3125rem;
-  background: var(--color-btn);
-}
-
 .card-b {
   border-radius: 0.5rem;
   background-color: var(--color-bg-secundary);

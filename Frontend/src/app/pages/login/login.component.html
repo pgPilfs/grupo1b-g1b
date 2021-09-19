@@ -1,84 +1,86 @@
 <section class="section">
-  <div class="container-fluid ">
+  <div class="container-fluid">
     <div class="card login-card" data-aos="zoom-in">
       <h2 class="text-center my-4">
         Te damos la bienvenida <br />a <strong>PIL MONEY</strong>
       </h2>
-      <div class="section-divider"></div>
-      <h4 class="text-center my-2">¡ Te extrañamos !</h4>
+      <mat-divider></mat-divider>
+      <h4 class="text-center my-4">¡ Te extrañamos !</h4>
       <form
-        [formGroup]="loginForm"
+        class="example-form"
+        [formGroup]="loginform"
         (ngSubmit)="onSubmit()"
         autocomplete="off"
         novalidate
       >
         <!-- EMAIL INPUT -->
         <div class="form-group my-4">
-          <div class="form-floating">
+          <mat-form-field class="example-full-width" appearance="standard">
+            <mat-label>Correo Electrónico</mat-label>
             <input
-              type="email"
-              class="form-control"
+              matInput
+              placeholder="pilmoney@mail.com"
               formControlName="email"
-              id="floatingInput"
-              placeholder="Ingrese su email"
+              [formControl]="email"
+              type="email"
+              name="email"
+              id="email"
+              required
             />
-            <label for="floatingInput">Email</label>
-            <small
-              class="small1"
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-error
               *ngIf="
-                loginForm.controls.email.touched &&
-                loginForm.controls.email.errors?.required
-              "
-              >Por favor, ingrese su <strong>email</strong></small
-            >
-            <small
-              class="small1"
-              *ngIf="
-                loginForm.controls.email.touched &&
-                loginForm.controls.email.errors?.email
+                loginform.get('email').errors && loginform.get('email').touched
               "
             >
-              Email mal ingresado</small
-            >
-          </div>
+              El correo electrónico es <strong>obligatorio</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
         <!-- CONTRASEÑA INPUT -->
         <div class="form-group my-4">
-          <div class="form-floating">
+          <mat-form-field class="example-full-width" appearance="standard">
+            <mat-label>Ingrese su contraseña</mat-label>
             <input
-              type="password"
-              class="form-control"
+              matInput
               formControlName="password"
-              placeholder="Ingrese su contraseña"
+              [formControl]="password"
+              [type]="hide ? 'password' : 'text'"
             />
-            <label for="floatingInput">Contraseña</label>
-            <small
-              class="small1"
-              *ngIf="
-                loginForm.controls.password.touched &&
-                loginForm.controls.password.errors?.required
-              "
-              >Por favor, ingrese su <strong>contraseña</strong></small
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
             >
-          </div>
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+            <mat-error
+              *ngIf="
+                loginform.get('password').errors &&
+                loginform.get('password').touched
+              "
+            >
+              La contraseña es <strong>requerida</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
-        <div class="items-card text-center my-4">
-          <div class="a1">
-            <a href="#">Me olvidé la contraseña</a>
-            -
-            <a routerLink="/signin">Create una cuenta</a>
+
+        <div class="text-center my-4 example-label">
+          <div class="example-button-row">
+            <button mat-button color="accent">
+              <a href="#" class="color-btn">Me olvidé la contraseña</a>
+            </button>
+            <button mat-button color="accent">
+              <a class="color-btn" routerLink="/signin">Create una cuenta</a>
+            </button>
           </div>
         </div>
 
         <!-- BOTON -->
         <div class="d-flex justify-content-center">
-          <button
-            type="submit"
-            class="btn ingresar text-center"
-            routerLink="/wallet"
-          >
-            Ingresar
-          </button>
+          <button class="btn btn-login" routerLink="/menu/wallet">Ingresar</button>
         </div>
       </form>
     </div>

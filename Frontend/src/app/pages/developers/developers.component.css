@@ -82,7 +82,7 @@ svg {
     grid-row-gap: 40px;
   }
   .img {
-    max-width: 30%;
+    max-width: 80%;
     height: auto;
   }
 }
@@ -92,8 +92,8 @@ svg {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
   .img {
-    padding-top: 3rem;
-    max-width: 20%;
+    padding-top: 1rem;
+    max-width: 80%;
     height: auto;
   }
   .grid-item {

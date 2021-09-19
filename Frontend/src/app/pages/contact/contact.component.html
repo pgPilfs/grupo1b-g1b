@@ -1,88 +1,91 @@
-<section class="container card">
+<section class="container-fluid card">
   <h2>CONTACTO</h2>
-  <div class="green-line"></div>
+  <mat-divider class="my-4"></mat-divider>
   <div class="content" data-aos="zoom-in">
-    <form class="form" autocomplete="off">
-      <div class="row text-start">
+    <form
+        class="example-form"
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        autocomplete="off"
+        novalidate
+      >
+      <div class="row">
         <!-- NOMBRE -->
         <div class="form-group my-4">
-          <div class="form-floating">
+          <mat-form-field  class="example-full-width" appearance="standard">
+            <mat-label>Nombre</mat-label>
             <input
+              matInput
+              formControlName="name"
               [formControl]="name"
               type="text"
               name="name"
-              class="form-control"
-              id="floatingInput"
+              placeholder="Ingrese su nombre"
+              autocomplete="off"
             />
-            <label for="floatingInput">Nombre</label>
-            <div class="small" *ngIf="nameField.errors && nameField.dirty">
-              <p
-                *ngIf="nameField.hasError('required')"
-                class="text-danger pt-2"
-              >
-                El nombre es <strong>requerido</strong>
-              </p>
-            </div>
-          </div>
+            <mat-hint>El Nombre es <strong>requerido</strong></mat-hint>
+            <mat-error *ngIf="contactForm.get('name').errors && contactForm.get('name').touched">
+              El nombre es <strong>obligatorio</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
 
-        <!-- CONTACTO -->
+        <!-- EMAIL -->
         <div class="form-group my-4">
-          <div class="form-floating">
+          <mat-form-field class="example-full-width" appearance="standard">
+            <mat-label>Correo Electrónico</mat-label>
             <input
-              [formControl]="mail"
+              matInput
+              placeholder="pat@example.com"
+              formControlName="email"
+              [formControl]="email"
               type="email"
-              name="name"
-              class="form-control"
+              name="email"
               id="email"
+              autocomplete="off"
             />
-            <label for="floatingInput">Correo Electrónico</label>
-            <div class="small" *ngIf="mailField.errors && mailField.dirty">
-              <p *ngIf="mailField.hasError('required')" class="text-danger">
-                El email es <strong>requerido</strong>
-              </p>
-              <p
-                class="small"
-                *ngIf="mailField.hasError('email')"
-                class="text-danger"
-              >
-                El <strong>formato del mail</strong> debe ser válido.
-              </p>
-            </div>
-          </div>
+            <mat-hint>El email es <strong>requerido</strong></mat-hint>
+            <mat-error
+              *ngIf="contactForm.get('email').errors && contactForm.get('email').touched">
+              El correo electrónico es <strong>obligatorio</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
 
         <!-- ASUNTO -->
         <div class="form-group my-4">
-          <div class="form-floating">
+          <mat-form-field class="example-full-width"  appearance="standard">
+            <mat-label>Asunto</mat-label>
             <input
+              matInput
+              formControlName="issue"
               [formControl]="issue"
               type="text"
               name="issue"
-              class="form-control"
-              id="email"
+              placeholder="Ingrese su asunto"
+              autocomplete="off"
             />
-            <label for="issue">Asunto</label>
-            <div class="small" *ngIf="issueField.errors && issueField.dirty">
-              <p *ngIf="issueField.hasError('required')" class="text-danger">
-                El asunto es <strong>requerido</strong>
-              </p>
-            </div>
-          </div>
+            <mat-hint>El asunto es <strong>requerido</strong></mat-hint>
+            <mat-error *ngIf="contactForm.get('issue').errors && contactForm.get('issue').touched">
+              El asunto es <strong>obligatorio</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
 
         <!-- MENSAJE -->
         <div class="form-group my-4 text-start">
-          <label class="pb-2">Mensaje</label>
-          <textarea
+          <mat-form-field class="example-full-width" appearance="standard">
+            <mat-label>Mensaje</mat-label>
+            <textarea 
+            matInput
+            formControlName="msg"
             [formControl]="msg"
-            name="msg"
-            class="form-control"
-            id="msg"
-            placeholder="Introduzca su consulta"
-            cols="30"
-            rows="5"
-          ></textarea>
+            ></textarea>
+            <mat-hint>El mensaje es <strong>requerido</strong></mat-hint>
+            <mat-error *ngIf="contactForm.get('msg').errors && contactForm.get('msg').touched">
+              El mensaje es <strong>obligatorio</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
         <div class="d-flex justify-content-center">
           <button type="submit" class="btn btn-submit text-center">
@@ -91,58 +94,60 @@
         </div>
       </div>
     </form>
+
     <hr class="d-flex text-center" />
-    <div class="datos-container">
-      <div>
-        <img id="mapa" class="text-center mb-4" src="/assets/images/map.svg" />
-      </div>
-      <div class="justify-content-center">
-        <p class="datos-contacto my-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-          >
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path
-              d="M18.364 17.364L12 23.728l-6.364-6.364a9 9 0 1 1 12.728 0zM12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
-              fill="rgba(255,255,255,1)"
-            />
-          </svg>
-          Calle falsa 12345
-        </p>
-        <p class="datos-contacto">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-          >
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path
-              d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm9.06 8.683L5.648 6.238 4.353 7.762l7.72 6.555 7.581-6.56-1.308-1.513-6.285 5.439z"
-              fill="rgba(255,255,255,1)"
-            />
-          </svg>
-          hola@hola.com
-        </p>
-        <p class="datos-contacto">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-          >
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path
-              d="M21 16.42v3.536a1 1 0 0 1-.93.998c-.437.03-.794.046-1.07.046-8.837 0-16-7.163-16-16 0-.276.015-.633.046-1.07A1 1 0 0 1 4.044 3H7.58a.5.5 0 0 1 .498.45c.023.23.044.413.064.552A13.901 13.901 0 0 0 9.35 8.003c.095.2.033.439-.147.567l-2.158 1.542a13.047 13.047 0 0 0 6.844 6.844l1.54-2.154a.462.462 0 0 1 .573-.149 13.901 13.901 0 0 0 4 1.205c.139.02.322.042.55.064a.5.5 0 0 1 .449.498z"
-              fill="rgba(255,255,255,1)"
-            />
-          </svg>
-          +5490303456789
-        </p>
-      </div>
+      <div class="justify-content-center text-center">
+        <google-map width='auto' height='400'></google-map>
+        <!-- HOME -->
+        <button
+          class="btn-des"
+          mat-flat-button
+          mat-icon-button
+          aria-label="Icono decorativo de Domicilio"
+          [matMenuTriggerFor]="home"
+        >
+          <mat-icon>home</mat-icon>
+        </button>
+        <mat-menu #home="matMenu">
+          <button mat-menu-item>
+            <mat-icon>home</mat-icon>
+            <span>Calle False 12345</span>
+          </button>
+        </mat-menu>
+
+        <!-- EMAIL -->
+        <button
+          mat-flat-button
+          class="btn-des"
+          mat-icon-button
+          aria-label="Icono Decorativo de Email"
+          [matMenuTriggerFor]="email_button"
+        >
+          <mat-icon>email</mat-icon>
+        </button>
+        <mat-menu #email_button="matMenu">
+          <button mat-menu-item>
+            <mat-icon>email</mat-icon>
+            <span>hola@pilmoney.com</span>
+          </button>
+        </mat-menu>
+
+        <!-- PHONE -->
+        <button
+          mat-flat-button
+          class="btn-des"
+          mat-icon-button
+          aria-label="Icono decorativo de Domicilio"
+          [matMenuTriggerFor]="phone"
+        >
+          <mat-icon>phone</mat-icon>
+        </button>
+        <mat-menu #phone="matMenu">
+          <button mat-menu-item>
+            <mat-icon>phone</mat-icon>
+            <span>+5432223445344</span>
+          </button>
+        </mat-menu>
     </div>
   </div>
 </section>

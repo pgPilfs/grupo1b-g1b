@@ -1,0 +1,118 @@
+<!-- profile -->
+<section class="m-4" data-aos="zoom-in" data-aos-duration="1500">
+  <div class="container-fluid">
+    <mat-divider class="my-4"></mat-divider>
+    <h2>TRANSFERENCIA</h2>
+    <mat-divider class="my-4"></mat-divider>
+    <mat-card class="card">
+      <div class="row form-group">
+        <div class="col-12">
+          <h2>Transferencia en PESOS</h2>
+        <form
+          [formGroup]="operacionTransfer"
+          class="example-form"
+          (ngSubmit)="onSubmitTransfer($event)"
+          autocomplete="off"
+        >
+            <mat-form-field class="example-full-width" appearance="standard">
+              <mat-label>Cuenta</mat-label>
+              <input
+                matInput
+                [formControl]="cuentaO"
+                formControlName="cuentaO"
+                placeholder="Ingrese el número de su cuenta"
+              />
+              <mat-error
+                *ngIf="
+                  operacionTransfer.get('cuentaO').errors &&
+                  operacionTransfer.get('cuentaO').touched
+                "
+              >
+                <mat-error
+                  *ngIf="operacionTransfer.get('cuentaO')?.hasError('required')"
+                  >El número de cuenta es
+                  <strong>obligatoria</strong></mat-error
+                >
+              </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="standard">
+              <mat-label>Cuenta del Destinatario</mat-label>
+              <input
+                matInput
+                [formControl]="cuentaD"
+                formControlName="cuentaD"
+                placeholder="Ingrese el número de cuenta del destinatario"
+              />
+
+              <mat-error
+                *ngIf="
+                  operacionTransfer.get('cuentaD').errors &&
+                  operacionTransfer.get('cuentaD').touched
+                "
+              >
+                <mat-error
+                  *ngIf="operacionTransfer.get('cuentaD')?.hasError('required')"
+                  >El número cuenta del destinatario es <strong>obligatorio</strong></mat-error
+                >
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="standard">
+              <mat-label>Concepto de Pago</mat-label>
+              <input
+                matInput
+                [formControl]="concepPago"
+                formControlName="concepPago"
+                placeholder="Ingrese el concepto del pago"
+              />
+              <mat-error
+                *ngIf="
+                  operacionTransfer.get('concepPago').errors &&
+                  operacionTransfer.get('concepPago').touched
+                "
+              >
+                <mat-error
+                  *ngIf="
+                    operacionTransfer.get('concepPago')?.hasError('required')
+                  "
+                  >Por favor, ingrese solo <strong>concepto del pago</strong></mat-error
+                >
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="standard">
+              <span matPrefix>$ &nbsp;</span>
+              <mat-label>Monto a Transferir</mat-label>
+              <input
+                matInput
+                [formControl]="monto"
+                formControlName="monto"
+                placeholder="Ingrese el monto que desea transferir"
+              />
+              <mat-error
+                *ngIf="
+                  operacionTransfer.get('monto').errors &&
+                  operacionTransfer.get('monto').touched
+                "
+              >
+                <mat-error
+                  *ngIf="operacionTransfer.get('monto')?.hasError('required')"
+                  >El monto es <strong>obligatorio</strong></mat-error
+                >
+              </mat-error>
+            </mat-form-field>
+
+          <div>
+            <button type="submit" class="btn btn-outline-success btn-block">
+              Confirmar
+            </button>
+          </div>
+        </form>
+      </div></div>
+    </mat-card>
+  </div>
+</section>
+
+

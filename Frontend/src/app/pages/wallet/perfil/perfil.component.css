@@ -1,0 +1,113 @@
+img.mat-card-avatar{
+  width:150px;
+  height: 150px;
+  background-size: cover;
+}
+
+mat-card-header{
+  justify-content: center;
+}
+
+mat-card-subtitle{
+  font-family: sans-serif;
+}
+
+mat-card-content{
+  padding-top:1rem;
+  text-align: left;
+  justify-content: center;
+}
+
+.example-margin {
+  margin: 0 12px;
+  font-size: 1rem;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+mat-form-field.mat-form-field {
+  font-size: 0.9rem;
+}
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-container {
+  align-self: center;
+}
+
+
+
+mat-error {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-bg-red);
+}
+
+mat-form-field {
+  margin: 1rem;
+}
+
+mat-checkbox {
+  white-space: -webkit-nowrap;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+
+.btn-sign {
+  background-color: var(--color-btn);
+  width: 10rem;
+  height: 3rem;
+  font-size: 1rem;
+  border-radius: 50px;
+}

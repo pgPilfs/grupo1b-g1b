@@ -8,41 +8,12 @@ h2 {
   color: var(--color-text);
 }
 
-label {
-  color: var(--color-text);
-}
-
-label:after {
-  color: var(--color-text);
-  font-size: 1rem;
-}
-
-input,
-.form-control {
-  background-color: var(--color-bg-secundary);
-  color: var(--color-text-secundary);
-  border: none;
-  border-radius: 0;
-  border-bottom: 3px solid var(--color-bg-divider);
-  font-size: 1rem;
-}
-
-input:focus,
-input:hover,
-input:active {
-  background-color: var(--color-bg-secundary);
-  color: var(--color-text-secundary);
-  border: none;
-  border-radius: 0;
-  border-bottom: 3px solid var(--color-bg-red-light);
-}
-
 .card {
   border-radius: 0.5rem;
   padding: 0 1.5rem;
   background-color: var(--color-bg-secundary);
-  height: auto;
   width: auto;
+  height: auto;
   border: 3px solid var(--color-bg-divider);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
@@ -93,32 +64,6 @@ input:active {
   border-radius: 50px;
 }
 
-.example-container .mat-form-field + .mat-form-field {
-  margin-left: 8px;
-}
-
-.example-container {
-  align-self: center;
-}
-
-mat-datepicker-toggle {
-  color: white;
-  margin-left: 1rem;
-}
-
-mat-error {
-  color: var(--color-bg-red-light);
-}
-
-.bg-input {
-  background-color: var(--color-bg-secundary);
-  height: auto;
-  padding: 1rem;
-  width: 50%;
-  height: auto;
-  letter-spacing: 0.02rem;
-}
-
 .file-txt {
   color: var(--color-text-secundary);
   padding: 2rem auto;
@@ -139,20 +84,6 @@ button {
   box-shadow: none;
 }
 
-.example-section {
-  margin: 12px 0;
-}
-
-.example-margin {
-  margin: 0 12px;
-  font-size: 1rem;
-}
-
-input[type="checkbox"] {
-  width: 1rem;
-  height: 1rem;
-}
-
 .link {
   color: var(--color-link);
 }
@@ -170,4 +101,118 @@ p {
   height: auto;
   text-align: center;
   border: none;
+}
+
+.example-section {
+  margin: 12px 0;
+}
+
+.example-margin {
+  margin: 0 12px;
+  font-size: 1rem;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+mat-form-field.mat-form-field {
+  font-size: 0.9rem;
+}
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-container {
+  align-self: center;
+}
+
+mat-error {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-bg-red);
+}
+
+mat-form-field {
+  margin: 1rem;
+}
+
+mat-checkbox {
+  white-space: -webkit-nowrap;
+}
+
+.button {
+  --offset: 10px;
+  --border-size: 2px;
+  display: -webkit-inline-box;
+  position: relative;
+  padding: 1.5em 3em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--color-btn);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background 0.8s ease;
+}
+.button:hover {
+  background: rgba(100, 0, 0, 0.03);
+}
+.button__horizontal,
+.button__vertical {
+  position: absolute;
+  top: var(--horizontal-offset, 0);
+  right: var(--vertical-offset, 0);
+  bottom: var(--horizontal-offset, 0);
+  left: var(--vertical-offset, 0);
+  transition: transform 0.8s ease;
+  will-change: transform;
+  color: var(--color-purple);
+}
+.button__horizontal::before,
+.button__vertical::before {
+  content: "";
+  position: absolute;
+  border: inherit;
+}
+.button__horizontal {
+  --vertical-offset: calc(var(--offset) * -1);
+  border-top: var(--border-size) solid currentcolor;
+  border-bottom: var(--border-size) solid currentcolor;
+}
+.button__horizontal::before {
+  top: calc(var(--vertical-offset) - var(--border-size));
+  bottom: calc(var(--vertical-offset) - var(--border-size));
+  left: calc(var(--vertical-offset) * -1);
+  right: calc(var(--vertical-offset) * -1);
+}
+.button:hover .button__horizontal {
+  transform: scaleX(0);
+}
+.button__vertical {
+  --horizontal-offset: calc(var(--offset) * -1);
+  border-left: var(--border-size) solid currentcolor;
+  border-right: var(--border-size) solid currentcolor;
+}
+.button__vertical::before {
+  top: calc(var(--horizontal-offset) * -1);
+  bottom: calc(var(--horizontal-offset) * -1);
+  left: calc(var(--horizontal-offset) - var(--border-size));
+  right: calc(var(--horizontal-offset) - var(--border-size));
+}
+.button:hover .button__vertical {
+  transform: scaleY(0);
 }

@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WalletComponent } from './wallet/wallet.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HomeComponent } from './home/home.component';
 import { TermsComponent } from './terms/terms.component';
@@ -14,10 +13,28 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { ProyectComponent } from './proyect/proyect.component';
 import { ContactComponent } from './contact/contact.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MenuComponent } from './wallet/menu.component';
+import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { GoogleMapsModule } from "@angular/google-maps";
+import { MatTableModule } from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
-    WalletComponent,
+    MenuComponent,
     NotfoundComponent,
     HomeComponent,
     TermsComponent,
@@ -25,8 +42,9 @@ import { ContactComponent } from './contact/contact.component';
     LoginComponent,
     DevelopersComponent,
     ContactComponent,
-    ProyectComponent
+    ProyectComponent,
   ],
+  
   imports: [
     CommonModule,
     AppRoutingModule,
@@ -35,11 +53,36 @@ import { ContactComponent } from './contact/contact.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
-  ],
-  exports: [WalletComponent, NotfoundComponent, HomeComponent, TermsComponent, SigninComponent, LoginComponent, ContactComponent, ProyectComponent],
-  providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'es'},
-  ]
-})
+    MatCardModule,
+    MatDividerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    MatExpansionModule,
+    MatMenuModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatStepperModule,
+    RouterModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    GoogleMapsModule,
+    MatTableModule,
 
-export class PagesModule{ }
+  ],
+  exports: [
+    MenuComponent,
+    NotfoundComponent,
+    HomeComponent,
+    TermsComponent,
+    SigninComponent,
+    LoginComponent,
+    ContactComponent,
+    ProyectComponent,
+  ],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es' }],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+ 
+})
+export class PagesModule {}

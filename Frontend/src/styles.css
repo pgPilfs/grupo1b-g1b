@@ -3,7 +3,7 @@
 /* Root */
 :root{
     --color-bg: #010409;
-    --color-bg-secundary: #0d1117;
+    --color-bg-secundary: #0D1117;
     --color-bg-divider: #30363D;
     --color-text: #fff;
     --color-text-secundary: rgba(255, 255, 255, 0.7);
@@ -31,7 +31,7 @@
 
 html{
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 14px;
     min-height: 100%;
     position: relative;
 }
@@ -42,7 +42,6 @@ body{
     padding: 0;
 }
 
-
 body, h1, h2, h3, h4, h5, h6{
     margin: 0;
     padding: 0;
@@ -50,7 +49,7 @@ body, h1, h2, h3, h4, h5, h6{
     color: var(--color-text);
 }
 
-p, div, a, label, input, span{
+p, div, a, label, input, span, button{
     font-family: 'Biryani', sans-serif;
     color: var(--color-text-secundary);
 }
@@ -108,11 +107,29 @@ a {
   border-radius: 0.5rem;
   background-color: var(--color-bg-secundary);
   padding: 2rem;
-  margin: 5rem auto;
-  width: 80%;
+  margin: 5rem 9rem;
+  width: auto;
   height: auto;
   border: 3px solid var(--color-bg-divider);
   box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width:800px) {
+  .card{
+    margin: 1em;
+    width: auto;
+    padding:1em;
+  }
+  h2{
+    font-size: 8vw;
+  }
+  th{
+    font-size: 3.2vw;
+  }
+  td{
+    font-size: 2.5vw;
+  }
 }
 
 .section-divider {
@@ -123,3 +140,12 @@ a {
   background: var(--color-btn);
   margin: 1rem auto;
 }
+
+section{
+  margin-top: 4rem;
+}
+
+html, body { height: 100%; }
+
+
+

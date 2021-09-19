@@ -1,0 +1,107 @@
+mat-toolbar {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+mat-sidenav {
+  width: 200px;
+  height: 100vh;
+  border-right: none;
+  background: var(--color-bg-secundary);
+  color: var(--color-text);
+  padding: 1rem;
+  text-align: center;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+mat-sidenav-container {
+  background: var(--color-bg);
+  height: auto;
+  width: auto;
+  text-align: -webkit-center;
+}
+
+mat-option {
+  background: var(--color-bg-secundary);
+  box-shadow: none;
+  text-align: center;
+  color: var(--color-text-secundary);
+  font-size: 1rem;
+
+}
+
+mat-divider {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--color-bg-divider);
+}
+
+mat-icon {
+  margin-right: 1rem;
+}
+
+mat-sidenav .options {
+  text-align: left;
+  font-family: "Biryani", sans-serif;
+}
+
+.avatar {
+  margin-top: 1rem;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 5px;
+  margin: 1rem;
+  margin-left: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.name {
+  margin-top: 8px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.designation {
+  margin-top: 2px;
+  font-size: 0.7rem;
+}
+
+.options {
+  font-size: 1rem;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+.example-container {
+  display: flex; 
+  flex-direction: column;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-sidenav-container {
+  flex: 1;
+} 
+
+.example-is-mobile .example-sidenav-container { 
+  flex: 1 0 auto;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+} 

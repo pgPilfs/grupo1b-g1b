@@ -39,6 +39,15 @@ hr {
   color: var(--color-text);
 }
 
+#footer a:hover,
+#footer a:focus,
+#footer a:active{
+  position: relative;
+  display: block;
+  padding: 5px;
+  color: var(--color-btn-hover);
+}
+
 #footer a::before {
   content: "";
   position: absolute;
@@ -52,12 +61,12 @@ hr {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.5s ease-in-out;
-  color: var(--color-text);
+  color: var(--color-link);
 }
 
 #footer a:hover::before {
   transform: scaleX(1);
-  color: var(--color-text);
+  color: var(--color-link);
 }
 
 /* ANIMATIONS

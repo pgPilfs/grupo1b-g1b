@@ -10,28 +10,41 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { GoogleMapsModule } from "@angular/google-maps";
+import { MatCardModule } from '@angular/material/card';
+import { MenuModule } from './pages/wallet/menu.module';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DataDialogComponent } from './pages/wallet/perfil/perfil.component';
+import { ClienteService } from './servicios/cliente.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DataDialogComponent
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
     PagesModule,
     SharedModule,
+    MenuModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    GoogleMapsModule,
+    MatCardModule,
+    MatDialogModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ClienteService],
+  entryComponents: [DataDialogComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -1,75 +1,140 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { 
+  AbstractControl, 
+  ValidationErrors, 
+  ValidatorFn,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators 
+} from '@angular/forms';
 import data from './data.json';
 
+interface Month {
+  mes: string;
+}
+interface Year {
+  anio: string;
+}
 @Component({
   selector: 'app-peso',
   templateUrl: './peso.component.html',
-  styleUrls: ['./peso.component.css'],
+  styleUrls: ['./peso.component.css']
 })
 export class PesoComponent implements OnInit {
-  seccionIngreso = false;
-  seccionRetiro = false;
-  form: any = {};
+
   operacionForm: FormGroup;
-  movimientos: { id: String; cuenta: String; fecha: String; monto: String }[] =
-    data;
-
-  constructor() {
-    this.operacionForm = new FormGroup({
-      numeroTarjetaD: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[0-9]$'),
-        Validators.minLength(16),
-        Validators.maxLength(16),
-      ]),
-      fechaD: new FormControl('', [Validators.required]),
-      montoD: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[0-9]$'),
-        Validators.min(100),
-      ]),
-      numeroCVVD: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[0-9]$'),
-        Validators.minLength(3),
-        Validators.maxLength(3),
-      ]),
-
-      numeroTarjeta: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[0-9]$'),
-        Validators.minLength(16),
-        Validators.maxLength(16),
-      ]),
-      fecha: new FormControl('', [Validators.required]),
-      monto: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[0-9]$'),
-        Validators.min(100),
-      ]),
-      numeroCVV: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[0-9]$'),
-        Validators.minLength(3),
-        Validators.maxLength(3),
-      ]),
-    });
+  form: any = {};
+  //carga de movimientos SACAR ESTA PARTE
+  movimientos: { id: String; cuenta: String; fecha: String; monto: String }[] = data;
+  operacion: string = "Ingresar";
+  
+  get cardNumber(): AbstractControl {
+    return this.operacionForm.controls['cardNumber'];
+  }
+  get numberCVV(): AbstractControl {
+    return this.operacionForm.controls['numberCVV'];
+  }
+  get month(): AbstractControl {
+    return this.operacionForm.controls['month'];
+  }
+  get year(): AbstractControl {
+    return this.operacionForm.controls['year'];
+  }
+  get monto(): AbstractControl {
+    return this.operacionForm.controls['monto'];
   }
 
-  ngOnInit(): void {}
 
+  private pattNumbers: any = /^[0-9]{7,}$/;
+  private pattCVV: any = /^[0-9]{3,}$/;
+  constructor( private formBuilder: FormBuilder ) {
+    this.operacionForm = this.formBuilder.group(
+      {
+        cardNumber:['',[
+          Validators.required,
+          Validators.pattern(this.pattNumbers),
+          Validators.minLength(16),
+          Validators.maxLength(16),
+        ]],
+        numberCVV:['',[
+          Validators.required,
+          Validators.pattern(this.pattCVV),
+          Validators.minLength(3),
+          Validators.maxLength(3),
+        ]],
+        month:['',[
+          Validators.required
+        ]],
+        year:['',[
+          Validators.required
+        ]],
+        monto:['',[
+          Validators.required,
+          Validators.min(100),
+        ]],
+      });
+      
+  }
+
+  months: Month[] = [
+    { mes: '01' },
+    { mes: '02' },
+    { mes: '03' },
+    { mes: '04' },
+    { mes: '05' },
+    { mes: '06' },
+    { mes: '07' },
+    { mes: '08' },
+    { mes: '09' },
+    { mes: '10' },
+    { mes: '11' },
+    { mes: '12' },
+  ];
+  years: Year[] = [
+    { anio: '22' },
+    { anio: '23' },
+    { anio: '24' },
+    { anio: '25' },
+    { anio: '26' },
+    { anio: '27' },
+    { anio: '28' },
+    { anio: '29' },
+    { anio: '30' },
+  ];
+  ngOnInit(): void{};
+
+  onSubmit() {
+    console.log("funciona");
+    if (this.operacionForm.valid) {
+      console.log(this.operacionForm.value);
+    }
+  }
+  
+  get cardNumberField() {
+    return this.operacionForm.get('cardNumber');
+  }
+  get numberCVVField() {
+    return this.operacionForm.get('numberCVV');
+  }
+  get monthField() {
+    return this.operacionForm.get('month');
+  }
+  get yearField() {
+    return this.operacionForm.get('year');
+  }
+  get montoField() {
+    return this.operacionForm.get('monto');
+  }
+
+  
   habilitarIngreso(): void {
-    this.seccionIngreso = true;
-    this.seccionRetiro = false;
+    this.operacion = "Ingresar";
   }
 
   habilitarRetiro(): void {
-    this.seccionRetiro = true;
-    this.seccionIngreso = false;
+    this.operacion = "Retirar";
   }
 
-  ingresar() {}
-  retiro() {}
+  
 }

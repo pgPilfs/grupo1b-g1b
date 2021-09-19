@@ -1,21 +1,7 @@
 /* Header */
-#header>a>i {
-  padding: 0;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: 0.031rem;
-}
-
-.nav {
+mat-toolbar {
+  background-color: var(--color-bg);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.navbar a:hover,
-.navbar .active,
-.navbar .active:focus>a {
-  color: var(--color-text);
-  visibility: visible;
-  width: 100%;
 }
 
 a {
@@ -25,9 +11,9 @@ a {
   font-family: Montserrat, sans-serif;
 }
 
-a:hover,
-a:active {
-  color: var(--color-text);
+a:hover, a:focus, a:active{
+  font-size: 2rem;
+  color: var(--color-link);
   align-items: center;
   font-family: Montserrat, sans-serif;
 }
