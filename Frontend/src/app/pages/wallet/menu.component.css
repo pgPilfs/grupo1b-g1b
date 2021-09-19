@@ -81,7 +81,6 @@ mat-sidenav .options {
   font-size: 1rem;
 }
 
-<<<<<<< HEAD
 .card:hover {
   transform: scale(1.1);
 }
@@ -94,18 +93,15 @@ mat-sidenav .options {
   left: 0;
   right: 0;
 }
-=======
->>>>>>> 177f21c78ee9b5ea9a010e6ad15e394db7db45e5
+
 .example-sidenav-container {
-  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
   flex: 1;
-}
-.example-is-mobile .example-sidenav-container {
-  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
-     `<body>` to be our scrolling element for mobile layouts. */
+} 
+
+.example-is-mobile .example-sidenav-container { 
   flex: 1 0 auto;
 }
+
 .example-spacer {
   flex: 1 1 auto;
-}
+} 
