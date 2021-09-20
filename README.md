@@ -34,6 +34,7 @@ cd Frontend
 ```
 npm install -g npm
 ```
+```
 npm install
 ```
  Luego, ejecutar para el dev server
