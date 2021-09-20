@@ -9,6 +9,8 @@ import {
   Validators 
 } from '@angular/forms';
 import data from './data.json';
+import { Router } from '@angular/router';
+import { Transacciones, TransaccionesService} from 'src/app/servicios/transacciones.service';
 
 interface Month {
   mes: string;
@@ -22,7 +24,7 @@ interface Year {
   styleUrls: ['./peso.component.css']
 })
 export class PesoComponent implements OnInit {
-
+  transacciones: Transacciones = new Transacciones();
   operacionForm: FormGroup;
   form: any = {};
   //carga de movimientos SACAR ESTA PARTE
@@ -31,6 +33,12 @@ export class PesoComponent implements OnInit {
   
   get cardNumber(): AbstractControl {
     return this.operacionForm.controls['cardNumber'];
+  }
+  get fecha(): AbstractControl {
+    return this.operacionForm.controls['fecha'];
+  }
+  get cuenta(): AbstractControl {
+    return this.operacionForm.controls['cuenta'];
   }
   get numberCVV(): AbstractControl {
     return this.operacionForm.controls['numberCVV'];
@@ -41,6 +49,9 @@ export class PesoComponent implements OnInit {
   get year(): AbstractControl {
     return this.operacionForm.controls['year'];
   }
+  get tipoTransaccion(): AbstractControl {
+    return this.operacionForm.controls['tipoTransaccion'];
+  }
   get monto(): AbstractControl {
     return this.operacionForm.controls['monto'];
   }
@@ -48,7 +59,7 @@ export class PesoComponent implements OnInit {
 
   private pattNumbers: any = /^[0-9]{7,}$/;
   private pattCVV: any = /^[0-9]{3,}$/;
-  constructor( private formBuilder: FormBuilder ) {
+  constructor( private formBuilder: FormBuilder, private transaccionesService: TransaccionesService,) {
     this.operacionForm = this.formBuilder.group(
       {
         cardNumber:['',[
@@ -56,6 +67,14 @@ export class PesoComponent implements OnInit {
           Validators.pattern(this.pattNumbers),
           Validators.minLength(16),
           Validators.maxLength(16),
+        ]],
+        fecha:['',[
+          Validators.required,
+        
+        ]],
+        cuenta:['',[
+          Validators.required,
+        
         ]],
         numberCVV:['',[
           Validators.required,
@@ -68,6 +87,9 @@ export class PesoComponent implements OnInit {
         ]],
         year:['',[
           Validators.required
+        ]],
+        tipoTransaccion:['',[
+          Validators.required,
         ]],
         monto:['',[
           Validators.required,
@@ -101,13 +123,22 @@ export class PesoComponent implements OnInit {
     { anio: '28' },
     { anio: '29' },
     { anio: '30' },
-  ];
+  ];  
   ngOnInit(): void{};
 
-  onSubmit() {
+  onSubmit(event: Event, transacciones: Transacciones): void {
+    event.preventDefault;
     console.log("funciona");
     if (this.operacionForm.valid) {
+      this.transaccionesService.AgregarTransaccion(this.transacciones).subscribe((data) => {
+        console.log(data);
+        if(data['Id_transaccion'] > 0) {
+          alert(' se registro bien gracias. vuelvas prontos');
+        }
+      })
       console.log(this.operacionForm.value);
+    }else{
+      this.operacionForm.markAllAsTouched();
     }
   }
   
@@ -128,12 +159,19 @@ export class PesoComponent implements OnInit {
   }
 
   
-  habilitarIngreso(): void {
+  
+  habilitarIngreso(transacciones: Transacciones): void {
     this.operacion = "Ingresar";
-  }
+    transacciones.id_tipo_transaccion = 1
 
-  habilitarRetiro(): void {
+}
+
+  habilitarRetiro(event: Event, transacciones: Transacciones): void {
     this.operacion = "Retirar";
+    event.preventDefault;
+    if (this.operacionForm.valid) {
+      this.transacciones.id_tipo_transaccion = 2;
+  }
   }
 
   

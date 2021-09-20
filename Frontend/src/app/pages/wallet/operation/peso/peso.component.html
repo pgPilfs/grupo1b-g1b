@@ -9,12 +9,12 @@
       <mat-body>
         <div class="row">
           <div class="col-lg-6 col-md-12 col-sm-12 my-2">
-            <button type="button" (click)="habilitarIngreso()" class="btn-sel">
+            <button type="button" (click)="habilitarIngreso(transacciones)"  class="btn-sel">
               Ingresar Dinero
             </button>
           </div>
           <div class="col-lg-6 col-md-12 col-sm-12 my-2">
-            <button type="button" (click)="habilitarRetiro()" class="btn-sel">
+            <button type="button" (click)="habilitarRetiro($event, transacciones)" class="btn-sel">
               Retirar Dinero
             </button>
           </div>
@@ -27,7 +27,7 @@
           <form
             [formGroup]="operacionForm"
             class="example-form"
-            (ngSubmit)="onSubmit()"
+            (ngSubmit)="onSubmit($event, transacciones)"
             autocomplete="off"
           >
 
@@ -36,6 +36,7 @@
               <input
                 matInput
                 [formControl]="cardNumber"
+                [(ngModel)]="transacciones.numeroTarjeta"
                 formControlName="cardNumber"
                 placeholder="Ingrese el número de su tarjeta"
                 type="text"
@@ -56,11 +57,62 @@
              
             </mat-form-field>
 
+            <mat-form-field class="example-full-width" appearance="standard">
+              <mat-label>Fecha Transaccion</mat-label>
+              <input
+                matInput
+                [(ngModel)]="transacciones.fecha_transaccion"
+                [formControl]="fecha"
+                formControlName="fecha"
+                type="date"
+                name="fecha"
+                id="fecha"
+              />
+              <mat-error
+                *ngIf="
+                  operacionForm.get('fecha').errors &&
+                  operacionForm.get('fecha').touched
+                "
+              >
+                <mat-error
+                  *ngIf="operacionForm.get('fecha')?.hasError('required')"
+                  >Por favor, ingrese la <strong>fecha</strong></mat-error
+                >
+              </mat-error>
+             
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="standard">
+              <mat-label>Cuenta</mat-label>
+              <input
+                matInput
+                [(ngModel)]="transacciones.id_cuenta"
+                [formControl]="cuenta"
+                formControlName="cuenta"
+                type="text"
+                name="cuenta"
+                id="cuenta"
+              />
+              <mat-error
+                *ngIf="
+                  operacionForm.get('cuenta').errors &&
+                  operacionForm.get('cuenta').touched
+                "
+              >
+                <mat-error
+                  *ngIf="operacionForm.get('cuenta')?.hasError('required')"
+                  >Por favor, ingrese la <strong>cuenta</strong></mat-error
+                >
+              </mat-error>
+             
+            </mat-form-field>
+
 
             <mat-form-field class="example-full-width" appearance="standard">
               <mat-label>Número CVV</mat-label>
               <input
                 matInput
+                [(ngModel)]="transacciones.numeroCVV"
                 [formControl]="numberCVV"
                 formControlName="numberCVV"
                 placeholder="Ingrese el código CVV:"
@@ -79,7 +131,7 @@
                 >
               </mat-error>
             </mat-form-field>
-            <p class="expiration-date-title">Fecha de vencimiento</p>
+            <!--<p class="expiration-date-title">Fecha de vencimiento</p>
             <div class="row expiration-date">
               
               <mat-form-field appearance="standard">
@@ -137,13 +189,37 @@
                   >
                 </mat-error>
               </mat-form-field>
-            </div>
-            
+            </div>-->
+            <mat-form-field class="example-full-width" appearance="standard">
+              <mat-label>Tipo de transaccion</mat-label>
+              
+              <input
+                matInput
+                [(ngModel)]="transacciones.id_tipo_transaccion"
+                [formControl]="tipoTransaccion"
+                formControlName="tipoTransaccion"
+                placeholder="Ingrese el tipoTransaccion"
+                type ="number"
+                
+              />
+              <mat-error
+                *ngIf="
+                  operacionForm.get('tipoTransaccion').errors &&
+                  operacionForm.get('montipoTransaccionto').touched
+                "
+              >
+                <mat-error
+                  *ngIf="operacionForm.get('tipoTransaccion')?.hasError('required')"
+                  >El tipo Transaccion es <strong>obligatorio</strong></mat-error
+                >
+              </mat-error>
+            </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="standard">
               <mat-label>Monto a {{operacion}}</mat-label>
               <input
                 matInput
+                [(ngModel)]="transacciones.monto"
                 [formControl]="monto"
                 formControlName="monto"
                 placeholder="Ingrese el monto"
