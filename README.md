@@ -32,6 +32,8 @@ Desde la la terminal necesitamos instalar las dependencias, en la carpeta Fronte
 cd Frontend
 ```
 ```
+npm install -g npm
+```
 npm install
 ```
  Luego, ejecutar para el dev server
