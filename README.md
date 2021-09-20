@@ -4,10 +4,8 @@
 
 ### INTEGRANTES:
 
-- Acosta, Johana.
 - Juncos, Lautaro.
 - Navoni, Mauricio.
-- Nieva, Luciana.
 - Otero, Juan.
 - Rinaudo, Eleana.
 - Vazquez, Ignacio.
