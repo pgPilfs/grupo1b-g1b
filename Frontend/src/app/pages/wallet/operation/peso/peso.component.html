@@ -6,20 +6,24 @@
     <mat-card>
       <h3 class="my-4">Seleccione la operación que desea realizar</h3>
 
-      <mat-body>
+      
+    
+    
+
+      <!-- <mat-body>
         <div class="row">
           <div class="col-lg-6 col-md-12 col-sm-12 my-2">
-            <button type="button" (click)="habilitarIngreso(transacciones)"  class="btn-sel">
+            <button type="button" (click)="habilitarIngreso()"  class="btn-sel">
               Ingresar Dinero
             </button>
           </div>
           <div class="col-lg-6 col-md-12 col-sm-12 my-2">
-            <button type="button" (click)="habilitarRetiro($event, transacciones)" class="btn-sel">
+            <button type="button" (click)="habilitarRetiro()" class="btn-sel">
               Retirar Dinero
             </button>
           </div>
         </div>
-      </mat-body>
+      </mat-body> -->
 
       <div class="row form-group" data-aos="zoom-out">
         <h3 class="my-4">{{operacion}} Dinero</h3>
@@ -27,9 +31,68 @@
           <form
             [formGroup]="operacionForm"
             class="example-form"
-            (ngSubmit)="onSubmit($event, transacciones)"
+            (ngSubmit)="onEnviar($event, transacciones)"
             autocomplete="off"
           >
+          <mat-form-field appearance="standard">
+            <mat-label>Tipo de Transaccion</mat-label>
+            <mat-select
+              matNativeControl
+              [(ngModel)]="transacciones.id_tipo_transaccion"
+              [formControl]="id_tipo_transaccion"
+              formControlName="id_tipo_transaccion"
+              ngDefaultControl
+              name="id_tipo_transaccion"
+            >
+              <mat-option 
+                *ngFor="let tipoTransaccion of TipoTransaccionesLista"
+                value={{descripcion}}
+              >
+                {{ tipoTransaccion.descripcion }}
+              </mat-option>
+            </mat-select>
+            <!-- <mat-error
+              *ngIf="
+                operacionForm.get('id_cuenta').errors &&
+                operacionForm.get('id_cuenta').touched
+              "
+            >
+              <mat-error 
+                *ngIf="operacionForm.get('id_cuenta')?.hasError('required')"
+                >Por favor, <strong>ingrese</strong> el CVU</mat-error
+              >
+            </mat-error> -->
+          </mat-form-field> 
+    
+          <mat-form-field appearance="standard">
+            <mat-label>CVU</mat-label>
+            <mat-select
+              matNativeControl
+              [(ngModel)]="transacciones.id_cuenta"
+              [formControl]="id_cuenta"
+              formControlName="id_cuenta"
+              ngDefaultControl
+              name="id_cuenta"
+            >
+              <mat-option 
+                *ngFor="let cuenta of CuentaLista"
+                value={{nombre}}
+              >
+                {{ cuenta.nombre }}
+              </mat-option>
+            </mat-select>
+            <!-- <mat-error
+              *ngIf="
+                operacionForm.get('id_cuenta').errors &&
+                operacionForm.get('id_cuenta').touched
+              "
+            >
+              <mat-error 
+                *ngIf="operacionForm.get('id_cuenta')?.hasError('required')"
+                >Por favor, <strong>ingrese</strong> el CVU</mat-error
+              >
+            </mat-error> -->
+          </mat-form-field> 
 
             <mat-form-field class="example-full-width" appearance="standard">
               <mat-label>Número Tarjeta</mat-label>
@@ -81,32 +144,7 @@
               </mat-error>
              
             </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="standard">
-              <mat-label>Cuenta</mat-label>
-              <input
-                matInput
-                [(ngModel)]="transacciones.id_cuenta"
-                [formControl]="cuenta"
-                formControlName="cuenta"
-                type="text"
-                name="cuenta"
-                id="cuenta"
-              />
-              <mat-error
-                *ngIf="
-                  operacionForm.get('cuenta').errors &&
-                  operacionForm.get('cuenta').touched
-                "
-              >
-                <mat-error
-                  *ngIf="operacionForm.get('cuenta')?.hasError('required')"
-                  >Por favor, ingrese la <strong>cuenta</strong></mat-error
-                >
-              </mat-error>
-             
-            </mat-form-field>
-
+            
 
             <mat-form-field class="example-full-width" appearance="standard">
               <mat-label>Número CVV</mat-label>
@@ -190,30 +228,6 @@
                 </mat-error>
               </mat-form-field>
             </div>-->
-            <mat-form-field class="example-full-width" appearance="standard">
-              <mat-label>Tipo de transaccion</mat-label>
-              
-              <input
-                matInput
-                [(ngModel)]="transacciones.id_tipo_transaccion"
-                [formControl]="tipoTransaccion"
-                formControlName="tipoTransaccion"
-                placeholder="Ingrese el tipoTransaccion"
-                type ="number"
-                
-              />
-              <mat-error
-                *ngIf="
-                  operacionForm.get('tipoTransaccion').errors &&
-                  operacionForm.get('montipoTransaccionto').touched
-                "
-              >
-                <mat-error
-                  *ngIf="operacionForm.get('tipoTransaccion')?.hasError('required')"
-                  >El tipo Transaccion es <strong>obligatorio</strong></mat-error
-                >
-              </mat-error>
-            </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="standard">
               <mat-label>Monto a {{operacion}}</mat-label>
@@ -238,7 +252,7 @@
               </mat-error>
             </mat-form-field>
             <div class="form-group" >
-              <button type="submit" class="btn btn-success btn-block">
+              <button  type="submit" class="btn btn-success btn-block">
                  Confirmar
               </button>
             </div>

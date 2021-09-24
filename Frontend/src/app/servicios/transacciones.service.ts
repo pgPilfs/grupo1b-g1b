@@ -6,17 +6,28 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TransaccionesService {
-
-  constructor(private http:HttpClient) { }
   url="https://localhost:44335/api/Transaccion/"
+  url1="https://localhost:44335/api/Cuentas/"
+  constructor(private http:HttpClient) { }
+ 
 
   AgregarTransaccion(transacciones:Transacciones):Observable<Transacciones>{
     return this.http.post<Transacciones>(this.url, transacciones);
   }
 
-  
+  getCuentas(){
+    return this.http.get<any>(this.url+'GetCuentas'.toString());
   }
-  export class Transacciones{
+  getTipoTransacciones(){
+    return this.http.get<any>(this.url+'GetTipoTransacciones'.toString());
+  }
+  
+
+  }
+ 
+
+  export class Transacciones
+  {
     id_transaccion:number=0;
     id_tipo_transaccion:number=0;
     id_cuenta:number=0;
