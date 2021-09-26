@@ -17,6 +17,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DataDialogComponent } from './pages/wallet/perfil/perfil.component';
 import { ClienteService } from './servicios/cliente.service';
 import { HttpClientModule } from '@angular/common/http';
+import { TransaccionesService } from './servicios/transacciones.service';
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     HttpClientModule
   ],
-  providers: [ClienteService],
+  providers: [ClienteService, TransaccionesService],
   entryComponents: [DataDialogComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

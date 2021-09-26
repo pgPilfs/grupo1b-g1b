@@ -26,7 +26,6 @@
       </mat-body> -->
 
       <div class="row form-group" data-aos="zoom-out">
-        <h3 class="my-4">{{operacion}} Dinero</h3>
         <div class="col-lg-12">
           <form
             [formGroup]="operacionForm"
@@ -34,64 +33,67 @@
             (ngSubmit)="onEnviar($event, transacciones)"
             autocomplete="off"
           >
-          <mat-form-field appearance="standard">
+          <mat-form-field class="example-full-width" appearance="standard">
             <mat-label>Tipo de Transaccion</mat-label>
             <mat-select
               matNativeControl
-              [(ngModel)]="transacciones.id_tipo_transaccion"
-              [formControl]="id_tipo_transaccion"
-              formControlName="id_tipo_transaccion"
+              [(ngModel)]="transacciones.Id_tipo"
+              [formControl]="descripcion"
+              formControlName="descripcion"
               ngDefaultControl
-              name="id_tipo_transaccion"
+              name="descripcion"
+              required
             >
               <mat-option 
                 *ngFor="let tipoTransaccion of TipoTransaccionesLista"
-                value={{descripcion}}
+                [value]="tipoTransaccion.id_tipo_transaccion"
               >
                 {{ tipoTransaccion.descripcion }}
               </mat-option>
             </mat-select>
-            <!-- <mat-error
+             <mat-error
               *ngIf="
-                operacionForm.get('id_cuenta').errors &&
-                operacionForm.get('id_cuenta').touched
+                operacionForm.get('descripcion').errors &&
+                operacionForm.get('descripcion').touched
               "
             >
               <mat-error 
-                *ngIf="operacionForm.get('id_cuenta')?.hasError('required')"
-                >Por favor, <strong>ingrese</strong> el CVU</mat-error
+                *ngIf="operacionForm.get('descripcion')?.hasError('required')"
+                >Por favor, <strong>ingrese</strong>Ingrese la transaccion </mat-error
               >
-            </mat-error> -->
+            </mat-error>
           </mat-form-field> 
     
-          <mat-form-field appearance="standard">
+          <mat-form-field class="example-full-width" appearance="standard">
             <mat-label>CVU</mat-label>
             <mat-select
+              
               matNativeControl
-              [(ngModel)]="transacciones.id_cuenta"
-              [formControl]="id_cuenta"
-              formControlName="id_cuenta"
+              [(ngModel)]="transacciones.Cuenta_id"
+              [formControl]="cvu"
+              formControlName="cvu"
               ngDefaultControl
-              name="id_cuenta"
+              name="cvu"
+              required
             >
               <mat-option 
                 *ngFor="let cuenta of CuentaLista"
-                value={{nombre}}
+                [value]="cuenta.id_cuenta"
               >
-                {{ cuenta.nombre }}
+                {{ cuenta.cvu }}
               </mat-option>
             </mat-select>
-            <!-- <mat-error
+             <mat-error
               *ngIf="
-                operacionForm.get('id_cuenta').errors &&
-                operacionForm.get('id_cuenta').touched
+                operacionForm.get('cvu').errors &&
+                operacionForm.get('cvu').touched
               "
             >
               <mat-error 
-                *ngIf="operacionForm.get('id_cuenta')?.hasError('required')"
+                *ngIf="operacionForm.get('cvu')?.hasError('required')"
                 >Por favor, <strong>ingrese</strong> el CVU</mat-error
               >
-            </mat-error> -->
+            </mat-error> 
           </mat-form-field> 
 
             <mat-form-field class="example-full-width" appearance="standard">
@@ -99,7 +101,7 @@
               <input
                 matInput
                 [formControl]="cardNumber"
-                [(ngModel)]="transacciones.numeroTarjeta"
+                [(ngModel)]="transacciones.NumeroTarjeta"
                 formControlName="cardNumber"
                 placeholder="Ingrese el número de su tarjeta"
                 type="text"
@@ -120,18 +122,21 @@
              
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="standard">
+            <mat-form-field class="example-full-width" appearance="standard" hidden>
               <mat-label>Fecha Transaccion</mat-label>
               <input
+               
                 matInput
-                [(ngModel)]="transacciones.fecha_transaccion"
+                [matDatepicker]="picker"
+                placeholder="dd/mm/yyyy"
+                [(ngModel)]="transacciones.Fecha_transaccion"
                 [formControl]="fecha"
                 formControlName="fecha"
-                type="date"
-                name="fecha"
-                id="fecha"
+               
               />
-              <mat-error
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <!-- <mat-error
                 *ngIf="
                   operacionForm.get('fecha').errors &&
                   operacionForm.get('fecha').touched
@@ -142,7 +147,7 @@
                   >Por favor, ingrese la <strong>fecha</strong></mat-error
                 >
               </mat-error>
-             
+              -->
             </mat-form-field>
             
 
@@ -150,7 +155,7 @@
               <mat-label>Número CVV</mat-label>
               <input
                 matInput
-                [(ngModel)]="transacciones.numeroCVV"
+                [(ngModel)]="transacciones.NumeroCVV"
                 [formControl]="numberCVV"
                 formControlName="numberCVV"
                 placeholder="Ingrese el código CVV:"
@@ -233,7 +238,7 @@
               <mat-label>Monto a {{operacion}}</mat-label>
               <input
                 matInput
-                [(ngModel)]="transacciones.monto"
+                [(ngModel)]="transacciones.Monto"
                 [formControl]="monto"
                 formControlName="monto"
                 placeholder="Ingrese el monto"
@@ -252,7 +257,7 @@
               </mat-error>
             </mat-form-field>
             <div class="form-group" >
-              <button  type="submit" class="btn btn-success btn-block">
+              <button (click)="cargarTransacciones()" type="submit" class="btn btn-success btn-block">
                  Confirmar
               </button>
             </div>
@@ -268,30 +273,30 @@
   <h3 class="my-4">Últimos movimientos</h3>
   <table class="table table-dark table-hover text-center">
       <thead class="text-uppercase">
-          <th class="col-lg-3 col-sm-2 text-start">ID</th>
           <th class="col-lg-4 col-sm-3">Cuenta</th>
+          <th class="col-lg-2 col-sm-1">Tipo de Transaccion</th>
           <th class="col-lg-2 col-sm-1">Fecha</th>
+          <th class="col-lg-2 col-sm-1">Numero de tarjeta</th>
+          <th class="col-lg-2 col-sm-1">Numero CVV</th>
           <th class="col-lg-2 col-sm-1">Monto</th>
-          <th class="col-lg-2 col-sm-2 ">
-            <mat-icon>print</mat-icon>            
-          </th>
+          
       </thead>
       <tbody>
-          <tr *ngFor="let item of movimientos">
-              <td class="text-start" > {{item.id}} </td>
-              <td > {{item.cuenta}} </td>
-              <td > {{item.fecha}} </td>
-              <td >$  {{item.monto}} </td>
+          <tr *ngFor="let item of TransaccionesLista">
+                <!-- [value]="item.Id_transaccion" -->
+              <!-- <td class="text-start" > {{item.id_transaccion}} </td> -->
+              <td > {{item.cvu}} </td>
+              <td  class="colores" [ngStyle]="{'color':item.descripcion === 'Deposito' ? 'green' : 'red'}"> {{item.descripcion}} </td>
+              <td > {{item.fecha_transaccion}} </td>
+              <td > {{item.numeroTarjeta}} </td>
+              <td > {{item.numeroCVV}} </td>
+              <td > ${{item.monto}} </td>
               <td> 
-                  <input type="checkbox">
+                  <!-- <input type="checkbox"> -->
               </td>
           </tr>
       </tbody>   
-      <div class="d-flex justify-content-center ">
-      <button class="btn btn-print my-4">
-        Imprimir comprobante
-      </button>
-    </div>   
+      
   </table>
 </mat-card>
 </section>

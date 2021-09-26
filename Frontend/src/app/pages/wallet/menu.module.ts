@@ -40,6 +40,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatProgressBarModule,
     MatDatepickerModule,
     ReactiveFormsModule
+    
   ],
   exports:[WalletComponent, PesoComponent, PerfilComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -37,6 +37,7 @@
     "ngx-text-equality-validator": "^1.0.1",
     "remixicon": "^2.5.0",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^11.1.7",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },

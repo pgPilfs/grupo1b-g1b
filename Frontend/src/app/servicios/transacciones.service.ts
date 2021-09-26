@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TransaccionesService {
   url="https://localhost:44335/api/Transaccion/"
-  url1="https://localhost:44335/api/Cuentas/"
+  url1="https://localhost:44335/api/Cuentas"
   constructor(private http:HttpClient) { }
  
 
@@ -15,11 +15,18 @@ export class TransaccionesService {
     return this.http.post<Transacciones>(this.url, transacciones);
   }
 
+  // getCuentas(){
+  //   return this.http.get<any>(this.url+'GetCuentas'.toString());
+  // }
   getCuentas(){
-    return this.http.get<any>(this.url+'GetCuentas'.toString());
+    return this.http.get<any>(this.url+'GetCuentas'.toString());  
   }
+  
   getTipoTransacciones(){
     return this.http.get<any>(this.url+'GetTipoTransacciones'.toString());
+  }
+  getTransacciones(){
+    return this.http.get<any>(this.url+'GetTransacciones'.toString());
   }
   
 
@@ -28,13 +35,13 @@ export class TransaccionesService {
 
   export class Transacciones
   {
-    id_transaccion:number=0;
-    id_tipo_transaccion:number=0;
-    id_cuenta:number=0;
-    fecha_transaccion:string="";
-    monto:number=0;
-    numeroTarjeta:number=0;
-    numeroCVV:number=0;
+    Id_transaccion:number=0;
+    Id_tipo:number=0;
+    Cuenta_id:number=0;
+    Fecha_transaccion:Date;
+    Monto:number=0;
+    NumeroTarjeta:string="";
+    NumeroCVV:number=0;
 
 }
 
