@@ -4,13 +4,11 @@
 
 ### INTEGRANTES:
 
--  Juncos, Lautaro.
-- Navoni, Mauricio.
+- Juncos, Lautaro.
 - Otero, Juan.
 - Rinaudo, Eleana.
-- Vazquez, Ignacio.
 - Visintini, Juan.
--Johana Acosta.
+
 
 
 ## FRONTEND
