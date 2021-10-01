@@ -18,7 +18,8 @@ import { DataDialogComponent } from './pages/wallet/perfil/perfil.component';
 import { ClienteService } from './servicios/cliente.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TransaccionesService } from './servicios/transacciones.service';
-
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt'
+import { AuthService } from './servicios/auth.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { TransaccionesService } from './servicios/transacciones.service';
     MatDialogModule,
     HttpClientModule
   ],
-  providers: [ClienteService, TransaccionesService],
+  providers: [{provide: JWT_OPTIONS, useValue: JWT_OPTIONS},ClienteService, AuthService, JwtHelperService, TransaccionesService],
   entryComponents: [DataDialogComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

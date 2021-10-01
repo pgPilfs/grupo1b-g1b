@@ -1,9 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  forwardRef,
+  Input,
+  OnInit,
+} from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
+  NG_VALUE_ACCESSOR,
   ValidationErrors,
   ValidatorFn,
   Validators,
@@ -11,19 +18,7 @@ import {
 import { Router } from '@angular/router';
 import { Cliente, ClienteService } from 'src/app/servicios/cliente.service';
 
-interface Pais {
-  name: string;
-}
-interface CodigoPostal {
-  cp: string;
-}
-interface Provincia {
-  country: string;
-}
 
-interface Ciudad {
-  city: string;
-}
 
 @Component({
   selector: 'app-signin',
@@ -31,7 +26,14 @@ interface Ciudad {
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
-  usuario: Cliente = new Cliente();
+  ProList: any[];
+  CiuList: any[];
+
+  DniFilename: string;
+  DniFilePath: string;
+
+  cliente: Cliente = new Cliente();
+  // cuenta: Cuenta = new Cuenta();
 
   hide = true;
   step: any = 1;
@@ -42,7 +44,6 @@ export class SigninComponent implements OnInit {
   minDate: Date;
   maxDate: Date;
 
-  isLinear = false;
   files: string[] = [];
   selectedFiles: any;
   selectedFilesF: any;
@@ -74,14 +75,11 @@ export class SigninComponent implements OnInit {
   }
 
   // getting the form control elements
-  get name(): AbstractControl {
-    return this.formsign.controls['name'];
+  get nombre(): AbstractControl {
+    return this.formsign.controls['nombre'];
   }
-  get lastname(): AbstractControl {
-    return this.formsign.controls['lastname'];
-  }
-  get username(): AbstractControl {
-    return this.formsign.controls['username'];
+  get apellido(): AbstractControl {
+    return this.formsign.controls['apellido'];
   }
   get email(): AbstractControl {
     return this.formsign.controls['email'];
@@ -92,23 +90,20 @@ export class SigninComponent implements OnInit {
   get cpassword(): AbstractControl {
     return this.formsign.controls['cpassword'];
   }
-  get pais(): AbstractControl {
-    return this.formsign.controls['pais'];
+  get nombre_provincia(): AbstractControl {
+    return this.formsign.controls['nombre_provincia'];
   }
-  get provincia(): AbstractControl {
-    return this.formsign.controls['provincia'];
-  }
-  get ciudad(): AbstractControl {
-    return this.formsign.controls['ciudad'];
+  get nombre_ciudad(): AbstractControl {
+    return this.formsign.controls['nombre_ciudad'];
   }
   get cpostal(): AbstractControl {
     return this.formsign.controls['cpostal'];
   }
-  get calle(): AbstractControl {
-    return this.formsign.controls['calle'];
+  get domicilio(): AbstractControl {
+    return this.formsign.controls['domicilio'];
   }
-  get pdpto(): AbstractControl {
-    return this.formsign.controls['pdpto'];
+  get pisodpto(): AbstractControl {
+    return this.formsign.controls['pisodpto'];
   }
   get cuil(): AbstractControl {
     return this.formsign.controls['cuil'];
@@ -119,9 +114,14 @@ export class SigninComponent implements OnInit {
   get fecnac(): AbstractControl {
     return this.formsign.controls['fecnac'];
   }
+  get foto_dni_frente(): AbstractControl {
+    return this.formsign.controls['foto_dni_frente'];
+  }
+  get foto_dni_reversa(): AbstractControl {
+    return this.formsign.controls['foto_dni_reversa'];
+  }
 
   private pattLetters: any = /^[a-zA-Z ]*$/;
-  private pattUser: any = /^(?=.*[a-zA-Z]{1,})(?=.*[\d]{0,})[a-zA-Z0-9]{5,}$/;
   private pattEmail: any =
     /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
   private pattPass: any = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])([^\s]){8,16}$/;
@@ -132,7 +132,8 @@ export class SigninComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private clienteService: ClienteService,
-    private router: Router
+    private router: Router,
+    private cdref: ChangeDetectorRef
   ) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 90, 0, 1);
@@ -157,29 +158,32 @@ export class SigninComponent implements OnInit {
           Validators.pattern(this.pattEmail),
         ],
       ],
-      name: ['', [Validators.required, Validators.pattern(this.pattLetters)]],
-      lastname: [
+      nombre: ['', [Validators.required, Validators.pattern(this.pattLetters)]],
+      apellido: [
         '',
         [Validators.required, Validators.pattern(this.pattLetters)],
       ],
-      username: ['', [Validators.required, Validators.pattern(this.pattUser)]],
       cpassword: ['', [Validators.required]],
-      pais: ['', [Validators.required]],
       cpostal: [
         '',
         [Validators.required, Validators.pattern(this.pattAddress)],
       ],
-      provincia: ['', [Validators.required]],
-      ciudad: ['', [Validators.required]],
-      calle: ['', [Validators.required, Validators.pattern(this.pattAddress)]],
-      pdpto: ['', [Validators.required, Validators.pattern(this.pattAddress)]],
+      nombre_provincia: ['', [Validators.required]],
+      nombre_ciudad: ['', [Validators.required]],
+      domicilio: [
+        '',
+        [Validators.required, Validators.pattern(this.pattAddress)],
+      ],
+      pisodpto: [
+        '',
+        [Validators.required, Validators.pattern(this.pattAddress)],
+      ],
       cuil: [
         '',
         [
           Validators.required,
-          Validators.pattern(this.pattNumbers),
           Validators.minLength(9),
-          Validators.max(11),
+          Validators.maxLength(11),
         ],
       ],
       tel: [
@@ -191,44 +195,65 @@ export class SigninComponent implements OnInit {
         ],
       ],
       fecnac: ['', [Validators.required]],
-      foto1: ['', [Validators.required]],
-      foto2: ['', [Validators.required]],
+      foto_dni_frente: ['', [Validators.required]],
+      foto_dni_reversa: ['', [Validators.required]],
     });
   }
 
-  selectFormControl = new FormControl('', Validators.required);
-  paises: Pais[] = [
-    { name: 'Argentina' },
-    { name: 'Uruguay' },
-    { name: 'Chile' },
-    { name: 'Bolivia' },
-  ];
-
-  codigoPostal: CodigoPostal[] = [
-    { cp: '5000' },
-    { cp: '5000' },
-    { cp: '2000' },
-    { cp: '1313' },
-  ];
-
-  provincias: Provincia[] = [
-    { country: 'Córdoba' },
-    { country: 'Santa Fe' },
-    { country: 'Buenos Aires' },
-  ];
-
-  ciudades: Ciudad[] = [
-    { city: 'Capital' },
-    { city: 'Ciudad 2' },
-    { city: 'Cuidad 3' },
-  ];
+  ngAfterContentChecked() {
+    this.cdref.detectChanges();
+  }
 
   ngOnInit() {
-    this.firstFormGroup = this.formBuilder.group({
-      firstCtrl: ['', Validators.required],
+    this.loadProvinciaList();
+    this.loadCiudadList();
+  }
+
+  loadProvinciaList() {
+    this.clienteService.getProvincias().subscribe((data) => {
+      console.log(data);
+      this.ProList = data;
     });
-    this.secondFormGroup = this.formBuilder.group({
-      secondCtrl: ['', Validators.required],
+  }
+  loadCiudadList() {
+    this.clienteService.getCiudades().subscribe((data) => {
+      console.log(data);
+      this.CiuList = data;
+    });
+  }
+  onEnviar(event: Event, cliente: Cliente) {
+    event.preventDefault(); //Cancela la funcionalidad por default.
+    
+    if (this.formsign.valid) {
+      console.log(cliente);
+      
+      this.clienteService.onAddCliente(cliente).subscribe((data) => {
+        console.log(data);
+        if (data['Id_cliente'] != 0) {
+          
+          //  console.log(cuenta);
+          //  this.clienteService.onAddClienteCuenta(cuenta).subscribe( data2 =>{
+          //   console.log(data2);
+          //  })
+          alert(
+            'El registro ha sido creado satisfactoriamente. A continuación, por favor Inicie Sesión.'
+          );
+          this.router.navigate(['login']);
+        }
+      });
+    } else {
+      this.formsign.markAllAsTouched();
+    }
+  }
+
+  uploadDni(event) {
+    var file = event.target.files[0];
+    const formData: FormData = new FormData();
+    formData.append('uploadedFile', file, file.name);
+
+    this.clienteService.UploadDni(formData).subscribe((data: any) => {
+      this.DniFilename = data.toString();
+      this.DniFilePath = this.clienteService.DniUrl + this.DniFilename;
     });
   }
 
@@ -250,15 +275,12 @@ export class SigninComponent implements OnInit {
     this.selectedFilesF = event.target.files;
   }
 
-  get nameField() {
-    return this.formsign.get('name');
+  get nombreField() {
+    return this.formsign.get('nombre');
   }
 
-  get lastnameField() {
-    return this.formsign.get('lastname');
-  }
-  get usernameField() {
-    return this.formsign.get('username');
+  get apellidoField() {
+    return this.formsign.get('apellido');
   }
   get emailField() {
     return this.formsign.get('email');
@@ -269,23 +291,20 @@ export class SigninComponent implements OnInit {
   get cpasswordField() {
     return this.formsign.get('cpassword');
   }
-  get paisField() {
-    return this.formsign.get('pais');
-  }
   get cpostalField() {
     return this.formsign.get('cpostal');
   }
-  get provinciaField() {
-    return this.formsign.get('provincia');
+  get nombre_provinciaField() {
+    return this.formsign.get('nombre_provincia');
   }
-  get ciudadField() {
-    return this.formsign.get('ciudad');
+  get nombre_ciudadField() {
+    return this.formsign.get('nombre_ciudad');
   }
-  get calleField() {
-    return this.formsign.get('calle');
+  get domicilioField() {
+    return this.formsign.get('domicilio');
   }
-  get pdptoField() {
-    return this.formsign.get('pdpto');
+  get pisodptoField() {
+    return this.formsign.get('pisodpto');
   }
   get dniField() {
     return this.formsign.get('dni');
@@ -299,31 +318,37 @@ export class SigninComponent implements OnInit {
   get fecnacField() {
     return this.formsign.get('fecnac');
   }
-  get foto1Field() {
-    return this.formsign.get('foto1');
+  get foto_dni_frenteField() {
+    return this.formsign.get('foto_dni_frente');
   }
-  get foto2Field() {
-    return this.formsign.get('foto2');
+  get foto_dni_reversaField() {
+    return this.formsign.get('foto_dni_reversa');
   }
 
-  onSiguiente(event: Event, usuario: Cliente): void {
-    event.preventDefault;
+  //    onSiguiente(event: Event): void {
+  //      event.preventDefault;
 
-    if (this.formsign.valid) {
-      console.log(usuario);
-      this.clienteService.RegistrarCliente(usuario).subscribe((data) => {
-        console.log(data);
-        if (data['Id_cliente'] > 0) {
-          alert(
-            'El registro ha sido creado satisfactoriamente. A continuación, por favor Inicie Sesión.'
-          );
-          this.router.navigate(['/login']);
-        }
-      });
-    } else {
-      this.formsign.markAllAsTouched();
-    }
-  }
+  //      if (this.formsign.valid) {
+  //       var val = {
+  //         Nombre:this.formsign.get("nombre"),
+  //         Apellido:this.formsign.get("apellido"),
+  //         Email:this.formsign.get("email"),
+  //         Password:this.formsign.get("password"),
+  //         Ciudad:this.formsign.get("ciudad"),
+  //         Provincia:this.formsign.get("provincia"),
+  //         Cuil:this.formsign.get("cuil"),
+  //         Telefono:this.formsign.get("tel"),
+  //         Fecnac:this.formsign.get("fecnac"),
+  //         Pisodpto:this.formsign.get("pdpto"),
+  //         Domicilio:this.formsign.get("domicilio")
+  //       };
+  //       this.clienteService.addCliente(val).subscribe(res=>{
+  //         alert(res.toString());
+  //       });
+  //     } else {
+  //       this.formsign.markAllAsTouched();
+  //      }
+  //    }
 }
 
 export function createPasswordStrengthValidator(): ValidatorFn {
