@@ -34,7 +34,7 @@ export class SigninComponent implements OnInit {
 
   cliente: Cliente = new Cliente();
   // cuenta: Cuenta = new Cuenta();
-
+  hide1 = true;
   hide = true;
   step: any = 1;
 
