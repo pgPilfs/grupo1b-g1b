@@ -12,7 +12,6 @@ import { ProyectComponent } from './pages/proyect/proyect.component';
 import { PerfilComponent } from './pages/wallet/perfil/perfil.component';
 import { PesoComponent } from './pages/wallet/operation/peso/peso.component';
 import { WalletComponent } from './pages/wallet/wallet/wallet.component';
-import { TransferComponent } from './pages/wallet/transfer/transfer.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 
@@ -30,7 +29,6 @@ const routes: Routes = [
     {path: 'peso', component: PesoComponent},
     {path: 'wallet', component: WalletComponent},
     {path: 'perfil', component: PerfilComponent},
-    {path: 'transfer', component: TransferComponent},
   ]},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path:'**', component: NotfoundComponent},

@@ -1,89 +1,45 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar>
-    <button  mat-icon-button (click)="sidenav.toggle()">
+    <button  mat-raised-button class="menulist"  (click)="sidenav.toggle()">
       <mat-icon>list</mat-icon>
-    </button><span> Menu</span>
-    <span class="example-spacer"></span>
-    <span class="text-end">Salir</span>
-    <button  mat-icon-button routerLink="/home" class="mx-2">
-      <mat-icon>logout
-      </mat-icon>     
+      <span> Menu</span>
     </button>
-   
-    
+    <span class="example-spacer"></span>
+
+
+    <button  mat-raised-button routerLink="/home" >
+      <span class="text-end">Salir</span>
+      <mat-icon class="mx-2">logout </mat-icon>
+    </button>
+
+
   </mat-toolbar>
-  <mat-sidenav-container
-    class="example-sidenav-container"
-    [style.marginTop.px]="mobileQuery.matches ? '56' : 0"
-  >
-    <mat-sidenav
-      #sidenav
-      [mode]="mobileQuery.matches ? 'over' : 'side'"
-      [fixedInViewport]="mobileQuery.matches"
-      fixedTopGap="56"
-    >
-      <img
-        class="avatar mat-elevation-z8"
-        src="../../../assets/avatars/default.png"
-      />
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? '56' : 0">
+    <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+      <img class="avatar mat-elevation-z8" src="../../../assets/avatars/default.png" />
 
       <h4 class="name my-4">User Name</h4>
       <mat-divider></mat-divider>
       <div class="options">
-        <button
-          mat-icon-button
-          routerLink="/menu/wallet"
-          class="example-icon"
-          aria-label="Icono Billetera"
-        >
+        <button  mat-raised-button routerLink="/menu/wallet" class="example-icon" aria-label="Icono Billetera">
           <mat-icon>account_balance_wallet</mat-icon>
           <span>Billetera</span>
         </button>
       </div>
       <mat-divider></mat-divider>
       <div class="options">
-        <button
-          mat-icon-button
-          routerLink="/menu/wallet"
-          class="example-icon"
-          aria-label="Icono Operaciones"
-        >
+        <button mat-raised-button routerLink="/menu/peso" class="example-icon" aria-label="Icono Operaciones">
           <mat-icon>account_balance</mat-icon>
-        </button>
         <span>Operaciones</span>
-        <mat-option
-          *ngFor="let operation of ops"
-          [value]="operation.value"
-          [routerLink]="operation.value"
-        >
-          {{ operation.viewValue }}
-        </mat-option>
+      </button>
       </div>
+
 
       <mat-divider></mat-divider>
 
       <div class="options">
-        <button
-          mat-icon-button
-          routerLink="/menu/transfer"
-          class="example-icon"
-          aria-label="Icono Transferencia"
-        >
-          <mat-icon>sync_alt</mat-icon>
-
-          <span>Transferencia</span>
-        </button>
-      </div>
-
-      <mat-divider></mat-divider>
-
-      <div class="options">
-        <button
-          mat-icon-button
-          routerLink="/menu/perfil"
-          class="example-icon"
-          aria-label="Icono Perfil"
-        >
+        <button  mat-raised-button routerLink="/menu/perfil" class="example-icon" aria-label="Icono Perfil">
           <mat-icon>account_circle</mat-icon>
 
           <span>Perfil</span>

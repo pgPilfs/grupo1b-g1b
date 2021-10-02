@@ -7,7 +7,7 @@ mat-toolbar {
 
 mat-sidenav {
   width: 200px;
-  height: 100vh;
+  height: auto;
   border-right: none;
   background: var(--color-bg-secundary);
   color: var(--color-text);
@@ -41,6 +41,7 @@ mat-divider {
 
 mat-icon {
   margin-right: 1rem;
+  font-size: 1.5rem;
 }
 
 mat-sidenav .options {
@@ -104,4 +105,15 @@ mat-sidenav .options {
 
 .example-spacer {
   flex: 1 1 auto;
+} 
+
+
+button[mat-raised-button]{
+  background: transparent;
+}
+
+@media (min-width: 768px) {
+  .menulist {
+    display: none;
+  }
 } 
