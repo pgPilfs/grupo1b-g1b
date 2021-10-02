@@ -1,15 +1,15 @@
 import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
-import { 
-  AbstractControl, 
-  ValidationErrors, 
+import {
+  AbstractControl,
+  ValidationErrors,
   ValidatorFn,
   FormBuilder,
   FormControl,
   FormGroup,
-  Validators 
+  Validators
 } from '@angular/forms';
 
-import { Transacciones, TransaccionesService} from 'src/app/servicios/transacciones.service';
+import { Transacciones, TransaccionesService } from 'src/app/servicios/transacciones.service';
 import Swal from 'sweetalert2';
 
 
@@ -21,19 +21,18 @@ import Swal from 'sweetalert2';
 })
 export class PesoComponent implements OnInit {
 
-  
+
 
   transacciones: Transacciones = new Transacciones();
   operacionForm: FormGroup;
   form: any = {};
-  //carga de movimientos SACAR ESTA PARTE
-  //movimientos: { id: String; cuenta: String; fecha: String; monto: String }[] = data;
+
   operacion: string = "Ingresar";
 
   CuentaLista: any[];
   TipoTransaccionesLista: any[];
   TransaccionesLista: any[];
-  
+
   get cardNumber(): AbstractControl {
     return this.operacionForm.controls['cardNumber'];
   }
@@ -56,39 +55,35 @@ export class PesoComponent implements OnInit {
 
   private pattNumbers: any = /^[0-9]{7,}$/;
   private pattCVV: any = /^[0-9]{3,}$/;
-  constructor( private formBuilder: FormBuilder, private transaccionesService: TransaccionesService,private cdref: ChangeDetectorRef) {
+  constructor(private formBuilder: FormBuilder, private transaccionesService: TransaccionesService, private cdref: ChangeDetectorRef) {
     this.operacionForm = this.formBuilder.group(
       {
-        cvu:['',[
+        cvu: ['', [
           Validators.required,
-        
+
         ]],
-        descripcion:['',[
+        descripcion: ['', [
           Validators.required,
-        
+
         ]],
-        cardNumber:['',[
+        cardNumber: ['', [
           Validators.required,
           Validators.pattern(this.pattNumbers),
           Validators.minLength(16),
           Validators.maxLength(16),
         ]],
-          // fecha:['',[
-          //   Validators.required,
-          
-          // ]],
-        numberCVV:['',[
+        numberCVV: ['', [
           Validators.required,
           Validators.pattern(this.pattCVV),
           Validators.minLength(3),
           Validators.maxLength(3),
         ]],
-        monto:['',[
+        monto: ['', [
           Validators.required,
           Validators.min(100),
         ]],
       });
-      
+
   }
   ngAfterContentChecked(): void {
 
@@ -96,69 +91,67 @@ export class PesoComponent implements OnInit {
 
   }
 
-  
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.loadCuenta();
     this.loadTipoTransacciones();
     this.loadTransacciones();
   };
-  
- 
-  loadCuenta(){
-    this.transaccionesService.getCuentas().subscribe(data  => {
+
+
+  loadCuenta() {
+    this.transaccionesService.getCuentas().subscribe(data => {
       console.log(data)
       this.CuentaLista = data;
-      
-  });
+
+    });
   }
-  
-  
-  loadTipoTransacciones(){
-  this.transaccionesService.getTipoTransacciones().subscribe(data  => {
-    console.log(data);
-    this.TipoTransaccionesLista = data;
-    
-  });
+
+  loadTipoTransacciones() {
+    this.transaccionesService.getTipoTransacciones().subscribe(data => {
+      console.log(data);
+      this.TipoTransaccionesLista = data;
+
+    });
   }
-  loadTransacciones(){
-    this.transaccionesService.getTransacciones().subscribe(data  => {
+  loadTransacciones() {
+    this.transaccionesService.getTransacciones().subscribe(data => {
       console.log(data)
       this.TransaccionesLista = data;
-      
-  });
+
+    });
   }
-  cargarTransacciones(){
+  cargarTransacciones() {
     this.loadTransacciones();
   }
-  onEnviar(event: Event, transacciones:Transacciones): void {
+  onEnviar(event: Event, transacciones: Transacciones): void {
     event.preventDefault;
     console.log("funcionaaaaaa");
     if (this.operacionForm.valid) {
       this.transaccionesService.AgregarTransaccion(transacciones).subscribe(
         data => {
-          if(data['id_transaccion']!=0) {
+          if (data['id_transaccion'] != 0) {
             Swal.fire(
               'Su transaccion se registro exitosamente',
               'GRACIAS!',
               'success'
             )
-        }
-        this.loadTransacciones();
-        console.log(data);
-      })
+          }
+          this.loadTransacciones();
+          console.log(data);
+        })
       console.log(this.operacionForm.value);
-    }else{
+    } else {
       this.operacionForm.markAllAsTouched();
     }
   }
-  
-  get descripcionField(){
+
+  get descripcionField() {
     return this.operacionForm.get('descripcion');
   }
-  get fechaField(){
+  get fechaField() {
     return this.operacionForm.get('fecha');
   }
-  
+
   get cardNumberField() {
     return this.operacionForm.get('cardNumber');
   }
@@ -168,7 +161,7 @@ export class PesoComponent implements OnInit {
   get montoField() {
     return this.operacionForm.get('monto');
   }
-  get cvuField(){
+  get cvuField() {
     return this.operacionForm.get('cvu');
   }
 

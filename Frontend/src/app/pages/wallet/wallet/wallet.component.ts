@@ -2,19 +2,30 @@ import {Component, OnInit} from '@angular/core';
 
 export interface Movimiento {
   cuenta: string;
+  tipo_de_transaccion: string;
   fecha: string;
-  movimiento: string;
+  numero_de_tarjeta: string;
+  numero_cvv: string;
+  monto: string;
 }
 
 export interface Cotizacion {
   cotizacion: string;
   monto: string;
 }
-
+/*
 const ELEMENT_DATA: Movimiento[] = [
   {cuenta: "Starbucks", fecha: '19/08/2021 13:00', movimiento: "$ 400"},
   {cuenta: "Disco", fecha:'19/08/2021 08:47' , movimiento: "$ 600"}
-  
+
+];*/
+
+const ELEMENT_DATA: Movimiento[] = [
+  {cuenta: "Starbucks",tipo_de_transaccion:'algo', fecha: '19/08/2021 13:00', numero_de_tarjeta:'numero', numero_cvv:'351', monto: "$ 400"},
+  {cuenta: "Disco",tipo_de_transaccion:'algo', fecha:'19/08/2021 08:47' , numero_de_tarjeta:'numero', numero_cvv:'351', monto: "$ 600"},
+  {cuenta: "Disco",tipo_de_transaccion:'algo', fecha:'19/08/2021 08:47' , numero_de_tarjeta:'numero', numero_cvv:'351', monto: "$ 600"},
+  {cuenta: "Disco",tipo_de_transaccion:'algo', fecha:'19/08/2021 08:47' , numero_de_tarjeta:'numero', numero_cvv:'351', monto: "$ 600"}
+
 ];
 
 const ELEMENT_DATA2: Cotizacion[] = [
@@ -29,7 +40,7 @@ const ELEMENT_DATA2: Cotizacion[] = [
 
 
 export class WalletComponent implements OnInit {
-  displayedColumns: string[] = ['cuenta', 'fecha', 'movimiento'];
+  displayedColumns: string[] = ['cuenta','tipo_de_transaccion', 'fecha','numero_de_tarjeta','numero_cvv', 'monto'];
   dataSource = ELEMENT_DATA;
   clickedRows = new Set<Movimiento>();
   displayedColumns2: string[] = ['cotizacion', 'monto'];
@@ -39,5 +50,6 @@ export class WalletComponent implements OnInit {
  
   constructor() {}
   ngOnInit(): void {
+
   }
 }

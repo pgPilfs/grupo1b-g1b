@@ -1,68 +1,178 @@
 <section class="m-4" data-aos="zoom-in" data-aos-duration="1500">
   <div class="container-fluid">
-
-          <button class="button m-4">
-            <h2 class="mt-4">
-             ¡ Hola NAME ! <br>Te damos la BIENVENIDA <br />a tu <strong>PIL MONEY</strong
-              ><br />
-            </h2>
-            <div class="button__horizontal"></div>
-            <div class="button__vertical"></div>
-          </button>
-
-          <!-- PESOS -->
-      
-           
-    <div class="row mov ">    
-      <div class="col-lg-4 col-sm-12 col-md-12 my-4">
-            <mat-card class="example-card card1 py-4 text-start">
-              <mat-card-title class="text-uppercase card-title1 my-2">Saldo en PESOS</mat-card-title>
-              <mat-card-subtitle class="h4 font-weight-bold mb-0">$ 4000</mat-card-subtitle>
-            </mat-card>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-8">
-          <mat-card>
-              <mat-title class="p-4">
-                <div class="row">
-                  <div class="col text-start">
-                    <span class="text-uppercase">Últimos movimientos</span> 
-                  </div>
-                  <div class="col text-end">
-                  <a routerLink="/menu/peso">Ver más
-                  <mat-icon>chevron_right</mat-icon>
-                  </a>
-                  </div>
-                </div>              
-              </mat-title>
-
-            <table mat-table [dataSource]="dataSource" class=" mat-elevation-z8">
-              <!-- Cuenta  -->
-              <ng-container matColumnDef="cuenta">
-                <th mat-header-cell *matHeaderCellDef class="text-star text-uppercase">Cuenta</th>
-                <td mat-cell class="text-start font-weight-bold" *matCellDef="let element">{{element.cuenta}}</td>
-              </ng-container>
-
-              <!-- Fecha  -->
-              <ng-container matColumnDef="fecha">
-                <th mat-header-cell *matHeaderCellDef class="text-center text-uppercase">Fecha</th>
-                <td mat-cell *matCellDef="let element">{{element.fecha}}</td>
-              </ng-container>
-
-              <!-- Movimiento  -->
-              <ng-container matColumnDef="movimiento">
-                <th mat-header-cell *matHeaderCellDef class="text-center text-uppercase">Monto</th>
-                <td mat-cell *matCellDef="let element">{{element.movimiento}}</td>
-              </ng-container>
-        
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              
-              <tr mat-row (click)="clickedRows.add(row)" [class.demo-row-is-clicked]="clickedRows.has(row)"
-                *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-          
-          </mat-card>
-        </div>
+    <div>
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
-     
+    <button class="button my-4">
+      <h3 class="m-4">
+        ¡ Hola NAME ! <br />Te damos la BIENVENIDA a tu
+        <strong>PIL MONEY</strong><br />
+      </h3>
+      <div class="button__horizontal"></div>
+      <div class="button__vertical"></div>
+    </button>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <mat-card class="example-card text-center card2 p-4">
+          <mat-card-title-group>
+            <mat-card-title class="text-uppercase my-4"
+              >Operá con tranquilidad con nuestro respaldo 
+            </mat-card-title>
+            <mat-card-subtitle class="h3 font-weight-bold"
+              > es SEGURO y CONFIABLE 🥰
+            </mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card>
+      </div>
+      <!-- PESOS -->
+      <!-- <div class="col-lg-3 text-center">
+        <mat-card class="example-card card1 p-4">
+          <mat-card-title class="text-uppercase my-4 text-end"
+            >Saldo en PESOS</mat-card-title
+          >
+          <mat-card-subtitle class="h2 font-weight-bold text-end"
+            >$ 4000</mat-card-subtitle
+          >
+        </mat-card>
+      </div>
+      <div class="col-lg-2 text-center">
+        <mat-card class="example-card card1 p-4">
+          <mat-card-title class="text-uppercase my-4 text-end"
+            >Saldo en PESOS</mat-card-title
+          >
+          <mat-card-subtitle class="h2 font-weight-bold text-end"
+            >$ 4000</mat-card-subtitle
+          >
+        </mat-card>
+      </div> -->
+    </div>
+
+    <div class="row mov">
+      <mat-card class="col-sm-12 col-md-12 col-lg-10">
+        <mat-title class="p-4">
+          <div class="row">
+            <div class="col text-start">
+              <span class="text-uppercase">Últimos movimientos</span>
+            </div>
+            <div class="col text-end">
+              <a routerLink="/menu/peso"
+                >Ver más
+                <mat-icon>chevron_right</mat-icon>
+              </a>
+            </div>
+          </div>
+        </mat-title>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- Cuenta  -->
+          <ng-container matColumnDef="cuenta">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-star text-uppercase"
+            >
+              Cuenta
+            </th>
+            <td
+              mat-cell
+              class="text-start font-weight-bold"
+              *matCellDef="let element"
+            >
+              {{ element.cuenta }}
+            </td>
+          </ng-container>
+          <!-- Tipo de Transacción  -->
+          <ng-container matColumnDef="tipo_de_transaccion">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-center text-uppercase"
+            >
+              Tipo de Transacción
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.tipo_de_transaccion }}
+            </td>
+          </ng-container>
+          <!-- Fecha  -->
+          <ng-container matColumnDef="fecha">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-center text-uppercase"
+            >
+              Fecha
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.fecha }}</td>
+          </ng-container>
+          <!-- Número de Tarjeta  -->
+          <ng-container matColumnDef="numero_de_tarjeta">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-center text-uppercase"
+            >
+              Número de Tarjeta
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.numero_de_tarjeta }}
+            </td>
+          </ng-container>
+          <!-- Número de CVV  -->
+          <ng-container matColumnDef="numero_cvv">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-center text-uppercase"
+            >
+              Número de CVV
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.numero_cvv }}</td>
+          </ng-container>
+          <!-- Monto  -->
+
+          <ng-container matColumnDef="movimiento">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-center text-uppercase"
+            >
+              movimiento
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.movimiento }}</td>
+          </ng-container>
+          <ng-container matColumnDef="monto">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-center text-uppercase"
+            >
+              Monto
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.monto }}</td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+          <tr
+            mat-row
+            (click)="clickedRows.add(row)"
+            [class.demo-row-is-clicked]="clickedRows.has(row)"
+            *matRowDef="let row; columns: displayedColumns"
+          ></tr>
+        </table>
+      </mat-card>
+    </div>
   </div>
 </section>

@@ -13,8 +13,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from "@angular/google-maps";
 import { MatCardModule } from '@angular/material/card';
 import { MenuModule } from './pages/wallet/menu.module';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { DataDialogComponent } from './pages/wallet/perfil/perfil.component';
 import { ClienteService } from './servicios/cliente.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TransaccionesService } from './servicios/transacciones.service';
@@ -24,7 +22,6 @@ import { AuthService } from './servicios/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
-    DataDialogComponent
   ],
   
   imports: [
@@ -42,12 +39,11 @@ import { AuthService } from './servicios/auth.service';
     FormsModule,
     GoogleMapsModule,
     MatCardModule,
-    MatDialogModule,
     HttpClientModule
   ],
   providers: [{provide: JWT_OPTIONS, useValue: JWT_OPTIONS},ClienteService, AuthService, JwtHelperService, TransaccionesService],
-  entryComponents: [DataDialogComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
+
 export class AppModule { }

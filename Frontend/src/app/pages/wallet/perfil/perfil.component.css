@@ -1,19 +1,19 @@
-img.mat-card-avatar{
-  width:150px;
+img.mat-card-avatar {
+  width: 150px;
   height: 150px;
   background-size: cover;
 }
 
-mat-card-header{
+mat-card-header {
   justify-content: center;
 }
 
-mat-card-subtitle{
+mat-card-subtitle {
   font-family: sans-serif;
 }
 
-mat-card-content{
-  padding-top:1rem;
+mat-card-content {
+  padding-top: 1rem;
   text-align: left;
   justify-content: center;
 }
@@ -21,15 +21,6 @@ mat-card-content{
 .example-margin {
   margin: 0 12px;
   font-size: 1rem;
-}
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
-.example-full-width {
-  width: 100%;
 }
 
 mat-form-field.mat-form-field {
@@ -44,16 +35,10 @@ mat-form-field.mat-form-field {
   align-self: center;
 }
 
-
-
 mat-error {
   margin-bottom: 0.5rem;
   font-size: 0.8rem;
   color: var(--color-bg-red);
-}
-
-mat-form-field {
-  margin: 1rem;
 }
 
 mat-checkbox {
@@ -68,11 +53,16 @@ mat-checkbox {
 
 .example-full-width {
   width: 100%;
+  background-color: var(--color-bg-secundary);
+}
+
+.mat-form-field-infix {
+  background-color: var(--color-bg-secundary);
 }
 
 .example-label {
   display: table-cell;
-  font-size: 14px;
+  font-size: 1.2rem;
   margin-left: 8px;
   min-width: 120px;
 }
@@ -103,11 +93,47 @@ mat-checkbox {
   margin-right: 8px;
 }
 
-
 .btn-sign {
   background-color: var(--color-btn);
   width: 10rem;
   height: 3rem;
   font-size: 1rem;
   border-radius: 50px;
+}
+
+mat-icon {
+  padding-left: 0.5em;
+  font-size: 1rem;
+}
+
+mat-hint {
+  font-size: 0.75rem;
+  color: var(--color-text-disabled);
+}
+
+mat-label {
+  font-size: 1.2rem;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+input {
+  font-size: 1rem;
+}
+
+.mat-form-field {
+  padding: 1.5rem;
+}
+mat-error {
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-bg-red);
 }

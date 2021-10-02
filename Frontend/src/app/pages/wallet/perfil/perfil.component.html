@@ -1,38 +1,248 @@
-<!-- profile -->
-<section class="m-4" data-aos="zoom-in" data-aos-duration="1500">
+<section class="my-3">
   <div class="container-fluid">
     <mat-divider class="my-4"></mat-divider>
-    <h2 class="title text-center">PERFIL</h2>
+    <h2>PERFIL</h2>
     <mat-divider class="my-4"></mat-divider>
     <mat-card class="example-card card">
       <mat-card-header>
         <div>
-          <img mat-card-avatar src="../../../../assets/avatars/default.png" alt="Foto Perfil" />
+          <img
+            mat-card-avatar
+            src="../../../../assets/avatars/default.png"
+            alt="Foto Perfil"
+          />
           <mat-card-title class="my-4">User Name</mat-card-title>
           <mat-divider></mat-divider>
         </div>
       </mat-card-header>
-      <mat-card-content class="m-4">
-        <form >
-        <mat-card-subtitle>Nombre: </mat-card-subtitle>
-        <mat-card-subtitle>Apellido: </mat-card-subtitle>
-        <mat-card-subtitle>Email: </mat-card-subtitle>
-        <mat-card-subtitle>Contraseña: </mat-card-subtitle>
-        <mat-card-subtitle>Teléfono: </mat-card-subtitle>
-        <mat-card-subtitle>Fecha de Nacimiento: </mat-card-subtitle>
-        <mat-card-subtitle>CUIL: </mat-card-subtitle>
-        <mat-card-subtitle>Alias: </mat-card-subtitle>
-        <mat-card-subtitle>Dirección: </mat-card-subtitle>
-        </form>
-      </mat-card-content>
+
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="row m-2">
+          <div class="form-group col-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input matInput disabled value="Nombre" />
+            </mat-form-field>
+          </div>
+          <div class="form-group col-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Apellido</mat-label>
+              <input matInput disabled value="Apellido" />
+            </mat-form-field>
+          </div>
+          <div class="form-group col-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Fecha de Nacimiento</mat-label>
+              <input matInput disabled value="11/02/2000" />
+            </mat-form-field>
+          </div>
+          <div class="form-group col-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>CUIL</mat-label>
+              <input matInput disabled value="CUIL" />
+            </mat-form-field>
+          </div>
+          <div class="form-group col-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Domicilio</mat-label>
+              <input type="text" matInput value="Domicilio" />
+            </mat-form-field>
+          </div>
+
+          <div class="form-group col-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Teléfono</mat-label>
+              <input
+                type="tel"
+                [formControl]="tel"
+                formControlName="tel"
+                matInput
+                value="555-555-1234"
+              />
+              <mat-icon matSuffix>mode_edit</mat-icon>
+              <mat-error
+                *ngIf="
+                  editForm.get('tel').errors && editForm.get('tel').touched
+                "
+              >
+                <mat-error *ngIf="editForm.get('tel')?.hasError('required')"
+                  >El teléfono es <strong>obligatorio</strong></mat-error
+                >
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group col-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Alias</mat-label>
+              <input
+                type="text"
+                [formControl]="alias"
+                formControlName="alias"
+                matInput
+                value="NOMBRE-ALIAS"
+              />
+              <mat-icon matSuffix>mode_edit</mat-icon>
+              <mat-hint>El campo es modificable</mat-hint>
+              <mat-error
+                *ngIf="
+                  editForm.get('alias').errors && editForm.get('alias').touched
+                "
+              >
+                <mat-error *ngIf="editForm.get('alias')?.hasError('required')"
+                  >El Alias es <strong>obligatorio</strong></mat-error
+                >
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group col-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                [formControl]="email"
+                formControlName="email"
+                type="email"
+                name="email"
+                id="email"
+                value="user@pilmoney.com"
+              />
+              <mat-icon matSuffix>mode_edit</mat-icon>
+              <mat-hint>El campo es <strong>modificable</strong></mat-hint
+              ><br />
+              <mat-error
+                *ngIf="
+                  editForm.get('email').errors && editForm.get('email').touched
+                "
+              >
+                <mat-error *ngIf="editForm.get('email').hasError('required')">
+                  El correo electrónico es <strong>obligatorio</strong><br
+                /></mat-error>
+                <mat-error *ngIf="editForm.get('email').hasError('email')"
+                  >El formato del correo electrónico debe ser
+                  <strong>válido</strong><br />
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group col-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input
+                matInput
+                type="password"
+                [formControl]="password"
+                formControlName="password"
+                [type]="hide ? 'password' : 'text'"
+                value="password"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{
+                  hide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+              <mat-hint>El campo es <strong>modificable</strong></mat-hint
+              ><br />
+              <mat-error
+                *ngIf="
+                  editForm.get('password').errors &&
+                  editForm.get('password').touched
+                "
+              >
+                <mat-error
+                  *ngIf="editForm.get('password').hasError('required')"
+                >
+                  La contraseña es <strong>obligatorio</strong><br
+                /></mat-error>
+
+                <mat-error
+                  *ngIf="editForm.get('password').hasError('minlength')"
+                >
+                  La contraseña debe tener al menos
+                  <strong> 8 dígitos </strong><br
+                /></mat-error>
+                <mat-error
+                  *ngIf="
+                    editForm
+                      .get('password')
+                      .hasError('createPasswordStrengthValidator')
+                  "
+                >
+                  La contraseña debe tener al menos una letra
+                  <strong>minúscula</strong>, una letra
+                  <strong>mayúscula</strong> y un <strong>número</strong><br />
+                </mat-error>
+
+                <mat-error *ngIf="editForm.get('password').hasError('pattern')">
+                  La contraseña debe tener al menos una letra
+                  <strong>minúscula</strong>, una letra
+                  <strong>mayúscula</strong> y al menos un
+                  <strong>número</strong><br
+                /></mat-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group col-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Repetir Contraseña</mat-label>
+              <input
+                matInput
+                [formControl]="cpassword"
+                formControlName="cpassword"
+                (change)="onPasswordChange()"
+                [type]="hide1 ? 'password' : 'text'"
+                value="password"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide1 = !hide1"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{
+                  hide1 ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+              <mat-hint>El campo es <strong>modificable</strong></mat-hint
+              ><br />
+              <mat-error
+                *ngIf="
+                  editForm.get('cpassword').errors &&
+                  editForm.get('cpassword').touched
+                "
+              >
+                <mat-error
+                  *ngIf="editForm.get('cpassword').hasError('required')"
+                >
+                  La contraseña es <strong>obligatoria</strong><br
+                /></mat-error>
+                <mat-error *ngIf="cpassword.hasError('mismatch')">
+                  La contraseña no <strong>coinciden</strong><br
+                /></mat-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn my-4 btn-sign">
+              Actualizar Perfil
+            </button>
+          </div>
+        </div>
+      </form>
       <mat-divider></mat-divider>
-      <div>
-        <button mat-button class="btn my-4 btn-sign" (click)="openDialog()">Editar Perfil</button>
+      <div class="text-end pt-4">
+        <a routerLink="/home">Desactivar cuenta</a>
       </div>
-      <div>
-        <a routerLink="/home" class="text-end">Desactivar cuenta</a>
-      </div>
-      
     </mat-card>
   </div>
-</section> 
+</section>
