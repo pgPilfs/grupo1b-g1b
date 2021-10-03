@@ -80,6 +80,16 @@ table, th, td{
   border: none;
 }
 
+th {
+  color: var(--color-text);
+  padding-bottom: 2rem;
+  font-size: 0.7rem;
+  border: 1px solid transparent;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+}
+
+
 mat-icon{
   background-color: transparent;
 }
@@ -134,4 +144,10 @@ button {
   font-size: 1rem;
   border-radius: 50px;
   color: var(--color-bg);
+}
+
+
+table {
+  width: 100%;
+  background-color: var(--color-bg-secundary);
 }

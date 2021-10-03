@@ -1,11 +1,9 @@
 <section class="my-3">
   <div class="container-fluid">
-    <mat-divider class="my-4"></mat-divider>
-    <h2>OPERACIÓN EN PESOS</h2>
+    <h2>OPERACIONES</h2>
     <mat-divider class="my-4"></mat-divider>
     <mat-card>
       <h3 class="my-4">Seleccione la operación que desea realizar</h3>
-
       <!-- <mat-body>
         <div class="row">
           <div class="col-lg-6 col-md-12 col-sm-12 my-2">
@@ -30,7 +28,7 @@
             autocomplete="off"
           >
           <mat-form-field class="example-full-width" appearance="standard">
-            <mat-label>Tipo de Transacción</mat-label>
+            <mat-label>Tipo de Transaccion</mat-label>
             <mat-select
               matNativeControl
               [(ngModel)]="transacciones.Id_tipo"
@@ -55,7 +53,7 @@
             >
               <mat-error 
                 *ngIf="operacionForm.get('descripcion')?.hasError('required')"
-                >Por favor, ingrese su <strong>transacción</strong></mat-error
+                >Por favor, <strong>ingrese</strong>Ingrese la transaccion </mat-error
               >
             </mat-error>
           </mat-form-field> 
@@ -63,6 +61,7 @@
           <mat-form-field class="example-full-width" appearance="standard">
             <mat-label>CVU</mat-label>
             <mat-select
+              
               matNativeControl
               [(ngModel)]="transacciones.Cuenta_id"
               [formControl]="cvu"
@@ -92,7 +91,7 @@
           </mat-form-field> 
 
             <mat-form-field class="example-full-width" appearance="standard">
-              <mat-label>Número de Tarjeta</mat-label>
+              <mat-label>Número Tarjeta</mat-label>
               <input
                 matInput
                 [formControl]="cardNumber"
@@ -120,12 +119,14 @@
             <mat-form-field class="example-full-width" appearance="standard" hidden>
               <mat-label>Fecha Transaccion</mat-label>
               <input
+               
                 matInput
                 [matDatepicker]="picker"
                 placeholder="dd/mm/yyyy"
                 [(ngModel)]="transacciones.Fecha_transaccion"
                 [formControl]="fecha"
                 formControlName="fecha"
+               
               />
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
@@ -235,9 +236,8 @@
                 [formControl]="monto"
                 formControlName="monto"
                 placeholder="Ingrese el monto"
-                class="example-right-align"
+                
               />
-              <span matPrefix>$&nbsp;</span>
               <mat-error
                 *ngIf="
                   operacionForm.get('monto').errors &&
@@ -251,7 +251,7 @@
               </mat-error>
             </mat-form-field>
             <div class="form-group" >
-              <button (click)="cargarTransacciones()" type="submit" class="btn button btn-block">
+              <button (click)="cargarTransacciones()" type="submit" class="btn btn-success btn-block">
                  Confirmar
               </button>
             </div>
@@ -268,7 +268,7 @@
   <table class="table table-dark table-hover text-center">
       <thead class="text-uppercase">
           <th class="col-lg-4 col-sm-3">Cuenta</th>
-          <th class="col-lg-2 col-sm-1">Tipo de Transaccion</th>
+          <th class="col-lg-2 col-sm-1">Tipo de Transacción</th>
           <th class="col-lg-2 col-sm-1">Fecha</th>
           <th class="col-lg-2 col-sm-1">Numero de tarjeta</th>
           <th class="col-lg-2 col-sm-1">Numero CVV</th>
@@ -279,7 +279,7 @@
           <tr *ngFor="let item of TransaccionesLista">
                 <!-- [value]="item.Id_transaccion" -->
               <!-- <td class="text-start" > {{item.id_transaccion}} </td> -->
-              <td > {{item.cvu}} </td>
+              <td class="text-start" > {{item.cvu}} </td>
               <td  class="colores" [ngStyle]="{'color':item.descripcion === 'Deposito' ? 'green' : 'red'}"> {{item.descripcion}}</td>
               <td > {{item.fecha_transaccion}} </td>
               <td > {{item.numeroTarjeta}} </td>

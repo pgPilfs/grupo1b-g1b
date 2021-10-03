@@ -1,18 +1,12 @@
 .card1 {
   margin-top: 2rem;
   border: none;
-  border-left: 10px solid var(--color-bg-purple-light);
+  border: 1px solid var(--color-bg-purple-light);
+  border-bottom: 10px solid var(--color-bg-purple-light);
   box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
   font-size: 1.5rem;
   width: auto;
-}
-
-.card2 {
-  margin-top: 2rem;
-  border: 0px solid transparent;
-  box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
-  text-align: center;
-  font-size: 1.5rem;
 }
 
 .more {
@@ -29,14 +23,6 @@
 table {
   width: 100%;
   background-color: var(--color-bg-secundary);
-}
-
-.ingreso {
-  color: var(--color-btn);
-}
-
-.egreso {
-  color: var(--color-bg-red);
 }
 
 .example-card {
@@ -159,6 +145,11 @@ mat-icon {
   box-shadow: none !important;
 }
 
+.title{
+  color: var(--color-text-secundary);
+  font-size: 1.5rem;
+}
+
 th {
   color: var(--color-text);
   padding-bottom: 2rem;
@@ -212,18 +203,19 @@ td {
   position: absolute;
   display: block;
   list-style: none;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background: rgba(255, 255, 255, 0.2);
   animation: animate 25s linear infinite;
   bottom: -150px;
 }
 
 .circles li:nth-child(1) {
-  left: 25%;
-  width: 80px;
-  height: 80px;
-  animation-delay: 0s;
+  left: 5%;
+  width: 50px;
+  height: 50px;
+  animation-delay: 5s;
+  animation-duration: 45s;
 }
 
 .circles li:nth-child(2) {
@@ -292,6 +284,14 @@ td {
   height: 150px;
   animation-delay: 0s;
   animation-duration: 11s;
+}
+
+.circles li:nth-child(11) {
+  left: 5%;
+  width: 10px;
+  height: 10px;
+  animation-delay: 15s;
+  animation-duration: 45s;
 }
 
 @keyframes animate {

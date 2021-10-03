@@ -6,71 +6,45 @@
     </button>
     <span class="example-spacer"></span>
 
-    <button class="text-end" mat-raised-button routerLink="/home">
+    <button class="text-end menulist" mat-raised-button routerLink="/home">
       <span>Salir</span>
       <mat-icon class="mx-2">logout </mat-icon>
     </button>
   </mat-toolbar>
-  <mat-sidenav-container
-    class="example-sidenav-container"
-    [style.marginTop.px]="mobileQuery.matches ? '56' : 0"
-  >
-    <mat-sidenav
-      #sidenav
-      [mode]="mobileQuery.matches ? 'over' : 'side'"
-      [fixedInViewport]="mobileQuery.matches"
-      fixedTopGap="56"
-    >
-      <img
-        class="avatar mat-elevation-z8"
-        src="../../../assets/avatars/default.png"
-      />
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? '56' : 0">
+    <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+      <img class="avatar mat-elevation-z8" src="../../../assets/avatars/default.png" />
 
       <h4 class="name my-4">User Name</h4>
-
-      <div class="text-center">
-        <span> Saldo Actual </span> <br />
-        <span class="h5 pt-2"> $ 4000</span>
-      </div>
       <mat-divider></mat-divider>
       <div class="options">
-        <button
-          mat-raised-button
-          routerLink="/menu/wallet"
-          class="example-icon"
-          aria-label="Icono Billetera"
-        >
+        <button mat-raised-button routerLink="/menu/wallet" class="example-icon" aria-label="Icono Billetera">
           <mat-icon>account_balance_wallet</mat-icon>
           <span>Billetera</span>
         </button>
       </div>
       <mat-divider></mat-divider>
       <div class="options">
-        <button
-          mat-raised-button
-          routerLink="/menu/peso"
-          class="example-icon"
-          aria-label="Icono Operaciones"
-        >
+        <button mat-raised-button routerLink="/menu/peso" class="example-icon" aria-label="Icono Operaciones">
           <mat-icon>account_balance</mat-icon>
           <span>Operaciones</span>
         </button>
       </div>
-
+      <mat-divider></mat-divider>
+      <div class="options">
+        <button mat-raised-button routerLink="/menu/perfil" class="example-icon" aria-label="Icono Perfil">
+          <mat-icon>account_circle</mat-icon>
+          <span>Perfil</span>
+        </button>
+      </div>
       <mat-divider></mat-divider>
 
       <div class="options">
-        <button
-          mat-raised-button
-          routerLink="/menu/perfil"
-          class="example-icon"
-          aria-label="Icono Perfil"
-        >
-          <mat-icon>account_circle</mat-icon>
-
-          <span>Perfil</span>
+        <button mat-raised-button routerLink="/home" class="example-icon" aria-label="Icono Salir">
+          <mat-icon>logout </mat-icon>
+          <span>Cerrar Sesión</span>
         </button>
-        <mat-divider></mat-divider>
       </div>
     </mat-sidenav>
     <router-outlet></router-outlet>

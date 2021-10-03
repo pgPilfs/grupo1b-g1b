@@ -47,7 +47,7 @@ namespace WebApplication1.Controllers
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
             //TODO: This code is only for demo - extract method in new class & validate
-            var isUserValid = (login.Email == "juan@juan.com" && login.Password == "juancho12");
+            var isUserValid = (login.Email == "juan@juan.com " && login.Password == "juancho12");
             if (isUserValid)
             {
 

@@ -18,8 +18,6 @@ import {
 import { Router } from '@angular/router';
 import { Cliente, ClienteService } from 'src/app/servicios/cliente.service';
 
-
-
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -166,7 +164,11 @@ export class SigninComponent implements OnInit {
       cpassword: ['', [Validators.required]],
       cpostal: [
         '',
-        [Validators.required, Validators.pattern(this.pattAddress)],
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(16),
+        ],
       ],
       nombre_provincia: ['', [Validators.required]],
       nombre_ciudad: ['', [Validators.required]],
@@ -176,7 +178,11 @@ export class SigninComponent implements OnInit {
       ],
       pisodpto: [
         '',
-        [Validators.required, Validators.pattern(this.pattAddress)],
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(16),
+        ],
       ],
       cuil: [
         '',
@@ -223,14 +229,13 @@ export class SigninComponent implements OnInit {
   }
   onEnviar(event: Event, cliente: Cliente) {
     event.preventDefault(); //Cancela la funcionalidad por default.
-    
+
     if (this.formsign.valid) {
       console.log(cliente);
-      
+
       this.clienteService.onAddCliente(cliente).subscribe((data) => {
         console.log(data);
         if (data['Id_cliente'] != 0) {
-          
           //  console.log(cuenta);
           //  this.clienteService.onAddClienteCuenta(cuenta).subscribe( data2 =>{
           //   console.log(data2);

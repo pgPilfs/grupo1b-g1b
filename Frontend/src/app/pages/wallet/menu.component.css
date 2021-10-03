@@ -98,6 +98,10 @@ mat-sidenav .options {
   flex: 1 1 auto;
 }
 
+.options {
+  font-size: 1rem;
+}
+
 button[mat-raised-button] {
   background: transparent;
   box-shadow: none;
