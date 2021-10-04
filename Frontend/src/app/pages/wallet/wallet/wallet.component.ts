@@ -1,25 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-
+import {Component, ChangeDetectorRef, OnInit} from '@angular/core';
+import { Transacciones, TransaccionesService } from 'src/app/servicios/transacciones.service';
 export interface Movimiento {
   cuenta: string;
+  tipo_de_transaccion: string;
   fecha: string;
-  movimiento: string;
-}
-
-export interface Cotizacion {
-  cotizacion: string;
+  numero_de_tarjeta: string;
+  numero_cvv: string;
   monto: string;
 }
-
-const ELEMENT_DATA: Movimiento[] = [
-  {cuenta: "Starbucks", fecha: '19/08/2021 13:00', movimiento: "$ 400"},
-  {cuenta: "Disco", fecha:'19/08/2021 08:47' , movimiento: "$ 600"}
-  
-];
-
-const ELEMENT_DATA2: Cotizacion[] = [
-  {cotizacion:"Dolar", monto: "U$S 130"}
-]
 
 @Component({
   selector: 'app-wallet',
@@ -29,15 +17,50 @@ const ELEMENT_DATA2: Cotizacion[] = [
 
 
 export class WalletComponent implements OnInit {
-  displayedColumns: string[] = ['cuenta', 'fecha', 'movimiento'];
-  dataSource = ELEMENT_DATA;
+  transacciones: Transacciones = new Transacciones();
+  displayedColumns: string[] = ['cuenta','tipo_de_transaccion', 'fecha','numero_de_tarjeta', 'monto'];
   clickedRows = new Set<Movimiento>();
   displayedColumns2: string[] = ['cotizacion', 'monto'];
-  dataSource2 = ELEMENT_DATA2;
-  clickedRows2 = new Set<Cotizacion>();
+  CuentaLista: any[];
+  TipoTransaccionesLista: any[];
+  TransaccionesLista: any[];
 
- 
-  constructor() {}
+  constructor( private transaccionesService: TransaccionesService, private cdref: ChangeDetectorRef) {}
   ngOnInit(): void {
+    this.loadCuenta();
+    this.loadTipoTransacciones();
+    this.loadTransacciones();
+  };
+
+  loadCuenta() {
+    this.transaccionesService.getCuentas().subscribe(data => {
+      console.log(data)
+      this.CuentaLista = data;
+
+    });
+  }
+
+  loadTipoTransacciones() {
+    this.transaccionesService.getTipoTransacciones().subscribe(data => {
+      console.log(data);
+      this.TipoTransaccionesLista = data;
+
+    });
+  }
+  loadTransacciones() {
+    this.transaccionesService.getTransacciones().subscribe(data => {
+      console.log(data)
+      this.TransaccionesLista = data;
+
+    });
+  }
+  cargarTransacciones() {
+    this.loadTransacciones();
+  }
+
+  ngAfterContentChecked(): void {
+
+    this.cdref.detectChanges();
+
   }
 }

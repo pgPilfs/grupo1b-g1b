@@ -16,7 +16,6 @@ mat-sidenav {
   border-bottom-right-radius: 1em;
   box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, 0.6) !important;
 }
-
 mat-sidenav-container {
   background: var(--color-bg);
   height: auto;
@@ -47,7 +46,6 @@ mat-sidenav .options {
   text-align: left;
   font-family: "Biryani", sans-serif;
 }
-
 .avatar {
   margin-top: 1rem;
   width: 100px;
@@ -106,7 +104,12 @@ button[mat-raised-button] {
   background: transparent;
   box-shadow: none;
 }
-
+@media (min-width: 768px) {
+  button[mat-raised-button]{
+    width: 100%;
+    text-align: left;
+  }
+}
 @media (min-width: 768px) {
   button[mat-raised-button] {
     text-align: left;

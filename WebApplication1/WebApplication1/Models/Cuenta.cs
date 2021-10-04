@@ -28,5 +28,6 @@ namespace WebApplication1.Models
         public string Nombre { get; set ; }
         public string Apellido { get ; set ; }
         public double Saldo { get; set ; }
+        public string estado { get; set; }
     }
 }

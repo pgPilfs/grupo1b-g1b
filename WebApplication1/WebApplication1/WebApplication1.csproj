@@ -188,6 +188,7 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Cuenta.cs" />
+    <Compile Include="Models\GestorCuenta.cs" />
     <Compile Include="Models\GestorTransaccion.cs" />
     <Compile Include="Models\TipoTransaccion.cs" />
     <Compile Include="Models\Transaccion.cs" />

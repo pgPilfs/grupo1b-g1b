@@ -24,6 +24,9 @@ import {
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Cliente, ClienteService } from 'src/app/servicios/cliente.service';
 
+import { PerfilService } from 'src/app/servicios/perfil.service';
+import Swal from 'sweetalert2';
+
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -79,8 +82,8 @@ export class PerfilComponent implements OnInit {
   private pattPass: any = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])([^\s]){8,16}$/;
   private pattNumbers: any = /^[0-9]{7,}$/;
   private pattTel: any = /^[0-9]{10,10}$/;
-
-  constructor(private formBuilder: FormBuilder) {
+  CuentaLista: any[];
+  constructor(private formBuilder: FormBuilder,private perfilService: PerfilService) {
     this.editForm = this.formBuilder.group({
       tel: [
         '',
@@ -139,6 +142,13 @@ export class PerfilComponent implements OnInit {
   }
   onSubmit() {
     const body = this.editForm.value;
+  }
+  loadCuenta(){
+    this.perfilService.getCuentas().subscribe(data  => {
+      console.log(data)
+      this.CuentaLista = data;
+      
+  });
   }
 }
 
