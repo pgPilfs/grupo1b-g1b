@@ -9,14 +9,14 @@
     >
       <form
         [formGroup]="formsign"
-        (ngSubmit)="onSiguiente($event, usuario)"
+        (ngSubmit)="onEnviar($event, cliente)"
         autocomplete="off"
       >
         <div *ngIf="step == 1">
           <h2 class="my-4 text-center">Sé parte de PIL MONEY</h2>
-          <mat-divider ></mat-divider>
+          <mat-divider></mat-divider>
           <h4 class="my-4 text-center"><STRONG>DATOS DEL USUARIO</STRONG></h4>
-          <mat-divider ></mat-divider>
+          <mat-divider></mat-divider>
           <!-- PASO 1 -->
 
           <div class="row form-group" data-aos="zoom-out">
@@ -27,18 +27,20 @@
                 <input
                   matInput
                   type="text"
-                  [formControl]="name"
-                  formControlName="name"
+                  [formControl]="nombre"
+                  formControlName="nombre"
                   placeholder="Ingrese su nombre"
                   required
-                  [(ngModel)]="usuario.nombre"
+                  [(ngModel)]="cliente.nombre"
                 />
                 <mat-error
                   *ngIf="
-                    formsign.get('name').errors && formsign.get('name').touched
+                    formsign.get('nombre').errors &&
+                    formsign.get('nombre').touched
                   "
                 >
-                  <mat-error *ngIf="formsign.get('name')?.hasError('required')"
+                  <mat-error
+                    *ngIf="formsign.get('nombre')?.hasError('required')"
                     >El nombre es <strong>obligatorio</strong></mat-error
                   >
                 </mat-error>
@@ -52,28 +54,27 @@
                 <input
                   matInput
                   type="text"
-                  [formControl]="lastname"
-                  formControlName="lastname"
+                  [formControl]="apellido"
+                  formControlName="apellido"
                   placeholder="Ingrese su apellido"
                   required
-                  [(ngModel)]="usuario.apellido"
+                  [(ngModel)]="cliente.apellido"
                 />
 
                 <mat-error
                   *ngIf="
-                    formsign.get('lastname').errors &&
-                    formsign.get('lastname').touched
+                    formsign.get('apellido').errors &&
+                    formsign.get('apellido').touched
                   "
                 ></mat-error>
                 <mat-error
-                  *ngIf="formsign.get('lastname')?.hasError('required')"
+                  *ngIf="formsign.get('apellido')?.hasError('required')"
                   >El apellido es
                   <strong>obligatorio</strong>
                 </mat-error>
               </mat-form-field>
             </div>
 
-          
             <!-- EMAIL -->
             <div class="form-group col-lg-4 my-2 col-md-6">
               <mat-form-field class="example-full-width" appearance="standard">
@@ -87,7 +88,7 @@
                   name="email"
                   id="email"
                   required
-                  [(ngModel)]="usuario.email"
+                  [(ngModel)]="cliente.email"
                 />
                 <mat-error
                   *ngIf="
@@ -116,18 +117,17 @@
                   [formControl]="password"
                   formControlName="password"
                   placeholder="Ingrese una contraseña"
-                  [(ngModel)]="usuario.password"
+                  [(ngModel)]="cliente.password"
+                  [type]="hide1 ? 'password' : 'text'"
                 />
                 <button
                   mat-icon-button
                   matSuffix
-                  (click)="hide = !hide"
+                  (click)="hide1 = !hide1"
                   [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hide"
+                  [attr.aria-pressed]="hide1"
                 >
-                  <mat-icon>{{
-                    hide ? "visibility_off" : "visibility"
-                  }}</mat-icon>
+                <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
                 <mat-error
                   *ngIf="
@@ -186,16 +186,16 @@
                   [type]="hide ? 'password' : 'text'"
                 />
                 <button
-                mat-icon-button
-                matSuffix
-                (click)="hide = !hide"
-                [attr.aria-label]="'Hide password'"
-                [attr.aria-pressed]="hide"
-              >
-                <mat-icon>{{
-                  hide ? "visibility_off" : "visibility"
-                }}</mat-icon>
-              </button>
+                  mat-icon-button
+                  matSuffix
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide"
+                >
+                  <mat-icon>{{
+                    hide ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </button>
                 <mat-error
                   *ngIf="
                     formsign.get('cpassword').errors &&
@@ -219,38 +219,40 @@
         <!-- PASO 2 -->
         <div *ngIf="step == 2">
           <h2 class="text-center my-4">Sé parte de PIL MONEY</h2>
-          <mat-divider ></mat-divider>
+          <mat-divider></mat-divider>
           <h4 class="my-4 text-center"><STRONG>DATOS DE RESIDENCIA</STRONG></h4>
-          <mat-divider ></mat-divider>
+          <mat-divider></mat-divider>
           <div class="form-group row" data-aos="zoom-out">
-
             <!-- PROVINCIA -->
             <div class="form-group col-lg-4 my-2 col-md-6">
               <mat-form-field class="example-full-width" appearance="standard">
                 <mat-label>Provincia</mat-label>
                 <mat-select
                   matNativeControl
-                  [formControl]="provincia"
-                  formControlName="provincia"
+                  [formControl]="nombre_provincia"
+                  formControlName="nombre_provincia"
                   required
-                  [(ngModel)]="usuario.provincia"
-                  
+                  [(ngModel)]="cliente.nombre_provincia"
+                  name="nombre_provincia"
+                  ngDefaultControl
                 >
                   <mat-option
-                    *ngFor="let provincia of provincias"
-                    [value]="provincia"
+                    *ngFor="let provincia of ProList"
+                    [value]="provincia.nombre_provincia"
                   >
-                    {{ provincia.country }}
+                    {{ provincia.nombre_provincia }}
                   </mat-option>
                 </mat-select>
                 <mat-error
                   *ngIf="
-                    formsign.get('provincia').errors &&
-                    formsign.get('provincia').touched
+                    formsign.get('nombre_provincia').errors &&
+                    formsign.get('nombre_provincia').touched
                   "
                 >
                   <mat-error
-                    *ngIf="formsign.get('provincia').hasError('required')"
+                    *ngIf="
+                      formsign.get('nombre_provincia').hasError('required')
+                    "
                     >Por favor, <strong>ingrese</strong> su provincia</mat-error
                   >
                 </mat-error>
@@ -263,22 +265,28 @@
                 <mat-label>Ciudad</mat-label>
                 <mat-select
                   matNativeControl
-                  [formControl]="ciudad"
-                  formControlName="ciudad"
+                  [formControl]="nombre_ciudad"
+                  formControlName="nombre_ciudad"
                   required
-                  [(ngModel)]="usuario.ciudad"
+                  name="nombre_ciudad"
+                  [(ngModel)]="cliente.nombre_ciudad"
+                  ngDefaultControl
                 >
-                  <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad">
-                    {{ ciudad.city }}
+                  <mat-option
+                    *ngFor="let ciudad of CiuList"
+                    [value]="ciudad.nombre_ciudad"
+                  >
+                    {{ ciudad.nombre_ciudad }}
                   </mat-option>
                 </mat-select>
                 <mat-error
                   *ngIf="
-                    formsign.get('ciudad').errors &&
-                    formsign.get('ciudad').touched
+                    formsign.get('nombre_ciudad').errors &&
+                    formsign.get('nombre_ciudad').touched
                   "
                 >
-                  <mat-error *ngIf="formsign.get('ciudad').hasError('required')"
+                  <mat-error
+                    *ngIf="formsign.get('nombre_ciudad').hasError('required')"
                     >Por favor, <strong>ingrese</strong> su ciudad</mat-error
                   >
                 </mat-error>
@@ -296,7 +304,7 @@
                   formControlName="cpostal"
                   placeholder="Ingrese su código postal"
                   required
-                  [(ngModel)]="usuario.cpostal"
+                  [(ngModel)]="cliente.cpostal"
                 />
                 <mat-error
                   *ngIf="
@@ -319,17 +327,19 @@
                 <input
                   matInput
                   type="text"
-                  [formControl]="calle"
-                  formControlName="calle"
+                  [formControl]="domicilio"
+                  formControlName="domicilio"
                   placeholder="Ingrese su domicilio"
+                  [(ngModel)]="cliente.domicilio"
                 />
                 <mat-error
                   *ngIf="
-                    formsign.get('calle').errors &&
-                    formsign.get('calle').touched
+                    formsign.get('domicilio').errors &&
+                    formsign.get('domicilio').touched
                   "
                 >
-                  <mat-error *ngIf="formsign.get('calle')?.hasError('required')"
+                  <mat-error
+                    *ngIf="formsign.get('domicilio')?.hasError('required')"
                     >El domicilio es <strong>obligatorio</strong></mat-error
                   >
                 </mat-error>
@@ -344,17 +354,18 @@
                   matInput
                   type="text"
                   placeholder="Ingrese su número de domicilio"
-                  [formControl]="pdpto"
-                  formControlName="pdpto"
-                  [(ngModel)]="usuario.pdpto"
+                  [formControl]="pisodpto"
+                  formControlName="pisodpto"
+                  [(ngModel)]="cliente.pisodpto"
                 />
                 <mat-error
                   *ngIf="
-                    formsign.get('pdpto').errors &&
-                    formsign.get('pdpto').touched
+                    formsign.get('pisodpto').errors &&
+                    formsign.get('pisodpto').touched
                   "
                 >
-                  <mat-error *ngIf="formsign.get('pdpto')?.hasError('required')"
+                  <mat-error
+                    *ngIf="formsign.get('pisodpto')?.hasError('required')"
                     >El número del domicilio es
                     <strong>obligatorio</strong></mat-error
                   >
@@ -367,9 +378,9 @@
         <!-- PASO 3 -->
         <div *ngIf="step == 3">
           <h2 class="my-4 text-center">Sé parte de PIL MONEY</h2>
-          <mat-divider ></mat-divider>
+          <mat-divider></mat-divider>
           <h4 class="my-4 text-center"><STRONG>DATOS PERSONALES</STRONG></h4>
-          <mat-divider ></mat-divider>
+          <mat-divider></mat-divider>
           <div class="row justify-content-center" data-aos="zoom-out">
             <!-- CUIL -->
             <div class="form-group col-lg-4 my-2 col-md-6">
@@ -381,7 +392,7 @@
                   [formControl]="cuil"
                   formControlName="cuil"
                   placeholder="Ingrese su CUIL"
-                  [(ngModel)]="usuario.cuil"
+                  [(ngModel)]="cliente.cuil"
                 />
                 <mat-error
                   *ngIf="
@@ -406,7 +417,7 @@
                   placeholder="(54) 351-123-123"
                   [formControl]="tel"
                   formControlName="tel"
-                  [(ngModel)]="usuario.telefono"
+                  [(ngModel)]="cliente.telefono"
                 />
                 <mat-icon matSuffix>phone</mat-icon>
                 <mat-error
@@ -431,7 +442,7 @@
                   placeholder="dd/mm/yy"
                   [formControl]="fecnac"
                   formControlName="fecnac"
-                  [(ngModel)]="usuario.fecnac"
+                  [(ngModel)]="cliente.fecnac"
                 />
                 <mat-datepicker-toggle
                   matSuffix
@@ -454,7 +465,7 @@
             </div>
 
             <!-- TERMINOS Y CONDICIONES-->
-            <div class="text-right col-lg-12 my-2  col-md-12">
+            <div class="text-right col-lg-12 my-2 col-md-12">
               <p>
                 <mat-checkbox type="checkbox" class="example-margin my-4">
                   He leído los
@@ -473,11 +484,11 @@
         <!-- PASO 4 -->
         <div *ngIf="step == 4">
           <h2 class="my-4 text-center">Sé parte de PIL MONEY</h2>
-          <mat-divider ></mat-divider>
+          <mat-divider></mat-divider>
           <h4 class="my-4 align-content-center text-center" data-aos="zoom-out">
             <STRONG>FOTO DNI</STRONG>
           </h4>
-          <mat-divider ></mat-divider>
+          <mat-divider></mat-divider>
           <div class="row justify-content-center my-4" data-aos="zoom-out">
             <!-- DNI FRONTAL -->
             <div class="col-lg-6 col-md-4 text-center">
@@ -504,19 +515,24 @@
                   #fileInput
                   type="file"
                   id="file"
-                  [formControl]="foto1"
-                  formControlName="foto1"
+                  [formControl]="foto_dni_frente"
+                  formControlName="foto_dni_frente"
+                  name="foto_dni_frente"
                   class="form-control"
-                  [(ngModel)]="usuario.foto_dni_frente"
+                  (change)="uploadDni($event)"
+                  ngDefaultControl
+               
                 />
                 <mat-error
                   class="text-center"
                   *ngIf="
-                    formsign.get('foto1').errors &&
-                    formsign.get('foto1').touched
+                    formsign.get('foto_dni_frente').errors &&
+                    formsign.get('foto_dni_frente').touched
                   "
                 >
-                  <mat-error *ngIf="formsign.get('foto1').hasError('required')">
+                  <mat-error
+                    *ngIf="formsign.get('foto_dni_frente').hasError('required')"
+                  >
                     <strong>Ingrese</strong> el frente de su DNI
                   </mat-error>
                 </mat-error>
@@ -528,15 +544,16 @@
         <!-- PASO 5 -->
         <div *ngIf="step == 5">
           <h2 class="my-4 text-center">Sé parte de PIL MONEY</h2>
-          <mat-divider ></mat-divider>
+          <mat-divider></mat-divider>
           <h4 class="my-4 align-content-center text-center" data-aos="zoom-out">
             <STRONG>FOTO DNI</STRONG>
           </h4>
-          <mat-divider ></mat-divider>
+          <mat-divider></mat-divider>
           <div class="row justify-content-center" data-aos="zoom-out">
             <!-- DNI REVERSO -->
             <div class="col-lg-6 col-md-4 text-center my-4">
-              <mat-title>Foto DNI del <strong>REVERSO</strong></mat-title> <br />
+              <mat-title>Foto DNI del <strong>REVERSO</strong></mat-title>
+              <br />
               <mat-form-field class="text-center" appearance="fill">
                 <mat-label *ngIf="selectedFilesF; else newFile">{{
                   selectedFilesF.item(0).name
@@ -550,8 +567,6 @@
                   color="primary"
                   text-center
                   (click)="fileInputF.click()"
-                  
-                  
                 >
                   Subir imagen <mat-icon>cloud_upload</mat-icon>
                 </button>
@@ -561,19 +576,25 @@
                   #fileInputF
                   type="file"
                   id="file2"
-                  [formControl]="foto2"
-                  formControlName="foto2"
+                  [formControl]="foto_dni_reversa"
+                  formControlName="foto_dni_reversa"
                   class="form-control"
-                  [(ngModel)]="usuario.foto_dni_reversa"
+                  (change)="uploadDni($event)"
+                  name="foto_dni_reversa"
+                  ngDefaultControl   
                 />
                 <mat-error
                   class="text-center"
                   *ngIf="
-                    formsign.get('foto2').errors &&
-                    formsign.get('foto2').touched
+                    formsign.get('foto_dni_reversa').errors &&
+                    formsign.get('foto_dni_reversa').touched
                   "
                 >
-                  <mat-error *ngIf="formsign.get('foto2').hasError('required')">
+                  <mat-error
+                    *ngIf="
+                      formsign.get('foto_dni_reversa').hasError('required')
+                    "
+                  >
                     <strong>Ingrese</strong> el frente de su DNI
                   </mat-error>
                 </mat-error>
@@ -584,13 +605,13 @@
 
         <!-- PASO 6 -->
         <div *ngIf="step == 6" class="my-4">
-            <div>
-              <div
-                class="text-center justify-content-center my-4"
-                data-aos="zoom-out"
-              >
+          <div>
+            <div
+              class="text-center justify-content-center my-4"
+              data-aos="zoom-out"
+            >
               <button class="button m-4">
-                  <h2 class="mt-4">
+                <h2 class="mt-4">
                   Te damos la BIENVENIDA <br />a <strong>PIL MONEY</strong
                   ><br />
                 </h2>
@@ -598,47 +619,45 @@
                 <div class="button__vertical"></div>
               </button>
 
-               
-                <div>
-                  <button
-                    type="submit"
-                    class="btn btn-login my-3"
-                    routerLink="/login"
+              <div>
+                <button
+                  type="submit"
+                  class="btn btn-login my-3"
+                  routerLink="/login"
+                >
+                  Iniciar sesión
+                </button>
+              </div>
+              <div>
+                <a class="btn btn-return my-3" routerLink="/home">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
                   >
-                    Iniciar sesión
-                  </button>
-                </div>
-                <div>
-                  <a class="btn btn-return my-3" routerLink="/home">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="16"
-                      height="16"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z" />
-                      <path
-                        d="M12 13v7l-8-8 8-8v7h8v2z"
-                        fill="rgba(255,255,255,1)"
-                      />
-                    </svg>
-                    Volver al Inicio
-                  </a>
-                </div>
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path
+                      d="M12 13v7l-8-8 8-8v7h8v2z"
+                      fill="rgba(255,255,255,1)"
+                    />
+                  </svg>
+                  Volver al Inicio
+                </a>
               </div>
             </div>
+          </div>
         </div>
 
         <div class="d-flex justify-content-center">
           <button
             class="btn btn-sign-h my-3"
-            *ngIf="step >= 2 && step<6"
+            *ngIf="step >= 2 && step < 6"
             (click)="anterior()"
           >
             Anterior
           </button>
           <button
-            type="submit"
             class="btn btn-sign my-3"
             *ngIf="step >= 1 && step < 5"
             (click)="next()"
@@ -655,12 +674,7 @@
               <path d="M12 13H4v-2h8V4l8 8-8 8z" />
             </svg>
           </button>
-          <button
-            type="submit"
-            class="btn btn-sign my-3"
-            *ngIf="step == 5"
-            
-          >
+          <button class="btn btn-sign my-3" *ngIf="step == 5">
             Registrar
             <svg
               xmlns="http://www.w3.org/2000/svg"

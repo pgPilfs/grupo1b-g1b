@@ -15,15 +15,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule, MatSingleDateSelectionModel } from '@angular/material/datepicker';
-import { TransferComponent } from './transfer/transfer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     WalletComponent,
     PesoComponent,
     PerfilComponent,
-    TransferComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +38,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule, 
     MatProgressBarModule,
     MatDatepickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule
+    
   ],
   exports:[WalletComponent, PesoComponent, PerfilComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -14,15 +14,16 @@ import { GoogleMapsModule } from "@angular/google-maps";
 import { MatCardModule } from '@angular/material/card';
 import { MenuModule } from './pages/wallet/menu.module';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { DataDialogComponent } from './pages/wallet/perfil/perfil.component';
 import { ClienteService } from './servicios/cliente.service';
-import { HttpClientModule } from '@angular/common/http';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TransaccionesService } from './servicios/transacciones.service';
+import { JwtHelperService, JwtInterceptor, JWT_OPTIONS } from '@auth0/angular-jwt'
+import { AuthService } from './servicios/auth.service';
+import { ErrorInterceptor } from './servicios/error.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataDialogComponent
   ],
   
   imports: [
@@ -43,8 +44,15 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     HttpClientModule
   ],
-  providers: [ClienteService],
-  entryComponents: [DataDialogComponent],
+  providers: [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    ClienteService,
+    AuthService,
+    JwtHelperService,
+    TransaccionesService
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

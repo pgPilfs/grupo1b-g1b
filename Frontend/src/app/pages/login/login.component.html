@@ -9,7 +9,7 @@
       <form
         class="example-form"
         [formGroup]="loginform"
-        (ngSubmit)="onSubmit()"
+        (ngSubmit)="onSubmit($event, cliente)"
         autocomplete="off"
         novalidate
       >
@@ -26,6 +26,8 @@
               name="email"
               id="email"
               required
+              [(ngModel)]="cliente.email"
+            
             />
             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
             <mat-error
@@ -46,6 +48,7 @@
               formControlName="password"
               [formControl]="password"
               [type]="hide ? 'password' : 'text'"
+              [(ngModel)]="cliente.password"
             />
             <button
               mat-icon-button
@@ -80,7 +83,7 @@
 
         <!-- BOTON -->
         <div class="d-flex justify-content-center">
-          <button class="btn btn-login" routerLink="/menu/wallet">Ingresar</button>
+          <button type="submit" class="btn btn-login">Ingresar</button>
         </div>
       </form>
     </div>

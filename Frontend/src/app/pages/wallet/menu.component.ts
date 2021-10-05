@@ -3,7 +3,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { ViewChild } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
-
+import { AuthService } from 'src/app/servicios/auth.service';
+import { Router } from '@angular/router'  
 
 interface Operation {
   value: string;
@@ -28,7 +29,7 @@ export class MenuComponent implements OnInit {
   ];
 
 
-  constructor(private observer: BreakpointObserver, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
+  constructor(private observer: BreakpointObserver, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private authservice: AuthService,private router: Router) { 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -48,7 +49,10 @@ export class MenuComponent implements OnInit {
       }
     });
   }
-
+  onCerrarSesion(){
+    this.authservice.logOut();
+    this.router.navigate(['/login']);
+  }
   ngOnInit(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
