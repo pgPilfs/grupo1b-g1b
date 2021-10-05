@@ -7,7 +7,6 @@ mat-toolbar {
 
 mat-sidenav {
   width: 200px;
-  height: 100vh;
   border-right: none;
   background: var(--color-bg-secundary);
   color: var(--color-text);
@@ -15,8 +14,8 @@ mat-sidenav {
   text-align: center;
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
+  box-shadow: 0 0 1000px 1000px rgba(0, 0, 0, 0.6) !important;
 }
-
 mat-sidenav-container {
   background: var(--color-bg);
   height: auto;
@@ -30,7 +29,6 @@ mat-option {
   text-align: center;
   color: var(--color-text-secundary);
   font-size: 1rem;
-
 }
 
 mat-divider {
@@ -41,13 +39,13 @@ mat-divider {
 
 mat-icon {
   margin-right: 1rem;
+  font-size: 1.5rem;
 }
 
 mat-sidenav .options {
   text-align: left;
   font-family: "Biryani", sans-serif;
 }
-
 .avatar {
   margin-top: 1rem;
   width: 100px;
@@ -72,20 +70,12 @@ mat-sidenav .options {
   text-align: center;
 }
 
-.designation {
-  margin-top: 2px;
-  font-size: 0.7rem;
-}
-
-.options {
-  font-size: 1rem;
-}
-
 .card:hover {
   transform: scale(1.1);
 }
+
 .example-container {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   position: relative;
   top: 0;
@@ -96,12 +86,43 @@ mat-sidenav .options {
 
 .example-sidenav-container {
   flex: 1;
-} 
+}
 
-.example-is-mobile .example-sidenav-container { 
+.example-is-mobile .example-sidenav-container {
   flex: 1 0 auto;
 }
 
 .example-spacer {
   flex: 1 1 auto;
-} 
+}
+
+.options {
+  font-size: 1rem;
+}
+
+button[mat-raised-button] {
+  background: transparent;
+  box-shadow: none;
+}
+@media (min-width: 768px) {
+  button[mat-raised-button]{
+    width: 100%;
+    text-align: left;
+  }
+}
+@media (min-width: 768px) {
+  button[mat-raised-button] {
+    text-align: left;
+  }
+  .menulist {
+    display: none;
+  }
+  mat-sidenav {
+    height: 100%;
+    position: fixed;
+    max-height: 80vh;
+    top: 50%;
+    transform: translateY(-50%) !important;
+    box-shadow: none !important;
+  }
+}

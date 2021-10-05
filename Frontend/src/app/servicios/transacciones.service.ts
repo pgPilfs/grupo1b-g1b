@@ -10,7 +10,6 @@ export class TransaccionesService {
   url1="https://localhost:44335/api/Cuentas"
   constructor(private http:HttpClient) { }
  
-
   AgregarTransaccion(transacciones:Transacciones):Observable<Transacciones>{
     return this.http.post<Transacciones>(this.url, transacciones);
   }
@@ -28,20 +27,16 @@ export class TransaccionesService {
   getTransacciones(){
     return this.http.get<any>(this.url+'GetTransacciones'.toString());
   }
-  
 
   }
- 
-
   export class Transacciones
   {
     Id_transaccion:number=0;
     Id_tipo:number=0;
     Cuenta_id:number=0;
     Fecha_transaccion:Date;
-    Monto:number=0;
+    Monto:number;
     NumeroTarjeta:string="";
-    NumeroCVV:number=0;
-
+    NumeroCVV:number;
 }
 

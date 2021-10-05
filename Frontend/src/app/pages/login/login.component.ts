@@ -8,7 +8,8 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
-import { ClienteService } from 'src/app/servicios/cliente.service';
+import { Login } from 'src/app/servicios/cliente.service';
+
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,8 @@ export class LoginComponent implements OnInit {
   hide = true;
   loginform: FormGroup;
   [x: string]: any;
+  cliente: Login = new Login();
+  error: string = '';
 
   get email(): AbstractControl {
     return this.loginform.controls['email'];
@@ -31,7 +34,6 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authservice: AuthService,
     private router: Router,
-    private clienteService: ClienteService,
   ) {
     this.loginform = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -43,33 +45,26 @@ export class LoginComponent implements OnInit {
     // this.returnUrl = this.router.snapshot.queryParams.returnUrl || '/';
   }
 
-  onSubmit() {
-  //   this.authservice.login(this.loginform.get("email")?.value, this.loginform.get("password")?.value)
-  //   .subscribe(
-  //     data => {
-  //     this.router.navigate([this.returnUrl]);
-  //   // this.router.navigate(['iniciar-sesion'])
-  // console.log('paso');   
-  // },
-  //     error => {
-  //      this.error = error;
-  //     }
-  //   );
-     if (this.loginform.valid) {
-       this.authservice.login(this.loginform.get("email")?.value, this.loginform.get("password")?.value).subscribe((res: any) => {
-         if(res.success){
-           console.log(res);
-           alert(res.message);
-           localStorage.setItem('token', res.token);
-           this.router.navigate(['/menu/wallet']);
-         }else{
-           alert(res.message);
-         }
-     
-     });
-     }
+  onSubmit(event: Event, cliente: Login) {
+    event.preventDefault(); //Cancela la funcionalidad por default.
+    if (this.loginform.valid) {
+      console.log(cliente);
+      console.log(this.loginform.value); //se puede enviar al servidor...
+      this.authservice.login(cliente).subscribe(
+        (data) => {
+          console.log('DATA' + JSON.stringify(data));
+          //localStorage.setItem('auth-token', JSON.stringify(data));
+
+          this.router.navigate(['menu/wallet']);
+        },
+        (error) => {
+          this.error = error;
+        }
+      );
+    } else {
+      this.form.markAllAsTouched(); //Activa todas las validaciones
+    }
   }
- 
 
   get emailField() {
     return this.loginform.get('email');
@@ -78,6 +73,7 @@ export class LoginComponent implements OnInit {
     return this.loginform.get('password');
   }
 }
+ 
 
 // export class LoginComponent {
 //   hide = true;

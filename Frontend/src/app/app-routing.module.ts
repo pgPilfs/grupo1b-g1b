@@ -12,7 +12,6 @@ import { ProyectComponent } from './pages/proyect/proyect.component';
 import { PerfilComponent } from './pages/wallet/perfil/perfil.component';
 import { PesoComponent } from './pages/wallet/operation/peso/peso.component';
 import { WalletComponent } from './pages/wallet/wallet/wallet.component';
-import { TransferComponent } from './pages/wallet/transfer/transfer.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 
@@ -20,17 +19,15 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signin', component: SigninComponent},
-  {path: 'menu', component: MenuComponent, canActivate: [AuthGuard]},
   {path: 'terms', component: TermsComponent},
   {path: 'developers', component: DevelopersComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'proyect', component: ProyectComponent},
-  {path:'menu', component: MenuComponent,
+  {path:'menu', component: MenuComponent,  canActivate: [AuthGuard], 
   children:[
     {path: 'peso', component: PesoComponent},
     {path: 'wallet', component: WalletComponent},
     {path: 'perfil', component: PerfilComponent},
-    {path: 'transfer', component: TransferComponent},
   ]},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path:'**', component: NotfoundComponent},

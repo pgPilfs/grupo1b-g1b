@@ -17,6 +17,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Cliente, ClienteService } from 'src/app/servicios/cliente.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -36,6 +37,7 @@ export class SigninComponent implements OnInit {
   // cuenta: Cuenta = new Cuenta();
 
   hide = true;
+  hide1 = true;
   step: any = 1;
 
   formsign: FormGroup;
@@ -166,7 +168,11 @@ export class SigninComponent implements OnInit {
       cpassword: ['', [Validators.required]],
       cpostal: [
         '',
-        [Validators.required, Validators.pattern(this.pattAddress)],
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(16),
+        ],
       ],
       nombre_provincia: ['', [Validators.required]],
       nombre_ciudad: ['', [Validators.required]],
@@ -176,7 +182,11 @@ export class SigninComponent implements OnInit {
       ],
       pisodpto: [
         '',
-        [Validators.required, Validators.pattern(this.pattAddress)],
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(16),
+        ],
       ],
       cuil: [
         '',
@@ -199,7 +209,6 @@ export class SigninComponent implements OnInit {
       foto_dni_reversa: ['', [Validators.required]],
     });
   }
-
   ngAfterContentChecked() {
     this.cdref.detectChanges();
   }
@@ -235,9 +244,11 @@ export class SigninComponent implements OnInit {
           //  this.clienteService.onAddClienteCuenta(cuenta).subscribe( data2 =>{
           //   console.log(data2);
           //  })
-          alert(
-            'El registro ha sido creado satisfactoriamente. A continuación, por favor Inicie Sesión.'
-          );
+          Swal.fire(
+            'El registro ha sido creado exitosamente. 🎉',
+            'A continuación, por favor Inicie Sesión.',
+            'success'
+          )
           this.router.navigate(['login']);
         }
       });

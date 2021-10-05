@@ -68,5 +68,10 @@ export class ClienteService {
   cliente_id:number=0;
   estado:number=0;
  }
+ export class  Login {
+  email:string="";
+  password:string="";
+  Token?: string;
+}
 
 

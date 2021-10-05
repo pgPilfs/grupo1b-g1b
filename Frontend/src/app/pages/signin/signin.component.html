@@ -118,17 +118,16 @@
                   formControlName="password"
                   placeholder="Ingrese una contraseña"
                   [(ngModel)]="cliente.password"
+                  [type]="hide1 ? 'password' : 'text'"
                 />
                 <button
                   mat-icon-button
                   matSuffix
-                  (click)="hide = !hide"
+                  (click)="hide1 = !hide1"
                   [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hide"
+                  [attr.aria-pressed]="hide1"
                 >
-                  <mat-icon>{{
-                    hide ? "visibility_off" : "visibility"
-                  }}</mat-icon>
+                <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
                 <mat-error
                   *ngIf="

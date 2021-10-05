@@ -42,20 +42,42 @@ namespace WebApplication1.Controllers
         public IHttpActionResult Authenticate(Login login)
         {
 
+          
             if (login == null)
             {
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
-            //TODO: This code is only for demo - extract method in new class & validate
-            var isUserValid = (login.Email == "juan@juan.com" && login.Password == "juancho12");
-            if (isUserValid)
+            string conectar = ConfigurationManager.ConnectionStrings["BDLocal"].ConnectionString;
+            SqlConnection sqlConectar = new SqlConnection(conectar);
+            SqlCommand cmd = new SqlCommand("SP_ValidarCliente", sqlConectar)
             {
-
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Connection.Open();
+            cmd.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = login.Email;
+            cmd.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = login.Password;
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
                 var token = TokenGenerator.GenerateTokenJwt(login.Email);
-                return Ok(token);
+                login.Token = token;
+                return Ok(login);
             }
-            // Unauthorized access
-            return Unauthorized();
+            else
+            {
+                return Unauthorized();
+            }
+
+            //TODO: This code is only for demo - extract method in new class & validate
+            //var isUserValid = (login.Email == "juan@juan.com" && login.Password == "juancho12");
+            //if (isUserValid)
+            //{
+
+            //    var token = TokenGenerator.GenerateTokenJwt(login.Email);
+            //    return Ok(token);
+            //}
+            //// Unauthorized access
+            //return Unauthorized();
         }
 
     }
