@@ -22,7 +22,7 @@ import {
   MatDialogConfig,
 } from '@angular/material/dialog';
 import { ErrorStateMatcher } from '@angular/material/core';
-// import { Cliente, ClienteService } from 'src/app/servicios/cliente.service';
+import { Cliente, ClienteService } from 'src/app/servicios/cliente.service';
 
 // import { PerfilService } from 'src/app/servicios/perfil.service';
 import Swal from 'sweetalert2';
@@ -50,7 +50,8 @@ export class PerfilComponent implements OnInit {
   hide = true;
   hide1 = true;
   editForm: FormGroup;
-
+  //public cliente: Cliente = new Cliente();
+  perfil: any;
   onPasswordChange() {
     if (this.cpassword.value == this.password.value) {
       this.cpassword.setErrors(null);
@@ -81,8 +82,8 @@ export class PerfilComponent implements OnInit {
   private pattPass: any = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])([^\s]){8,16}$/;
   private pattNumbers: any = /^[0-9]{7,}$/;
   private pattTel: any = /^[0-9]{10,10}$/;
-  CuentaLista: any[];
-  constructor(private formBuilder: FormBuilder) {
+  
+  constructor(private formBuilder: FormBuilder, private clienteService: ClienteService) {
     this.editForm = this.formBuilder.group({
       tel: [
         '',
@@ -122,8 +123,15 @@ export class PerfilComponent implements OnInit {
       cpassword: ['', [Validators.required]],
     });
   }
+  id: number = 1;
+  ngOnInit():void {
+    this.loadCliente(this.id);
+    //this.clienteService.getClienteById(this.id).subscribe((resp) => {console.log(resp);this.cliente = resp;});
+  }
 
-  ngOnInit() {}
+  
+
+
   get aliasField() {
     return this.editForm.get('alias');
   }
@@ -142,15 +150,15 @@ export class PerfilComponent implements OnInit {
   onSubmit() {
     const body = this.editForm.value;
   }
-  // loadCuenta(){
-  //   this.perfilService.getCuentas().subscribe(data  => {
-  //     console.log(data)
-  //     this.CuentaLista = data;
-      
-  // });
-  // }
-}
 
+  loadCliente(id){
+    this.clienteService.getClienteById(id).subscribe(data  => {
+        console.log(data)
+        this.perfil = data;
+    }
+    )
+  }
+}
 export function createPasswordStrengthValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const value = control.value;

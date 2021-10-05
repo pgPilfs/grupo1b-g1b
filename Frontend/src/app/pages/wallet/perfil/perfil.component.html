@@ -15,36 +15,36 @@
         </div>
       </mat-card-header>
 
-      <form [formGroup]="editForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()" autocomplete="off" *ngFor="let cliente of perfil">
         <div class="row m-2">
           <div class="form-group col-6">
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Nombre</mat-label>
-              <input matInput disabled value="Nombre" />
+              <input matInput disabled [value]="cliente.nombre" />
             </mat-form-field>
           </div>
           <div class="form-group col-6">
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Apellido</mat-label>
-              <input matInput disabled value="Apellido" />
+              <input matInput disabled [value]="cliente.apellido" />
             </mat-form-field>
           </div>
           <div class="form-group col-6">
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Fecha de Nacimiento</mat-label>
-              <input matInput disabled value="11/02/2000" />
+              <input matInput disabled [value]="cliente.fecnac" />
             </mat-form-field>
           </div>
           <div class="form-group col-6">
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>CUIL</mat-label>
-              <input matInput disabled value="CUIL" />
+              <input matInput disabled [value]="cliente.cuil" />
             </mat-form-field>
           </div>
           <div class="form-group col-6">
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Domicilio</mat-label>
-              <input matInput disabled value="Domicilio" />
+              <input matInput disabled [value]="cliente.domicilio" />
             </mat-form-field>
           </div>
 
@@ -56,7 +56,7 @@
                 [formControl]="tel"
                 formControlName="tel"
                 matInput
-                value="555-555-1234"
+                [(ngModel)]="cliente.telefono"
               />
               <mat-icon matSuffix>mode_edit</mat-icon>
               <mat-error
@@ -79,7 +79,7 @@
                 [formControl]="alias"
                 formControlName="alias"
                 matInput
-                value="NOMBRE-ALIAS"
+                [(ngModel)]="cliente.alias"
               />
               <mat-icon matSuffix>mode_edit</mat-icon>
               <mat-hint>El campo es modificable</mat-hint>
@@ -100,12 +100,12 @@
               <mat-label>Email</mat-label>
               <input
                 matInput
+                [(ngModel)]="cliente.email"
                 [formControl]="email"
                 formControlName="email"
                 type="email"
                 name="email"
                 id="email"
-                value="user@pilmoney.com"
               />
               <mat-icon matSuffix>mode_edit</mat-icon>
               <mat-hint>El campo es <strong>modificable</strong></mat-hint
@@ -135,19 +135,8 @@
                 [formControl]="password"
                 formControlName="password"
                 [type]="hide ? 'password' : 'text'"
-                value="password"
+                [(ngModel)]="cliente.password"
               />
-              <button
-                mat-icon-button
-                matSuffix
-                (click)="hide = !hide"
-                [attr.aria-label]="'Hide password'"
-                [attr.aria-pressed]="hide"
-              >
-                <mat-icon>{{
-                  hide ? "visibility_off" : "visibility"
-                }}</mat-icon>
-              </button>
               <mat-hint>El campo es <strong>modificable</strong></mat-hint
               ><br />
               <mat-error

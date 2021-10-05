@@ -17,6 +17,10 @@ export class ClienteService {
     return this.http.get<any>(this.APIUrl+'/cliente');
   }
 
+  getClienteById(id:number):Observable<Cliente>{
+    return this.http.get<Cliente>(this.url+id);
+  }
+
   onAddCliente(cliente:Cliente):Observable<Cliente>{
     return this.http.post<Cliente>(this.url, cliente);
   }

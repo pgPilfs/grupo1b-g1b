@@ -42,6 +42,8 @@ namespace WebApplication1.Controllers
         {
             string query = @"
                         select * from dbo.Clientes
+                        INNER JOIN dbo.Cuenta
+                        ON dbo.Clientes.id_cliente = dbo.Cuenta.cliente_id
                         where id_cliente=" + id + @"
                         ";
             DataTable table = new DataTable();
