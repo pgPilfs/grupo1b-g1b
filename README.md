@@ -5,10 +5,8 @@
 ### INTEGRANTES:
 
 - Juncos, Lautaro.
-- Navoni, Mauricio.
 - Otero, Juan.
 - Rinaudo, Eleana.
-- Vazquez, Ignacio.
 - Visintini, Juan.
 
 
