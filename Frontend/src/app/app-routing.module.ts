@@ -11,9 +11,9 @@ import { DevelopersComponent } from './pages/developers/developers.component';
 import { ProyectComponent } from './pages/proyect/proyect.component';
 import { PerfilComponent } from './pages/wallet/perfil/perfil.component';
 import { PesoComponent } from './pages/wallet/operation/peso/peso.component';
-import { WalletComponent } from './pages/wallet/wallet/wallet.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
+import { WalletComponent } from './pages/wallet/wallet/wallet.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},

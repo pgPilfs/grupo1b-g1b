@@ -6,7 +6,8 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  Validators
+  Validators,
+  EmailValidator
 } from '@angular/forms';
 
 import { Transacciones, TransaccionesService } from 'src/app/servicios/transacciones.service';
@@ -39,9 +40,11 @@ export class PesoComponent implements OnInit {
   operacion: string = "Ingresar";
   
   CuentaLista: any[];
+  CuentaListaCvu: any[];
   TipoTransaccionesLista: any[];
   TransaccionesLista: any[];
 
+  pepito=[];
 
   get cardNumber(): AbstractControl {
     return this.operacionForm.controls['cardNumber'];
@@ -61,7 +64,6 @@ export class PesoComponent implements OnInit {
   get monto(): AbstractControl {
     return this.operacionForm.controls['monto'];
   }
-
 
   private pattNumbers: any = /^[0-9]{7,}$/;
   private pattCVV: any = /^[0-9]{3,}$/;
@@ -102,17 +104,38 @@ export class PesoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadCuenta();
+    
     this.loadTipoTransacciones();
-    this.loadTransacciones();
+  
+    let variable = JSON.parse(localStorage.getItem('identity'));
+    let email = variable.Email;
+    console.log(email);
+    this.loadTransacciones(email);
+    this.loadCuenta(email);
+    this.loadCuentaCvu();
+    
   };
 
 
-  loadCuenta() {
-    this.transaccionesService.getCuentas().subscribe(data => {
+  loadCuenta(email) {
+    this.transaccionesService.getCuentas(email).subscribe(data => {
       console.log(data)
       this.CuentaLista = data;
+    });
+  }
+  MostrarCvu(){
+    this.transaccionesService.getCuentasCvu().subscribe(data => {
+      console.log(data)
+      this.CuentaListaCvu = data;
+      this.pepito = this.CuentaListaCvu = data;   
+    });
+    
+  }
 
+  loadCuentaCvu() {
+    this.transaccionesService.getCuentasCvu().subscribe(data => {
+      console.log(data)
+      this.CuentaListaCvu = data;
     });
   }
 
@@ -123,15 +146,15 @@ export class PesoComponent implements OnInit {
 
     });
   }
-  loadTransacciones() {
-    this.transaccionesService.getTransacciones().subscribe(data => {
+  loadTransacciones(email) {
+    this.transaccionesService.getTransacciones(email).subscribe(data => {
       console.log(data)
       this.TransaccionesLista = data;
 
     });
   }
-  cargarTransacciones() {
-    this.loadTransacciones();
+  cargarTransacciones(email) {
+    this.loadTransacciones(email);
   }
   onEnviar(event: Event, transacciones: Transacciones): void {
     event.preventDefault;
@@ -146,7 +169,7 @@ export class PesoComponent implements OnInit {
               'success'
             )
           }
-          this.loadTransacciones();
+         //this.loadTransacciones();
           console.log(data);
         })
       console.log(this.operacionForm.value);

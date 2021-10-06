@@ -15,6 +15,7 @@
           <mat-form-field class="col-lg-12 example-full-width" appearance="standard" >
             <mat-label>Tipo de Transacción</mat-label>
             <mat-select
+              (change)="MostrarCvu()"
               matNativeControl
               [(ngModel)]="transacciones.Id_tipo"
               [formControl]="descripcion"
@@ -24,8 +25,11 @@
               required
             >
               <mat-option 
+               
                 *ngFor="let tipoTransaccion of TipoTransaccionesLista"
                 [value]="tipoTransaccion.id_tipo_transaccion"
+
+                
               >
                 {{ tipoTransaccion.descripcion }}
               </mat-option>
@@ -46,6 +50,7 @@
           <mat-form-field class="col-lg-12 example-full-width" appearance="standard">
             <mat-label>CVU</mat-label>
             <mat-select
+              
               matNativeControl
               [(ngModel)]="transacciones.Cuenta_id"
               [formControl]="cvu"
@@ -53,10 +58,11 @@
               ngDefaultControl
               name="cvu"
               required
+             
             >
-              <mat-option 
+              <mat-option                 
                 *ngFor="let cuenta of CuentaLista"
-                [value]="cuenta.id_cuenta"
+                [value]="cuenta.id_cuenta"                
               >
                 {{ cuenta.cvu }}
               </mat-option>
@@ -164,7 +170,7 @@
               </mat-error>
             </mat-form-field>
             <div class="form-group" >
-              <button (click)="cargarTransacciones()" type="submit" class="btn button btn-block">
+              <button  type="submit" class="btn button btn-block">
                  Confirmar
               </button>
             </div>
@@ -176,7 +182,7 @@
 </section>
 
 <section>
-<mat-card class="mx-2" >
+<mat-card >
   <h3 class="my-4">Movimientos</h3>
   <table mat-table [dataSource]="TransaccionesLista" class="mat-elevation-z8">
     <!-- Cuenta  -->

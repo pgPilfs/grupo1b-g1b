@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { EmailValidator } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,8 @@ import { Observable } from 'rxjs';
 export class TransaccionesService {
   url="https://localhost:44335/api/Transaccion/"
   url1="https://localhost:44335/api/Cuentas"
+  url_email1="https://localhost:44335/api/Transaccion/GetTransacciones?email="
+  url_email2="https://localhost:44335/api/Transaccion/GetCuentas?email="
   constructor(private http:HttpClient) { }
  
   AgregarTransaccion(transacciones:Transacciones):Observable<Transacciones>{
@@ -17,15 +20,18 @@ export class TransaccionesService {
   // getCuentas(){
   //   return this.http.get<any>(this.url+'GetCuentas'.toString());
   // }
-  getCuentas(){
-    return this.http.get<any>(this.url+'GetCuentas'.toString());  
+  getCuentas(email: String){
+    return this.http.get<any>(this.url_email2+email);  
+  }
+  getCuentasCvu(){
+    return this.http.get<any>(this.url+'GetCuentasCvu'.toString());
   }
   
   getTipoTransacciones(){
     return this.http.get<any>(this.url+'GetTipoTransacciones'.toString());
   }
-  getTransacciones(){
-    return this.http.get<any>(this.url+'GetTransacciones'.toString());
+  getTransacciones(email: String){
+    return this.http.get<any>(this.url_email1+email);
   }
 
   }
@@ -38,5 +44,5 @@ export class TransaccionesService {
     Monto:number;
     NumeroTarjeta:string="";
     NumeroCVV:number;
-}
+ }
 

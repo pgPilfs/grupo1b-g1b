@@ -15,15 +15,19 @@
         <li></li>
       </ul>
     </div>
+    <div >
     <button class="button my-4">
-      <h3 class="m-4">
-        ¡ Hola NAME ! <br />Te damos la BIENVENIDA a tu
+   
+      <h3 class="m-4"  *ngFor="let cliente of ClienteLista">
+        ¡ Hola  {{cliente.nombre}}!   
+         <br />Te damos la BIENVENIDA a tu
         <strong>PIL MONEY</strong><br />
       </h3>
       <div class="button__horizontal"></div>
       <div class="button__vertical"></div>
     </button>
 
+  </div>
     <div class="row">
       <!--     <mat-card class="example-card text-center card2 p-4">
           <mat-card-title-group>
@@ -36,10 +40,10 @@
       </div> -->
       <!-- PESOS -->
       <div class="col-lg-12">
-        <mat-card class="example-card card1 p-4">
+        <mat-card *ngFor="let cliente of ClienteLista" class="example-card card1 p-4">
 
           <mat-card-title class="text-uppercase title mt-4 ">Tu Saldo actual es de </mat-card-title>
-          <mat-card-subtitle class="h1 font-weight-bold ">$ 4000</mat-card-subtitle>
+          <mat-card-subtitle  class="h1 font-weight-bold ">$ {{cliente.saldo}}</mat-card-subtitle>
         </mat-card>
       </div>
     </div>

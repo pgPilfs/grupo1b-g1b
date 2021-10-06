@@ -48,7 +48,7 @@ export class ClienteService {
 
  export class Cliente
  {
-  id_cliente:number=0;
+  id_cliente:number;
   nombre:string="";
   apellido:string="";
   fecnac:string="";

@@ -1,4 +1,5 @@
 import {Component, ChangeDetectorRef, OnInit} from '@angular/core';
+import { Cliente, ClienteService } from 'src/app/servicios/cliente.service';
 import { Transacciones, TransaccionesService } from 'src/app/servicios/transacciones.service';
 export interface Movimiento {
   cuenta: string;
@@ -24,16 +25,25 @@ export class WalletComponent implements OnInit {
   CuentaLista: any[];
   TipoTransaccionesLista: any[];
   TransaccionesLista: any[];
+  ClienteLista: any[];
+  ClienteLista1: any[];
+  cliente: Cliente = new Cliente();
+  
 
-  constructor( private transaccionesService: TransaccionesService, private cdref: ChangeDetectorRef) {}
+  constructor( private transaccionesService: TransaccionesService, private cdref: ChangeDetectorRef, private clienteService: ClienteService) {}
   ngOnInit(): void {
-    this.loadCuenta();
+    
     this.loadTipoTransacciones();
-    this.loadTransacciones();
+    let variable = JSON.parse(localStorage.getItem('identity'));
+    let email = variable.Email;
+    console.log(email);
+    this.loadTransacciones(email);
+    this.loadCuenta(email);
+    this.loadCliente();
   };
 
-  loadCuenta() {
-    this.transaccionesService.getCuentas().subscribe(data => {
+  loadCuenta(email) {
+    this.transaccionesService.getCuentas(email).subscribe(data => {
       console.log(data)
       this.CuentaLista = data;
 
@@ -47,16 +57,31 @@ export class WalletComponent implements OnInit {
 
     });
   }
-  loadTransacciones() {
-    this.transaccionesService.getTransacciones().subscribe(data => {
+  loadTransacciones(email) {
+    this.transaccionesService.getTransacciones(email).subscribe(data => {
       console.log(data)
       this.TransaccionesLista = data;
 
     });
   }
-  cargarTransacciones() {
-    this.loadTransacciones();
+  loadCliente() {
+    this.clienteService.getClienteList().subscribe(data => {
+      console.log(data)
+      this.ClienteLista1 = data;
+
+    });
   }
+  // loadClienteId(){
+  //   const id = this.cliente.id_cliente;
+  //   this.clienteService.getClienteById(id).subscribe(data => {
+  //     console.log(this.cliente.id_cliente);
+  //     console.log(data);
+  //     this.ClienteLista = data;
+  //     })
+  // }
+  // cargarTransacciones() {
+  //   this.loadTransacciones(email);
+  // }
 
   ngAfterContentChecked(): void {
 
