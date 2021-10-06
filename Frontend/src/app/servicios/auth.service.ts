@@ -82,11 +82,11 @@ export class AuthService {
   //   console.log("I am server");
   //   return this.http.post(`${baseUrl}login/authenticate`, data);
   // }
-  // isAuth():boolean{
-  //   const token = localStorage.getItem('token');
-  //   if(this.jwtHelper.isTokenExpired(token) || !localStorage.getItem('token')){
-  //     return false;
-  //   }
-  //   return true;
-  // }
+  isAuth():boolean{
+    const token = localStorage.getItem('auth-token');
+    if(this.jwtHelper.isTokenExpired(token) || !localStorage.getItem('auth-token')){
+      return false;
+    }
+    return true;
+  }
 }

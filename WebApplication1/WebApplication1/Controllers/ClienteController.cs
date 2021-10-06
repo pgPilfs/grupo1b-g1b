@@ -37,15 +37,13 @@ namespace WebApplication1.Controllers
 
         //GET: api/Cliente/5
         //METODO HTTP GET PARA TRAER LOS CLIENTES POR ID DE LA DB
-
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(string email)
         {
-            string query = @"
-                        select * from dbo.Clientes
-                        INNER JOIN dbo.Cuenta
-                        ON dbo.Clientes.id_cliente = dbo.Cuenta.cliente_id
-                        where id_cliente=" + id + @"
-                        ";
+            string query = @"select * from dbo.Clientes 
+                            INNER JOIN dbo.Cuenta
+                            ON dbo.Clientes.id_cliente = dbo.Cuenta.cliente_id
+                            where email like '" + email + @"' 
+                            ";
             DataTable table = new DataTable();
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["BDLocal"].ConnectionString))
             using (var cmd = new SqlCommand(query, con))
@@ -103,7 +101,6 @@ namespace WebApplication1.Controllers
 
         // PUT: api/Cliente/5
         //METODO HTTP PUT PARA UPDATEAR CLIENTES EN LA DB
-
         public string Put(Cliente cli)
         {
             try

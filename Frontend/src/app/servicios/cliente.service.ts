@@ -10,15 +10,15 @@ export class ClienteService {
   readonly APIUrl="https:localhost:44335/api";
   readonly DniUrl="https:localhost:44335/Dni";
   url="https://localhost:44335/api/cliente/";
-
+  url_email="https://localhost:44335/api/Cliente?email=";
   constructor(private http: HttpClient) { }
   
   getClienteList():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/cliente');
   }
 
-  getClienteById(id:number):Observable<Cliente>{
-    return this.http.get<Cliente>(this.url+id);
+  getClienteById(email:String):Observable<Cliente>{
+    return this.http.get<Cliente>(this.url_email+email);
   }
 
   onAddCliente(cliente:Cliente):Observable<Cliente>{
@@ -48,7 +48,7 @@ export class ClienteService {
 
  export class Cliente
  {
-  id_cliente:number=0;
+  id_cliente:number;
   nombre:string="";
   apellido:string="";
   fecnac:string="";

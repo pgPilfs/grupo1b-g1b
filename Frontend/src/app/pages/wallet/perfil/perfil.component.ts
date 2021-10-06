@@ -123,14 +123,14 @@ export class PerfilComponent implements OnInit {
       cpassword: ['', [Validators.required]],
     });
   }
-  id: number = 1;
-  ngOnInit():void {
-    this.loadCliente(this.id);
-    //this.clienteService.getClienteById(this.id).subscribe((resp) => {console.log(resp);this.cliente = resp;});
-  }
-
   
-
+  ngOnInit():void {
+    
+    let variable = JSON.parse(localStorage.getItem('identity'));
+    let email = variable.Email;
+    console.log(email);
+    this.loadCliente(email);
+  }
 
   get aliasField() {
     return this.editForm.get('alias');
@@ -151,13 +151,20 @@ export class PerfilComponent implements OnInit {
     const body = this.editForm.value;
   }
 
-  loadCliente(id){
-    this.clienteService.getClienteById(id).subscribe(data  => {
+  loadCliente(email){
+    this.clienteService.getClienteById(email).subscribe(data  => {
         console.log(data)
         this.perfil = data;
     }
     )
   }
+  /*
+  putCliente(id){
+    this.clienteService.putCliente(id).subscribe(data  => {
+      console.log(data)
+      this.perfil = data;
+  })
+  }*/
 }
 export function createPasswordStrengthValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
