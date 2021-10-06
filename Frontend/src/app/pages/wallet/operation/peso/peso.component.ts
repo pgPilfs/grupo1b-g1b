@@ -43,8 +43,7 @@ export class PesoComponent implements OnInit {
   CuentaListaCvu: any[];
   TipoTransaccionesLista: any[];
   TransaccionesLista: any[];
-
-  pepito=[];
+  email: String;
 
   get cardNumber(): AbstractControl {
     return this.operacionForm.controls['cardNumber'];
@@ -64,7 +63,9 @@ export class PesoComponent implements OnInit {
   get monto(): AbstractControl {
     return this.operacionForm.controls['monto'];
   }
-
+  get cvu1(): AbstractControl {
+    return this.operacionForm.controls['cvu1'];
+  }
   private pattNumbers: any = /^[0-9]{7,}$/;
   private pattCVV: any = /^[0-9]{3,}$/;
   constructor(private formBuilder: FormBuilder, private transaccionesService: TransaccionesService, private cdref: ChangeDetectorRef) {
@@ -108,14 +109,13 @@ export class PesoComponent implements OnInit {
     this.loadTipoTransacciones();
   
     let variable = JSON.parse(localStorage.getItem('identity'));
-    let email = variable.Email;
-    console.log(email);
-    this.loadTransacciones(email);
-    this.loadCuenta(email);
+    this.email = variable.Email;
+    console.log(this.email);
+    this.loadTransacciones(this.email);
+    this.loadCuenta(this.email);
     this.loadCuentaCvu();
     
   };
-
 
   loadCuenta(email) {
     this.transaccionesService.getCuentas(email).subscribe(data => {
@@ -123,15 +123,7 @@ export class PesoComponent implements OnInit {
       this.CuentaLista = data;
     });
   }
-  MostrarCvu(){
-    this.transaccionesService.getCuentasCvu().subscribe(data => {
-      console.log(data)
-      this.CuentaListaCvu = data;
-      this.pepito = this.CuentaListaCvu = data;   
-    });
-    
-  }
-
+  
   loadCuentaCvu() {
     this.transaccionesService.getCuentasCvu().subscribe(data => {
       console.log(data)
@@ -153,8 +145,8 @@ export class PesoComponent implements OnInit {
 
     });
   }
-  cargarTransacciones(email) {
-    this.loadTransacciones(email);
+  cargarTransacciones() {
+    this.loadTransacciones(this.email);
   }
   onEnviar(event: Event, transacciones: Transacciones): void {
     event.preventDefault;
@@ -169,7 +161,7 @@ export class PesoComponent implements OnInit {
               'success'
             )
           }
-         //this.loadTransacciones();
+         this.loadTransacciones(this.email);
           console.log(data);
         })
       console.log(this.operacionForm.value);
@@ -196,6 +188,9 @@ export class PesoComponent implements OnInit {
   }
   get cvuField() {
     return this.operacionForm.get('cvu');
+  }
+  get cvu1Field() {
+    return this.operacionForm.get('cvu1');
   }
 
 }

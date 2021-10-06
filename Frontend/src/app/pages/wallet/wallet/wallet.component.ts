@@ -39,14 +39,14 @@ export class WalletComponent implements OnInit {
     console.log(email);
     this.loadTransacciones(email);
     this.loadCuenta(email);
-    this.loadCliente();
+    this.loadClienteId(email);
+    //this.loadCliente();
   };
 
   loadCuenta(email) {
     this.transaccionesService.getCuentas(email).subscribe(data => {
       console.log(data)
       this.CuentaLista = data;
-
     });
   }
 
@@ -64,21 +64,20 @@ export class WalletComponent implements OnInit {
 
     });
   }
-  loadCliente() {
-    this.clienteService.getClienteList().subscribe(data => {
-      console.log(data)
-      this.ClienteLista1 = data;
+  // loadCliente() {
+  //   this.clienteService.getClienteList().subscribe(data => {
+  //     console.log(data)
+  //     this.ClienteLista1 = data;
 
-    });
+  //   });
+  //}
+  loadClienteId(email){
+    this.clienteService.getClienteById(email).subscribe(data => {
+      console.log(this.cliente.id_cliente);
+      console.log(data);
+      this.ClienteLista = data;
+      })
   }
-  // loadClienteId(){
-  //   const id = this.cliente.id_cliente;
-  //   this.clienteService.getClienteById(id).subscribe(data => {
-  //     console.log(this.cliente.id_cliente);
-  //     console.log(data);
-  //     this.ClienteLista = data;
-  //     })
-  // }
   // cargarTransacciones() {
   //   this.loadTransacciones(email);
   // }

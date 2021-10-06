@@ -10,7 +10,7 @@
             src="../../../../assets/avatars/default.png"
             alt="Foto Perfil"
           />
-          <mat-card-title class="my-4">User Name</mat-card-title>
+          <mat-card-title class="my-4" *ngFor="let cliente of perfil">{{cliente.nombre}} {{cliente.apellido}}</mat-card-title>
           <mat-divider></mat-divider>
         </div>
       </mat-card-header>
