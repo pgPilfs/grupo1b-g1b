@@ -21,6 +21,7 @@ import {
   MAT_DIALOG_DATA,
   MatDialogConfig,
 } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Cliente, ClienteService } from 'src/app/servicios/cliente.service';
 
@@ -49,10 +50,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class PerfilComponent implements OnInit {
   hide = true;
   hide1 = true;
+  emailModificar: String;
   editForm: FormGroup;
   //public cliente: Cliente = new Cliente();
   perfil: any;
-  router: any;
   onPasswordChange() {
     if (this.cpassword.value == this.password.value) {
       this.cpassword.setErrors(null);
@@ -60,15 +61,18 @@ export class PerfilComponent implements OnInit {
       this.cpassword.setErrors({ mismatch: true });
     }
   }
-
+/*
   get alias(): AbstractControl {
     return this.editForm.controls['alias'];
-  }
+  }*/
   get tel(): AbstractControl {
     return this.editForm.controls['tel'];
   }
   get email(): AbstractControl {
     return this.editForm.controls['email'];
+  }
+  get email2(): AbstractControl {
+    return this.editForm.controls['email2'];
   }
   get password(): AbstractControl {
     return this.editForm.controls['password'];
@@ -84,7 +88,7 @@ export class PerfilComponent implements OnInit {
   private pattNumbers: any = /^[0-9]{7,}$/;
   private pattTel: any = /^[0-9]{10,10}$/;
   
-  constructor(private formBuilder: FormBuilder, private clienteService: ClienteService) {
+  constructor(private formBuilder: FormBuilder, private clienteService: ClienteService, private router: Router) {
     this.editForm = this.formBuilder.group({
       tel: [
         '',
@@ -94,6 +98,7 @@ export class PerfilComponent implements OnInit {
           Validators.minLength(8),
         ],
       ],
+      /*
       alias: [
         '',
         [
@@ -102,7 +107,7 @@ export class PerfilComponent implements OnInit {
           Validators.required,
           Validators.pattern(this.pattLetters),
         ],
-      ],
+      ],*/
       password: [
         '',
         [
@@ -148,19 +153,20 @@ export class PerfilComponent implements OnInit {
     return this.editForm.get('cpassword');
   }
 
-onSubmit(event: Event, email: String) {
+onSubmit(event: Event,cliente: Cliente) {
   event.preventDefault();
   if (this.editForm.valid) {
-      this.clienteService.putCliente(email).subscribe(data  => {
+      this.clienteService.putCliente(cliente, this.emailModificar).subscribe(data  => {
       console.log(data);
       this.perfil = data;
-        
-        Swal.fire(
-          'Se ha sido actualizado exitosamente. 🎉',
-          '',
-          'success'
-        )
-        //this.router.navigate(['menu/wallet']);
+      Swal.fire({
+        icon: 'success',
+        title: 'Se editó su perfil',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(() => {
+        this.router.navigate(['login']);
+      })
     });
   } else {
     this.editForm.markAllAsTouched();
@@ -171,6 +177,7 @@ loadCliente(email){
     this.clienteService.getClienteById(email).subscribe(data  => {
         console.log(data)
         this.perfil = data;
+        this.emailModificar = data[0].email;
     })
   }
 

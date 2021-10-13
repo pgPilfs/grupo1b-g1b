@@ -27,8 +27,8 @@ export class ClienteService {
     return this.http.post<Cliente>(this.url, cliente);
   }
   
-  putCliente(email: String):Observable<Cliente>{
-    return this.http.put<Cliente>(this.urlUpdate, email);
+  putCliente(cliente: Cliente, email: String):Observable<Cliente>{
+    return this.http.put<Cliente>(this.urlUpdate+email,cliente);
   }
 
   deleteCliente(val:any){
