@@ -16,7 +16,7 @@
       fixedTopGap="56">
       <img class="avatar mat-elevation-z8" src="../../../assets/avatars/default.png" />
 
-      <h4 class="name my-4">User Name</h4>
+      <h4 class="name my-4" *ngFor="let cliente of perfil">{{cliente.nombre}}</h4>
       <mat-divider></mat-divider>
       <div class="options">
         <button mat-raised-button routerLink="/menu/wallet" class="example-icon" aria-label="Icono Billetera">

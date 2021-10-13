@@ -36,7 +36,7 @@ export class WalletComponent implements OnInit {
     this.loadTipoTransacciones();
     let variable = JSON.parse(localStorage.getItem('identity'));
     let email = variable.Email;
-    console.log(email);
+  //  console.log(email);
     this.loadTransacciones(email);
     this.loadCuenta(email);
     this.loadClienteId(email);
@@ -45,21 +45,21 @@ export class WalletComponent implements OnInit {
 
   loadCuenta(email) {
     this.transaccionesService.getCuentas(email).subscribe(data => {
-      console.log(data)
+     // console.log(data)
       this.CuentaLista = data;
     });
   }
 
   loadTipoTransacciones() {
     this.transaccionesService.getTipoTransacciones().subscribe(data => {
-      console.log(data);
+     // console.log(data);
       this.TipoTransaccionesLista = data;
 
     });
   }
   loadTransacciones(email) {
     this.transaccionesService.getTransacciones(email).subscribe(data => {
-      console.log(data)
+    //  console.log(data)
       this.TransaccionesLista = data;
 
     });
@@ -73,8 +73,8 @@ export class WalletComponent implements OnInit {
   //}
   loadClienteId(email){
     this.clienteService.getClienteById(email).subscribe(data => {
-      console.log(this.cliente.id_cliente);
-      console.log(data);
+     // console.log(this.cliente.id_cliente);
+     // console.log(data);
       this.ClienteLista = data;
       })
   }

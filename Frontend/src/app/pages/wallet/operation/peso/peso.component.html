@@ -23,6 +23,7 @@
               ngDefaultControl
               name="descripcion"
               required
+              (ngModelChange)="dataChanged($event)"
             >
               <mat-option 
                
@@ -79,23 +80,27 @@
               >
             </mat-error> 
           </mat-form-field> 
-          <mat-form-field class="col-lg-12 example-full-width" appearance="standard">
+          <mat-form-field class="col-lg-12 example-full-width" appearance="standard" >
             <mat-label>CVU1</mat-label>
             <mat-select
-              
               matNativeControl
               [(ngModel)]="transacciones.Cvu"
               [formControl]="cvu1"
               formControlName="cvu1"
               ngDefaultControl
               name="cvu1"
-                         
             >
-              <mat-option                 
+              <!-- <mat-option                 
                 *ngFor="let cuenta of CuentaLista"
-                [value]="cuenta.cvu"                
+                [value]="cuenta.id_cuenta"  
+                aria-selected="true"              
               >
                 {{ cuenta.cvu }}
+              </mat-option> -->
+              <mat-option
+               [value]="CuentaLista"
+              >
+                {{CuentaLista}}
               </mat-option>
             </mat-select>
           </mat-form-field> 
@@ -220,7 +225,7 @@
       <th mat-header-cell *matHeaderCellDef class="text-center text-uppercase">
         Tipo de Transacción
       </th>
-      <td mat-cell *matCellDef="let item" [ngStyle]="{'color':item.descripcion === 'Deposito' ? 'green' : 'red'}">
+      <td mat-cell *matCellDef="let item" [ngStyle]="{'color':item.descripcion === 'Deposito' ? '#40DF9F' : ' #cf6679'}">
         {{item.descripcion}}
       </td>
     </ng-container>

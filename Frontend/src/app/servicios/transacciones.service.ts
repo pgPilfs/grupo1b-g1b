@@ -44,6 +44,6 @@ export class TransaccionesService {
     Monto:number;
     NumeroTarjeta:string="";
     NumeroCVV:number;
-    Cvu: number= 0;
+    Cvu:number=0;
  }
 

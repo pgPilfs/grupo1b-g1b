@@ -52,6 +52,7 @@ export class PerfilComponent implements OnInit {
   editForm: FormGroup;
   //public cliente: Cliente = new Cliente();
   perfil: any;
+  router: any;
   onPasswordChange() {
     if (this.cpassword.value == this.password.value) {
       this.cpassword.setErrors(null);
@@ -109,7 +110,7 @@ export class PerfilComponent implements OnInit {
           Validators.minLength(8),
           Validators.maxLength(16),
           Validators.pattern(this.pattPass),
-          createPasswordStrengthValidator(),
+          //createPasswordStrengthValidator(),
         ],
       ],
       email: [
@@ -123,14 +124,13 @@ export class PerfilComponent implements OnInit {
       cpassword: ['', [Validators.required]],
     });
   }
-  id: number = 1;
-  ngOnInit():void {
-    this.loadCliente(this.id);
-    //this.clienteService.getClienteById(this.id).subscribe((resp) => {console.log(resp);this.cliente = resp;});
-  }
-
   
-
+  ngOnInit():void {
+    let variable = JSON.parse(localStorage.getItem('identity'));
+    let email = variable.Email;
+    console.log(email);
+    this.loadCliente(email);
+  }
 
   get aliasField() {
     return this.editForm.get('alias');
@@ -147,34 +147,51 @@ export class PerfilComponent implements OnInit {
   get cpasswordField() {
     return this.editForm.get('cpassword');
   }
-  onSubmit() {
-    const body = this.editForm.value;
-  }
 
-  loadCliente(id){
-    this.clienteService.getClienteById(id).subscribe(data  => {
+// onSubmit(event: Event, email: String) {
+//   event.preventDefault();
+//   if (this.editForm.valid) {
+//       this.clienteService.updateCliente(email).subscribe(data  => {
+//       console.log(data);
+//       this.perfil = data;
+    
+        
+//         Swal.fire(
+//           'Se ha sido actualizado exitosamente. 🎉',
+//           '',
+//           'success'
+//         )
+//         this.router.navigate(['menu/wallet']);
+//     });
+//   } else {
+//     this.editForm.markAllAsTouched();
+//   }
+// }
+
+loadCliente(email){
+    this.clienteService.getClienteById(email).subscribe(data  => {
         console.log(data)
         this.perfil = data;
-    }
-    )
+    })
   }
-}
-export function createPasswordStrengthValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    const value = control.value;
 
-    if (!value) {
-      return null;
-    }
+// export function createPasswordStrengthValidator(): ValidatorFn {
+//   return (control: AbstractControl): ValidationErrors | null => {
+//     const value = control.value;
 
-    const hasUpperCase = /[A-Z]+/.test(value);
+//     if (!value) {
+//       return null;
+//     }
 
-    const hasLowerCase = /[a-z]+/.test(value);
+//     const hasUpperCase = /[A-Z]+/.test(value);
 
-    const hasNumeric = /[0-9]+/.test(value);
+//     const hasLowerCase = /[a-z]+/.test(value);
 
-    const passwordValid = hasUpperCase && hasLowerCase && hasNumeric;
+//     const hasNumeric = /[0-9]+/.test(value);
 
-    return !passwordValid ? { passwordStrength: true } : null;
-  };
+//     const passwordValid = hasUpperCase && hasLowerCase && hasNumeric;
+
+//     return !passwordValid ? { passwordStrength: true } : null;
+//   };
+
 }

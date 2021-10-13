@@ -34,6 +34,7 @@ export class PesoComponent implements OnInit {
   clickedRows = new Set<Movimiento>();
 
   transacciones: Transacciones = new Transacciones();
+
   operacionForm: FormGroup;
   form: any = {};
 
@@ -75,6 +76,8 @@ export class PesoComponent implements OnInit {
           Validators.required,
 
         ]],
+        cvu1: ['', [
+        ]],
         descripcion: ['', [
           Validators.required,
 
@@ -110,37 +113,40 @@ export class PesoComponent implements OnInit {
   
     let variable = JSON.parse(localStorage.getItem('identity'));
     this.email = variable.Email;
-    console.log(this.email);
     this.loadTransacciones(this.email);
     this.loadCuenta(this.email);
     this.loadCuentaCvu();
     
   };
+  dataChanged(operacion){
+    console.log(operacion)
+  }
 
   loadCuenta(email) {
     this.transaccionesService.getCuentas(email).subscribe(data => {
       console.log(data)
-      this.CuentaLista = data;
+      this.CuentaLista = data[0].id_cuenta;
+      console.log(this.transacciones.Cvu = data[0].id_cuenta);
     });
   }
   
   loadCuentaCvu() {
     this.transaccionesService.getCuentasCvu().subscribe(data => {
-      console.log(data)
+     console.log(data)
       this.CuentaListaCvu = data;
     });
   }
 
   loadTipoTransacciones() {
     this.transaccionesService.getTipoTransacciones().subscribe(data => {
-      console.log(data);
+     // console.log(data);
       this.TipoTransaccionesLista = data;
 
     });
   }
   loadTransacciones(email) {
     this.transaccionesService.getTransacciones(email).subscribe(data => {
-      console.log(data)
+     // console.log(data)
       this.TransaccionesLista = data;
 
     });
@@ -163,8 +169,9 @@ export class PesoComponent implements OnInit {
           }
          this.loadTransacciones(this.email);
           console.log(data);
+          //console.log(this.loadCuenta(this.email))
         })
-      console.log(this.operacionForm.value);
+      //console.log(this.operacionForm.value);
     } else {
       this.operacionForm.markAllAsTouched();
     }
