@@ -148,25 +148,24 @@ export class PerfilComponent implements OnInit {
     return this.editForm.get('cpassword');
   }
 
-// onSubmit(event: Event, email: String) {
-//   event.preventDefault();
-//   if (this.editForm.valid) {
-//       this.clienteService.updateCliente(email).subscribe(data  => {
-//       console.log(data);
-//       this.perfil = data;
-    
+onSubmit(event: Event, email: String) {
+  event.preventDefault();
+  if (this.editForm.valid) {
+      this.clienteService.putCliente(email).subscribe(data  => {
+      console.log(data);
+      this.perfil = data;
         
-//         Swal.fire(
-//           'Se ha sido actualizado exitosamente. 🎉',
-//           '',
-//           'success'
-//         )
-//         this.router.navigate(['menu/wallet']);
-//     });
-//   } else {
-//     this.editForm.markAllAsTouched();
-//   }
-// }
+        Swal.fire(
+          'Se ha sido actualizado exitosamente. 🎉',
+          '',
+          'success'
+        )
+        //this.router.navigate(['menu/wallet']);
+    });
+  } else {
+    this.editForm.markAllAsTouched();
+  }
+}
 
 loadCliente(email){
     this.clienteService.getClienteById(email).subscribe(data  => {

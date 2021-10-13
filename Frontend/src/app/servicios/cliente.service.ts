@@ -11,6 +11,7 @@ export class ClienteService {
   readonly DniUrl="https:localhost:44335/Dni";
   url="https://localhost:44335/api/cliente/";
   urlByEmail="https://localhost:44335/api/cliente/GetClientesByEmail?email="
+  urlUpdate="https://localhost:44335/api/Cliente/PutClientesByEmail?email="
 
   constructor(private http: HttpClient) { }
   
@@ -26,8 +27,8 @@ export class ClienteService {
     return this.http.post<Cliente>(this.url, cliente);
   }
   
-  updateCliente(val:any){
-    return this.http.put(this.APIUrl+'/cliente', val);
+  putCliente(email: String):Observable<Cliente>{
+    return this.http.put<Cliente>(this.urlUpdate, email);
   }
 
   deleteCliente(val:any){

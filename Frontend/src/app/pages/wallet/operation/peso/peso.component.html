@@ -80,7 +80,7 @@
               >
             </mat-error> 
           </mat-form-field> 
-          <mat-form-field class="col-lg-12 example-full-width" appearance="standard" >
+          <mat-form-field class="col-lg-12 example-full-width" appearance="standard" hidden >
             <mat-label>CVU1</mat-label>
             <mat-select
               matNativeControl
@@ -89,19 +89,21 @@
               formControlName="cvu1"
               ngDefaultControl
               name="cvu1"
+              value="{{CuentaLista}}"
             >
-              <!-- <mat-option                 
+              <mat-option                 
                 *ngFor="let cuenta of CuentaLista"
                 [value]="cuenta.id_cuenta"  
-                aria-selected="true"              
+                aria-selected="true"  
+                [selected]="cuenta == 0"            
               >
                 {{ cuenta.cvu }}
-              </mat-option> -->
-              <mat-option
-               [value]="CuentaLista"
+              </mat-option>
+              <!-- <mat-option
+              [value]="CuentaLista"
               >
                 {{CuentaLista}}
-              </mat-option>
+              </mat-option> -->
             </mat-select>
           </mat-form-field> 
 

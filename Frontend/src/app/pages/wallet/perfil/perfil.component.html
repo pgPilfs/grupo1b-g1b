@@ -15,7 +15,7 @@
         </div>
       </mat-card-header>
 
-      <form [formGroup]="editForm" (ngSubmit)="onSubmit()" autocomplete="off" *ngFor="let cliente of perfil">
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit($event, email)" autocomplete="off" *ngFor="let cliente of perfil">
         <div class="row m-2">
           <div class="form-group col-6">
             <mat-form-field class="example-full-width" appearance="outline">
@@ -227,10 +227,6 @@
           </div>
         </div>
       </form>
-      <mat-divider></mat-divider>
-      <div class="text-end pt-4">
-        <a routerLink="/home">Desactivar cuenta</a>
-      </div>
     </mat-card>
   </div>
 </section>

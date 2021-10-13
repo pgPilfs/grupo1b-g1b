@@ -45,7 +45,7 @@ export class PesoComponent implements OnInit {
   TipoTransaccionesLista: any[];
   TransaccionesLista: any[];
   email: String;
-
+  
   get cardNumber(): AbstractControl {
     return this.operacionForm.controls['cardNumber'];
   }
@@ -122,10 +122,17 @@ export class PesoComponent implements OnInit {
     console.log(operacion)
   }
 
+  // loadCuenta(email) {
+  //   this.transaccionesService.getCuentas(email).subscribe(data => {
+  //     console.log(data)
+  //     this.CuentaLista = data[0].id_cuenta;
+  //     console.log(this.transacciones.Cvu = data[0].id_cuenta);
+  //   });
+  // }
   loadCuenta(email) {
     this.transaccionesService.getCuentas(email).subscribe(data => {
       console.log(data)
-      this.CuentaLista = data[0].id_cuenta;
+      this.CuentaLista = data;
       console.log(this.transacciones.Cvu = data[0].id_cuenta);
     });
   }

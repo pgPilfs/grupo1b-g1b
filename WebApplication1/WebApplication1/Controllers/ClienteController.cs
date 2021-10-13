@@ -120,8 +120,8 @@ namespace WebApplication1.Controllers
 
         // PUT: api/Cliente/5
         //METODO HTTP PUT PARA UPDATEAR CLIENTES EN LA DB
-
-        public string Put(Cliente cli)
+        [Route("api/cliente/PutClientesByEmail")]
+        public string Put(Cliente cli, string email)
         {
             try
             {
@@ -131,7 +131,7 @@ namespace WebApplication1.Controllers
                                 telefono= '" + cli.Telefono + @"', 
                                 email= '" + cli.Email + @"', 
                                password= '" + cli.Password + @"'
-                                where id_cliente=" + cli.Id_cliente + @"
+                                where email like '" + email + @"'
                                ";
                 DataTable table = new DataTable();
                 using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["BDLocal"].ConnectionString))
