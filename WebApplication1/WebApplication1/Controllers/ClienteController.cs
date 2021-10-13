@@ -57,6 +57,23 @@ namespace WebApplication1.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, table);
         }
 
+        [Route("api/cliente/GetClientesByEmail")]
+        public HttpResponseMessage Get(string email)
+        {
+            string query = @"
+                        select * from Clientes c, Cuenta cc
+                        where cc.cliente_id = c.id_cliente and email like '" + email + @"'
+                        ";
+            DataTable table = new DataTable();
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["BDLocal"].ConnectionString))
+            using (var cmd = new SqlCommand(query, con))
+            using (var da = new SqlDataAdapter(cmd))
+            {
+                cmd.CommandType = CommandType.Text;
+                da.Fill(table);
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, table);
+        }
         //POST: api/Cliente
         //METODO HTTP POST PARA INSERTAR CLIENTES EN LA DB
         public string Post(Cliente cli)

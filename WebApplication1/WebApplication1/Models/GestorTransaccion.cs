@@ -107,6 +107,7 @@ namespace WebApplication1.Models
                 comm.Parameters.Add(new SqlParameter("@cuenta_id", transaccion.Cuenta_id));
                 comm.Parameters.Add(new SqlParameter("@numeroTarjeta", transaccion.NumeroTarjeta));
                 comm.Parameters.Add(new SqlParameter("@numeroCVV", transaccion.NumeroCVV));
+                comm.Parameters.Add(new SqlParameter("@cvu", transaccion.Cvu));
                 return Convert.ToInt32(comm.ExecuteScalar());
 
             }

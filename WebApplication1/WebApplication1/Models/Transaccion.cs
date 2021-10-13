@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -36,6 +36,7 @@ namespace WebApplication1.Models
         public int Cuenta_id { get ; set ; }
         public string NumeroTarjeta { get ; set ; }
         public int NumeroCVV { get; set; }
+        public int Cvu { get; set; }
 
 
 

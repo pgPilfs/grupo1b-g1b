@@ -24,13 +24,14 @@ namespace WebApplication1.Controllers
         }
         [Route("api/Transaccion/GetTransacciones")]
         [HttpGet]
-        public HttpResponseMessage GetTransaccion()
+
+        public HttpResponseMessage GetTransaccion(string email)
         {
             string query = @"
-                            SELECT TOP 5 c.cvu, tt.descripcion, t.fecha_transaccion, t.numeroTarjeta, t.numeroCVV, t.monto FROM Transaccion t, Cuenta c, Tipo_Transaccion tt
-                            WHERE t.id_tipo = tt.id_tipo_transaccion and c.id_cuenta = t.cuenta_id
-                            ORDER BY t.id_transaccion desc
-                            
+                            SELECT TOP 5 c.cvu, tt.descripcion, t.fecha_transaccion, t.numeroTarjeta, t.numeroCVV, t.monto 
+                            FROM Transaccion t, Cuenta c, Tipo_Transaccion tt, Clientes cc
+                            WHERE t.id_tipo = tt.id_tipo_transaccion and c.id_cuenta = t.cuenta_id and  cc.id_cliente = c.cliente_id and email like '" + email + @"'
+                            ORDER BY t.id_transaccion desc                          
 
                              ";
 

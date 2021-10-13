@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -23,13 +23,37 @@ namespace WebApplication1.Controllers
         //    GestorTransaccion cuenta = new GestorTransaccion();
         //    return cuenta.Cuentas();    
         //}
-        [Route("api/Transaccion/GetCuentas")]
+        [Route("api/Transaccion/GetCuentasCvu")]
         [HttpGet]
-        public HttpResponseMessage GetCuentas()
+        public HttpResponseMessage GetCuentasCvu()
         {
             string query = @"
-                             select id_cuenta, cvu, alias, saldo, estado 
-                             from Cuenta
+                             select cc.id_cuenta, cc.cvu, cc.alias, cc.saldo, cc.estado, cc.cliente_id
+                             from Cuenta cc
+
+                             ";
+
+
+            DataTable table = new DataTable();
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["BDLocal"].ConnectionString))
+            using (var cmd = new SqlCommand(query, con))
+            using (var da = new SqlDataAdapter(cmd))
+            {
+                cmd.CommandType = CommandType.Text;
+                da.Fill(table);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, table);
+
+        }
+        [Route("api/Transaccion/GetCuentas")]
+        [HttpGet]
+        public HttpResponseMessage GetCuentas(string email)
+        {
+            string query = @"
+                             select cc.id_cuenta, cc.cvu, cc.alias, cc.saldo, cc.estado, cc.cliente_id
+                             from Cuenta cc, Clientes c
+                             WHERE cc.cliente_id = c.id_cliente and email like '" + email + @"'
 
                              ";
 
