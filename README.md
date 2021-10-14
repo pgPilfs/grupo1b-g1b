@@ -77,6 +77,7 @@ e Instalar en la consola:
 
 ```
 Install-Package Microsoft.AspNet.WebApi.Cors
+Install-Package JWT -Version 8.4.2
 ```
 
 ¡ y LISTO 🎉 ! Solamente falta correr el **Visual Studio 2019**  y ejecutar en la Terminal de Angular la siguiente línea:
